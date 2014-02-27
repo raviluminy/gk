@@ -126,6 +126,544 @@ The Search for a Title\par % Book title
 
 \chapterimage{chapter_head_2.pdf} % Chapter heading image
 
+\chapter{Présentation générale du problème}
+Ce document est le Cahier des charges du projet de Système de gestion des transports au bénéfice de la société Garmir Khatch.
+\\
+Avec des dizaines de millions de volontaires dans 187 Sociétés Nationales, Garmir Khatch est l'une des plus grandes organisations humanitaires au monde. Elle agit avant, pendant et après les catastrophes et les urgences relatives à la santé pour répondre aux besoins des plus vulnérables et pour améliorer leur vie. Elle dispense cette aide sans distinction de nationalité, de race, de religion, de classe ou d'opinions politiques.
+\\
+Elle puise sa force de son réseau de volontaires, de l'expertise basée dans la communauté et de sa capacité à donner une voix mondiale aux personnes vulnérables. Elle travaille en tant que partenaire dans le développement, la réponse aux catastrophes, l'aide pour une vie saine et sure, et l'amélioration des normes humanitaires. Le résultat : Elle aide à réduire les vulnérabilités, et rend les communautés plus résistantes.
+
+\section{Projet}
+L'organisation souhaite se doter d'un outil de type TMS (Transport Management System, en français Système de gestion des transports) lui permettant de gérer la flotte de ses véhicules dédiées au transport de marchandises.
+
+\subsection{Finalités}
+Le but du projet est d'offrir une solution de type TMS afin d'optimiser les points suivants :
+\begin{itemize}
+\item Suivi : de tous les véhicules (camions, voitures, mulets, …) à disposition de la société via une identification unique de chacun
+\item Planification \& anticipation : grâce au suivi des transports, au taux d'utilisation et disponibilité de chaque véhicule
+\item Automatisation : pour l'édition de documents internes et externes à Garmir Khatch
+\item Réactivité : grâce à l'optimisation de l'utilisation des véhicules, le temps total d'acheminement des marchandises et personnels s'en trouve réduit
+\end{itemize}
+Ainsi, le temps d'acheminement des secours et matériel de première nécessité pendant les missions de Garmir Khatch pourra être réduit de façon significative.
+
+\subsection{Espérance de retour sur investissement}
+Grâce au TMS, Garmir Khatch espère réduire ses dépenses en particulier celles liées à l'utilisation et à la location de matériel.
+\\
+En effet, il permettra :
+\begin{itemize}
+\item Une utilisation optimale de chaque ressource en la réassignant à d'autres activités
+\item Une diminution des durées de location grâce au suivi et à la planification
+\end{itemize}
+
+\section{Contexte}
+Ce projet s'inscrit dans la continuité des efforts entrepris pour fournir des solutions humanitaires d'urgence et de reconstruction en cas de catastrophe naturelle, de guerre, de famine, ou tout autre sinistre entrant dans le champ d'action de l'association Garmir Khatch.
+
+\subsection{Situation du projet par rapport aux autres projets de l'entreprise}
+Ce projet s'intégrant à une infrastructure informatique déjà existante, cette partie tient compte des autres projets menés en parallèles et susceptibles d'impacter sur celui-ci.
+
+\subsubsection{Migration des serveurs}
+Une migration des serveurs de Garmir Khatch est actuellement en projet. Il s'agirait de migrer d'un environnement Microsoft Windows actuellement en place, vers une distribution GNU/Linux dont le détail n'est pas encore connu. Aucune date n'a encore été arrêtée.
+\\
+Les actions menées en local par l'association nécessitant souvent du matériel, des personnels et des denrées,  utilise la logistique comme processus support afin de répondre à ses besoins en remplissant les fonctions d'acheminement et de stockage.
+\\
+L'association n'a actuellement pas d'outil normalisé pour la gestion de la logistique, chaque logiciel utilisé dépendant des choix directs des utilisateurs.
+
+\subsection{Études déjà effectuées}
+Une étude des scénarii possibles quant aux possibilités de l'Organisation de se doter d'une solution logicielle adéquate a montré que les produits présents sur le marché ne répondaient qu'imparfaitement aux attentes de l'Organisation :
+\begin{itemize}
+\item Inadéquation des solutions à certaines contraintes spécifiques du contexte d'urgence (moyens de communication à haut débit déficients...)
+\item Solutions propriétaires
+\item Solutions trop complexes
+\item Solutions onéreuses
+\end{itemize}
+Le scénario retenu est de fait celui d'un développement spécifique (basé éventuellement sur un noyau public) dont les fonctionnalités pourraient s'enrichir au cours du temps, avec des investissements progressifs.
+
+\subsection{Suites prévues}
+Les évolutions futures pourront être :
+Internationalisation de la solution
+Normalisation de toute l'infrastructure logistique
+Intégration des autres composantes métier dans la suite logicielle
+...
+
+\subsection{Nature des prestations demandées}
+Garmir Khatch cherche donc un prestataire pour la réalisation d'une solution complète de type TMS qui devra s'intégrer sans perturber le bon fonctionnement des processus existants. Le cas échéant, cette solution pourra être basée sur un noyau public existant.
+
+\subsection{Parties concernées par le déroulement du projet et ses résultats}
+
+\subsubsection{Directement}
+Les logisticiens de Garmir Khatch en seront les principaux utilisateurs. Le secrétariat central, par exemple, assurera le suivi de l'ensemble de la logistique à l'aide de cet outil.
+
+\subsubsection{Indirectement}
+Le temps gagné grâce à la solution permettra un acheminement plus rapide des marchandises, denrées, et personnels ; ce temps est crucial en situation d'urgence. L'économie réalisée permettra d'augmenter les capacités, et les moyens d'action de l'association dans ses activités.
+\\
+Les victimes prises en charge seront donc indirectement bénéficiaires.
+
+\subsection{Caractère confidentiel s'il y a lieu}
+Garmir Khatch se rapproche d'une autre association par ses activités métier et son mode de fonctionnement. Bien que cette autre association puisse bénéficier de ce projet, il conviendra de ne pas faire de rapprochement avec celle-ci tant que sa participation au projet ne sera pas officiellement engagée.
+
+\section{Énoncé du besoin}
+L'outil sera utilisé par des utilisateurs authentifiés et pourra se découper en trois grandes parties que sont la consultation, l'édition, et l'administration.
+
+\subsection{Consultation}
+La consultation permet d'avoir des informations sans qu'aucune modification ne soit apportée sur celles-ci. Elle pourra être réalisée à titre informatif ou dans un but prévisionnel.
+
+\subsection{Édition}
+Elle permettra d'apporter des modifications à des éléments secondaires comme (liste non exhaustive) :
+\begin{itemize}
+\item Ajout/édition/suppression d'un moyen de transport. Par exemple si un camion est hors service, où qu'un bateau vient d'être acheté par un sous-traitant.
+\item Ajout/édition des feuilles de route. Dans le cas où un chargement est plus long que prévu ou qu'un retard de livraison est attendu pour cause de route impraticable.
+\end{itemize}
+
+\subsection{Administration}
+Ce droit correspond au super-utilisateur. Il comprendra :
+\begin{itemize}
+\item Le droit de consultation
+\item Le droit d'édition
+\item Les permissions non incluses dans les droits de consultation et d'édition.
+\end{itemize}
+
+\section{Environnement du produit recherché}
+Cette section décrit les conditions de fonctionnement de la solution recherchée.
+
+\subsection{Listes exhaustives des éléments et contraintes}
+
+\subsubsection{Personnes}
+Les utilisateurs seront :
+\begin{itemize}
+\item Le secrétariat central
+\item Les logisticiens sur le terrain
+\item Les métiers
+\end{itemize}
+
+\subsubsection{Équipement}
+Garmir Khatch possède déjà une infrastructure informatique, constituée de machines serveurs et clientes, comme suit :
+\begin{itemize}
+\item Les serveurs tournent sur un système Microsoft Windows mais une migration est prévue sur GNU/Linux. Le stockage des données est pris en charge par deux SGBDR que sont MySql Server et Oracle.
+\item Les clients sont :
+\begin{itemize}
+\item Ordinateurs portables : sous Microsoft Windows 7 équipés de 16 Go de mémoire vive et de 250 Go d'espace disque. Microsoft Internet Explorer et Mozilla Firefox sont les deux navigateurs présents par défaut et leur utilisation est fonction des préférences de l'utilisateur.
+\item Smartphones : sous Androïd.
+\end{itemize}
+\end{itemize}
+
+\subsubsection{Contraintes}
+La communication entre clients et serveur est assurée par une liaison réseau dépendant du lieu de l'intervention et pouvant reposer sur trois infrastructures (classé ici par ordre décroissant de préférence d'utilisation) :
+\begin{itemize}
+\item Internet (ADSL)
+\item Téléphonique (GSM)
+\item Satellitaire
+\end{itemize}
+Les lois étant différentes en fonction du pays où Garmir Khatch intervient, il conviendra de prendre en compte les obligations cryptographiques en vigueur lors des échanges.
+
+\section{Caractéristiques pour chaque élément de l'environnement}
+Garmir Khatch possèdent des équipes de spécialistes formés aux interventions d'urgence dans le cadre notamment de catastrophes naturelles (tsunamis, tremblements de terre...).
+Cinq domaines de compétence y sont représentés :
+\begin{itemize}
+\item Médecine
+\item Eau et sanitaire
+\item Distribution
+\item Logistique
+\item Télécoms
+\end{itemize}
+
+\subsubsection{La logistique}
+L'efficacité de l'aide apportée aux populations sinistrées repose en particulier sur celle des processus logistiques. De ce fait, la logistique apparaît comme un service support aux métiers (secteur médical, distribution, eau et sanitaires), sans lequel ils ne peuvent accomplir leurs missions.
+\\
+Actuellement, la logistique présente des complications :
+\begin{itemize}
+\item Communication \& partage d'informations peu efficaces
+\item Redondance d'informations
+\item Contraintes techniques \& environnementales
+\item La location de matériel donne lieu à la création de documents qui sont jusqu'à présent réalisés manuellement.
+\end{itemize}
+
+\paragraph{Processus et fonctions clefs de la logistique}
+Différents processus concourent à l'accomplissement des missions logistiques dont (liste non exhaustive) :
+\begin{itemize}
+\item Le processus d'achat
+\item Le processus de stockage
+\item Le processus de transport
+\end{itemize}
+L'ensemble des processus doit permettre de répondre aux fonctions clefs de la logistique que sont notamment :
+\begin{itemize}
+\item Planification/évaluation
+\item Acquisition/achat
+\item Organisation des transports
+\item Gestion des entrepôts
+\item Faire le suivi et rendre compte
+\item Standardisation
+\item Formation et renforcement des capacités
+\end{itemize}
+
+\paragraph{La chaîne logistique en situation d'urgence}
+
+\paragraph{Les logisticiens de terrain}
+En général, les équipes de logisticiens restent de dimension réduite (cinq à six personnes, dont un chef d'équipe), avec des profils spécialisés qui assurent en particulier des activités telles que :
+\begin{itemize}
+\item La mise en place et le maintien des procédures logistiques standards
+\item L'achat des biens et des services
+\item La facilitation de l'importation et l'exportation des marchandises
+\item L'organisation du déploiement et du transport de la marchandise jusqu'aux sites de distribution
+\item L'organisation et la gestion des entrepôts
+\end{itemize}
+Chaque équipe reste déployée sur le terrain un mois (7j/7) et une mission d'urgence dure au plus quatre mois, délai au-delà duquel, la reconstruction prend le pas sur l'urgence.
+
+\paragraph{Les transports}
+Les transports occupent une place importante au sein de la chaîne logistique et répondent à deux grands types de services :
+\begin{itemize}
+\item Le transport de personnes (les délégués)
+\item Le transport de biens (NFI, ...)
+\end{itemize}
+Sauf cas exceptionnel, dans les premiers temps qui suivent une catastrophe, l'organisation ne dispose pas sur le terrain de ses propres moyens de transport de biens. Les sociétés nationales de l'Organisation ne disposent pas en général non plus de ces moyens. Il est alors du ressort de la logistique et en particulier du gestionnaire de flotte de trouver localement (entreprises privées, par exemple) les moyens de transport nécessaires (en général routiers).
+
+\paragraph{Les outils}
+Au cours du temps, avec l'expérience des catastrophes, l'organisation a développé un certain nombre d'outils informatiques de terrain afin de l'aider dans ses tâches logistiques. Parmi ces outils, figure notamment un logiciel qui permet aux équipes de disposer du suivi des biens dès lors que ceux-ci sont pris en charge au sein de la chaîne logistique sur le terrain et qui permet notamment de faciliter la traçabilité nécessaire afin de répondre aux attentes des parties prenantes, comme les donateurs notamment.
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 2
+%----------------------------------------------------------------------------------------
+
+\chapter{Expression fonctionnelle du besoin}
+Cette section tient un compte détaillé des spécifications fonctionnelles du projet. Sont donc abordés ci-dessous :
+l'ensemble des fonctionnalités de service attendues et de contraintes à respecter ;
+les critères d'acceptation ;
+les niveaux de critères d'appréciation et ce qui les caractérise. 
+
+\section{Fonctions de service et de contrainte}
+Cette section précise les services attendus et contraintes à respecter.
+
+\subsection{Fonctions de service principales}
+Cette section définit l'ensemble des services principaux attendus. Ces derniers sont la raison d'être du produit. Ils sont incontournables.
+
+\subsubsection{La localisation}
+La solution proposera des versions traduites en plusieurs langues, y compris avec des alphabets et des sens de lecture différents. Au minimum, les traductions dans les langages suivants devront être fournis :
+Anglais ;
+Arabe ;
+Espagnol ;
+Français ;
+En outre, la solution devra permettre de passer aisément d'une langue à l'autre sans nécessiter de redémarrage.
+
+\subsubsection{Les utilisateurs}
+Différents profils d'utilisateurs peuvent être amenés à profiter des fonctionnalités de la suite logicielle comme décrits dans les paragraphes subséquents. 
+Si dans un premier temps la solution est destinée à une utilisation temps réel, il conviendra de rendre exploitable les informations jugées importantes par les serveurs locaux du site.
+L'architecture de la suite logicielle devra de ce fait, s'adapter à l'environnement dans laquelle elle est utilisée en vue de permettre l'accès aux données même si l'utilisateur n'est pas à proximité du serveur central.
+
+\subsubsection{Les groupes d'utilisateurs}
+Chaque profil utilisateur doit être lié à un et un seul groupe d'utilisateur.
+Chaque groupe d'utilisateurs doit être associé à un ensemble de droits d'accès.
+Au minimum, la solution doit fournir un groupe d'utilisateurs particulier, appelé « administrateurs » et détenteurs de tous les droits d'accès disponibles. L'opportunité souhaitant être laissée de pouvoir gérer (ajouter, modifier et/ou supprimer) les groupes utilisateurs et leurs droits associés, ce dernier doit permettre d'opérer facilement ces manipulations.
+
+\subsubsection{Les actions}
+Gérer les sociétés de transport -> Contrats, bon pour accord de paiement
+Gérer les véhicules
+Gérer les chauffeurs
+Gérer les missions de transport -> Tableaux de bord
+
+\subsubsection{L'interface utilisateur}
+La solution doit fournir au minimum et pour chacun de ces groupes utilisateurs une interface propre permettant de réaliser les actions suivantes :
+Gestionnaire de transport :
+Moyen de contrôle des opérations (à venir, en cours...)
+Outil d'édition de tableaux de bord
+…
+Gestionnaire de la planification :
+Fournir aux métiers des données relatives à l'état des transports en cours
+...
+Gestionnaire des prestataires :
+Édition de bons pour accord de paiement
+...
+Métiers :
+Consultation des transports en cours en relation avec le métier
+Secrétariat central :
+Accès aux documents sous forme numérique
+Statistiques
+…
+
+\subsubsection{Les documents internes}
+De nombreux types de documents sont traités en interne et doivent pouvoir être enregistrés, numérisés, lus, produits, modifiés, supprimés et archivés par la suite logicielle. Tous les documents en question disposent d'un numéro d'identification unique, généré par le secrétariat central. Les documents concernés sont les suivants :
+Relatif au(x) chauffeur(s) :
+Permis de conduire
+Carte d'identité
+Relatif au(x) véhicule(s) :
+Assurances
+Relatif au(x) société(s) de transport :
+Patentes
+Contrats
+Relatif au(x) mission(s) de transport :
+Réquisition :
+Une réquisition avec un numéro unique sur un même lieu d'intervention : Dans le cas général, une réquisition correspond à un Bordereau d'expédition (waybill out). Cependant, il y a des cas où une même réquisition impliquerait plusieurs transports. Par exemple un seul numéro de réquisition peut être liée à dix Bordereaux d'expédition. 1 réquisition (définitive ou temporaire) -> 1 ou plusieurs bordereau(x) d'expédition.
+Dans le cas où un ou plusieurs transports sont envoyés à un organisme externe, et si ce dernier a la charge de définir la mission du transport et par conséquent son ou ses bordereau(x) d'expédition, une réquisition ne serait liée à aucun bordereaux d'expédition. 1 réquisition (définitive ou temporaire) -> 0 bordereau d'expédition.
+Bordereau d'expédition (Waybill / Delivery note) :
+Tient compte des informations suivantes :
+L'origine du produit transporté (le superviseur, le lieu, la date de départ planifiée, la date et l'horaire de départ effectif)
+La destination du produit (la date d'arrivée planifiée, la date et l'horaire d'arrivée effectif)
+Les dates de chargement et déchargement
+L'identifiant du transport utilisé (les données associées telles que le genre ou la capacité volumique) 
+Les données du transporteur (état civil, le type de permis)
+La date et la raison d'une annulation éventuelle du transport 
+La date et la description de tout type de problème rencontré
+
+\subsubsection{La synchronisation}
+La solution devra gérer explicitement la synchronisation et les paramètres associés comme (liste non exhaustive) :
+Éléments à synchroniser
+Permissions
+Gestion des conflits
+
+\subsubsection{Les cas d'utilisations}
+
+\subsection{Fonctions de service complémentaires}
+Cette section définit les fonctions de service complémentaires. Ces dernières améliorent, facilitent ou complètent le service rendu. Elles sont souhaitées mais non prioritaires.
+
+\subsubsection{Les statistiques}
+La solution devrait permettre de produire un ensemble de statistiques à partir des informations enregistrées. Le choix de ces dernières n'étant pas encore arrêtées, une conception modulaire serait préférée de sorte à pouvoir en ajouter ou en supprimer facilement, leur prix devant être précisé dans un bordereau de prix unitaire ou un forfait.
+
+\subsubsection{Les préférences d'utilisateurs}
+La solution devrait pouvoir permettre aux utilisateurs de garder en mémoire leurs préférences, comme la langue utilisée. L'objectif étant d'épargner aux utilisateurs la charge de devoir constamment régler ces paramètres à chaque utilisation.
+
+\subsubsection{Heuristique organisationnelle}
+Une fonctionnalité complémentaire est la création d'une heuristique permettant de faciliter l'organisation via l'analyse des logs d'activité. Elle pourrait notamment repérer des enchaînements logiques d'actions et ainsi proposer un accès rapide aux successeurs les plus fréquents.
+
+\subsubsection{Génération de documents "sur mesure"}
+Le produit pourra permettre de générer des « tableaux de bord » qui sont des documents de synthèse servant de supports qualité et contenant les informations préalablement choisies en fonction du destinataire du document.
+\\
+Par exemple, pour une livraison donnée, on peut distinguer deux types de documents synthèse (liste non exhaustive) en fonction du destinataire :
+Le métier recevrait un document mettant en valeur les lieux et temps de chargement des marchandises avec les dates de chaque opération en rapport avec le contenu de la livraison
+Un client pourrait recevoir le même type de document mais avec les prix de stockage, location des véhicules, coût du trajet et du carburant, ...
+
+\subsection{Contraintes}
+
+\subsubsection{Contraintes de délai}
+Le prestataire s'engage à fournir des garanties contractuelles de délais, et à s'y tenir. Les éventuelles pénalités de retard seront fixées d'un accord commun avec Garmir Khatch.
+
+\subsubsection{Contraintes techniques}
+
+\paragraph{Architecture serveur}
+La solution serveur doit être compatible avec les environnements Microsoft Windows et GNU/Linux.
+\\
+En outre, l'utilisation d'un SGBD semblant inévitable, la solution doit également être pleinement compatible avec les SGBDR SQL Oracle et MySQL Server et permettre de s'interfacer facilement avec d'autres SGBD.
+
+\paragraph{Architecture client}
+La solution cliente doit être pleinement fonctionnelle sous les distributions Microsoft Windows 7, qui ont 16Go de RAM et 250Go de mémoire, ainsi que sous les dernières versions en date des navigateurs Internet Explorer et Mozilla Firefox.
+\\
+Enfin, La solution doit être accessible depuis des appareils de téléphonie mobile sous Androïd.
+
+\paragraph{Contraintes sur les moyens de communication}
+En situation d'urgence, les moyens de communication disponibles notamment dans les régions affectées peuvent être « réduits » (réseau GSM indisponible, par exemple). Les procédures de l'Organisation mettent, certes, à disposition des équipes terrain, pour leur propre sécurité, des moyens de communication de type satellitaires, mais les coûts de communication restent élevés qu'ils soient basés sur la quantité de données échangés ou sur les temps de communication. De fait, préférence est donnée aux moyens « standards » de communication (ADSL, GSM...). Il reste néanmoins qu'il doit être possible d'adapter l'utilisation de la suite logicielle aux contraintes de coûts, de débits... des moyens de communication.
+
+\paragraph{Synchronisation}
+Les communications réseau n'étant pas toujours en place dans tous les endroits de la zone d'intervention, il doit être possible de faire fonctionner la solution en mode « hors ligne » et gérer la synchronisation une fois les moyens de communication retrouvés.
+
+\paragraph{Sauvegarde}
+La solution doit gérer sa propre sauvegarde externalisée et être compatible avec le top 10 des solutions de sauvegarde les plus communes (dans le cas où l'une d'entre elles soit utilisée à posteriori).
+\\
+La solution doit fournir un moyen simple de gérer la sauvegarde, afin de la lancer aussi bien de façon manuelle qu'automatique. Les éléments suivant doivent être paramétrables (liste non-exhaustive) :
+Planification périodique,
+Contenu de la sauvegarde,
+Période à sauvegarder.
+
+\subsubsection{Contraintes légales}
+Les contraintes légales de chaque pays s'appliquant à Garmir Khatch lors de ses interventions, la solution devra être aux normes (ou pouvoir s'y adapter) de ces pays, notamment :
+Droit d'accès à l'information,
+Conservation des données personnelles,
+Cryptographie.
+
+\subsubsection{Contraintes réglementaires}
+Garmir Khatch a une image et une éthique mondialement connue découlant de ses activités. Il conviendra de la prendre en compte lors de la réalisation de la solution.
+
+\subsubsection{Contraintes de sécurité}
+En fonction de la situation, il doit pouvoir être possible de définir le niveau de cryptage des données échangées sur le réseau, voir désactiver ce dernier.
+
+\paragraph{Contraintes sur la sécurité des données échangées}
+Les situations d'urgence ne dispensent pas les acteurs humanitaires de se conformer à la législation des pays dans lesquels ils interviennent, notamment pour ce qui est des moyens de sécurisation des échanges de données. La transparence est si possible de mise, afin de ne pas instiller de doutes et mettre en particulier en danger la crédibilité et l'action de l'Organisation. En outre, des interventions dans des territoires potentiellement conflictuels ou sous contrôle militaire strict – Cachemire par exemple - quand bien même celles-ci restent très exceptionnelles eu égard au mandat de l'Organisation sont possibles. Dans ce cadre, l'utilisation de moyens de sécurité des données transmises (cryptage) peut être proscrite ou tout du moins adaptée justifiable et adaptée à une cryptanalyse « rapide ».
+
+\section{Critères d'appréciation}
+La solution sera évaluée en fonction des critères suivants :
+Disponibilité
+Capacité
+Sécurité
+Continuité
+Accessibilité
+Ressources matérielles consommées
+Trafic réseau
+Modularité
+Compatibilité
+Heuristique
+Planification
+Statistiques
+Gestion des documents
+
+\section{Niveaux des critères d'appréciation et ce qui les caractérise}
+Plus un niveau est faible, plus ce critère est apprécié.
+Critère
+Niveau
+Détails
+Disponibilité
+1
+La solution devra être utilisable dans les conditions et les termes convenus.
+Capacité
+1
+L'ensemble du personnel logistique doit pouvoir avoir un accès simultané, et le produit devra prendre en compte une évolution du nombre d'utilisateurs en fonction de la croissance de Garmir Khatch.
+Sécurité
+1
+L'association manipulant des informations personnelles, le produit devra gérer la sécurité des communications et du stockage des informations (en prenant en compte les contraintes légales des états du lieu d'intervention).
+Continuité
+1
+Le prestataire fournira des solutions pour assurer la continuité, comme un plan de reprise d'activité pour assurer un rétablissement de la disponibilité dans des délais optimaux.
+Accessibilité
+2
+La suite logicielle pourra être utilisée par du personnel sans compétences fortes dans le domaine des technologies de l'information, et par des équipes internationales. À cette fin, l'accessibilité, l'interface, la prise en main, et le nombre de langues seront des facteurs d'évaluation de la solution.
+Ressources matérielles consommées
+4
+La consommation de ressources entraîne des coûts (e.g. utilisation des serveurs), et des contraintes techniques (e.g. consommation de batterie sur les clients).
+Trafic réseau
+2
+Les coûts de communications variant en fonction du support réseau (internet, GSM, satellitaire), la consommation de bande passante sera également un point déterminant.
+Modularité
+4
+La modularité correspond à la minimisation du travail à réaliser dans le cas d'une éventuelle évolution de la suite logicielle
+Compatibilité
+3
+La solution devra avoir un niveau suffisant de compatibilité avec les normes et standards les plus répandus .
+Heuristique
+5
+« L'intelligence » de l'heuristique organisationnelle pour la réalisation de tâches récurrentes et la planification
+Planification
+2
+La planification des transports, livraisons, temps de chargement, et d'attente
+Statistiques
+4
+La génération des statistiques fonctionnelles et organisationnelles
+Gestion des documents
+3
+La production, l'édition, la modification, la numérisation des documents correspondra aux documents actuellement utilisés et aux standards de l'organisation
+
+\subsection{Niveaux dont l'obtention est imposée}
+Les niveaux 1 à 3 sont imposés.
+
+\subsection{Niveaux souhaités mais révisables}
+Les niveaux strictement supérieurs à 3 sont souhaités.
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 3
+%----------------------------------------------------------------------------------------
+
+\chapter{Cadre de réponse}
+Le cadre de réponse devra tenir compte des critères de choix du prestataire du projet, du planning de l'appel d'offres ainsi que des procédures et modalités de validation sans oublier le coût de la prestation.
+La partie suivante décrit en détail pour chaque fonctions les facteurs énoncés ci-dessus.
+
+\section{Pour chaque fonction}
+Pour chaque fonction plusieurs livrables sont attendus :
+Mémoire technique
+Mémoire financier
+Détails du support du service :
+Horaires
+Garantie
+Maintenance
+Catalogue de services associés, précisant le cas échéant et pour chacun d'eux, un bordereau de prix unitaire (BPU).
+Pour toute question relative au projet, contacter M. Cadon Mehdi-Jonathan ou M. Agopian Roland par mail.
+
+\subsection{Solution proposée}
+L'application doit permettre la gestion d'une flotte de véhicule dédiée au transport de marchandises (TMS).
+Pour ce faire, il convient que la solution proposée puisse :
+Planifier les transports, estimer les coûts
+Faire un suivi des transporteurs, livraisons, prestataires de services mais aussi des incidents
+Utiliser des tableaux de bord afin de fournir une évaluation des performances de service (taux  de réussite pour la livraison de marchandises)
+Éditer des cartes en vue de proposer un itinéraire
+Assurer la sauvegarde des données par une solution externe compatible avec les plus utilisées
+Rechercher des informations par critères de sélection
+Permettre la gestion de documents administratifs (permis, assurances, contrats...)
+
+\subsection{Niveau atteint pour chaque critère d'appréciation de cette fonction et modalités de contrôle}
+Pour chaque fonction un critère de droit d'accès est requis. Il conviendra donc de permettre une gestion aisée des droits utilisateurs pour ajouter, modifier supprimer l'accès aux données.
+Jalonnement attendus :
+Au minimum, les jalons suivants, sont attendus dans l'ordre exprimés. Par le terme « gestion », nous entendrons qu'il s'agit de permettre toutes les opérations d'ajout, modification et suppression.
+
+\subsection{Part du prix attribué à chaque fonction}
+La part du prix sera ici évaluée au regard du temps passé faut de pouvoir indiquer une part du prix qui n’a pas été chiffré. L’indication n’est pas exactement la même mais peut s’avérer intéressante pour l’évaluation du projet. 
+La planification des transports peut être estimée à 30 \% de la part du travail
+Le suivi des transport peut être estimé à 20 \% de la part du travail
+L'édition des tableaux de bords et des cartes peuvent être estimés à 15 \% de la part du travail
+La sauvegarde externalisée peut être estimé à 10 \% de la part du travail
+La recherche d'informations par critère peut être estimée à 10 \% de la part du travail
+La gestion des documents administratifs peut être estimée à 15 \% de la part du travail
+Pour un choix donné de regroupement des fonctions, le soumissionnaire donnera un schéma montrant les échanges entre modules incluant une estimation des flux. 
+Ces estimations devront être élaborées sur la base des spécifications fonctionnelles. Il indiquera clairement les hypothèses prises pour faire cette estimation. 
+
+\section{Pour l'ensemble du produit}
+
+\subsection{Prix de la réalisation de la version de base}
+Le soumissionnaire devra établir le prix de l'ensemble de sa solution applicative ainsi que des modules la composant.
+\\
+Il conviendra de fournir également le détail des ressources mobilisés et les coûts associés à la réalisation de chaque module. 
+
+\subsection{Options et variantes proposées non retenues au cahier des charges}
+Toutes variantes (modifications, ajouts, suppression) dans la solution proposée devra faire l'objet d'une justification par l'intermédiaire de livrables affirmant que la solution applicative une fois les modifications encourues, reste homogène dans contexte existant et ne dénature pas les objectifs et les contraintes fixés par le projet.
+\\
+Les solutions proposées non retenues seront néanmoins répertoriées au sein d'un livrable en but d'une consultation ultérieure si nécessaire lors d'une évolution de l'applicatif en cours.
+
+\subsection{Mesures prises pour respecter les contraintes et leurs conséquences économiques}
+Nous précisons que le soumissionnaire est laissé libre dans le choix des solutions. En revanche les règles et les choix d'architecture, en particulier pour la plate-forme logistique devront être respectés.
+
+\subsection{Outils d'installation, de maintenance ... à prévoir}
+En vue de permettre la facilité d'installation, d'exploitation et de maintenance, plusieurs documents sont préconisés.
+Sont attendus les livrables suivants :
+Code source
+Droits de propriété attendus
+Documentation d'exploitation et d'architecture comme décrit ci-dessous :
+
+\subsubsection{Dossier d'Architecture Technique (DAT)}
+Le dossier d'architecture technique définit et justifie les hypothèses techniques structurantes du projet. Ce document a vocation à être technique, mais contient des hypothèses qui doivent être validées par les commanditaires du projet. En effet, c'est à partir de ces hypothèses qu'est conçu le projet (et ses services) sur un plan technique, c'est pourquoi elles sont fondamentales.
+Ce document s'articule autour de 4 grands volets :
+La présentation du projet : son calendrier, ses enjeux, ses exigences et le planning ;
+L'architecture fonctionnelle : les utilisateurs, les traitements, les données ;
+L'architecture technique : les différents serveurs, les postes de travail, le réseau ;
+L'exploitation et sa préparation : la mise en production, le déploiement, la formation, le support et l'exploitation proprement dite.
+Il est donc le document fondateur en terme de description de la future solution informatique. Il servira de source à la constitution du Protocole Technique d'Installation (PTI) et du dossier d'exploitation.
+
+\subsubsection{Protocole technique d'installation (PTI)}
+Il présente les opérations à réaliser sur les machines de l'exploitant afin d'effectuer sa mise en place.
+\\
+Ce document permet en principe de rendre l'exploitation totalement autonome du projet dans la phase d'installation du projet et des services.
+
+\subsubsection{Procédure de recette}
+La recette informatique désigne l'étape pendant laquelle les futurs utilisateurs testent le projet et des services associés pour vérifier qu'il est conforme au cahier des charges.
+La Procédure de recette informatique vise à expliciter les objectifs de la recette, la structure mise en place pour celle-ci, les acteurs concernés, sa préparation, son déroulement ainsi que la gestion des anomalies. Elle identifie en particulier les détails de correction par la maîtrise d'œuvre et de re-livraison.
+
+\subsubsection{Dossier d'exploitation}
+Le Dossier d'exploitation informatique vise à donner toutes les informations nécessaires au responsable de l'exploitation informatique quotidienne du projet. Il décrit l'ensemble des procédures à lancer, leur planning, les codes erreur et leur signification, les procédures à suivre pour les traiter, les principes de sauvegardes et les commandes pour les déclencher, la supervision des ressources machines, etc... Muni d'un tel dossier, l'exploitant est autonome et l'application et ses services respectent la qualité de service demandée dans le dossier d'architecture technique et le plan de continuité de service.
+\\
+Il est construit de façon à ce qu'un exploitant qui n'a absolument pas participé au déploiement de l'outil soit en mesure d'assurer ce travail.
+
+\subsubsection{Plan de continuité des services}
+L'objectif du Plan de Continuité de Service est :
+D'atteindre le niveau de qualité attendu de l'application et ses services, c'est à dire horaires d'ouverture, reprise de l'activité en cas d'erreur, d'incidents, etc...
+De décrire les modalités techniques et opérationnelles dans lesquelles seront assuré le niveau de qualité de service par les moyens informatiques.
+Ce document permet de formaliser un engagement conditionné aux ressources mises effectivement en œuvre et décrites dans le document entre l'exploitant informatique et la direction de l'établissement.
+
+\subsection{Décomposition en modules, sous-ensembles}
+Quelle que soit la méthode qu’il aura employé pour définir l’architecture applicative, le 
+soumissionnaire devra présenter les résultats sous la forme suivante : 
+Synthèse de toutes les fonctions ou groupes de fonctions à traiter au sein du projet. Il les regroupe dans des modules. Ces modules correspondent à des ensembles dont les interfaces sont suffisamment bien définies pour pouvoir être développées séparément
+Description des modules
+Définition des dépendances et interfaces
+Définition des flux entre chacun des modules 
+Décomposition des modules en sous-modules
+Le soumissionnaire pourra apporter tout complément d’information concernant l’architecture proposée au-delà des éléments demandés ci-dessus. 
+
+\subsection{Prévisions de fiabilité}
+La solution proposée par le soumissionnaire bénéficiera d'une haute fiabilité en raison de son utilisation dans des environnements hétérogènes.
+Un livrable décrivant le taux de fiabilité de chaque module composant la solution applicative est attendu.
+
+\subsection{Perspectives d'évolution technologique}
+Chaque évolution de la solution proposée devra tout d'abord faire l'objet d'une analyse de risque afin de s'assurer que la nouvelle version proposée soit efficiente.
+Une fois celle-ci validé, il convient au soumissionnaire de fournir des livrables approuvant la non-régression de nouvelle solution et garantissant un taux de fiabilité égale ou supérieure à la solution précédente.
+Enfin, toutes évolutions même mineures doivent être listées au sein d'un document afin d'avoir un historique des modifications appliquées à la suite logicielle au même titre que celles figurant dans le mémoire des solutions non retenues.
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 4
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_2.pdf} % Chapter heading image
+
 \chapter{Text Chapter}
 
 \section{Paragraphs of Text}\index{Paragraphs of Text}
