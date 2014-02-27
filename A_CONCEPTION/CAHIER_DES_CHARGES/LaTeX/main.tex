@@ -1,7 +1,7 @@
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
-\listfiles
+
 \documentclass[11pt,fleqn]{book} % Default font size and left-justified equations
 
 \usepackage[top=3cm,bottom=3cm,left=3.2cm,right=3.2cm,headsep=10pt,a4paper]{geometry} % Page margins
@@ -12,7 +12,7 @@
 % Font Settings
 \usepackage{avant} % Use the Avantgarde font for headings
 %\usepackage{times} % Use the Times font for headings
-\usepackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Sym­bol, Chancery and Com­puter Modern fonts
+\usepackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the SymÂ­bol, Chancery and ComÂ­puter Modern fonts
 
 \usepackage{microtype} % Slightly tweak font spacing for aesthetics
 \usepackage[utf8]{inputenc} % Required for including letters with accents
@@ -124,7 +124,7 @@ L'architecture de la suite logicielle devra de ce fait, s'adapter à l'environne
 \subsubsection{Les groupes d'utilisateurs}
 Chaque profil utilisateur doit être lié à un et un seul groupe d'utilisateur.
 Chaque groupe d'utilisateurs doit être associé à un ensemble de droits d'accès.
-Au minimum, la solution doit fournir un groupe d'utilisateurs particulier, appelé « administrateurs » et détenteurs de tous les droits d'accès disponibles. L'opportunité souhaitant être laissée de pouvoir gérer (ajouter, modifier et/ou supprimer) les groupes utilisateurs et leurs droits associés, ce dernier doit permettre d'opérer facilement ces manipulations.
+Au minimum, la solution doit fournir un groupe d'utilisateurs particulier, appelé \og{}administrateurs\fg{} et détenteurs de tous les droits d'accès disponibles. L'opportunité souhaitant être laissée de pouvoir gérer (ajouter, modifier et/ou supprimer) les groupes utilisateurs et leurs droits associés, ce dernier doit permettre d'opérer facilement ces manipulations.
 
 \subsubsection{Les actions}
 Gérer les sociétés de transport -> Contrats, bon pour accord de paiement
@@ -137,19 +137,19 @@ La solution doit fournir au minimum et pour chacun de ces groupes utilisateurs u
 Gestionnaire de transport :
 Moyen de contrôle des opérations (à venir, en cours...)
 Outil d'édition de tableaux de bord
-…
+...
 Gestionnaire de la planification :
 Fournir aux métiers des données relatives à l'état des transports en cours
 ...
 Gestionnaire des prestataires :
-Édition de bons pour accord de paiement
+édition de bons pour accord de paiement
 ...
 Métiers :
 Consultation des transports en cours en relation avec le métier
 Secrétariat central :
 Accès aux documents sous forme numérique
 Statistiques
-…
+...
 
 \subsubsection{Les documents internes}
 De nombreux types de documents sont traités en interne et doivent pouvoir être enregistrés, numérisés, lus, produits, modifiés, supprimés et archivés par la suite logicielle. Tous les documents en question disposent d'un numéro d'identification unique, généré par le secrétariat central. Les documents concernés sont les suivants :
@@ -177,7 +177,7 @@ La date et la description de tout type de problème rencontré
 
 \subsubsection{La synchronisation}
 La solution devra gérer explicitement la synchronisation et les paramètres associés comme (liste non exhaustive) :
-Éléments à synchroniser
+éléments à synchroniser
 Permissions
 Gestion des conflits
 
@@ -196,7 +196,7 @@ La solution devrait pouvoir permettre aux utilisateurs de garder en mémoire leu
 Une fonctionnalité complémentaire est la création d'une heuristique permettant de faciliter l'organisation via l'analyse des logs d'activité. Elle pourrait notamment repérer des enchaînements logiques d'actions et ainsi proposer un accès rapide aux successeurs les plus fréquents.
 
 \subsubsection{Génération de documents "sur mesure"}
-Le produit pourra permettre de générer des « tableaux de bord » qui sont des documents de synthèse servant de supports qualité et contenant les informations préalablement choisies en fonction du destinataire du document.
+Le produit pourra permettre de générer des \og{}tableaux de bord\fg{} qui sont des documents de synthèse servant de supports qualité et contenant les informations préalablement choisies en fonction du destinataire du document.
 \\
 Par exemple, pour une livraison donnée, on peut distinguer deux types de documents synthèse (liste non exhaustive) en fonction du destinataire :
 Le métier recevrait un document mettant en valeur les lieux et temps de chargement des marchandises avec les dates de chaque opération en rapport avec le contenu de la livraison
@@ -217,13 +217,13 @@ En outre, l'utilisation d'un SGBD semblant inévitable, la solution doit égalem
 \paragraph{Architecture client}
 La solution cliente doit être pleinement fonctionnelle sous les distributions Microsoft Windows 7, qui ont 16Go de RAM et 250Go de mémoire, ainsi que sous les dernières versions en date des navigateurs Internet Explorer et Mozilla Firefox.
 \\
-Enfin, La solution doit être accessible depuis des appareils de téléphonie mobile sous Androïd.
+Enfin, La solution doit être accessible depuis des appareils de téléphonie mobile sous Android.
 
 \paragraph{Contraintes sur les moyens de communication}
-En situation d'urgence, les moyens de communication disponibles notamment dans les régions affectées peuvent être « réduits » (réseau GSM indisponible, par exemple). Les procédures de l'Organisation mettent, certes, à disposition des équipes terrain, pour leur propre sécurité, des moyens de communication de type satellitaires, mais les coûts de communication restent élevés qu'ils soient basés sur la quantité de données échangés ou sur les temps de communication. De fait, préférence est donnée aux moyens « standards » de communication (ADSL, GSM...). Il reste néanmoins qu'il doit être possible d'adapter l'utilisation de la suite logicielle aux contraintes de coûts, de débits... des moyens de communication.
+En situation d'urgence, les moyens de communication disponibles notamment dans les régions affectées peuvent être \og{}réduits\fg{} (réseau GSM indisponible, par exemple). Les procédures de l'Organisation mettent, certes, à disposition des équipes terrain, pour leur propre sécurité, des moyens de communication de type satellitaires, mais les coûts de communication restent élevés qu'ils soient basés sur la quantité de données échangés ou sur les temps de communication. De fait, préférence est donnée aux moyens \og{}standards\fg{} de communication (ADSL, GSM...). Il reste néanmoins qu'il doit être possible d'adapter l'utilisation de la suite logicielle aux contraintes de coûts, de débits... des moyens de communication.
 
 \paragraph{Synchronisation}
-Les communications réseau n'étant pas toujours en place dans tous les endroits de la zone d'intervention, il doit être possible de faire fonctionner la solution en mode « hors ligne » et gérer la synchronisation une fois les moyens de communication retrouvés.
+Les communications réseau n'étant pas toujours en place dans tous les endroits de la zone d'intervention, il doit être possible de faire fonctionner la solution en mode \og{}hors ligne\fg{} et gérer la synchronisation une fois les moyens de communication retrouvés.
 
 \paragraph{Sauvegarde}
 La solution doit gérer sa propre sauvegarde externalisée et être compatible avec le top 10 des solutions de sauvegarde les plus communes (dans le cas où l'une d'entre elles soit utilisée à posteriori).
@@ -246,7 +246,7 @@ Garmir Khatch a une image et une éthique mondialement connue découlant de ses 
 En fonction de la situation, il doit pouvoir être possible de définir le niveau de cryptage des données échangées sur le réseau, voir désactiver ce dernier.
 
 \paragraph{Contraintes sur la sécurité des données échangées}
-Les situations d'urgence ne dispensent pas les acteurs humanitaires de se conformer à la législation des pays dans lesquels ils interviennent, notamment pour ce qui est des moyens de sécurisation des échanges de données. La transparence est si possible de mise, afin de ne pas instiller de doutes et mettre en particulier en danger la crédibilité et l'action de l'Organisation. En outre, des interventions dans des territoires potentiellement conflictuels ou sous contrôle militaire strict – Cachemire par exemple - quand bien même celles-ci restent très exceptionnelles eu égard au mandat de l'Organisation sont possibles. Dans ce cadre, l'utilisation de moyens de sécurité des données transmises (cryptage) peut être proscrite ou tout du moins adaptée justifiable et adaptée à une cryptanalyse « rapide ».
+Les situations d'urgence ne dispensent pas les acteurs humanitaires de se conformer à la législation des pays dans lesquels ils interviennent, notamment pour ce qui est des moyens de sécurisation des échanges de données. La transparence est si possible de mise, afin de ne pas instiller de doutes et mettre en particulier en danger la crédibilité et l'action de l'Organisation. En outre, des interventions dans des territoires potentiellement conflictuels ou sous contrôle militaire strict - Cachemire par exemple - quand bien même celles-ci restent très exceptionnelles eu égard au mandat de l'Organisation sont possibles. Dans ce cadre, l'utilisation de moyens de sécurité des données transmises (cryptage) peut être proscrite ou tout du moins adaptée justifiable et adaptée à une cryptanalyse \og{}rapide\fg{}.
 
 \section{Critères d'appréciation}
 La solution sera évaluée en fonction des critères suivants :
@@ -298,7 +298,7 @@ Compatibilité
 La solution devra avoir un niveau suffisant de compatibilité avec les normes et standards les plus répandus .
 Heuristique
 5
-« L'intelligence » de l'heuristique organisationnelle pour la réalisation de tâches récurrentes et la planification
+\og{}L'intelligence\fg{} de l'heuristique organisationnelle pour la réalisation de tâches récurrentes et la planification
 Planification
 2
 La planification des transports, livraisons, temps de chargement, et d'attente
@@ -348,10 +348,10 @@ Permettre la gestion de documents administratifs (permis, assurances, contrats..
 \subsection{Niveau atteint pour chaque critère d'appréciation de cette fonction et modalités de contrôle}
 Pour chaque fonction un critère de droit d'accès est requis. Il conviendra donc de permettre une gestion aisée des droits utilisateurs pour ajouter, modifier supprimer l'accès aux données.
 Jalonnement attendus :
-Au minimum, les jalons suivants, sont attendus dans l'ordre exprimés. Par le terme « gestion », nous entendrons qu'il s'agit de permettre toutes les opérations d'ajout, modification et suppression.
+Au minimum, les jalons suivants, sont attendus dans l'ordre exprimés. Par le terme \og{}gestion\fg{}, nous entendrons qu'il s'agit de permettre toutes les opérations d'ajout, modification et suppression.
 
 \subsection{Part du prix attribué à chaque fonction}
-La part du prix sera ici évaluée au regard du temps passé faut de pouvoir indiquer une part du prix qui n’a pas été chiffré. L’indication n’est pas exactement la même mais peut s’avérer intéressante pour l’évaluation du projet. 
+La part du prix sera ici évaluée au regard du temps passé faut de pouvoir indiquer une part du prix qui n'a pas été chiffré. L'indication n'est pas exactement la même mais peut s'avérer intéressante pour l'évaluation du projet. 
 La planification des transports peut être estimée à 30 \% de la part du travail
 Le suivi des transport peut être estimé à 20 \% de la part du travail
 L'édition des tableaux de bords et des cartes peuvent être estimés à 15 \% de la part du travail
@@ -413,14 +413,14 @@ De décrire les modalités techniques et opérationnelles dans lesquelles seront
 Ce document permet de formaliser un engagement conditionné aux ressources mises effectivement en œuvre et décrites dans le document entre l'exploitant informatique et la direction de l'établissement.
 
 \subsection{Décomposition en modules, sous-ensembles}
-Quelle que soit la méthode qu’il aura employé pour définir l’architecture applicative, le 
+Quelle que soit la méthode qu'il aura employé pour définir l'architecture applicative, le 
 soumissionnaire devra présenter les résultats sous la forme suivante : 
 Synthèse de toutes les fonctions ou groupes de fonctions à traiter au sein du projet. Il les regroupe dans des modules. Ces modules correspondent à des ensembles dont les interfaces sont suffisamment bien définies pour pouvoir être développées séparément
 Description des modules
 Définition des dépendances et interfaces
 Définition des flux entre chacun des modules 
 Décomposition des modules en sous-modules
-Le soumissionnaire pourra apporter tout complément d’information concernant l’architecture proposée au-delà des éléments demandés ci-dessus. 
+Le soumissionnaire pourra apporter tout complément d'information concernant l'architecture proposée au-delà des éléments demandés ci-dessus. 
 
 \subsection{Prévisions de fiabilité}
 La solution proposée par le soumissionnaire bénéficiera d'une haute fiabilité en raison de son utilisation dans des environnements hétérogènes.
