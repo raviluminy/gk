@@ -34,6 +34,24 @@ Chaque profil utilisateur peut être lié à un ou plusieurs groupe d'utilisateu
 Chaque groupe d'utilisateurs doit être associé à un ensemble de droits d'accès.
 Au minimum, la solution doit fournir un groupe d'utilisateurs particulier, appelé \emph{administrateurs} et détenteurs de tous les droits d'accès disponibles. L'opportunité souhaitant être laissée de pouvoir gérer (ajouter, modifier et/ou supprimer) les groupes utilisateurs et leurs droits associés, ce dernier doit permettre d'opérer facilement ces manipulations.
 
+\begin{figure}
+\begin{tikzpicture}
+\begin{scope}[xscale=1,yscale=1]
+% description et nommage des noeuds
+\node[fill=black!5,draw=ocre,text=black] (U)  at (0,0) [rectangle,draw] {\begin{tabular}{c}Utilisateur\end{tabular}};
+\node[fill=black!5,draw=ocre,text=black] (GU) at (4,0) [rectangle,draw] {\begin{tabular}{c}Groupe d'utilisateurs\end{tabular}};
+\node[fill=black!5,draw=ocre,text=black] (DA) at (8,0) [rectangle,draw] {\begin{tabular}{c}Droits d'accès\end{tabular}};
+% description des arêtes
+% -- arête rectiligne entre les noeuds nommés
+\draw[->] (U)  -- (GU);
+\draw[->] (GU) -- (DA);
+% |- départ vertical arrivée horizontale
+% -| départ horizontal (du noeud de coordonnée (0,1)) arrivée verticale
+\end{scope}
+\end{tikzpicture}
+\caption{Utilisateurs, groupes d'utilisateurs et droits d'accès}
+\end{figure}
+
 \subsubsection{Les actions}
 \begin{itemize}
 \item Gérer les sociétés de transport -> contrats, bon pour accord de paiement~;
@@ -101,6 +119,44 @@ La solution devra gérer explicitement la synchronisation et les paramètres ass
 \end{itemize}
 
 \subsubsection{Les cas d'utilisations}
+\begin{figure}
+\begin{tikzpicture}
+
+\umlusecase{Bob l'éponge}
+\umlusecase{Joe}
+\umlusecase{Joe Bob}
+\umlusecase{Marie}
+\umlusecase{Jane}
+\umlusecase{Marie Jane}
+\umlusecase{Marie Jone Bob}
+%\begin{umlsystem}[x=4, fill=red!10]{The system}
+%\umlusecase{use case1}
+%\umlusecase[y=-2]{use case2}
+%\umlusecase[y=-4]{use case3}
+%\umlusecase[x=4, y=-2, width=1.5cm]{use case4 on 2 lines}
+%\umlusecase[x=6, fill=green!20]{use case5}
+%\umlusecase[x=6, y=-4]{use case6}
+%\end{umlsystem}
+
+\umlactor{Utilisateur}
+\umlactor[y=-3]{subuser}
+\umlactor[x=14, y=-1.5]{admin}
+
+\umlinherit{subuser}{Utilisateur}
+\umlassoc{Utilisateur}{usecase-1}
+\umlassoc{subuser}{usecase-2}
+\umlassoc{subuser}{usecase-3}
+\umlassoc{admin}{usecase-5}
+\umlassoc{admin}{usecase-6}
+\umlinherit{usecase-2}{usecase-1}
+\umlVHextend{usecase-5}{usecase-4}
+\umlinclude[name=incl]{usecase-3}{usecase-4}
+
+\umlnote[x=7, y=-7]{incl-1}{note on include dependency}
+
+\end{tikzpicture}
+\caption{Diagramme des cas d'utilisation}
+\end{figure}
 
 \subsection{Fonctions de service complémentaires}
 Cette section définit les fonctions de service complémentaires. Ces dernières améliorent, facilitent ou complètent le service rendu. Elles sont souhaitées mais non prioritaires.
@@ -193,10 +249,11 @@ La solution sera évaluée en fonction des critères suivants~:
 
 \section{Niveaux des critères d'appréciation et ce qui les caractérise}
 Plus un niveau est faible, plus ce critère est apprécié.
-\begin{tabular}{|c|c|c|}
-\hline
+\\
+\begin{tabularx}{\linewidth}{>{\centering}m{2.0cm} c X}%{|p{3.0cm}|c|p{10.0cm}|}%
+\toprule
 Critère & Niveau & Détails
-\\\hline
+\\\midrule
 Disponibilité & 1 & La solution devra être utilisable dans les conditions et les termes convenus.
 \\\hline
 Capacité & 1 & L'ensemble du personnel logistique doit pouvoir avoir un accès simultané, et le produit devra prendre en compte une évolution du nombre d'utilisateurs en fonction de la croissance de \mo.
@@ -222,8 +279,8 @@ Planification & 2 & La planification des transports, livraisons, temps de charge
 Statistiques & 4 & La génération des statistiques fonctionnelles et organisationnelles.
 \\\hline
 Gestion des documents & 3 & La production, l'édition, la modification, la numérisation des documents correspondra aux documents actuellement utilisés et aux standards de l'organisation.
-\\\hline
-\end{tabular}
+\\\bottomrule
+\end{tabularx}
 
 \subsection{Niveaux dont l'obtention est imposée}
 Les niveaux 1 à 3 sont imposés.
