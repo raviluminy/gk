@@ -261,6 +261,25 @@ innerbottommargin=5pt]{cBox}
 \advance\baselineskip -1pt}{\end{list}\vskip5pt} % Tighter line spacing and white space after remark
 
 %----------------------------------------------------------------------------------------
+%	CONSTRAINT ENVIRONMENT
+%----------------------------------------------------------------------------------------
+
+%\newtheoremstyle{ocrenumbox}% % Theorem style name
+%{0pt}% Space above
+%{0pt}% Space below
+%{\normalfont}% % Body font
+%{}% Indent amount
+%{\small\bf\sffamily\color{ocre}}% % Theorem head font
+%{\;}% Punctuation after theorem head
+%{0.25em}% Space after theorem head
+%{\small\sffamily\color{ocre}\thmname{#1}\nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}% Theorem text (e.g. Theorem 2.1)
+%\thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries\color{black}---\nobreakspace#3.}} % Optional theorem note
+%\renewcommand{\qedsymbol}{$\blacksquare$}% Optional qed square
+
+\newtheorem{constraintT}{Contrainte}[section]
+\newenvironment{constraint}{\begin{tBox}\begin{constraintT}}{\end{constraintT}\end{tBox}}
+
+%----------------------------------------------------------------------------------------
 %	SECTION NUMBERING IN THE MARGIN
 %----------------------------------------------------------------------------------------
 
