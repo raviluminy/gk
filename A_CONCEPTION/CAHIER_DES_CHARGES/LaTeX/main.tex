@@ -42,12 +42,13 @@
 
 \usepackage[francais]{babel} % English language/hyphenation
 \input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
-\usepackage[colorlinks=true]{hyperref}
+\usepackage{hyperref}
 
 %----------------------------------------------------------------------------------------
 %	GLOBAL VALUES
 %----------------------------------------------------------------------------------------
 
+% Noms
 \newcommand{\mo}{Garmir~Khatch\xspace}
 \newcommand{\roland}{\href{mailto:roland.agopian@univ-amu.fr}{Roland~\textsc{Agopian}}\xspace}
 \newcommand{\amo}{AMU~FSI~2014~B\xspace}
@@ -56,7 +57,10 @@
 \newcommand{\lionel}{\href{mailto:lionel.gairoard@gmail.com}{Lionel~\textsc{Gairoard}}\xspace}
 \newcommand{\ibrahima}{\href{mailto:ibbaldes@yahoo.fr}{Ibrahima~Sory~\textsc{Balde}}\xspace}
 \newcommand{\khady}{\href{mailto:takamor91@yahoo.fr}{Ahoua~Khady~\textsc{Toure}}\xspace}
-
+% Versionning
+\newcommand{\version}{2.2}
+% Divers
+\setlength{\doublerulesep}{\arrayrulewidth}
 
 \begin{document}
 
@@ -68,30 +72,103 @@
 \thispagestyle{empty}
 \AddToShipoutPicture*{\put(6,5){\includegraphics[scale=1]{background}}} % Image background
 \centering
-\vspace*{9cm}
+\vspace*{6cm}
 \par\normalfont\fontsize{35}{35}\sffamily\selectfont
-The Search for a Title\par % Book title
+Cahier des charges fonctionnel\par % Book title
 \vspace*{1cm}
-{\Huge Dr. John Smith \ibrahima}\par % Author name
+{\Huge v. \version}\par % Author name
+\vspace*{1cm}
+\rule{\linewidth}{.5pt}
+\begin{center}
+{\small \bfseries Au bénéfice de \mo}\par
+{\small \bfseries Réalisé par \amo}\par
+{\footnotesize Dernière modification le \today.}
+\end{center}
 \endgroup
-
-%----------------------------------------------------------------------------------------
-%	COPYRIGHT PAGE
-%----------------------------------------------------------------------------------------
-
 \newpage
-~\vfill
-\thispagestyle{empty}
+%----------------------------------------------------------------------------------------
+%	VERSIONNING
+%----------------------------------------------------------------------------------------
 
-\noindent Copyright \copyright\ 2013 John Smith\\ % Copyright notice
+% ==============================================================================
+\section*{Historique des modifications}
+\noindent
+\begin{tabularx}{\linewidth}{|c|c|p{3.8cm}|X|}
+\hline
+\textbf{Version} & \textbf{Date} & \textbf{Nom} & \textbf{Modification(s) effectuée(s)}\\
+\hline\hline
+1.0 & 2014-02-03 & \mj & Première édition \\\hline
+1.1 & 2014-02-07 & \mj, \lionel & Mise en conformité de la norme AFNOR X50-151 \\\hline
+1.2.1 & 2014-02-14 & \ravi & Ajout de contenu dans la présentation du problème \\\hline
+1.2.2 & 2014-02-16 & \khady & Modification sur le contenu déjà présent \\\hline
+1.2.3 & 2014-02-17 & \mj & Modification partie 2 \\\hline
+2.0 & 2014-02-27 & \mj, \ravi & Passage du rapport en \LaTeX \\\hline
+2.1 & 2014-02-27 & \mj & Ajout de schémas et complétion partie 2 \\\hline
+2.2 & 2014-02-28 & \ravi & Refactoring et complétion partie 1 \\\hline
+\end{tabularx}
+% Fin de la section [Historique des modifications]
+% ==============================================================================
 
-\noindent \textsc{Published by Publisher}\\ % Publisher
+% ==============================================================================
+\section*{Approbation}
+\noindent
+\begin{tabularx}{\linewidth}{|c|c|X|}
+\hline
+\textbf{Version} & \textbf{Date} & \textbf{Nom} \\\hline\hline
+\version & - & - \\\hline
+\end{tabularx}
+% Fin de la section [Approbation]
+% ==============================================================================
 
-\noindent \textsc{book-website.com}\\ % URL
+% ==============================================================================
+\section*{Validation}
+\noindent
+\begin{tabularx}{\linewidth}{|c|c|X|}
+\hline
+\textbf{Version} & \textbf{Date} & \textbf{Validateur}\\
+\hline\hline
+\version & Compléter quand validé & \roland \\
+\hline
+\end{tabularx}
+% Fin de la section [Validation]
+% ==============================================================================
+
+% ==============================================================================
+\section*{Contacts}
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}
+\hline
+\textbf{Nom} & \textbf{Email}\\
+\hline\hline
+\roland & roland.agopian@univ-amu.fr \\
+\hline\hline
+\ibrahima & ibbaldes@yahoo.fr \\
+\hline
+\mj & mehdi-jonathan@hotmail.fr \\
+\hline
+\lionel & lionel.gairoard@gmail.com \\
+\hline
+\ravi & pachy.ravi@gmail.com \\
+\hline
+\khady & takamor91@yahoo.fr \\
+\hline
+\end{tabularx}
+
+% Fin de la section [Contacts]
+% ==============================================================================
+
+
+%\newpage
+%~\vfill
+%\thispagestyle{empty}
+
+%\noindent Copyright \copyright\ 2013 John Smith\\ % Copyright notice
+
+%\noindent \textsc{Published by Publisher}\\ % Publisher
+
+%\noindent \textsc{book-website.com}\\ % URL
 
 %\noindent Licensed under the Creative Commons Attribution-NonCommercial 3.0 Unported License (the ``License''). You may not use this file except in compliance with the License. You may obtain a copy of the License at \url{http://creativecommons.org/licenses/by-nc/3.0}. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \textsc{``AS IS'' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND}, either express or implied. See the License for the specific language governing permissions and limitations under the License.\\ % License information
-
-\noindent \textit{First printing, March 2013} % Printing/edition date
 
 %----------------------------------------------------------------------------------------
 %	TABLE OF CONTENTS
@@ -100,7 +177,7 @@ The Search for a Title\par % Book title
 \chapterimage{chapter_head_1.pdf} % Table of contents heading image
 
 \pagestyle{empty} % No headers
-
+\renewcommand{\contentsname}{Sommaire}
 \tableofcontents % Print the table of contents itself
 
 %\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
