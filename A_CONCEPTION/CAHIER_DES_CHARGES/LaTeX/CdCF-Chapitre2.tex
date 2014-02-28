@@ -1,13 +1,48 @@
 \chapter{Expression fonctionnelle du besoin}
 Cette section tient un compte détaillé des spécifications fonctionnelles du projet. Sont donc abordés ci-dessous~:
 \begin{itemize}
-\item l'ensemble des fonctionnalités de service attendues et de contraintes à respecter~;
-\item les critères d'acceptation~;
-\item les niveaux de critères d'appréciation et ce qui les caractérise.
+	\item l'ensemble des fonctionnalités de service attendues et de contraintes à respecter~;
+	\item les critères d'acceptation~;
+	\item les niveaux de critères d'appréciation et ce qui les caractérise.
 \end{itemize}
 
 \section{Fonctions de service et de contrainte}
 Cette section précise les services attendus et contraintes à respecter.
+
+\begin{figure}[htbp]
+	\begin{tikzpicture}
+		\begin{umlsystem}[x=8.00,y=10.00,fill=red!10]{Administration}
+			\umlusecase[x=0.00,y=0.00,name=GSauvegarde]{Gestion des sauvegardes}
+			\umlusecase[x=0.00,y=1.00,name=GDroits]{Gestion des droits d'accès}
+			\umlusecase[x=0.00,y=2.00,name=GSécurité]{Gestion des niveaux de sécurité (cryptographie)}
+		\end{umlsystem}
+		\begin{umlsystem}[x=8.00,y=0.00,fill=green!10]{Gestion des ressources}
+			\umlusecase[x=0.00,y=0.00,name=GPrestataires]{Gestion des prestataires}
+			\umlusecase[x=0.00,y=1.00,name=GTransports]{Gestion des moyens de transport}
+			\umlusecase[x=0.00,y=2.00,name=GChauffeurs]{Gestion des chauffeurs}
+			\umlusecase[x=0.00,y=3.00,name=GRéquisitions]{Gestion des réquisitions}
+			\umlusecase[x=0.00,y=4.00,name=GWaybills]{Gestion des waybills/delivery~notes}
+			\umlusecase[x=0.00,y=5.00,name=GTableauxBord]{Gestion des tableaux de bord}
+			\umlusecase[x=0.00,y=6.00,name=GSynchronisation]{Gestion de la synchronisation}
+			\umlusecase[x=0.00,y=7.00,name=GPréférences]{Gestion des préférences}
+		\end{umlsystem}
+		\umlactor[x=0.00,y=10.00]{Administrateur}
+		\umlactor[x=0.00,y=3.00]{Utilisateur}
+		\umlinherit{Administrateur}{Utilisateur}
+		\umlassoc{Utilisateur}{GPrestataires}
+		\umlassoc{Utilisateur}{GTransports}
+		\umlassoc{Utilisateur}{GChauffeurs}
+		\umlassoc{Utilisateur}{GRéquisitions}
+		\umlassoc{Utilisateur}{GWaybills}
+		\umlassoc{Utilisateur}{GTableauxBord}
+		\umlassoc{Utilisateur}{GSynchronisation}
+		\umlassoc{Utilisateur}{GPréférences}
+		\umlassoc{Administrateur}{GSauvegarde}
+		\umlassoc{Administrateur}{GDroits}
+		\umlassoc{Administrateur}{GSécurité}
+	\end{tikzpicture}
+	\caption{Diagramme général}
+\end{figure}
 
 \subsection{Fonctions de service principales}
 Cette section définit l'ensemble des services principaux attendus. Ces derniers sont la raison d'être du produit. Ils sont incontournables.
@@ -15,10 +50,10 @@ Cette section définit l'ensemble des services principaux attendus. Ces derniers
 \subsubsection{La localisation}
 La solution proposera des versions traduites en plusieurs langues, y compris avec des alphabets et des sens de lecture différents. Au minimum, les traductions dans les langages suivants devront être fournis~:
 \begin{itemize}
-\item Anglais~;
-\item Arabe~;
-\item Espagnol~;
-\item Français.
+	\item Anglais~;
+	\item Arabe~;
+	\item Espagnol~;
+	\item Français.
 \end{itemize}
 En outre, la solution devra permettre de passer \emph{aisément} d'une langue à l'autre sans nécessiter de redémarrage.
 
@@ -34,129 +69,212 @@ Chaque profil utilisateur peut être lié à un ou plusieurs groupe d'utilisateu
 Chaque groupe d'utilisateurs doit être associé à un ensemble de droits d'accès.
 Au minimum, la solution doit fournir un groupe d'utilisateurs particulier, appelé \emph{administrateurs} et détenteurs de tous les droits d'accès disponibles. L'opportunité souhaitant être laissée de pouvoir gérer (ajouter, modifier et/ou supprimer) les groupes utilisateurs et leurs droits associés, ce dernier doit permettre d'opérer facilement ces manipulations.
 
-\begin{figure}
-\begin{tikzpicture}
-\begin{scope}[xscale=1,yscale=1]
-% description et nommage des noeuds
-\node[fill=black!5,draw=ocre,text=black] (U)  at (0,0) [rectangle,draw] {\begin{tabular}{c}Utilisateur\end{tabular}};
-\node[fill=black!5,draw=ocre,text=black] (GU) at (4,0) [rectangle,draw] {\begin{tabular}{c}Groupe d'utilisateurs\end{tabular}};
-\node[fill=black!5,draw=ocre,text=black] (DA) at (8,0) [rectangle,draw] {\begin{tabular}{c}Droits d'accès\end{tabular}};
-% description des arêtes
-% -- arête rectiligne entre les noeuds nommés
-\draw[->] (U)  -- (GU);
-\draw[->] (GU) -- (DA);
-% |- départ vertical arrivée horizontale
-% -| départ horizontal (du noeud de coordonnée (0,1)) arrivée verticale
-\end{scope}
-\end{tikzpicture}
-\caption{Utilisateurs, groupes d'utilisateurs et droits d'accès}
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}
+		\begin{scope}[xscale=1,yscale=1]
+			\tikzstyle{block} = [rectangle,draw=ocre,fill=black!5,text=black,text centered]
+			\tikzstyle{arrow} = [->,>=latex]
+			% description et nommage des noeuds
+			\node[block] (U)  at (-4.00,0.00) {\begin{tabular}{c}Utilisateur\end{tabular}};
+			\node[block] (GU) at (0.00,0.00) {\begin{tabular}{c}Groupe d'utilisateurs\end{tabular}};
+			\node[block] (DA) at (4.30,0.00) {\begin{tabular}{c}Droits d'accès\end{tabular}};
+			% description des arêtes
+			% -- arête rectiligne entre les noeuds nommés
+			\draw[arrow] (U)  -- (GU);
+			\draw[arrow] (U) to[bend right] (DA);
+			\draw[arrow] (GU) -- (DA);
+			% |- départ vertical arrivée horizontale
+			% -| départ horizontal (du noeud de coordonnée (0,1)) arrivée verticale
+		\end{scope}
+	\end{tikzpicture}
+	\caption{Utilisateurs, groupes d'utilisateurs et droits d'accès}
 \end{figure}
-
-\subsubsection{Les actions}
-\begin{itemize}
-\item Gérer les sociétés de transport -> contrats, bon pour accord de paiement~;
-\item gérer les véhicules~;
-\item gérer les chauffeurs~;
-\item gérer les missions de transport -> tableaux de bord.
-\end{itemize}
 
 \subsubsection{L'interface utilisateur}
 La solution doit fournir au minimum et pour chacun de ces groupes utilisateurs une interface propre permettant de réaliser les actions suivantes~:
 \begin{itemize}
-\item gestionnaire de transport~:
+	\item gestionnaire de transport~:
 	\begin{itemize}
-	\item moyen de contrôle des opérations (à venir, en cours...),
-	\item outil d'édition de tableaux de bord~;
+		\item moyen de contrôle des opérations (à venir, en cours...),
+		\item outil d'édition de tableaux de bord~;
 	\end{itemize}
-\item gestionnaire de la planification~:
+	\item gestionnaire de la planification~:
 	\begin{itemize}
-	\item fournir aux métiers des données relatives à l'état des transports en cours~;
+		\item fournir aux métiers des données relatives à l'état des transports en cours~;
 	\end{itemize}
-\item gestionnaire des prestataires~:
+	\item gestionnaire des prestataires~:
 	\begin{itemize}
-	\item édition de bons pour accord de paiement~;
+		\item édition de bons pour accord de paiement~;
 	\end{itemize}
-\item métiers~:
+	\item métiers~:
 	\begin{itemize}
-	\item consultation des transports en cours en relation avec le métier~;
+		\item consultation des transports en cours en relation avec le métier~;
 	\end{itemize}
-\item secrétariat central~:
+	\item secrétariat central~:
 	\begin{itemize}
-	\item accès aux documents sous forme numérique,
-	\item statistiques.
+		\item accès aux documents sous forme numérique,
+		\item statistiques.
 	\end{itemize}
 \end{itemize}
 
 \subsubsection{Les documents internes}
 De nombreux types de documents sont traités en interne et doivent pouvoir être enregistrés, numérisés, affichés, produits, modifiés, supprimés et archivés par la suite logicielle. Tous les documents en question disposent d'un numéro d'identification unique, généré par le secrétariat central. Les documents concernés sont les suivants~:
 \begin{itemize}
-\item permis de conduire des chauffeurs~;
-\item cartes d'identité des chauffeurs~;
-\item assurances des véhicules~;
-\item patentes des prestataires~;
-\item contrats avec les prestataires~;
-\item réquisition logistique~: dans le cas général, une réquisition correspond à un Bordereau d'expédition (waybill out). Cependant, il y a des cas où une même réquisition impliquerait plusieurs transports. Par exemple un seul numéro de réquisition peut être liée à dix Bordereaux d'expédition. 1 réquisition (définitive ou temporaire) -> 1 ou plusieurs bordereau(x) d'expédition.
+	\item permis de conduire des chauffeurs~;
+	\item cartes d'identité des chauffeurs~;
+	\item assurances des véhicules~;
+	\item patentes des prestataires~;
+	\item contrats avec les prestataires~;
+	\item réquisition logistique~: dans le cas général, une réquisition correspond à un Bordereau d'expédition (waybill out). Cependant, il y a des cas où une même réquisition impliquerait plusieurs transports. Par exemple un seul numéro de réquisition peut être liée à dix Bordereaux d'expédition. 1 réquisition (définitive ou temporaire) -> 1 ou plusieurs bordereau(x) d'expédition.
 \\
 Dans le cas où un ou plusieurs transports sont envoyés à un organisme externe, et si ce dernier a la charge de définir la mission du transport et par conséquent son ou ses bordereau(x) d'expédition, une réquisition ne serait liée à aucun bordereaux d'expédition. 1 réquisition (définitive ou temporaire) -> 0 bordereau d'expédition~;
-\item waybill / delivery note)~: document tenant compte des informations suivantes~:
-\begin{itemize}
-\item l'origine du produit transporté (le superviseur, le lieu, la date de départ planifiée, la date et l'horaire de départ effectif),
-\item la destination du produit (la date d'arrivée planifiée, la date et l'horaire d'arrivée effectif),
-\item les dates de chargement et déchargement,
-\item l'identifiant du transport utilisé (les données associées telles que le genre ou la capacité volumique),
-\item les données du transporteur (état civil, le type de permis),
-\item la date et la raison d'une annulation éventuelle du transport,
-\item la date et la description de tout type de problème rencontré.
-\end{itemize}
+	\item waybill / delivery note)~: document tenant compte des informations suivantes~:
+	\begin{itemize}
+		\item l'origine du produit transporté (le superviseur, le lieu, la date de départ planifiée, la date et l'horaire de départ effectif),
+		\item la destination du produit (la date d'arrivée planifiée, la date et l'horaire d'arrivée effectif),
+		\item les dates de chargement et déchargement,
+		\item l'identifiant du transport utilisé (les données associées telles que le genre ou la capacité volumique),
+		\item les données du transporteur (état civil, le type de permis),
+		\item la date et la raison d'une annulation éventuelle du transport,
+		\item la date et la description de tout type de problème rencontré.
+	\end{itemize}
 \end{itemize}
 
 \subsubsection{La synchronisation}
 La solution devra gérer explicitement la synchronisation et les paramètres associés comme (liste non exhaustive)~:
 \begin{itemize}
-\item éléments à synchroniser~;
-\item permissions~;
-\item gestion des conflits~;
+	\item éléments à synchroniser~;
+	\item permissions~;
+	\item gestion des conflits~;
 \end{itemize}
 
 \subsubsection{Les cas d'utilisations}
-\begin{figure}
-\begin{tikzpicture}
-
-\umlusecase{Bob l'éponge}
-\umlusecase{Joe}
-\umlusecase{Joe Bob}
-\umlusecase{Marie}
-\umlusecase{Jane}
-\umlusecase{Marie Jane}
-\umlusecase{Marie Jone Bob}
-%\begin{umlsystem}[x=4, fill=red!10]{The system}
-%\umlusecase{use case1}
-%\umlusecase[y=-2]{use case2}
-%\umlusecase[y=-4]{use case3}
-%\umlusecase[x=4, y=-2, width=1.5cm]{use case4 on 2 lines}
-%\umlusecase[x=6, fill=green!20]{use case5}
-%\umlusecase[x=6, y=-4]{use case6}
-%\end{umlsystem}
-
-\umlactor{Utilisateur}
-\umlactor[y=-3]{subuser}
-\umlactor[x=14, y=-1.5]{admin}
-
-\umlinherit{subuser}{Utilisateur}
-\umlassoc{Utilisateur}{usecase-1}
-\umlassoc{subuser}{usecase-2}
-\umlassoc{subuser}{usecase-3}
-\umlassoc{admin}{usecase-5}
-\umlassoc{admin}{usecase-6}
-\umlinherit{usecase-2}{usecase-1}
-\umlVHextend{usecase-5}{usecase-4}
-\umlinclude[name=incl]{usecase-3}{usecase-4}
-
-\umlnote[x=7, y=-7]{incl-1}{note on include dependency}
-
-\end{tikzpicture}
-\caption{Diagramme des cas d'utilisation}
+Cette section présente le diagramme des cas d'utilisation et précise pour chacun d'eux l'ensemble des actions attendues.
+\begin{figure}[htbp]
+	\begin{tikzpicture}
+		\begin{umlsystem}[x=8.00,y=10.00,fill=red!10]{Administration}
+			\umlusecase[x=0.00,y=0.00,name=GSauvegarde]{Gestion des sauvegardes}
+			\umlusecase[x=0.00,y=1.00,name=GDroits]{Gestion des droits d'accès}
+			\umlusecase[x=0.00,y=2.00,name=GSécurité]{Gestion des niveaux de sécurité (cryptographie)}
+		\end{umlsystem}
+		\begin{umlsystem}[x=8.00,y=0.00,fill=green!10]{Gestion des ressources}
+			\umlusecase[x=0.00,y=0.00,name=GPrestataires]{Gestion des prestataires}
+			\umlusecase[x=0.00,y=1.00,name=GTransports]{Gestion des moyens de transport}
+			\umlusecase[x=0.00,y=2.00,name=GChauffeurs]{Gestion des chauffeurs}
+			\umlusecase[x=0.00,y=3.00,name=GRéquisitions]{Gestion des réquisitions}
+			\umlusecase[x=0.00,y=4.00,name=GWaybills]{Gestion des waybills/delivery~notes}
+			\umlusecase[x=0.00,y=5.00,name=GTableauxBord]{Gestion des tableaux de bord}
+			\umlusecase[x=0.00,y=6.00,name=GSynchronisation]{Gestion de la synchronisation}
+			\umlusecase[x=0.00,y=7.00,name=GPréférences]{Gestion des préférences}
+		\end{umlsystem}
+		%mj%\umlusecase[width=4.00cm,x=8.00,y=0.00,name=Prestataire]{Ajouter, modifier \& supprimer un prestataire}
+		%mj%\umlusecase[width=4.00cm,x=8.00,y=1.00,name=Contrat]{Numériser \& produire un contrat}
+		%mj%\umlusecase[width=4.00cm,x=8.00,y=2.00,name=Patente]{Numériser une patente}
+		%mj%\umlusecase[width=4.00cm,x=8.00,y=3.00,name=AccordPaiement]{Produire un bon pour accord de paiement}
+		%mj%\umlusecase[width=4.00cm,x=8.00,y=4.00,name=Transport]{Ajouter, modifier \& supprimer un moyen de transport}
+		%mj%\umlusecase[width=4.00cm,x=8.00,y=5.00,name=Assurance]{Numériser une assurance}
+		%mj%\umlusecase[width=4.00cm,x=8.00,y=6.00,name=Chauffeur]{Ajouter, modifier \& supprimer un chauffeur}
+		%mj%\umlusecase[width=4.00cm,x=8.00,y=7.00,name=CarteIdentité]{Numériser une carte d'identité}
+		%mj%\umlusecase[width=4.00cm,x=8.00,y=8.00,name=Passeport]{Numériser un passeport}
+		%mj%\umlusecase[width=4.00cm,x=8.00,y=9.00,name=Permis]{Numériser un permis de conduire}
+		%\begin{umlsystem}[x=4, fill=red!10]{The system}
+		%\umlusecase{use case1}
+		%\umlusecase[y=-2]{use case2}
+		%\umlusecase[y=-4]{use case3}
+		%\umlusecase[x=4, y=-2, width=1.5cm]{use case4 on 2 lines}
+		%\umlusecase[x=6, fill=green!20]{use case5}
+		%\umlusecase[x=6, y=-4]{use case6}
+		%\end{umlsystem}
+		\umlactor[x=0.00,y=10.00]{Administrateur}
+		\umlactor[x=0.00,y=3.00]{Utilisateur}
+		\umlinherit{Administrateur}{Utilisateur}
+		\umlassoc{Utilisateur}{GPrestataires}
+		\umlassoc{Utilisateur}{GTransports}
+		\umlassoc{Utilisateur}{GChauffeurs}
+		\umlassoc{Utilisateur}{GRéquisitions}
+		\umlassoc{Utilisateur}{GWaybills}
+		\umlassoc{Utilisateur}{GTableauxBord}
+		\umlassoc{Utilisateur}{GSynchronisation}
+		\umlassoc{Utilisateur}{GPréférences}
+		\umlassoc{Administrateur}{GSauvegarde}
+		\umlassoc{Administrateur}{GDroits}
+		\umlassoc{Administrateur}{GSécurité}
+		%mj%\umlinherit{GPrestataires}{Prestataire}
+		%mj%\umlinherit{GPrestataires}{Contrat}
+		%mj%\umlinherit{GPrestataires}{Patente}
+		%mj%\umlinherit{GPrestataires}{AccordPaiement}
+		%mj%\umlinherit{GTransports}{Transport}
+		%mj%\umlinherit{GTransports}{Assurance}
+		%mj%\umlinherit{GChauffeurs}{Chauffeur}
+		%mj%\umlinherit{GChauffeurs}{CarteIdentité}
+		%mj%\umlinherit{GChauffeurs}{Passeport}
+		%mj%\umlinherit{GChauffeurs}{Permis}
+		%\umlinherit{usecase-2}{usecase-1}
+		%\umlVHextend{usecase-5}{usecase-4}
+		%\umlinclude[name=incl]{usecase-3}{usecase-4}
+		%\umlnote[x=7, y=-7]{incl-1}{note on include dependency}
+	\end{tikzpicture}
+	\caption{Diagramme des cas d'utilisation}
 \end{figure}
+
+\paragraph{Gestion des niveaux de sécurité (cryptographie)}
+Ce cas d'utilisation comprend la possibilité de définir les règles de sécurités appliquées sur un lieu d'intervention. Par règles de sécurité sont entendus les éléments suivants~:
+\begin{itemize}
+	\item les algorithmes cryptographiques utilisés lors des échanges de données sur le réseau.
+\end{itemize}
+Initialement, sont attendus à minima, l'ensemble des solutions suivantes~:
+
+\begin{itemize}
+	\item primitive d'échange de clé~:
+	\begin{itemize}
+		\item NULL~: on se réserve la possibilité de ne pas crypter l'échange de clé,
+		\item RSA~: conformément à la \href{http://tools.ietf.org/html/rfc3447}{RFC 3447},
+		%\item DH\_DSS,
+		%\item DH\_RSA,
+		%\item DHE\_DSS,
+		%\item DHE\_RSA,
+		%\item DH\_anon~;
+	\end{itemize}
+	\item primitive de chiffrement~:
+	\begin{itemize}
+		\item NULL~: on se réserve la possibilité de ne pas chiffrer l'échange,
+		%\item RC4\_128,
+		%\item 3DES\_EDE\_CBC,
+		%\item AES\_128\_CBC,
+		%\item AES\_256\_CBC~;
+	\end{itemize}
+	\item primitive de hachage~:
+	\begin{itemize}
+		\item NULL~: on se réserve la possibilité de ne pas signer l'échange,
+		\item MD5~: conformément à la \href{http://tools.ietf.org/html/rfc1321}{RFC 1321},
+		\item SHA~: conformément à la \href{http://tools.ietf.org/html/rfc3174}{RFC 3174},
+		%\item SHA256.
+	\end{itemize}
+\end{itemize} 
+Mais la cryptographie étant un domaine en constante évolution, il est attendu de la suite logicielle qu'elle permette d'ajouter et supprimer facilement des solutions cryptographiques. 
+
+\paragraph{Gestion des droits d'accès}
+
+\paragraph{Gestion des sauvegardes}
+La suite logicielle doit être pourvu d'un système de sauvegarde externalisé. Il est attendu de ce système qu'il permette les manipulations suivantes~:
+\begin{itemize}
+	\item lancer une sauvegarde (aussi bien distante que locale)~;
+	\item charger une sauvegarde existante (qu'elle soit distante ou locale)~;
+	\item ajouter, modifier, supprimer, importer et exporter une configuration de sauvegarde. Une configuration étant chargée de rassembler les paramètres suivants~:
+	\begin{itemize}
+		\item la liste exhaustive des données sauvegardées,
+		\item la planification (date, heure, minute, ...) et ses répétitions (1 fois, tous les jours - ou seulement certains, toutes les semaines, tous les mois, ...),
+		\item le support de réception qu'il soit distant ou local (serveur, client, baie de disque, disque dur, disque optique, clé USB, ...).
+	\end{itemize}
+\end{itemize}
+\begin{constraint}[Contrainte sur le système de sauvegarde]
+Il est demandé que le système de sauvegarde soit compatible avec le top 10 des solutions de sauvegarde les plus communes, aux cas où l'une d'entre elle soit mise en place à postériori.
+\end{constraint}
+
+
+
+
 
 \subsection{Fonctions de service complémentaires}
 Cette section définit les fonctions de service complémentaires. Ces dernières améliorent, facilitent ou complètent le service rendu. Elles sont souhaitées mais non prioritaires.
