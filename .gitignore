@@ -5,7 +5,10 @@
 # *.[oa]
 # *~
 
+# Temporary files
 *~
+
+# LaTeX compilation files
 *.aux
 *.backup
 *.log
@@ -14,5 +17,9 @@
 *.out
 *.synctex.gz
 *.toc
+
+# Open/Libre Office lock files
 .~lock.*
+
+# Windows system files
 Thumbs.db
