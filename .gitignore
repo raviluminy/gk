@@ -5,9 +5,14 @@
 # *.[oa]
 # *~
 
+*~
 *.aux
+*.backup
+*.log
 *.pdf
 *.ptc
+*.out
+*.synctex.gz
 *.toc
-*.log
 .~lock.*
+Thumbs.db
