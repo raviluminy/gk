@@ -27,13 +27,16 @@
 \usepackage{titletoc} % Required for manipulating the table of contents
 
 \contentsmargin{0cm} % Removes the default margin
+
 % Chapter text styling
-\titlecontents{chapter}[1.25cm] % Indentation
-{\addvspace{15pt}\large\sffamily\bfseries} % Spacing and font options for chapters
-{\color{ocre!60}\contentslabel[\Large\thecontentslabel]{1.25cm}\color{ocre}} % Chapter number
-{}  
-{\color{ocre!60}\normalsize\sffamily\bfseries\;\titlerule*[.5pc]{.}\;\thecontentspage} % Page number
-% Section text styling
+\titlecontents{chapter}
+	[1.25cm] % Indentation
+	{\addvspace{15pt}\large\sffamily\bfseries} % Spacing and font options for chapters
+	{\color{ocre!60}\contentslabel[\Large\thecontentslabel]{1.25cm}\color{ocre}} % Chapter number
+	{}
+	{\color{ocre!60}\normalsize\sffamily\bfseries\;\titlerule*[.5pc]{.}\;\thecontentspage} % Page number
+	% Section text styling
+
 \titlecontents{section}[1.25cm] % Indentation
 {\addvspace{5pt}\sffamily\bfseries} % Spacing and font options for sections
 {\contentslabel[\thecontentslabel]{1.25cm}} % Section number
@@ -64,7 +67,7 @@
 {}
 {}
 {}
- 
+
 %----------------------------------------------------------------------------------------
 %	PAGE HEADERS
 %----------------------------------------------------------------------------------------
@@ -264,18 +267,6 @@ innerbottommargin=5pt]{cBox}
 %	CONSTRAINT ENVIRONMENT
 %----------------------------------------------------------------------------------------
 
-%\newtheoremstyle{ocrenumbox}% % Theorem style name
-%{0pt}% Space above
-%{0pt}% Space below
-%{\normalfont}% % Body font
-%{}% Indent amount
-%{\small\bf\sffamily\color{ocre}}% % Theorem head font
-%{\;}% Punctuation after theorem head
-%{0.25em}% Space after theorem head
-%{\small\sffamily\color{ocre}\thmname{#1}\nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}% Theorem text (e.g. Theorem 2.1)
-%\thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries\color{black}---\nobreakspace#3.}} % Optional theorem note
-%\renewcommand{\qedsymbol}{$\blacksquare$}% Optional qed square
-
 \newtheorem{constraintT}{Contrainte}[section]
 \newenvironment{constraint}{\begin{tBox}\begin{constraintT}}{\end{constraintT}\end{tBox}}
 
@@ -288,19 +279,19 @@ innerbottommargin=5pt]{cBox}
 \renewcommand{\section}{\@startsection{section}{1}{\z@}
 {-4ex \@plus -1ex \@minus -.4ex}
 {1ex \@plus.2ex }
-{\normalfont\large\sffamily\bfseries}}
+{\normalfont\large\sffamily\bfseries\scshape}}
 \renewcommand{\subsection}{\@startsection {subsection}{2}{\z@}
 {-3ex \@plus -0.1ex \@minus -.4ex}
 {0.5ex \@plus.2ex }
-{\normalfont\sffamily\bfseries}}
+{\normalfont\sffamily\bfseries\scshape}}
 \renewcommand{\subsubsection}{\@startsection {subsubsection}{3}{\z@}
 {-2ex \@plus -0.1ex \@minus -.2ex}
 {0.2ex \@plus.2ex }
-{\normalfont\small\sffamily\bfseries}}                        
+{\normalfont\small\sffamily\bfseries\scshape}}                        
 \renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}
 {-2ex \@plus-.2ex \@minus .2ex}
 {0.1ex}
-{\normalfont\small\sffamily\bfseries}}
+{\normalfont\small\sffamily\bfseries\scshape}}
 
 %----------------------------------------------------------------------------------------
 %	CHAPTER HEADINGS
@@ -325,7 +316,7 @@ innerbottommargin=5pt]{cBox}
 \draw[fill=white,opacity=.6] (1cm,0) rectangle (8cm,-7cm);
 \node[anchor=north west] at (1cm,.25cm) {\parbox[t][8cm][t]{6.5cm}{\huge\bfseries\flushleft \printcontents{l}{1}{\setcounter{tocdepth}{2}}}};
 
-\draw[anchor=west] (5cm,-9cm) node [rounded corners=25pt,fill=white,fill opacity=.6,text opacity=1,draw=ocre,draw opacity=1,line width=2pt,inner sep=15pt]{\huge\sffamily\bfseries\textcolor{black}{\thechapter\ ---\ #1\vphantom{plPQq}\makebox[22cm]{}}};
+\draw[anchor=west] (5cm,-9cm) node [rounded corners=25pt,fill=white,fill opacity=.6,text opacity=1,draw=ocre,draw opacity=1,line width=2pt,inner sep=15pt]{\huge\sffamily\bfseries\scshape\textcolor{black}{\thechapter\ ---\ #1\vphantom{plPQq}\makebox[22cm]{}}};
 \end{tikzpicture}};
 \end{tikzpicture}}\par\vspace*{230\p@}
 \fi
