@@ -89,15 +89,32 @@
 
 \begingroup
 \thispagestyle{empty}
-\AddToShipoutPicture*{\put(6,5){\includegraphics[scale=1]{background}}} % Image background
-\centering
-\vspace*{9cm}
-\par\normalfont\fontsize{35}{35}\sffamily\selectfont\scshape
-{\bfseries\title}\par % Book title
-\vspace*{1cm}
-\subject\par % Book subject
+\AddToShipoutPicture*{\put(0,0){\includegraphics[scale=1]{pagedegarde}}} % Image background
+
+\begin{tikzpicture}[remember picture,overlay]
+% définition des styles
+\tikzstyle{titre}=[rectangle,text=black, align=right]
+\tikzstyle{divers}=[rectangle,text=black, align=left]
+%\tikzstyle{sujet}=[rectangle,draw,fill=blue!50,text=black]
+%\tikzstyle{version}=[rectangle,draw,fill=blue!50,text=black]
+% les nœuds
+\node[titre, text width = 13cm, anchor=north west] (t) at (-3.7,-2.5) {\par\fontsize{38}{50}\par\textsc\title};
+\node[titre, text width = 13cm, anchor=north west, below of=t, yshift=-2cm] (trait) {\\~\\~\\---------------------------------------------------------------------------------------------\\~\\};
+%\draw[anchor=north, align=center] (-2,-6) -- (9.5,-6);
+\node[titre, text width = 13cm, anchor=north west, below of=trait, yshift=-2cm] (s) {\Huge\textbf\subject};
+\node[divers, text width = 4.5cm, anchor=east] (v) at (17.5, -7) {\Large\textbf Version \version\\~\\\textit{\today}};
+%\node[sujet] (m) at (0,0.5) {\subject};
+%\node[version] (m) at (0,0.5) {\version};
+\end{tikzpicture}
+
+%\centering
+%\vspace*{7cm}
+%\normalfont\fontsize{35}{35}\sffamily\selectfont\scshape
+%{\bfseries\title} % Book title
 %\vspace*{1cm}
-%{\Huge \ibrahima, \mj, \lionel, \ravi, \khady}\par % Author name
+%\subject\par % Book subject
+%\vspace*{1cm}
+
 \endgroup
 
 %----------------------------------------------------------------------------------------
@@ -123,13 +140,14 @@
 %----------------------------------------------------------------------------------------
 
 \newpage
-\chapterimage{chapter_head_1.pdf} % Table of contents heading image
+%\chapterimage{chapter_head_1.pdf} % Table of contents heading image
+\chapterimage{entete_sciences.pdf} % Table of contents heading image
 
-\pagestyle{fancy} % Print headers again
+\pagestyle{empty} % Print headers again
 
 \chapter*{Page d'informations}
 
-\section*{Table de contacts}
+\section*{Contacts}
 \begin{tabularx}{\linewidth}{X X}
 	\toprule
 	Prénom(s) \& Nom & Adresse e-mail \\
@@ -148,7 +166,7 @@
 	\bottomrule
 \end{tabularx}
 
-\section*{Table de versions}
+\section*{Versions}
 \begin{tabularx}{\linewidth}{m{0.15\linewidth} m{0.15\linewidth} X X}
 	\toprule
 	Version & Date & Auteur(s) & Modification(s) \\
@@ -157,7 +175,7 @@
 	\bottomrule
 \end{tabularx}
 
-\section*{Table de diffusion}
+\section*{Diffusion}
 \begin{tabularx}{\linewidth}{m{0.15\linewidth} m{0.15\linewidth} X}
 	\toprule
 	Version & Date & Approbateur(s) \\
@@ -166,7 +184,7 @@
 	\bottomrule
 \end{tabularx}
 
-\section*{Table de validation}
+\section*{Validation}
 \begin{tabularx}{\linewidth}{m{0.15\linewidth} m{0.15\linewidth} X}
 	\toprule
 	Version & Date & Responsable(s) \\
@@ -175,11 +193,12 @@
 	\bottomrule
 \end{tabularx}
 
+\vfill
+
 %----------------------------------------------------------------------------------------
 %	TABLE OF CONTENTS
 %----------------------------------------------------------------------------------------
 
-\chapterimage{entete.pdf} % Table of contents heading image
 
 \pagestyle{empty} % No headers
 
@@ -193,7 +212,7 @@
 %	CHAPTER 1
 %----------------------------------------------------------------------------------------
 
-\chapterimage{entete.pdf} % Chapter heading image
+%\chapterimage{entete.pdf} % Chapter heading image
 
 \include{CdCF-Chapitre1}
 
