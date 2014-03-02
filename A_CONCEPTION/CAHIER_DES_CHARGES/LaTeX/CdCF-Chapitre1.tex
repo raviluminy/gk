@@ -71,36 +71,140 @@ Leur dépendances respéctives sont décrites dans la Fig. \ref{dep}
 \section{Environnement du produit recherché}
 Cette section décrit les conditions de fonctionnement de la solution recherchée.
 
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}
+		% Définition des styles
+		\tikzstyle{sup} = [rectangle,draw=white,text=black,text centered,minimum width=20mm,minimum height=80mm]
+		\tikzstyle{one} = [fill=colone,rectangle,draw=white,minimum width=20mm]
+		\tikzstyle{two} = [fill=coltwo,rectangle,draw=white,minimum width=20mm]
+		\tikzstyle{three} = [fill=colthree,rectangle,draw=white,minimum width=20mm]
+		\tikzstyle{four} = [fill=colfour,rectangle,draw=white,minimum width=20mm]
+		\tikzstyle{five} = [fill=colfive,rectangle,draw=white,minimum width=20mm]
+		\tikzstyle{six} = [fill=colsix,rectangle,draw=white,minimum width=20mm]
+		\tikzstyle{seven} = [fill=colseven,rectangle,draw=white,minimum width=20mm]
+		\tikzstyle{inf} = [rectangle,draw=white,text=black,text centered,minimum width=20mm,minimum height=10mm]
+		\tikzstyle{oneonthree} = [minimum height=26mm]
+		\tikzstyle{twoonthree} = [minimum height=28mm]
+		\tikzstyle{threeonthree} = [minimum height=26mm]
+		\tikzstyle{oneonfour} = [minimum height=20mm]
+		\tikzstyle{twoonfour} = [minimum height=20mm]
+		\tikzstyle{threeonfour} = [minimum height=20mm]
+		\tikzstyle{fouronfour} = [minimum height=20mm]
+		\tikzstyle{arrow}=[->,>=latex,thick,rounded corners=4pt]
+		% Noeuds utilisateurs
+		\node[inf,one] at (  0mm, 0mm) {\centering\tiny\bfseries\scshape Utilisateurs};
+		\node[one,oneonthree] (Utilisateurs) at (  0mm,18mm) {};
+		\node at (  0mm,9mm) {\centering\tiny\itshape Métier};
+		\node at (  0mm,19mm) {\centering\includegraphics[height=16mm]{"Logistician"}};
+		\node[one,twoonthree] (Logistician) at (  0mm,45mm) {};
+		\node at (  0mm,36mm) {\centering\tiny\itshape Logisticien};
+		\node at (  0mm,46mm) {\centering\includegraphics[height=16mm]{"Logistician"}};
+		\node[one,threeonthree] (Administrateur) at (  0mm,72mm) {};
+		\node at (  0mm,63mm) {\centering\tiny\itshape Administrateur};
+		\node at (  0mm,73mm) {\centering\includegraphics[height=16mm]{"Logistician"}};
+		% Noeuds matériels
+		\node[inf,two] at ( 20mm, 0mm) {\centering\tiny\bfseries\scshape Matériels};
+		\node[two,oneonthree] (Matériels) at ( 20mm,18mm) {};
+		\node at ( 20mm,9mm) {\centering\tiny\itshape Portable};
+		\node at ( 20mm,19mm) {\centering\includegraphics[width=16mm]{"Laptop computer"}};
+		\node[two,twoonthree] (Smartphone) at ( 20mm,45mm) {};
+		\node at ( 20mm,36mm) {\centering\tiny\itshape Smartphone};
+		\node at ( 20mm,46mm) {\centering\includegraphics[height=16mm]{"Smartphone"}};
+		\node[two,threeonthree] (Satphone) at ( 20mm,72mm) {};
+		\node at ( 20mm,63mm) {\centering\tiny\itshape Téléphone satellite};
+		\node at ( 20mm,73mm) {\centering\includegraphics[height=16mm]{"Smartphone"}};
+		% Noeuds application
+		\node[inf,three] at ( 40mm, 0mm) {\centering\tiny\bfseries\scshape Application(s)};
+		\node[three,minimum width=20mm,minimum height=80mm] (Application) at ( 40mm,45mm) {\centering};
+		% Noeuds synchronisation
+		\node[inf,four] at ( 60mm, 0mm) {\centering\tiny\bfseries\scshape Synchro};
+		\node[four,oneonfour] (Physique1) at ( 60mm,15mm) {};
+		\node at ( 60mm, 9mm) {\centering\tiny\itshape Physique};
+		\node at ( 56mm,16mm) {\centering\includegraphics[width=6mm]{"Compact disk"}};
+		\node at ( 64mm,16mm) {\centering\includegraphics[width=8mm]{"USB key"}};
+		\node[four,twoonfour] (Internet1) at ( 60mm,35mm) {};
+		\node at ( 60mm,29mm) {\centering\tiny\itshape Internet};
+		\node at ( 60mm,36mm) {\centering\includegraphics[width=16mm]{"Internet"}};
+		\node[four,threeonfour] (Téléphonie1) at ( 60mm,55mm) {};
+		\node at ( 60mm,49mm) {\centering\tiny\itshape Téléphonie};
+		\node at ( 60mm,56mm) {\centering\includegraphics[height=16mm]{"Phone antenna"}};
+		\node[four,fouronfour] (Satellite1) at ( 60mm,75mm) {};
+		\node at ( 60mm,69mm) {\centering\tiny\itshape Satellite};
+		\node at ( 60mm,76mm) {\centering\includegraphics[height=16mm]{"Satellite"}};
+		% Noeuds serveur local
+		\node[inf,five] at ( 80mm, 0mm) {\centering\tiny\bfseries\scshape\begin{tabular}{c}Serveur \\ local\end{tabular}};
+		\node[five,minimum height=80mm] (Server1) at (80mm,45mm) {};
+		\node at (80mm,34mm) {\centering\tiny\itshape Serveur};
+		\node at (80mm,48mm) {\centering\includegraphics[width=16mm]{"Server"}};
+		% Noeuds synchronisation
+		\node[inf,six] at (100mm, 0mm) {\centering\tiny\bfseries\scshape Synchro};
+		\node[six,oneonfour] (Physique1) at (100mm,15mm) {};
+		\node at (100mm, 9mm) {\centering\tiny\itshape Physique};
+		\node at ( 96mm,16mm) {\centering\includegraphics[width=6mm]{"Compact disk"}};
+		\node at (104mm,16mm) {\centering\includegraphics[width=8mm]{"USB key"}};
+		\node[six,twoonfour] (Internet2) at (100mm,35mm) {};
+		\node at (100mm,29mm) {\centering\tiny\itshape Internet};
+		\node at (100mm,36mm) {\centering\includegraphics[width=16mm]{"Internet"}};
+		\node[six,threeonfour] (Téléphonie2) at (100mm,55mm) {};
+		\node at (100mm,49mm) {\centering\tiny\itshape Téléphonie};
+		\node at (100mm,56mm) {\centering\includegraphics[height=16mm]{"Phone antenna"}};
+		\node[six,fouronfour] (Satellite2) at (100mm,75mm) {};
+		\node at (100mm,69mm) {\centering\tiny\itshape Satellite};
+		\node at (100mm,76mm) {\centering\includegraphics[height=16mm]{"Satellite"}};
+		% Noeuds serveur central
+		\node[inf,seven] at (120mm, 0mm) {\centering\tiny\bfseries\scshape\begin{tabular}{c}Serveur \\ central\end{tabular}};
+		\node[seven,minimum height=80mm] (Server2) at (120mm,45mm) {};
+		\node at (120mm,34mm) {\centering\tiny\itshape Serveur};
+		\node at (120mm,48mm) {\centering\includegraphics[width=16mm]{"Server"}};
+		\end{tikzpicture}
+	\caption{Architecture générale}
+	\label{Architecture générale}
+\end{figure}
+
 %-------------------------------------------------------------------------------
 \subsection{Listes exhaustives des éléments et contraintes}
 
 \subsubsection{Personnes}
-Les utilisateurs seront :
+De nombreux utilisateurs de différents types seront amenés à utiliser la suite logicielle. Ces derniers seront principalement~:
 \begin{itemize}
-\item Le secrétariat central
-\item Les logisticiens sur le terrain
-\item Les métiers
+	\item Le secrétariat central
+	\item Les logisticiens de terrain
+	\item Les métiers
+	\item Les administrateurs
 \end{itemize}
+% Fin de la subsubsection [Personnes]
 
 \subsubsection{Équipement}
-\mo possède déjà une infrastructure informatique, constituée de machines serveurs et clientes, comme suit :
+\mo possède déjà de nombreux matériels normalisés décris ci-dessous. Parmi ces derniers, il est attendu que la suite logicielle soit pleinement accessible depuis ordinateurs portables, smartphones et téléphones satellite. \mo dispose~:
 \begin{itemize}
-\item Les serveurs tournent sur un système Microsoft Windows mais une migration est prévue sur GNU/Linux. Le stockage des données est pris en charge par deux SGBDR que sont MySql Server et Oracle.
-\item Les clients sont :
-\begin{itemize}
-\item Ordinateurs portables : sous Microsoft Windows 7 équipés de 16 Go de mémoire vive et de 250 Go d'espace disque. Microsoft Internet Explorer et Mozilla Firefox sont les deux navigateurs présents par défaut et leur utilisation est fonction des préférences de l'utilisateur.
-\item Smartphones : sous Androïd.
+	\item de serveurs (locaux et central) actuellement sous Microsoft~Windows (une migration vers une distribution GNU/Linux étant en projet). Le stockage actuel des données est pris en charge par deux SGBDR que sont MySQL~Server et SQL~Oracle~;
+	\item d'ordinateurs portables sous Microsoft~Windows~7. Ils sont équipés de 16 Go de mémoire vive et de 250 Go d'espace disque. Microsoft~Internet~Explorer~11 et Mozilla~Firefox~27.0.1 sont les deux navigateurs présents par défaut et leur utilisation est fonction des préférences de l'utilisateur~;
+	\item de terminaux satellitaires BGAN (Thrane \& Thrane~Explorer~500)~;
+	\item de smartphones sous \href{http://www.android.com/}{Android}~;
+	\item de téléphones satellitaires Thuraya (\href{http://www.thuraya.com.kw/hughes7101.html}{Hughes~7100} / \href{http://www.thuraya.com.kw/hughes7100.html}{7101} et \href{http://www.thuraya.com.kw/so-2510.html}{SO~2510}) et Iridium (\href{http://www.iridium.com/products/Iridium-9505A-Satellite-Phone.aspx}{9505A} et \href{http://www.iridium.com/products/Iridium9555SatellitePhone.aspx}{9555}) destinés principalement à la communication vocale~;
+	\item de téléphones télécopieurs (fax) satellitaires (Nera~Mini-M~Worldphone)~;
+	\item de communicateurs radio VHF (Motorola~GP360/GM360)~;
+	\item de points d'accès sans fil (Linksys~WRT54G) permettant de partager une connexion à large bande (BGAN, ADSL, VSAT, etc.) dans un réseau sans fil.
+	\item de GPS portables (eTrex~Venture~HC de Garmin).
 \end{itemize}
-\end{itemize}
+\begin{constraint}[Contrainte de compatibilité]
+La suite logicielle doit impérativement être compatible avec les matériels énoncés. En outre, elle doit également être compatible avec les systèmes d'exploitation (y compris ceux à venir) et, au minimum, les versions de logiciels précisés (un support pour versions ultérieurs pouvant être sollicité).
+\end{constraint}
+\begin{constraint}[Contrainte de coûts de communication]
+Bien que l'Organisation dispose de nombreux moyens de communications satellitaires, ces derniers sont principalement destinés aux urgences, car extrêmement coûteux. Un besoin fondamental est donc de minimiser ce genre de transferts, ainsi que d'avertir un utilisateur sur le point d'y avoir recours, afin de prévenir les cas d'erreur ou d'inattention.
+La priorité sur les moyens de communication utilisés devraient se plier aux préférences suivantes (par ordre décroissant)~:
+\begin{enumerate}
+	\item les réseaux Internet~;
+	\item les réseaux GSM~;
+	\item les transports physiques~;
+	\item les réseaux satellitaires~;
+\end{enumerate}
+\end{constraint}
+% Fin de la subsubsection [Équipement]
 
-\subsubsection{Contraintes}
-La communication entre clients et serveur est assurée par une liaison réseau dépendant du lieu de l'intervention et pouvant reposer sur trois infrastructures (classé ici par ordre décroissant de préférence d'utilisation) :
-\begin{itemize}
-\item Internet (ADSL)
-\item Téléphonique (GSM)
-\item Satellitaire
-\end{itemize}
-Les lois étant différentes en fonction du pays où \mo intervient, il conviendra de prendre en compte les obligations cryptographiques en vigueur lors des échanges.
+% Fin de la section [Listes exhaustives des éléments et contraintes]
+
 % Fin de la section [Environnement du produit recherché]
 % ==============================================================================
 
@@ -187,6 +291,7 @@ Le but du projet est d'offrir une solution de type TMS afin d'optimiser les poin
 \end{itemize}
 Ainsi, le temps d'acheminement des secours et matériel de première nécessité pendant les missions de \mo pourra être réduit de façon significative.
 % Fin de la sous-section [Finalités]
+
 % ------------------------------------------------------------------------------
 % ------------------------------------------------------------------------------
 \subsection{Espérance de retour sur investissement}

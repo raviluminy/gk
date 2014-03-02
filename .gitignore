@@ -12,7 +12,6 @@
 *.aux
 *.backup
 *.log
-*.pdf
 *.ptc
 *.out
 *.synctex.gz

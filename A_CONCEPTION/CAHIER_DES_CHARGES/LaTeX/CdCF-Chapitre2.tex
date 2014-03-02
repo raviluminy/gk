@@ -8,80 +8,7 @@ Cette section tient un compte détaillé des spécifications fonctionnelles du p
 
 \section{Fonctions de service et de contrainte}
 Cette section précise les services attendus et contraintes à respecter.
-
-\begin{figure}[htbp]
-	\centering
-	\begin{tikzpicture}
-		% Définition des styles
-		\tikzstyle{sup} = [rectangle,draw=white,text=black,text centered,minimum width=20mm,minimum height=80mm]
-		\tikzstyle{one} = [fill=colone]
-		\tikzstyle{two} = [fill=coltwo]
-		\tikzstyle{three} = [fill=colthree]
-		\tikzstyle{four} = [fill=colfour]
-		\tikzstyle{five} = [fill=colfive]
-		\tikzstyle{six} = [fill=colsix]
-		\tikzstyle{seven} = [fill=colseven]
-		\tikzstyle{inf} = [rectangle,draw=white,text=black,text centered,minimum width=20mm,minimum height=10mm]
-		\tikzstyle{oneonthree} = [minimum height=26mm]
-		\tikzstyle{twoonthree} = [minimum height=28mm]
-		\tikzstyle{threeonthree} = [minimum height=26mm]
-		\tikzstyle{oneonfour} = [minimum height=20mm]
-		\tikzstyle{twoonfour} = [minimum height=20mm]
-		\tikzstyle{threeonfour} = [minimum height=20mm]
-		\tikzstyle{fouronfour} = [minimum height=20mm]
-		\tikzstyle{arrow}=[->,>=latex,thick,rounded corners=4pt]
-		% noeuds supérieurs avec images
-		\node[sup,one]   at (  0mm,45mm) {};
-		\node[sup,two]   at ( 20mm,45mm) {};
-		\node[sup,three] at ( 40mm,45mm) {};
-		\node[sup,four]  at ( 60mm,45mm) {};
-		\node[sup,five]  at ( 80mm,45mm) {};
-		\node[sup,six]   at (100mm,45mm) {};
-		\node[sup,seven] at (120mm,45mm) {};
-		\node               (Logistician)   at (  0mm,45mm) {\centering\includegraphics[width=16mm]{"Logistician"}};
-		\node               (Application)   at ( 20mm,45mm) {\centering};
-		\node[oneonthree]   (Laptop)        at ( 40mm,18mm) {\centering\includegraphics[width=16mm]{"Laptop computer"}};
-		\node[twoonthree]   (Smartphone)    at ( 40mm,45mm) {\centering\includegraphics[height=16mm]{"Smartphone"}};
-		\node[threeonthree] (Satphone)      at ( 40mm,72mm) {\centering\includegraphics[height=16mm]{"Smartphone"}};
-		\node[oneonfour,minimum width=10mm] (CompactDisk1) at ( 55mm,15mm) {\centering\includegraphics[width=6mm]{"Compact disk"}};
-		\node[oneonfour,minimum width=10mm] (UsbKey1) at ( 65mm,15mm) {\centering\includegraphics[width=8mm]{"USB key"}};
-		\node[twoonfour]    (Internet1)     at ( 60mm,35mm) {\centering\includegraphics[width=16mm]{"Internet"}};
-		\node[threeonfour]  (PhoneAntenna1) at ( 60mm,55mm) {\centering\includegraphics[height=16mm]{"Phone antenna"}};
-		\node[fouronfour]   (Satellite1)    at ( 60mm,75mm) {\centering\includegraphics[width=16mm]{"Satellite"}};
-		\node               (Server1)       at ( 80mm,45mm) {\centering\includegraphics[width=16mm]{"Server"}};
-		\node[oneonfour,minimum width=10mm] at ( 95mm,15mm) {\centering\includegraphics[width=6mm]{"Compact disk"}};
-		\node[oneonfour,minimum width=10mm] at (105mm,15mm) {\centering\includegraphics[width=8mm]{"USB key"}};
-		\node[twoonfour]    (Internet2)     at (100mm,35mm) {\centering\includegraphics[width=16mm]{"Internet"}};
-		\node[threeonfour]  (PhoneAntenna2) at (100mm,55mm) {\centering\includegraphics[height=16mm]{"Phone antenna"}};
-		\node[fouronfour]   (Satellite2)    at (100mm,75mm) {\centering\includegraphics[width=16mm]{"Satellite"}};
-		\node               (Server2)       at (120mm,45mm) {\centering\includegraphics[width=16mm]{"Server"}};
-		% noeuds inférieurs avec textes
-		\node[inf,one]   at (  0mm, 0mm) {\centering\tiny Utilisateur};
-		\node[inf,two]   at ( 20mm, 0mm) {\centering\tiny Application};
-		\node[inf,three] at ( 40mm, 0mm) {\centering\tiny Matériels};
-		\node[inf,four]  at ( 60mm, 0mm) {\centering\tiny Synchronisation};
-		\node[inf,five]  at ( 80mm, 0mm) {\centering\tiny Serveur local};
-		\node[inf,six]   at (100mm, 0mm) {\centering\tiny Synchronisation};
-		\node[inf,seven] at (120mm, 0mm) {\centering\tiny Serveur central};
-		% liaisons entre noeuds
-		\draw[<->] (Logistician) to             (Application);
-		\draw[<->] (Application) to[bend right] (Laptop);
-		\draw[<->] (Application) to             (Smartphone);
-		\draw[<->] (Application) to[bend left]  (Satphone);
-		\draw[<->] (Laptop)      to[bend rigth] (CompactDisk1);
-		\draw[<->] (Laptop)      to[bend rigth] (UsbKey1);
-		\draw[<->] (Laptop)      to[bend rigth] (Internet1);
-		\draw[<->] (Laptop)      to[bend rigth] (PhoneAntenna1);
-		\draw[<->] (Laptop)      to[bend rigth] (Satellite1);
-%\draw[supporte] (l) to[bend right] (d);
-%\draw[supporte] (t) to[bend left] (l);
-%\draw[supporte] (t) to[bend left] (e);
-%\draw[supporte] (t) to[bend right] (m);
-%\draw[supporte] (t) to[bend left] (d);
-	\end{tikzpicture}
-	\caption{Diagramme général}
-\end{figure}
-
+Il est attendu de la suite logicielle qu'elle réponde à l'architecture de la figure \ref{Architecture générale}.
 
 \subsection{Fonctions de service principales}
 Cette section définit l'ensemble des services principaux attendus. Ces derniers sont la raison d'être du produit. Ils sont incontournables.
@@ -185,6 +112,7 @@ Initialement, sont attendus à minima, l'ensemble des solutions suivantes~:
 	\item primitive de chiffrement~:
 	\begin{itemize}
 		\item NULL~: on se réserve la possibilité de ne pas chiffrer l'échange,
+		\item AES~: conformément à la \href{http://tools.ietf.org/html/rfc3394}{RFC 3394},
 		%\item RC4\_128,
 		%\item 3DES\_EDE\_CBC,
 		%\item AES\_128\_CBC,
@@ -197,10 +125,10 @@ Initialement, sont attendus à minima, l'ensemble des solutions suivantes~:
 		\item SHA~: conformément à la \href{http://tools.ietf.org/html/rfc3174}{RFC 3174},
 		%\item SHA256.
 	\end{itemize}
-\end{itemize} 
+\end{itemize}
 Mais la cryptographie étant un domaine en constante évolution, il est attendu de la suite logicielle qu'elle permette d'ajouter et supprimer facilement des solutions cryptographiques. 
 \begin{constraint}[Contraintes sur la sécurité des données échangées]
-Les situations d'urgence ne dispensent pas les acteurs humanitaires de se conformer à la législation des pays dans lesquels ils interviennent, notamment pour ce qui est des moyens de sécurisation des échanges de données. La transparence est si possible de mise, afin de ne pas instiller de doutes et mettre en particulier en danger la crédibilité et l'action de l'Organisation. En outre, des interventions dans des territoires potentiellement conflictuels ou sous contrôle militaire strict - Cachemire par exemple - quand bien même celles-ci restent très exceptionnelles eu égard au mandat de l'Organisation sont possibles. Dans ce cadre, l'utilisation de moyens de sécurité des données transmises (cryptage) peut être proscrite ou tout du moins adaptée justifiable et adaptée à une cryptanalyse \og{}rapide\fg{}. La suite logicielle doit donc permettre d'effecuer ces changement \emph{facilement}.
+Les situations d'urgence ne dispensent pas les acteurs humanitaires de se conformer à la législation des pays dans lesquels ils interviennent, notamment pour ce qui est des moyens de sécurisation des échanges de données. La transparence est si possible de mise, afin de ne pas instiller de doutes et mettre en particulier en danger la crédibilité et l'action de l'Organisation. En outre, des interventions dans des territoires potentiellement conflictuels ou sous contrôle militaire strict - Cachemire par exemple - quand bien même celles-ci restent très exceptionnelles eu égard au mandat de l'Organisation sont possibles. Dans ce cadre, l'utilisation de moyens de sécurité des données transmises (cryptage) peut être proscrite ou tout du moins adaptée justifiable et adaptée à une cryptanalyse \og{}rapide\fg{}. La suite logicielle doit donc permettre d'effectuer ces changements \emph{facilement}.
 \end{constraint}
 
 \paragraph{Gestion des droits d'accès}
