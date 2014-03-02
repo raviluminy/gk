@@ -77,9 +77,9 @@
 
 % Infos spécifiques au document
 
-\renewcommand{\title}{Système de gestion des transports}
-\newcommand{\subject}{Cahier des charges}
-\newcommand{\version}{2.0}
+\renewcommand{\title}{Système de gestion des transports\xspace}
+\newcommand{\subject}{Cahier des charges\xspace}
+\newcommand{\version}{2.0\xspace}
 
 \begin{document}
 
@@ -87,33 +87,48 @@
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
 
+%% Mj %% Choix des éléments de mise en page - à commenter et décommenter à souhait.
+%% Mj %% Page de garde
+%\newcommand{\graphicpagedegarde}{pagedegarde}
+\newcommand{\graphicpagedegarde}{Page-de-garde-avec-decomposition-cubique2}
+%% Mj %% En-tête de document
+%\newcommand{\graphicentete}{chapter_head_1} % Initial - Table of contents heading image
+%\newcommand{\graphicentete}{chapter_head_2} % Initial - Table of contents heading image
+%\newcommand{\graphicentete}{entete} % Actuelle
+\newcommand{\graphicentete}{En-tete-avec-decomposition-cubique2} % Décomposition cubique
+\chapterimage{\graphicentete} % Application de l'en-ête sélectionnée
+
+
 \begingroup
 \thispagestyle{empty}
-\AddToShipoutPicture*{\put(0,0){\includegraphics[scale=1]{pagedegarde}}} % Image background
+\AddToShipoutPicture*{\put(0,0){\includegraphics[scale=1]{\graphicpagedegarde}}} % Image background
 
-\begin{tikzpicture}[remember picture,overlay]
-% définition des styles
-\tikzstyle{titre}=[rectangle,text=black, align=right]
-\tikzstyle{divers}=[rectangle,text=black, align=left]
-%\tikzstyle{sujet}=[rectangle,draw,fill=blue!50,text=black]
-%\tikzstyle{version}=[rectangle,draw,fill=blue!50,text=black]
-% les nœuds
-\node[titre, text width = 13cm, anchor=north west] (t) at (-3.7,-2.5) {\par\fontsize{38}{50}\par\textsc\title};
-\node[titre, text width = 13cm, anchor=north west, below of=t, yshift=-2cm] (trait) {\\~\\~\\---------------------------------------------------------------------------------------------\\~\\};
-%\draw[anchor=north, align=center] (-2,-6) -- (9.5,-6);
-\node[titre, text width = 13cm, anchor=north west, below of=trait, yshift=-2cm] (s) {\Huge\textbf\subject};
-\node[divers, text width = 4.5cm, anchor=east] (v) at (17.5, -7) {\Large\textbf Version \version\\~\\\textit{\today}};
-%\node[sujet] (m) at (0,0.5) {\subject};
-%\node[version] (m) at (0,0.5) {\version};
-\end{tikzpicture}
+% Mj % Mis en commentaire pour tester la mise en page par décomposition cubique
+%\begin{tikzpicture}[remember picture,overlay]
+%% définition des styles
+%\tikzstyle{titre}=[rectangle,text=black, align=right]
+%\tikzstyle{divers}=[rectangle,text=black, align=left]
+%%\tikzstyle{sujet}=[rectangle,draw,fill=blue!50,text=black]
+%%\tikzstyle{version}=[rectangle,draw,fill=blue!50,text=black]
+%% les nœuds
+%\node[titre, text width = 13cm, anchor=north west] (t) at (-3.7,-2.5) {\par\fontsize{38}{50}\par\textsc\title};
+%\node[titre, text width = 13cm, anchor=north west, below of=t, yshift=-2cm] (trait) {\\~\\~\\---------------------------------------------------------------------------------------------\\~\\};
+%%\draw[anchor=north, align=center] (-2,-6) -- (9.5,-6);
+%\node[titre, text width = 13cm, anchor=north west, below of=trait, yshift=-2cm] (s) {\Huge\textbf\subject};
+%\node[divers, text width = 4.5cm, anchor=east] (v) at (17.5, -7) {\Large\textbf Version \version\\~\\\textit{\today}};
+%%\node[sujet] (m) at (0,0.5) {\subject};
+%%\node[version] (m) at (0,0.5) {\version};
+%\end{tikzpicture}
 
-%\centering
-%\vspace*{7cm}
-%\normalfont\fontsize{35}{35}\sffamily\selectfont\scshape
-%{\bfseries\title} % Book title
-%\vspace*{1cm}
-%\subject\par % Book subject
-%\vspace*{1cm}
+% Mj % Décommenté pour tester la mise en page par décomposition cubique
+\centering
+\vspace*{85mm}
+\par\normalfont\fontsize{40}{40}\sffamily\selectfont\scshape
+{\bfseries\title}\par % Book title
+\vspace*{15mm}
+\par\normalfont\fontsize{30}{30}\sffamily\selectfont\scshape
+\subject\version\par % Book subject
+\vspace*{15mm}
 
 \endgroup
 
@@ -140,8 +155,6 @@
 %----------------------------------------------------------------------------------------
 
 \newpage
-%\chapterimage{chapter_head_1.pdf} % Table of contents heading image
-\chapterimage{entete_sciences.pdf} % Table of contents heading image
 
 \pagestyle{empty} % Print headers again
 
@@ -211,8 +224,6 @@
 %----------------------------------------------------------------------------------------
 %	CHAPTER 1
 %----------------------------------------------------------------------------------------
-
-%\chapterimage{entete.pdf} % Chapter heading image
 
 \include{CdCF-Chapitre1}
 

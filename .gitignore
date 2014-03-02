@@ -15,10 +15,15 @@
 *.ptc
 *.out
 *.synctex.gz
+*.synctex.gz(buzy)
 *.toc
+A_CONCEPTION/CAHIER_DES_CHARGES/LaTeX/main.pdf
 
 # Open/Libre Office lock files
 .~lock.*
 
 # Windows system files
 Thumbs.db
+
+# GIMP files
+*.xcf
