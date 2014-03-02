@@ -8,25 +8,7 @@ Cette section tient un compte détaillé des spécifications fonctionnelles du p
 
 \section{Fonctions de service et de contrainte}
 Cette section précise les services attendus et contraintes à respecter.
-
-%\begin{figure}[htbp]
-%	\centering
-%	\begin{tikzpicture}
-%		\tikzstyle{sup} = [rectangle,draw,text=black,text centered,minimum width=2.9,minimum height=6.9]
-%		\tikzstyle{inf} = [rectangle,draw,text=black,text centered,minimum width=2.9,minimum height=1.9]
-%		\node[sup,fill=colone] at (0,2) {\centering\includegraphics{Logisticien}};
-%		\node[sup,fill=colone] at (3,2) {\centering\includegraphics{Logisticien}};
-%		\node[inf,fill=coltwo] at (0,0) {\centering\begin{tabular}{c}Utilisateur\end{tabular}};
-%		\node[inf,fill=coltwo] at (2.5,0) {\centering\begin{tabular}{c}Application\end{tabular}};
-%		\node[inf,fill=coltwo] at (5,0) {\centering\begin{tabular}{c}Matériels\end{tabular}};
-%		\node[inf,fill=coltwo] at (7.5,0) {\centering\begin{tabular}{c}Réseau\end{tabular}};
-%		\node[inf,fill=coltwo] at (10,0) {\centering\begin{tabular}{c}Serveur local\end{tabular}};
-%		\node[inf,fill=coltwo] at (12.5,0) {\centering\begin{tabular}{c}Réseau\end{tabular}};
-%		\node[inf,fill=coltwo] at (15,0) {\centering\begin{tabular}{c}Serveur central\end{tabular}};
-%	\end{tikzpicture}
-%	\caption{Diagramme général}
-%\end{figure}
-
+Il est attendu de la suite logicielle qu'elle réponde à l'architecture de la figure \ref{Architecture générale}.
 
 \subsection{Fonctions de service principales}
 Cette section définit l'ensemble des services principaux attendus. Ces derniers sont la raison d'être du produit. Ils sont incontournables.
@@ -130,6 +112,7 @@ Initialement, sont attendus à minima, l'ensemble des solutions suivantes~:
 	\item primitive de chiffrement~:
 	\begin{itemize}
 		\item NULL~: on se réserve la possibilité de ne pas chiffrer l'échange,
+		\item AES~: conformément à la \href{http://tools.ietf.org/html/rfc3394}{RFC 3394},
 		%\item RC4\_128,
 		%\item 3DES\_EDE\_CBC,
 		%\item AES\_128\_CBC,
@@ -142,10 +125,10 @@ Initialement, sont attendus à minima, l'ensemble des solutions suivantes~:
 		\item SHA~: conformément à la \href{http://tools.ietf.org/html/rfc3174}{RFC 3174},
 		%\item SHA256.
 	\end{itemize}
-\end{itemize} 
+\end{itemize}
 Mais la cryptographie étant un domaine en constante évolution, il est attendu de la suite logicielle qu'elle permette d'ajouter et supprimer facilement des solutions cryptographiques. 
 \begin{constraint}[Contraintes sur la sécurité des données échangées]
-Les situations d'urgence ne dispensent pas les acteurs humanitaires de se conformer à la législation des pays dans lesquels ils interviennent, notamment pour ce qui est des moyens de sécurisation des échanges de données. La transparence est si possible de mise, afin de ne pas instiller de doutes et mettre en particulier en danger la crédibilité et l'action de l'Organisation. En outre, des interventions dans des territoires potentiellement conflictuels ou sous contrôle militaire strict - Cachemire par exemple - quand bien même celles-ci restent très exceptionnelles eu égard au mandat de l'Organisation sont possibles. Dans ce cadre, l'utilisation de moyens de sécurité des données transmises (cryptage) peut être proscrite ou tout du moins adaptée justifiable et adaptée à une cryptanalyse \og{}rapide\fg{}. La suite logicielle doit donc permettre d'effecuer ces changement \emph{facilement}.
+Les situations d'urgence ne dispensent pas les acteurs humanitaires de se conformer à la législation des pays dans lesquels ils interviennent, notamment pour ce qui est des moyens de sécurisation des échanges de données. La transparence est si possible de mise, afin de ne pas instiller de doutes et mettre en particulier en danger la crédibilité et l'action de l'Organisation. En outre, des interventions dans des territoires potentiellement conflictuels ou sous contrôle militaire strict - Cachemire par exemple - quand bien même celles-ci restent très exceptionnelles eu égard au mandat de l'Organisation sont possibles. Dans ce cadre, l'utilisation de moyens de sécurité des données transmises (cryptage) peut être proscrite ou tout du moins adaptée justifiable et adaptée à une cryptanalyse \og{}rapide\fg{}. La suite logicielle doit donc permettre d'effectuer ces changements \emph{facilement}.
 \end{constraint}
 
 \paragraph{Gestion des droits d'accès}

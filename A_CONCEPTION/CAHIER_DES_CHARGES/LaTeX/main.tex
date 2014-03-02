@@ -12,7 +12,9 @@
 
 \usepackage{xspace}
 \usepackage{tabularx}
+%\renewcommand{\tabularxcolumn}[1]{>{\centering}m{#1}}
 \def\tabularxcolumn#1{m{#1}}
+\usepackage{tabulary}
 \usepackage{tikz}
 \usepackage{tikz-uml}
 
@@ -24,7 +26,6 @@
 \usepackage{microtype} % Slightly tweak font spacing for aesthetics
 \usepackage[utf8]{inputenc} % Required for including letters with accents
 \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
-
 
 % Bibliography
 %\usepackage[style=alphabetic,sorting=nyt,sortcites=true,autopunct=true,babel=hyphen,hyperref=true,abbreviate=false,backref=true,backend=bibtex]{biblatex}
@@ -58,14 +59,27 @@
 %----------------------------------------------------------------------------------------
 
 \newcommand{\mo}{Garmir~Khatch\xspace}
-\newcommand{\roland}{\href{mailto:roland.agopian@univ-amu.fr}{Roland~\textsc{Agopian}}\xspace}
 \newcommand{\amo}{AMU~FSI~2014~B\xspace}
+
+\newcommand{\rolandemail}{\href{mailto:roland.agopian@univ-amu.fr}{roland.agopian@univ-amu.fr}\xspace}
+\newcommand{\raviemail}{\href{mailto:pachy.ravi@gmail.com}{pachy.ravi@gmail.com}\xspace}
+\newcommand{\mjemail}{\href{mailto:mehdi-jonathan@hotmail.fr}{mehdi-jonathan@hotmail.fr}\xspace}
+\newcommand{\lionelemail}{\href{mailto:lionel.gairoard@gmail.com}{lionel.gairoard@gmail.com}\xspace}
+\newcommand{\ibrahimaemail}{\href{mailto:ibbaldes@yahoo.fr}{ibbaldes@yahoo.fr}\xspace}
+\newcommand{\khadyemail}{\href{mailto:takamor91@yahoo.fr}{takamor91@yahoo.fr}\xspace}
+
+\newcommand{\roland}{\href{mailto:roland.agopian@univ-amu.fr}{Roland~\textsc{Agopian}}\xspace}
 \newcommand{\ravi}{\href{mailto:pachy.ravi@gmail.com}{Ravi~\textsc{Pachy}}\xspace}
 \newcommand{\mj}{\href{mailto:mehdi-jonathan@hotmail.fr}{Mehdi-Jonathan~\textsc{Cadon}}\xspace}
 \newcommand{\lionel}{\href{mailto:lionel.gairoard@gmail.com}{Lionel~\textsc{Gairoard}}\xspace}
 \newcommand{\ibrahima}{\href{mailto:ibbaldes@yahoo.fr}{Ibrahima~Sory~\textsc{Balde}}\xspace}
 \newcommand{\khady}{\href{mailto:takamor91@yahoo.fr}{Ahoua~Khady~\textsc{Toure}}\xspace}
 
+% Infos spécifiques au document
+
+\renewcommand{\title}{Système de gestion des transports}
+\newcommand{\subject}{Cahier des charges}
+\newcommand{\version}{2.0}
 
 \begin{document}
 
@@ -78,35 +92,94 @@
 \AddToShipoutPicture*{\put(6,5){\includegraphics[scale=1]{background}}} % Image background
 \centering
 \vspace*{9cm}
-\par\normalfont\fontsize{35}{35}\sffamily\selectfont
-The Search for a Title\par % Book title
+\par\normalfont\fontsize{35}{35}\sffamily\selectfont\scshape
+{\bfseries\title}\par % Book title
 \vspace*{1cm}
-{\Huge Dr. John Smith \ibrahima}\par % Author name
+\subject\par % Book subject
+%\vspace*{1cm}
+%{\Huge \ibrahima, \mj, \lionel, \ravi, \khady}\par % Author name
 \endgroup
 
 %----------------------------------------------------------------------------------------
 %	COPYRIGHT PAGE
 %----------------------------------------------------------------------------------------
 
-\newpage
-~\vfill
-\thispagestyle{empty}
+%\newpage
+%~\vfill
+%\thispagestyle{empty}
 
-\noindent Copyright \copyright\ 2013 John Smith\\ % Copyright notice
+%\noindent Copyright \copyright\ 2013 John Smith\\ % Copyright notice
 
-\noindent \textsc{Published by Publisher}\\ % Publisher
+%\noindent \textsc{Published by Publisher}\\ % Publisher
 
-\noindent \textsc{book-website.com}\\ % URL
+%\noindent \textsc{book-website.com}\\ % URL
 
 %\noindent Licensed under the Creative Commons Attribution-NonCommercial 3.0 Unported License (the ``License''). You may not use this file except in compliance with the License. You may obtain a copy of the License at \url{http://creativecommons.org/licenses/by-nc/3.0}. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \textsc{``AS IS'' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND}, either express or implied. See the License for the specific language governing permissions and limitations under the License.\\ % License information
 
-\noindent \textit{First printing, March 2013} % Printing/edition date
+%\noindent \textit{First printing, March 2013} % Printing/edition date
+
+%----------------------------------------------------------------------------------------
+%	INFORMATION PAGE
+%----------------------------------------------------------------------------------------
+
+\newpage
+\chapterimage{chapter_head_1.pdf} % Table of contents heading image
+
+\pagestyle{fancy} % Print headers again
+
+\chapter*{Page d'informations}
+
+\section*{Table de contacts}
+\begin{tabularx}{\linewidth}{X X}
+	\toprule
+	Prénom(s) \& Nom & Adresse e-mail \\
+	\midrule
+	\roland & \rolandemail \\
+	\hline
+	\ibrahima & \ibrahimaemail \\
+	\hline
+	\mj & \mjemail \\
+	\hline
+	\lionel & \lionelemail \\
+	\hline
+	\ravi & \raviemail \\
+	\hline
+	\khady & \khadyemail \\
+	\bottomrule
+\end{tabularx}
+
+\section*{Table de versions}
+\begin{tabularx}{\linewidth}{m{0.15\linewidth} m{0.15\linewidth} X X}
+	\toprule
+	Version & Date & Auteur(s) & Modification(s) \\
+	\midrule
+	1.0 & - & - & - \\
+	\bottomrule
+\end{tabularx}
+
+\section*{Table de diffusion}
+\begin{tabularx}{\linewidth}{m{0.15\linewidth} m{0.15\linewidth} X}
+	\toprule
+	Version & Date & Approbateur(s) \\
+	\midrule
+	1.0 & - & - \\
+	\bottomrule
+\end{tabularx}
+
+\section*{Table de validation}
+\begin{tabularx}{\linewidth}{m{0.15\linewidth} m{0.15\linewidth} X}
+	\toprule
+	Version & Date & Responsable(s) \\
+	\midrule
+	1.0 & - & - \\
+	\bottomrule
+\end{tabularx}
 
 %----------------------------------------------------------------------------------------
 %	TABLE OF CONTENTS
 %----------------------------------------------------------------------------------------
 
-\chapterimage{chapter_head_1.pdf} % Table of contents heading image
+\chapterimage{entete.pdf} % Table of contents heading image
 
 \pagestyle{empty} % No headers
 
@@ -120,7 +193,7 @@ The Search for a Title\par % Book title
 %	CHAPTER 1
 %----------------------------------------------------------------------------------------
 
-\chapterimage{chapter_head_2.pdf} % Chapter heading image
+\chapterimage{entete.pdf} % Chapter heading image
 
 \include{CdCF-Chapitre1}
 
