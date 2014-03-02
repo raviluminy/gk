@@ -93,13 +93,13 @@ Cette section présente le diagramme des cas d'utilisation et précise pour chac
 \end{figure}
 
 \paragraph{Gestion des niveaux de sécurité (cryptographie)}
-Ce cas d'utilisation comprend la possibilité de définir les règles de sécurités appliquées sur un lieu d'intervention. Par règles de sécurité sont entendus les éléments suivants~:
+Ce cas d'utilisation comprend la possibilité de définir les règles de sécurités appliquées aux communications sur un lieu d'intervention. Par règles de sécurité sont entendus les éléments suivants~:
 \begin{itemize}
-	\item les algorithmes cryptographiques utilisés lors des échanges de données sur le réseau.
+	\item les algorithmes de chiffrement utilisés lors des échanges de données sur le réseau.
 \end{itemize}
 Initialement, sont attendus à minima, l'ensemble des solutions suivantes~:
 \begin{itemize}
-	\item primitive d'échange de clé~:
+	\item primitives d'échange de clé~:
 	\begin{itemize}
 		\item NULL~: on se réserve la possibilité de ne pas crypter l'échange de clé,
 		\item RSA~: conformément à la \href{http://tools.ietf.org/html/rfc3447}{RFC 3447},
@@ -109,7 +109,7 @@ Initialement, sont attendus à minima, l'ensemble des solutions suivantes~:
 		%\item DHE\_RSA,
 		%\item DH\_anon~;
 	\end{itemize}
-	\item primitive de chiffrement~:
+	\item primitives de chiffrement~:
 	\begin{itemize}
 		\item NULL~: on se réserve la possibilité de ne pas chiffrer l'échange,
 		\item AES~: conformément à la \href{http://tools.ietf.org/html/rfc3394}{RFC 3394},
@@ -118,7 +118,7 @@ Initialement, sont attendus à minima, l'ensemble des solutions suivantes~:
 		%\item AES\_128\_CBC,
 		%\item AES\_256\_CBC~;
 	\end{itemize}
-	\item primitive de hachage~:
+	\item primitives de hachage~:
 	\begin{itemize}
 		\item NULL~: on se réserve la possibilité de ne pas signer l'échange,
 		\item MD5~: conformément à la \href{http://tools.ietf.org/html/rfc1321}{RFC 1321},
@@ -126,7 +126,7 @@ Initialement, sont attendus à minima, l'ensemble des solutions suivantes~:
 		%\item SHA256.
 	\end{itemize}
 \end{itemize}
-Mais la cryptographie étant un domaine en constante évolution, il est attendu de la suite logicielle qu'elle permette d'ajouter et supprimer facilement des solutions cryptographiques. 
+La cryptographie étant un domaine en constante évolution, il est attendu de la suite logicielle qu'elle permette d'ajouter et supprimer facilement des solutions cryptographiques. 
 \begin{constraint}[Contraintes sur la sécurité des données échangées]
 Les situations d'urgence ne dispensent pas les acteurs humanitaires de se conformer à la législation des pays dans lesquels ils interviennent, notamment pour ce qui est des moyens de sécurisation des échanges de données. La transparence est si possible de mise, afin de ne pas instiller de doutes et mettre en particulier en danger la crédibilité et l'action de l'Organisation. En outre, des interventions dans des territoires potentiellement conflictuels ou sous contrôle militaire strict - Cachemire par exemple - quand bien même celles-ci restent très exceptionnelles eu égard au mandat de l'Organisation sont possibles. Dans ce cadre, l'utilisation de moyens de sécurité des données transmises (cryptage) peut être proscrite ou tout du moins adaptée justifiable et adaptée à une cryptanalyse \og{}rapide\fg{}. La suite logicielle doit donc permettre d'effectuer ces changements \emph{facilement}.
 \end{constraint}
