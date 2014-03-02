@@ -21,49 +21,6 @@ Elle puise sa force de son réseau de volontaires, de l'expertise basée dans la
 % Fin de la sous-section [Présentation]
 % ------------------------------------------------------------------------------
 
-% ------------------------------------------------------------------------------
-\subsection{Métiers}
-\mo est divisé en 5 métiers :
-\begin{itemize}
-	\item Médecine
-	\item Eau et sanitaire
-	\item Distribution
-	\item Logistique
-	\item Télécoms
-\end{itemize}
-Leur dépendances respéctives sont décrites dans la Fig. \ref{dep}
-\vspace{1cm}
-\begin{figure}
-\centering
-\begin{tikzpicture}
-% définition des styles
-\tikzstyle{metier}=[rectangle,draw,fill=yellow!50,text=black]
-\tikzstyle{support}=[rectangle,draw,fill=blue!50,text=black]
-\tikzstyle{supporte}=[->,>=latex,thick,rounded corners=4pt]
-% les nœuds
-\node[metier] (e) at (-3,-3) {Eau et sanitaire};
-\node[metier] (m) at (0,0.5) {Médecine};
-\node[metier] (d) at (3,-3) {Distribution};
-\node[support] (l) at (-2,-1.5) {Logistique};
-\node[support] (t) at (2,-1.5) {Télécoms};
-% les flèches
-\draw[supporte] (l) to[bend left] (t);
-\draw[supporte] (l) to[bend right] (e);
-\draw[supporte] (l) to[bend left] (m);
-\draw[supporte] (l) to[bend right] (d);
-\draw[supporte] (t) to[bend left] (l);
-\draw[supporte] (t) to[bend left] (e);
-\draw[supporte] (t) to[bend right] (m);
-\draw[supporte] (t) to[bend left] (d);
-% la légende
-\draw[supporte] (5,0) -- (8,0) node[midway,above]{Supporte};
-\end{tikzpicture}
-\caption{Dépendances entre les métiers}
-\label{dep}
-\end{figure}
-% Fin de la sous-section [Métiers]
-% ------------------------------------------------------------------------------
-
 % Fin de la section [\mo]
 % ==============================================================================
 
@@ -219,6 +176,36 @@ Cinq domaines de compétence y sont représentés :
 \item Logistique
 \item Télécoms
 \end{itemize}
+Leur dépendances respéctives sont décrites dans la Fig. \ref{dep}
+\vspace{1cm}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+% définition des styles
+\tikzstyle{metier}=[rectangle,draw,fill=yellow!50,text=black]
+\tikzstyle{support}=[rectangle,draw,fill=blue!50,text=black]
+\tikzstyle{supporte}=[->,>=latex,thick,rounded corners=4pt]
+% les nœuds
+\node[metier] (e) at (-3,-3) {Eau et sanitaire};
+\node[metier] (m) at (0,0.5) {Médecine};
+\node[metier] (d) at (3,-3) {Distribution};
+\node[support] (l) at (-2,-1.5) {Logistique};
+\node[support] (t) at (2,-1.5) {Télécoms};
+% les flèches
+\draw[supporte] (l) to[bend left] (t);
+\draw[supporte] (l) to[bend right] (e);
+\draw[supporte] (l) to[bend left] (m);
+\draw[supporte] (l) to[bend right] (d);
+\draw[supporte] (t) to[bend left] (l);
+\draw[supporte] (t) to[bend left] (e);
+\draw[supporte] (t) to[bend right] (m);
+\draw[supporte] (t) to[bend left] (d);
+% la légende
+\draw[supporte] (5,0) -- (8,0) node[midway,above]{Supporte};
+\end{tikzpicture}
+\caption{Dépendances entre les métiers}
+\label{dep}
+\end{figure}
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 \subsubsection{La logistique}
 L'efficacité de l'aide apportée aux populations sinistrées repose en particulier sur celle des processus logistiques. De ce fait, la logistique apparaît comme un service support aux métiers (secteur médical, distribution, eau et sanitaires), sans lequel ils ne peuvent accomplir leurs missions.
@@ -302,6 +289,37 @@ Grâce au TMS, \mo espère améliorer la qualité de ses services en se dotant d
 	\item \emph{Suivre} les transports et ainsi produire des documents synthétisant l'ensemble d'un trajet ou d'une cargaison
 	\item \emph{Améliorer} les processus existants grâce (entre autres) à l'établissement de statistiques permettant une mesure de l'efficience
 \end{itemize}
+\mo espère ainsi améliorer le fonctionnement global de l'organisation en suivant la logique décrite dans la Fig. \ref{arbre_probleme}.
+% Arbre à problème :
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+[node distance = 1cm, auto,font=\footnotesize,
+% STYLES
+every node/.style={node distance=3cm},
+% The comment style is used to describe the characteristics of each force
+comment/.style={rectangle, inner sep= 5pt, text width=4cm, node distance=0.25cm, font=\scriptsize\sffamily},
+% The force style is used to draw the forces' name
+force/.style={rectangle, draw, fill=black!10, inner sep=5pt, text width=4cm, text badly centered, minimum height=1.2cm, font=\bfseries\normalsize\sffamily}] 
+% Nodes
+\node [force] (confiance) {Confiance\\{\normalfont\footnotesize Envers \mo}};
+\node [force, above of=confiance] (transparent) {Transparence des informations\\{\normalfont\footnotesize Grâce au suivi détaillé}};
+\node [force, right=1cm of transparent] (serieux) {Sérieux\\{\normalfont\footnotesize Car on peut justifier à tout moment de l'utilisation des ressources}};
+\node [force, left=1cm of transparent] (pro) {Professionnalisme\\{\normalfont\footnotesize Notamment grâce à la planification et à l'utilisation optimale du matériel}};
+\node [force, below of=confiance, left=-1cm of confiance] (don) {Dons à l'organisation};
+\node [force, below of=confiance, right=-1cm of confiance] (benevolat) {Hausse du bénévolat};
+% Draw the links between forces
+\path[->,thick] 
+(don) edge (confiance)
+(benevolat) edge (confiance)
+(confiance) edge (transparent)
+(confiance) edge (serieux)
+(confiance) edge (pro);
+\end{tikzpicture} 
+\caption{Arbre à problème : Finalité du projet et retour sur investissement}
+\label{arbre_probleme}
+\end{figure}
+
 % Fin de la sous-section [Espérance de retours sur investissement]
 % ------------------------------------------------------------------------------
 % Fin de la section [Objectifs]
