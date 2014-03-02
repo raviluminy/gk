@@ -1,29 +1,27 @@
 \chapter{Expression fonctionnelle du besoin}
-Cette section tient un compte détaillé des spécifications fonctionnelles du projet. Sont donc abordés ci-dessous~:
-\begin{itemize}
-	\item l'ensemble des fonctionnalités de service attendues et de contraintes à respecter~;
-	\item les critères d'acceptation~;
-	\item les niveaux de critères d'appréciation et ce qui les caractérise.
-\end{itemize}
+%% Mj %% Commenté pour décaler correctement
+%Cette section tient un compte détaillé des spécifications fonctionnelles du projet. Sont donc abordés ci-dessous~:
+%\begin{itemize}
+%	\item l'ensemble des fonctionnalités de service attendues et de contraintes à respecter~;
+%	\item les critères d'acceptation~;
+%	\item les niveaux de critères d'appréciation et ce qui les caractérise.
+%\end{itemize}
 
 \section{Fonctions de service et de contrainte}
 Cette section précise les services attendus et contraintes à respecter.
-Il est attendu de la suite logicielle qu'elle réponde à l'architecture de la figure \ref{Architecture générale}.
+Il est attendu de la suite logicielle qu'elle réponde à l'architecture de la figure \ref{Architecture générale}. Les fonctionnalité qui ne sont pas suivies d'une note de fonctionnalité complémentaire sont partie intégrante des services principaux attendus. Ces derniers sont la raison d'être du produit et donc incontournables.
 
-\subsection{Fonctions de service principales}
-Cette section définit l'ensemble des services principaux attendus. Ces derniers sont la raison d'être du produit. Ils sont incontournables.
-
-\subsubsection{La localisation}
-La solution proposera des versions traduites en plusieurs langues, y compris avec des alphabets et des sens de lecture différents. Au minimum, les traductions dans les langages suivants devront être fournis~:
+\subsection{La localisation}
+La suite logicielle doit proposer des versions traduites en plusieurs langues, y compris avec des alphabets et des sens de lecture différents. Au minimum, les traductions dans les langages suivants doivent être fournis~:
 \begin{itemize}
 	\item Anglais~;
 	\item Arabe~;
 	\item Espagnol~;
 	\item Français.
 \end{itemize}
-En outre, la solution devra permettre de passer \emph{aisément} d'une langue à l'autre sans nécessiter de redémarrage.
+En outre, la solution doit permettre de passer \emph{aisément} d'une langue à l'autre sans nécessiter de redémarrage.
 
-\subsubsection{L'interface utilisateur}
+\subsection{L'interface utilisateur}
 La solution doit fournir au minimum et pour chacun de ces groupes utilisateurs une interface propre permettant de réaliser les actions suivantes~:
 \begin{itemize}
 	\item gestionnaire de transport~:
@@ -50,11 +48,11 @@ La solution doit fournir au minimum et pour chacun de ces groupes utilisateurs u
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{Les cas d'utilisations}
+\subsection{Les cas d'utilisations}
 Cette section présente le diagramme des cas d'utilisation et précise pour chacun d'eux l'ensemble des actions attendues.
 \begin{figure}[htbp]
 	\begin{tikzpicture}
-		\begin{umlsystem}[x=8.00,y=10.00,fill=red!10]{Administration}
+		\begin{umlsystem}[x=8.00,y=11.00,fill=red!10]{Administration}
 			\umlusecase[x=0.00,y=0.00,name=GSauvegarde]{Gestion des sauvegardes}
 			\umlusecase[x=0.00,y=1.00,name=GDroits]{Gestion des droits d'accès}
 			\umlusecase[x=0.00,y=2.00,name=GSécurité]{Gestion des niveaux de sécurité (cryptographie)}
@@ -66,8 +64,9 @@ Cette section présente le diagramme des cas d'utilisation et précise pour chac
 			\umlusecase[x=0.00,y=3.00,name=GRéquisitions]{Gestion des réquisitions}
 			\umlusecase[x=0.00,y=4.00,name=GWaybills]{Gestion des waybills/delivery~notes}
 			\umlusecase[x=0.00,y=5.00,name=GTableauxBord]{Gestion des tableaux de bord}
-			\umlusecase[x=0.00,y=6.00,name=GSynchronisation]{Gestion de la synchronisation}
-			\umlusecase[x=0.00,y=7.00,name=GPréférences]{Gestion des préférences}
+			\umlusecase[x=0.00,y=6.00,name=GStatistiques]{Gestion des statistiques}
+			\umlusecase[x=0.00,y=7.00,name=GSynchronisation]{Gestion de la synchronisation}
+			\umlusecase[x=0.00,y=8.00,name=GPréférences]{Gestion des préférences}
 		\end{umlsystem}
 		\umlactor[x=0.00,y=10.00]{Administrateur}
 		\umlactor[x=0.00,y=3.00]{Utilisateur}
@@ -78,6 +77,7 @@ Cette section présente le diagramme des cas d'utilisation et précise pour chac
 		\umlassoc{Utilisateur}{GRéquisitions}
 		\umlassoc{Utilisateur}{GWaybills}
 		\umlassoc{Utilisateur}{GTableauxBord}
+		\umlassoc{Utilisateur}{GStatistiques}
 		\umlassoc{Utilisateur}{GSynchronisation}
 		\umlassoc{Utilisateur}{GPréférences}
 		\umlassoc{Administrateur}{GSauvegarde}
@@ -92,7 +92,7 @@ Cette section présente le diagramme des cas d'utilisation et précise pour chac
 	\label{ucd}
 \end{figure}
 
-\paragraph{Gestion des niveaux de sécurité (cryptographie)}
+\subsubsection{Gestion des niveaux de sécurité (cryptographie)}
 Ce cas d'utilisation comprend la possibilité de définir les règles de sécurités appliquées aux communications sur un lieu d'intervention. Par règles de sécurité sont entendus les éléments suivants~:
 \begin{itemize}
 	\item les algorithmes de chiffrement utilisés lors des échanges de données sur le réseau.
@@ -131,12 +131,11 @@ La cryptographie étant un domaine en constante évolution, il est attendu de la
 Les situations d'urgence ne dispensent pas les acteurs humanitaires de se conformer à la législation des pays dans lesquels ils interviennent, notamment pour ce qui est des moyens de sécurisation des échanges de données. La transparence est si possible de mise, afin de ne pas instiller de doutes et mettre en particulier en danger la crédibilité et l'action de l'Organisation. En outre, des interventions dans des territoires potentiellement conflictuels ou sous contrôle militaire strict - Cachemire par exemple - quand bien même celles-ci restent très exceptionnelles eu égard au mandat de l'Organisation sont possibles. Dans ce cadre, l'utilisation de moyens de sécurité des données transmises (cryptage) peut être proscrite ou tout du moins adaptée justifiable et adaptée à une cryptanalyse \og{}rapide\fg{}. La suite logicielle doit donc permettre d'effectuer ces changements \emph{facilement}.
 \end{constraint}
 
-\paragraph{Gestion des droits d'accès}
+\subsubsection{Gestion des droits d'accès}
 Chaque profil utilisateur peut recevoir des droits d'accès spécifiques et/ou être lié à \emph{un ou plusieurs} groupe d'utilisateur.
 Chaque groupe d'utilisateurs doit être associé à un ensemble de droits d'accès.
-Au minimum, la suite logicielle doit fournir un groupe d'utilisateurs particulier, appelé \emph{administrateurs} et détenteurs de tous les droits d'accès disponibles (cf. figure \ref{ucd}). L'opportunité souhaitant être laissée de pouvoir gérer (ajouter, modifier et/ou supprimer) utilisateurs et groupes d'utilisateurs et leurs droits associés, ce dernier doit permettre d'opérer facilement ces manipulations.
-
-\begin{figure}[htbp]
+Au minimum, la suite logicielle doit fournir un groupe d'utilisateurs particulier, appelé \emph{administrateurs} et détenteurs de tous les droits d'accès disponibles (cf. figure \ref{ucd}).
+\begin{figure}[htbp] %% Mj %% Access rigths
 	\centering
 	\begin{tikzpicture}
 		\begin{scope}[xscale=1,yscale=1]
@@ -158,8 +157,21 @@ Au minimum, la suite logicielle doit fournir un groupe d'utilisateurs particulie
 	\caption{Utilisateurs, groupes d'utilisateurs et droits d'accès}
 	\label{ar}
 \end{figure}
+\\De fait, l'administrateur doit pouvoir~:
+\begin{itemize}
+	\item ajouter, modifier et/ou supprimer utilisateurs et groupes d'utilisateurs~;
+	\item affecter des droits d'accès (ou des non-droits) aux utilisateurs et groupes d'utilisateurs~;
+	\item ranger les utilisateurs dans des groupes d'utilisateurs.
+\end{itemize}
+Le tout en gardant une vue par transitivité, c'est à dire, par exemple, en affichant quels droits sont effectivement possédés par un utilisateurs pourvus de droits d'accès individuels et rangé dans différents groupes.
+\\
+Des conflits de droits sont donc susceptibles d'apparaître, par exemple pour un utilisateur appartenant à 2 groupes différents, dont un a l'autorisation et l'autre l'interdiction d'accéder à une même ressource. Dans ce cas de figure, les droits d'accès devront être gérés suivant les 2 priorités suivantes~:
+\begin{itemize}
+	\item les droits d'accès individuels sont prioritaires sur ceux inhérents aux groupes~;
+	\item les interdictions sont prioritaires sur les autorisations~;
+\end{itemize}
 
-\paragraph{Gestion des sauvegardes}
+\subsubsection{Gestion des sauvegardes}
 La suite logicielle doit être pourvu d'un système de sauvegarde externalisé. Il est attendu de ce système qu'il permette les manipulations suivantes~:
 \begin{itemize}
 	\item lancer une sauvegarde (aussi bien distante que locale)~;
@@ -175,21 +187,21 @@ La suite logicielle doit être pourvu d'un système de sauvegarde externalisé. 
 Il est demandé que le système de sauvegarde soit compatible avec le top 10 des solutions de sauvegarde les plus communes, aux cas où l'une d'entre elle soit mise en place à postériori.
 \end{constraint}
 
-\paragraph{Gestion des préférences}
+\subsubsection{Gestion des préférences}
 La suite logicielle devrait pouvoir permettre aux utilisateurs de garder en mémoire leurs préférences, comme la langue utilisée. L'objectif étant d'épargner aux utilisateurs la charge de devoir constamment régler ces paramètres à chaque utilisation.
 \begin{notation}
-\emph{Fonctions de service complémentaires.}
+\emph{Gestion des préférences.}
 \\
 Cette fonction participe à améliorer, faciliter ou compléter le service rendu. Elle est souhaitée mais non prioritaires.
 \end{notation}
 
-\paragraph{Gestion de la synchronisation}
+\subsubsection{Gestion de la synchronisation}
 La suite logicielle doit gérer explicitement la synchronisation des données, à la fois entre postes clients et serveur local, mais également entre serveur local et serveur central. Il est important de comprendre que le travail sur la suite logicielle ne doit pas s'arrêter ni subir de dégradation malgré l'absence de connexion ou de réseau. Les services doivent donc continuer de tourner en local, jusqu'à la reprise d'activité du réseau, moment à partir duquel les données modifiées doivent être synchronisées. Entre autres choses, les conflits doivent être gérés efficacement sans perturber les opérations métier déjà en cours. Enfin, outre l'aspect automatisé demandé, il est également souhaité de pouvoir gérer manuellement la synchronisation.
 \begin{constraint}[Contraintes sur les moyens de communication]
 En situation d'urgence, les moyens de communication disponibles notamment dans les régions affectées peuvent être \og{}réduits\fg{} (réseau GSM indisponible, par exemple). Les procédures de l'Organisation mettent, certes, à disposition des équipes terrain, pour leur propre sécurité, des moyens de communication de type satellitaires, mais les coûts de communication restent élevés qu'ils soient basés sur la quantité de données échangés ou sur les temps de communication. De fait, préférence est donnée aux moyens \og{}standards\fg{} de communication (ADSL, GSM...). Afin de minimiser les coûts, il est donc \emph{impératif} de pouvoir faire fonctionner la suite logicielle en mode \og{}hors ligne\fg{}, pour synchroniser les informations une fois les moyens de communication retrouvés.
 \end{constraint}
 
-\paragraph{Gestion des tableaux de bord}
+\subsubsection{Gestion des tableaux de bord}
 La suite logicielle doit permettre de générer des \emph{tableaux de bord}, qui sont des documents de synthèse servant de supports qualité et contenant les informations préalablement choisies en fonction du destinataire du document.
 \\
 Par exemple, pour une livraison donnée, on peut distinguer deux types de documents synthèse (liste non exhaustive) en fonction du destinataire~:
@@ -198,7 +210,15 @@ Par exemple, pour une livraison donnée, on peut distinguer deux types de docume
 \item le client pourrait recevoir le même type de document mais avec les prix de stockage, location des véhicules, coût du trajet, du carburant, ...
 \end{itemize}
 
-\paragraph{Gestion des réquisitions \& waybills/delivery~notes}
+\subsubsection{Gestion des statistiques}
+La suite logicielle devrait permettre de produire un ensemble de statistiques à partir des informations enregistrées. Le choix de ces dernières n'étant pas encore arrêtées, une conception modulaire serait préférée de sorte à pouvoir en ajouter ou en supprimer facilement, leur prix devant être précisé dans un bordereau de prix unitaire ou un forfait.
+\begin{notation}
+\emph{Gestion des statistiques.}
+\\
+Cette fonction participe à améliorer, faciliter ou compléter le service rendu. Elle est souhaitée mais non prioritaires.
+\end{notation}
+
+\subsubsection{Gestion des réquisitions \& waybills/delivery~notes}
 De nombreux types de documents sont traités en interne et doivent pouvoir être enregistrés, numérisés, affichés, produits, modifiés, supprimés et archivés par la suite logicielle. Tous les documents en question disposent d'un numéro d'identification unique, généré par le secrétariat central. Les documents concernés sont les suivants~:
 \begin{itemize}
 	\item permis de conduire des chauffeurs~;
@@ -222,7 +242,6 @@ Un 3ième cas existe également, lors duquel un partenaire émet une \emph{réqu
 1 \emph{réquisition} -> 0 \emph{waybills/delivery~notes}.
 \\
 La suite logicielle doit être en mesure de gérer chacun des cas de figure énoncé, ainsi que d'ajouter, modifier, supprimer, importer, exporter, imprimer et archiver ces deux documents ainsi que l'ensemble des informations qu'ils véhiculent (cf. annexe).
-\\
 \begin{notation}
 \emph{Heuristique organisationnelle.}
 \\
@@ -231,7 +250,7 @@ Rappelons que l'objectif étant d'optimiser les ressources engagées, il est sou
 De même, il serait souhaité de faciliter l'organisation actuelle via l'analyse des logs d'activité. Cette heuristique pourrait notamment repérer des enchaînements logiques d'actions et ainsi proposer un accès rapide aux successeurs les plus fréquents.
 \end{notation}
 
-\paragraph{Gestion des chauffeurs, des transports et des prestataires}
+\subsubsection{Gestion des chauffeurs, des transports et des prestataires}
 La suite logicielle doit permettre d'ajouter, modifier, supprimer, importer, exporter, imprimer et archiver chauffeurs, transports et prestataires ainsi que l'ensemble des informations qui leur sont associés, dont à minima, les suivantes~:
 \begin{itemize}
 	\item carte d'identité (numérisé) des chauffeurs~;
@@ -240,65 +259,51 @@ La suite logicielle doit permettre d'ajouter, modifier, supprimer, importer, exp
 	\item patentes (numérisé) des prestataires~;
 \end{itemize}
 \begin{constraint}[Contrainte de fonctionnalité]
-La suite logicielle doit fournir un outil intégré permettant de numériser les documents qui doivent l'être, via une interface graphique clair permettant de fixer facilement les paramètres de numérisation (poids de l'image, résolution, couleur, ...)
+La suite logicielle doit fournir un outil intégré permettant de \emph{numériser} les documents qui doivent l'être, via une interface graphique clair permettant de fixer facilement les paramètres de numérisation (poids de l'image, résolution, couleur, ...)
 \end{constraint}
 
-\subsection{Fonctions de service complémentaires}
-Cette section définit les fonctions de service complémentaires. Ces dernières améliorent, facilitent ou complètent le service rendu. Elles sont souhaitées mais non prioritaires.
-
-\subsubsection{Les statistiques}
-La solution devrait permettre de produire un ensemble de statistiques à partir des informations enregistrées. Le choix de ces dernières n'étant pas encore arrêtées, une conception modulaire serait préférée de sorte à pouvoir en ajouter ou en supprimer facilement, leur prix devant être précisé dans un bordereau de prix unitaire ou un forfait.
-
 \subsection{Contraintes}
+Cette section tient compte des contraintes jusque là non évoquées.
 
-\subsubsection{Contraintes de délai}
+\begin{constraint}[Contraintes de délai]
 Le prestataire s'engage à fournir des garanties contractuelles de délais, et à s'y tenir. Les éventuelles pénalités de retard seront fixées d'un accord commun avec \mo.
+\end{constraint}
 
-\subsubsection{Contraintes techniques}
-
-\paragraph{Architecture serveur}
-La solution serveur doit être compatible avec les environnements Microsoft~Windows et GNU/Linux.
-\\
-En outre, l'utilisation d'un SGBD semblant inévitable, la solution doit également être pleinement compatible avec les SGBDR SQL~Oracle et MySQL~Server et permettre de s'interfacer facilement avec d'autres SGBD.
-
-\paragraph{Architecture client}
-La solution cliente doit être pleinement fonctionnelle sous les distributions Microsoft~Windows~7, qui ont 16Go de RAM et 250Go de mémoire, ainsi que sous les dernières versions en date des navigateurs Internet~Explorer et Mozilla~Firefox.
-\\
-Enfin, La solution doit être accessible depuis des appareils de téléphonie mobile sous Android.
-
-\subsubsection{Contraintes légales}
+\begin{constraint}[Contraintes légales]
 Les contraintes légales de chaque pays s'appliquant à \mo lors de ses interventions, la solution devra être aux normes (ou pouvoir s'y adapter) de ces pays, notamment en terme de~:
 \begin{itemize}
-\item droit d'accès à l'information~;
-\item conservation des données personnelles~;
-\item cryptographie.
+	\item droit d'accès à l'information~;
+	\item conservation des données personnelles~;
+	\item cryptographie.
 \end{itemize}
+\end{constraint}
 
-\subsubsection{Contraintes réglementaires}
+\begin{constraint}[Contraintes réglementaires]
 \mo a une image et une éthique mondialement connue découlant de ses activités. Il conviendra de la prendre en compte lors de la réalisation de la solution.
+\end{constraint}
 
 \section{Critères d'appréciation}
 La solution sera évaluée en fonction des critères suivants~:
 \begin{itemize}
-\item disponibilité~;
-\item capacité~;
-\item sécurité~;
-\item continuité~;
-\item accessibilité~;
-\item ressources matérielles consommées~;
-\item trafic réseau~;
-\item modularité~;
-\item compatibilité~;
-\item heuristique~;
-\item planification~;
-\item statistiques~;
-\item gestion des documents.
+	\item disponibilité~;
+	\item capacité~;
+	\item sécurité~;
+	\item continuité~;
+	\item accessibilité~;
+	\item ressources matérielles consommées~;
+	\item trafic réseau~;
+	\item modularité~;
+	\item compatibilité~;
+	\item heuristique~;
+	\item planification~;
+	\item statistiques~;
+	\item gestion des documents.
 \end{itemize}
 
 \section{Niveaux des critères d'appréciation et ce qui les caractérise}
 Plus un niveau est faible, plus ce critère est apprécié.
 \\
-\begin{tabularx}{\linewidth}{>{\centering}m{2.0cm} c X}%{|p{3.0cm}|c|p{10.0cm}|}%
+\begin{tabularx}{\linewidth}{>{\centering}m{2.0cm} c X}
 \toprule
 Critère & Niveau & Détails
 \\\midrule
