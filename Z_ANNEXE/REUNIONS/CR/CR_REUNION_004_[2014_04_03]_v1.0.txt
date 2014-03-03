@@ -1,0 +1,61 @@
+--------------------------------------------------------------------------
+CR du lundi 03/04/2014
+--------------------------------------------------------------------------
+
+heure début : 14h00
+heure fin : 14h
+
+Groupe de 8 pers
+
+Présent : MJ, Bien aimé, Ravi, Adrien, Anthony, Lionel
+Absents : Ahoua, Rémy, Sory Ibrahima (dcd ?)
+
+PAQ :
+  - Méthodes de travail
+  - Outils
+  - Communication
+  - Norme graphique
+  - Architecture générale
+    
+Suite :
+ - Date des prochaines réunions
+ - Liste des tâches
+
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+
+- Intro
+  * Présentation des formats de document en LaTeX et Git
+  * Amélioration des docs LaTeX (couleur hyperlien, espace titre)
+
+- Communication
+  * Mail à l'ensemble du groupe
+  * Numéro de téléphone (uniquement en cas de nécessité)
+  * Prévenir des tâches non tenues (deadline)
+
+- Outils
+  * Git
+  * LaTeX (texte + schéma)
+  
+- Méthodes de Travail
+  * 3 réunions / semaine
+  * 2 chefs d'équipe de direction en binome
+  * 3 sous équipes de 2 pers
+  * On mixe les deux groupes dans les binomes
+
+- Réunions à venir 14h 
+  * lundi, mercredi, vendredi
+  * On envoie un mail ODJ avant la réunion pour se préparer
+  * le vendredi aprem on fait la liste des taches
+  
+  - Suite
+    * OJ des réunions
+    * Analyse de conception
+    * Architecture générale --> Clients --> technologies utilisées
+  
+  - Devoirs maison
+    * Autoformation Latex/Git
+    * Complétion du PAQ
+    * Reflexions architecturales
+    * prochaine réu le 04/03, 14h, salles info du 3e
+---------------------------------------------------------------------------
