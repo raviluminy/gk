@@ -1,0 +1,706 @@
+%-------------------------------------------------------------------------------
+%
+%     INFORMATIONS GENERALES
+%
+%-------------------------------------------------------------------------------
+
+\NeedsTeXFormat{LaTeX2e} % format LaTeX2e
+\ProvidesPackage{garmirkhatch}[2014/03/03] % Identité du package
+
+
+
+%-------------------------------------------------------------------------------
+%
+%     CHARGEMENT DES EXTENSIONS
+%
+%-------------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------------
+%     Géométrie de la page et de ses marges
+%-------------------------------------------------------------------------------
+
+\RequirePackage[top=3cm,bottom=3cm,left=3.2cm,right=3.2cm,headsep=10pt,a4paper]{geometry}
+
+
+%-------------------------------------------------------------------------------
+%     Langages (français)
+%-------------------------------------------------------------------------------
+
+\RequirePackage[utf8]{inputenc}				% Encodage des fichiers sources
+\RequirePackage[T1]{fontenc}				% Encodage 8-bit avec 256 glyphes
+\RequirePackage[english,francais]{babel}	% Césure (française par défaut)
+\RequirePackage{textcomp}					% Caractères supplémentaires (e.g. \degre)
+\RequirePackage{xspace}						% Espace intelligent
+\RequirePackage{lipsum}						% Insertion de texte aléatoire
+
+
+%-------------------------------------------------------------------------------
+%     Mathématiques
+%-------------------------------------------------------------------------------
+
+\RequirePackage{amsmath,amssymb}
+
+
+%-------------------------------------------------------------------------------
+%     Couleurs, images et dessins vectoriels
+%-------------------------------------------------------------------------------
+
+\RequirePackage{xcolor}						% Couleurs par nom (e.g. red)
+	\definecolor{ZMainColor}{RGB}{0,113,185}
+%	\definecolor{ocre}{RGB}{243,102,25}
+\RequirePackage{graphicx}					% Inclusion d'images
+	\graphicspath{{Images/}}				% Répertoire des images par défaut
+\RequirePackage{eso-pic}					% Inclusion d'image de fond (par exemple dans la page de garde)
+%\RequirePackage{float}						% Positionnement des images
+\RequirePackage{tikz}						% Schémas et dessins vectoriels
+%	\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,fit,positioning,shapes.symbols,chains}
+\RequirePackage{tikz-uml}					% schémas UML
+\RequirePackage[framemethod=default]{mdframed}	% Cadres personnalisables
+
+
+%-------------------------------------------------------------------------------
+%     Tableaux
+%-------------------------------------------------------------------------------
+
+\RequirePackage{booktabs}					% Règles horizontales dans les tableaux
+\RequirePackage{tabularx}					% Tableaux avec retour à la ligne des contenus trop longs
+	\renewcommand{\tabularxcolumn}[1]{m{#1}}
+%	\def\tabularxcolumn#1{m{#1}}
+%\RequirePackage{tabulary}
+
+
+%-------------------------------------------------------------------------------
+%     Police(s) d'écriture
+%-------------------------------------------------------------------------------
+
+\RequirePackage{avant}						% Avantgarde font pour en-têtes
+%\RequirePackage{times}						% Times font pour en-têtes
+\RequirePackage{mathptmx}					% Adobe Times Roman font pour texte par défaut
+\RequirePackage{microtype}					% Améliorations typographiques (!TOUJOURS CHARGER APRES UN CHANGEMENT DE FONT!)
+
+
+%-------------------------------------------------------------------------------
+%     Packages devant être chargés en dernier
+%-------------------------------------------------------------------------------
+
+%\RequirePackage{amsmath,amsfonts,amssymb,amsthm}	% For including math equations, theorems, symbols, etc
+%\RequirePackage{titletoc}					% Required for manipulating the table of contents
+
+
+
+%-------------------------------------------------------------------------------
+%
+%     DECLARATION DES OPTIONS
+%
+%-------------------------------------------------------------------------------
+
+%\DeclareOption{option}{...}
+%\DeclareOption*{...}
+%\ProcessOptions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	VARIOUS REQUIRED PACKAGES
+%----------------------------------------------------------------------------------------
+
+\usepackage{titlesec} % Allows customization of titles
+
+\usepackage{enumitem} % Customize lists
+\setlist{nolistsep} % Reduce spacing between bullet points and numbered lists
+
+
+%----------------------------------------------------------------------------------------
+%	MAIN TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\usepackage{titletoc} % Required for manipulating the table of contents
+
+\contentsmargin{0cm} % Removes the default margin
+
+%\definecolor{ocre}{cmyk}{0.9, 0.4, 0, 0.22} % Modification de la couleur pour coller à la charte graphique AMU
+
+% Chapter text styling
+\titlecontents{chapter}
+	[1.25cm] % Indentation
+	{\addvspace{15pt}\large\sffamily\bfseries} % Spacing and font options for chapters
+	{\color{ZMainColor!60}\contentslabel[\Large\thecontentslabel]{1.25cm}\color{ZMainColor}} % Chapter number
+	{}
+	{\color{ZMainColor!60}\normalsize\sffamily\bfseries\;\titlerule*[.5pc]{.}\;\thecontentspage} % Page number
+	% Section text styling
+
+\titlecontents{section}[1.25cm] % Indentation
+{\addvspace{5pt}\sffamily\bfseries} % Spacing and font options for sections
+{\contentslabel[\thecontentslabel]{1.25cm}} % Section number
+{}
+{\sffamily\hfill\color{black}\thecontentspage} % Page number
+[]
+% Subsection text styling
+\titlecontents{subsection}[1.25cm] % Indentation
+{\addvspace{1pt}\sffamily\small} % Spacing and font options for subsections
+{\contentslabel[\thecontentslabel]{1.25cm}} % Subsection number
+{}
+{\sffamily\;\titlerule*[.5pc]{.}\;\thecontentspage} % Page number
+[] 
+%----------------------------------------------------------------------------------------
+%	MINI TABLE OF CONTENTS IN CHAPTER HEADS
+%----------------------------------------------------------------------------------------
+
+% Section text styling
+\titlecontents{lsection}[0em] % Indendating
+{\scriptsize\sffamily} % Font settings
+{}
+{}
+{}
+
+% Subsection text styling
+\titlecontents{lsubsection}[.5em] % Indentation
+{\normalfont\scriptsize\sffamily} % Font settings
+{}
+{}
+{}
+
+%----------------------------------------------------------------------------------------
+%	PAGE HEADERS
+%----------------------------------------------------------------------------------------
+
+\usepackage{fancyhdr} % Required for header and footer configuration
+
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\sffamily\normalsize\bfseries #1}{}} % Chapter text font settings
+\renewcommand{\sectionmark}[1]{\markright{\sffamily\normalsize\thesection\hspace{5pt}#1}{}} % Section text font settings
+\fancyhf{} \fancyhead[LE,RO]{\sffamily\normalsize\thepage} % Font setting for the page number in the header
+\fancyhead[LO]{\rightmark} % Print the nearest section name on the left side of odd pages
+\fancyhead[RE]{\leftmark} % Print the current chapter name on the right side of even pages
+\renewcommand{\headrulewidth}{0.5pt} % Width of the rule under the header
+\addtolength{\headheight}{2.5pt} % Increase the spacing around the header slightly
+\renewcommand{\footrulewidth}{0pt} % Removes the rule in the footer
+\fancypagestyle{plain}{\fancyhead{}\renewcommand{\headrulewidth}{0pt}} % Style for when a plain pagestyle is specified
+
+% Removes the header from odd empty pages at the end of chapters
+\makeatletter
+\renewcommand{\cleardoublepage}{
+\clearpage\ifodd\c@page\else
+\hbox{}
+\vspace*{\fill}
+\thispagestyle{empty}
+%\newpage
+\fi}
+
+%----------------------------------------------------------------------------------------
+%	THEOREM STYLES
+%----------------------------------------------------------------------------------------
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm} % For including math equations, theorems, symbols, etc
+
+\newcommand{\intoo}[2]{\mathopen{]}#1\,;#2\mathclose{[}}
+\newcommand{\ud}{\mathop{\mathrm{{}d}}\mathopen{}}
+\newcommand{\intff}[2]{\mathopen{[}#1\,;#2\mathclose{]}}
+\newtheorem{notation}{Notation}[chapter]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%% dedicated to boxed/framed environements %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheoremstyle{ocrenumbox}% % Theorem style name
+{0pt}% Space above
+{0pt}% Space below
+{\normalfont}% % Body font
+{}% Indent amount
+{\small\bf\sffamily\color{ZMainColor}}% % Theorem head font
+{\;}% Punctuation after theorem head
+{0.25em}% Space after theorem head
+{\small\sffamily\color{ZMainColor}\thmname{#1}\nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}% Theorem text (e.g. Theorem 2.1)
+\thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries\color{black}---\nobreakspace#3.}} % Optional theorem note
+\renewcommand{\qedsymbol}{$\blacksquare$}% Optional qed square
+
+\newtheoremstyle{blacknumex}% Theorem style name
+{5pt}% Space above
+{5pt}% Space below
+{\normalfont}% Body font
+{} % Indent amount
+{\small\bf\sffamily}% Theorem head font
+{\;}% Punctuation after theorem head
+{0.25em}% Space after theorem head
+{\small\sffamily{\tiny\ensuremath{\blacksquare}}\nobreakspace\thmname{#1}\nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}% Theorem text (e.g. Theorem 2.1)
+\thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries---\nobreakspace#3.}}% Optional theorem note
+
+\newtheoremstyle{blacknumbox} % Theorem style name
+{0pt}% Space above
+{0pt}% Space below
+{\normalfont}% Body font
+{}% Indent amount
+{\small\bf\sffamily}% Theorem head font
+{\;}% Punctuation after theorem head
+{0.25em}% Space after theorem head
+{\small\sffamily\thmname{#1}\nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}% Theorem text (e.g. Theorem 2.1)
+\thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries---\nobreakspace#3.}}% Optional theorem note
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% dedicated to non-boxed/non-framed environements %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheoremstyle{ocrenum}% % Theorem style name
+{5pt}% Space above
+{5pt}% Space below
+{\normalfont}% % Body font
+{}% Indent amount
+{\small\bf\sffamily\color{ZMainColor}}% % Theorem head font
+{\;}% Punctuation after theorem head
+{0.25em}% Space after theorem head
+{\small\sffamily\color{ZMainColor}\thmname{#1}\nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}% Theorem text (e.g. Theorem 2.1)
+\thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries\color{black}---\nobreakspace#3.}} % Optional theorem note
+\renewcommand{\qedsymbol}{$\blacksquare$}% Optional qed square
+\makeatother
+
+% Defines the theorem text style for each type of theorem to one of the three styles above
+\newcounter{dummy} 
+\numberwithin{dummy}{section}
+\theoremstyle{ocrenumbox}
+\newtheorem{theoremeT}[dummy]{Theorem}
+\newtheorem{problem}{Problem}[chapter]
+\newtheorem{exerciseT}{Exercise}[chapter]
+\theoremstyle{blacknumex}
+\newtheorem{exampleT}{Example}[chapter]
+\theoremstyle{blacknumbox}
+\newtheorem{vocabulary}{Vocabulary}[chapter]
+\newtheorem{definitionT}{Definition}[section]
+\newtheorem{corollaryT}[dummy]{Corollary}
+\theoremstyle{ocrenum}
+\newtheorem{proposition}[dummy]{Proposition}
+
+%----------------------------------------------------------------------------------------
+%	DEFINITION OF COLORED BOXES
+%----------------------------------------------------------------------------------------
+
+\RequirePackage[framemethod=default]{mdframed} % Required for creating the theorem, definition, exercise and corollary boxes
+
+% Theorem box
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+backgroundcolor=black!5,
+linecolor=ZMainColor,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+innerbottommargin=5pt]{tBox}
+
+% Exercise box	  
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+rightline=false,
+leftline=true,
+topline=false,
+bottomline=false,
+backgroundcolor=ZMainColor!10,
+linecolor=ZMainColor,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+innerbottommargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=4pt]{eBox}	
+
+% Definition box
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+rightline=false,
+leftline=true,
+topline=false,
+bottomline=false,
+linecolor=ZMainColor,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=0pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=4pt,
+innerbottommargin=0pt]{dBox}	
+
+% Corollary box
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+rightline=false,
+leftline=true,
+topline=false,
+bottomline=false,
+linecolor=gray,
+backgroundcolor=black!5,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=4pt,
+innerbottommargin=5pt]{cBox}				  
+		  
+
+% Creates an environment for each type of theorem and assigns it a theorem text style from the "Theorem Styles" section above and a colored box from above
+\newenvironment{theorem}{\begin{tBox}\begin{theoremeT}}{\end{theoremeT}\end{tBox}}
+\newenvironment{exercise}{\begin{eBox}\begin{exerciseT}}{\hfill{\color{ZMainColor}\tiny\ensuremath{\blacksquare}}\end{exerciseT}\end{eBox}}				  
+\newenvironment{definition}{\begin{dBox}\begin{definitionT}}{\end{definitionT}\end{dBox}}	
+\newenvironment{example}{\begin{exampleT}}{\hfill{\tiny\ensuremath{\blacksquare}}\end{exampleT}}		
+\newenvironment{corollary}{\begin{cBox}\begin{corollaryT}}{\end{corollaryT}\end{cBox}}	
+
+%----------------------------------------------------------------------------------------
+%	REMARK ENVIRONMENT
+%----------------------------------------------------------------------------------------
+
+\newenvironment{remark}{\par\vskip10pt\small % Vertical white space above the remark and smaller font size
+\begin{list}{}{
+\leftmargin=35pt % Indentation on the left
+\rightmargin=25pt}\item\ignorespaces % Indentation on the right
+\makebox[-2.5pt]{\begin{tikzpicture}[overlay]
+\node[draw=ZMainColor!60,line width=1pt,circle,fill=ZMainColor!25,font=\sffamily\bfseries,inner sep=2pt,outer sep=0pt] at (-15pt,0pt){\textcolor{ZMainColor}{R}};\end{tikzpicture}} % Orange R in a circle
+\advance\baselineskip -1pt}{\end{list}\vskip5pt} % Tighter line spacing and white space after remark
+
+%----------------------------------------------------------------------------------------
+%	CONSTRAINT ENVIRONMENT
+%----------------------------------------------------------------------------------------
+
+\newtheorem{constraintT}{Contrainte}[section]
+\newenvironment{constraint}{\begin{tBox}\begin{constraintT}}{\end{constraintT}\end{tBox}}
+
+%----------------------------------------------------------------------------------------
+%	SECTION NUMBERING IN THE MARGIN
+%----------------------------------------------------------------------------------------
+
+\makeatletter
+\renewcommand{\@seccntformat}[1]{\llap{\textcolor{ZMainColor}{\csname the#1\endcsname}\hspace{1em}}}                    
+\renewcommand{\section}{\@startsection{section}{1}{\z@}
+{-4ex \@plus -1ex \@minus -.4ex}
+{1ex \@plus.2ex }
+{\normalfont\large\sffamily\bfseries\scshape}}
+\renewcommand{\subsection}{\@startsection {subsection}{2}{\z@}
+{-3ex \@plus -0.1ex \@minus -.4ex}
+{0.5ex \@plus.2ex }
+{\normalfont\sffamily\bfseries\scshape}}
+\renewcommand{\subsubsection}{\@startsection {subsubsection}{3}{\z@}
+{-2ex \@plus -0.1ex \@minus -.2ex}
+{0.2ex \@plus.2ex }
+{\normalfont\small\sffamily\bfseries\scshape}}                        
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}
+{-2ex \@plus-.2ex \@minus .2ex}
+{0.1ex}
+{\normalfont\small\sffamily\bfseries\scshape}}
+
+
+
+\newcommand{\thechapterimage}{}
+\newcommand{\chapterimage}[1]{\renewcommand{\thechapterimage}{#1}}
+\def\thechapter{\arabic{chapter}}
+
+\def\@makechapterhead#1{
+\thispagestyle{empty}
+{\centering \normalfont\sffamily
+\ifnum \c@secnumdepth >\m@ne
+\if@mainmatter
+\startcontents
+\begin{tikzpicture}[remember picture,overlay]
+\node at (current page.north west)
+{\begin{tikzpicture}[remember picture,overlay]
+
+\node[anchor=north west,inner sep=0pt] at (0,0) {\includegraphics[width=\paperwidth]{\thechapterimage}};
+
+%Commenting the 3 lines below removes the small contents box in the chapter heading
+%\draw[fill=white,opacity=.6] (1cm,0) rectangle (8cm,-7cm);
+%\node[anchor=north west] at (1cm,.25cm) {\parbox[t][8cm][t]{6.5cm}{\huge\bfseries\flushleft \printcontents{l}{1}{\setcounter{tocdepth}{2}}}};
+
+%% Mj %% Mise en page classique
+%\node[anchor=north, align=center, text width = 10cm] (titre) at (10.5,-0.1) {\LARGE\textsc{\title}\\~\\\Large\textbf{\subject}\\\vspace{4pt}\normalsize{Version \version}};
+%% Mj %% Mise en page avec décomposition cubique
+\node[anchor=north, align=center,text width=10cm] (titre) at (10.5,-0.4) {\LARGE\scshape{\textbf\ZTitleContent}\\\vspace{4mm}\Large{\ZSubjectContent\ZVersionContent}};
+
+%%\draw[anchor=north, align=center] (7,-1.3) -- (14,-1.3);
+%\node[anchor=north] (sujet) [below of=titre] {\Large\textsc{\subject}};
+%\node[anchor=north] (version) [below of=sujet] {\normalsize\textsc{\version}};
+%\node[anchor=north] (modif) [below of=version] {\textit{Dernière modification le \today}};
+%\node[anchor=north] at (10.5,2) {\normalsize\textbf{Version \version}};
+
+%% Mj %% Décomposition gauche (deprecated)
+%\node[anchor=west] at (29mm,-5.5cm) {\includegraphics[height=19mm]{Chapitre-avec-decomposition-cubique-baclee}};
+%% Mj %% Trait plus fin non adapté à la décomposition gauche
+%\draw[anchor=west] (5cm,-5.5cm) node [rounded corners=25pt,draw=ZMainColor,line width=2pt,inner sep=15pt]{\huge\sffamily\bfseries\scshape\textcolor{black}{\thechapter\ ---\ #1\vphantom{plPQq}\makebox[22cm]{}}};
+%% Mj %% Trait corrigé et armonisé avec les autres.
+\draw[anchor=west] (5cm,-5.5cm) node [rounded corners=25pt,draw=ZMainColor,line width=3pt,inner sep=15pt]{\huge\sffamily\bfseries\textcolor{black}{\thechapter\ ---\ #1\vphantom{plPQq}\makebox[22cm]{}}};
+\end{tikzpicture}};
+\end{tikzpicture}}
+\par
+%\vspace*{70\p@}
+\vspace{3cm}
+\fi
+\fi
+}
+
+\def\@makeschapterhead#1{
+\thispagestyle{empty}
+{\centering \normalfont\sffamily
+\ifnum \c@secnumdepth >\m@ne
+\if@mainmatter
+\startcontents
+\begin{tikzpicture}[remember picture,overlay]
+\node at (current page.north west)
+{\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north west] at (-4pt,4pt) {\includegraphics[width=\paperwidth]{\thechapterimage}};
+%% Mj %% Décomposition gauche (pas au point)
+%\node[anchor=west] at (29mm,-5.5cm) {\includegraphics[height=19mm]{Chapitre-avec-decomposition-cubique-baclee}};
+%\draw[anchor=west] (5cm,-9cm) node [rounded corners=25pt,fill=white,opacity=.7,inner sep=15.5pt]{\huge\sffamily\bfseries\textcolor{black}{\vphantom{plPQq}\makebox[22cm]{}}};
+\draw[anchor=west] (5cm,-5.5cm) node [rounded corners=25pt,draw=ZMainColor,line width=3pt,inner sep=15pt]{\huge\sffamily\bfseries\textcolor{black}{#1\vphantom{plPQq}\makebox[22cm]{}}};
+\end{tikzpicture}};
+\end{tikzpicture}}\par
+%\vspace*{70\p@}
+% Les infos dans les entêtes
+%\begin{tikzpicture}
+%\tikzstyle{texte_entete}=[rectangle,draw,fill=yellow!50,text=black]
+%\node[texte_entete] (e) at (-3,-3) {Titre\\blabla\\blablabla};
+%\end{tikzpicture}
+\vspace*{5cm}
+\fi
+\fi
+}
+
+\chapterimage{En-tete-avec-decomposition-cubique2}
+
+\makeatother
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%-------------------------------------------------------------------------------
+%     DEFINITION DES COMMANDES
+%-------------------------------------------------------------------------------
+
+%---- Commandes de substitution ------------------------------------------------
+
+\newcommand{\mo}{Garmir~Khatch\xspace} % Nom de la Maîtrise d'Ouvrage
+\newcommand{\amo}{AMU~FSI~2014\xspace} % Nom de l'Assistance à Maîtrise d'Ouvrage
+
+% Adresses e-mails (avec lien hypertext)
+% Adresses e-mails (avec lien hypertext) des membres de la Maîtrise d'Ouvrage
+\newcommand{\AgopianEmail}{\href{mailto:roland.agopian@univ-amu.fr}{roland.agopian@univ-amu.fr}\xspace}
+% Adresses e-mails (avec lien hypertext) des membres de l'Assitance à Maîtrise d'Ouvrage
+\newcommand{\BaldeEmail}{\href{mailto:ibbaldes@yahoo.fr}{ibbaldes@yahoo.fr}\xspace}
+\newcommand{\CadonEmail}{\href{mailto:mehdi-jonathan@hotmail.fr}{mehdi-jonathan@hotmail.fr}\xspace}
+\newcommand{\GairoardEmail}{\href{mailto:lionel.gairoard@gmail.com}{lionel.gairoard@gmail.com}\xspace}
+\newcommand{\PachyEmail}{\href{mailto:pachy.ravi@gmail.com}{pachy.ravi@gmail.com}\xspace}
+\newcommand{\ToureEmail}{\href{mailto:takamor91@yahoo.fr}{takamor91@yahoo.fr}\xspace}
+% Prénoms & Noms (avec lien hypertext vers l'e-mail)
+% Prénoms & Noms (avec lien hypertext vers l'e-mail) des membres de la Maîtrise d'Ouvrage
+\newcommand{\Agopian}{\href{mailto:roland.agopian@univ-amu.fr}{Roland~\textsc{Agopian}}\xspace}
+% Prénoms & Noms (avec lien hypertext vers l'e-mail) des membres de l'Assitance à Maîtrise d'Ouvrage
+\newcommand{\Balde}{\href{mailto:ibbaldes@yahoo.fr}{Ibrahima~Sory~\textsc{Balde}}\xspace}
+\newcommand{\Cadon}{\href{mailto:mehdi-jonathan@hotmail.fr}{Mehdi-Jonathan~\textsc{Cadon}}\xspace}
+\newcommand{\Gairoard}{\href{mailto:lionel.gairoard@gmail.com}{Lionel~\textsc{Gairoard}}\xspace}
+\newcommand{\Pachy}{\href{mailto:pachy.ravi@gmail.com}{Ravi~\textsc{Pachy}}\xspace}
+\newcommand{\Toure}{\href{mailto:takamor91@yahoo.fr}{Ahoua~Khady~\textsc{Toure}}\xspace}
+
+
+%---- Commandes de mutateurs & accesseurs --------------------------------------
+
+\newcommand\ZTitleContent[1]{#1}
+\newcommand\ZTitle[1]{
+	\renewcommand{\ZTitleContent}{#1\xspace}
+}
+\ZTitle{Titre principal du document}
+
+\newcommand\ZAuthorContent[1]{#1}
+\newcommand\ZAuthor[1]{
+	\renewcommand{\ZAuthorContent}{#1\xspace}
+}
+\ZAuthor{Liste des auteurs du document}
+
+\newcommand\ZDateContent[1]{#1}
+\newcommand\ZDate[1]{
+	\renewcommand{\ZDateContent}{#1\xspace}
+}
+\ZDate{Date du document}
+
+\newcommand\ZSubjectContent[1]{#1}
+\newcommand\ZSubject[1]{
+	\renewcommand{\ZSubjectContent}{#1\xspace}
+}
+\ZSubject{Sujet du document}
+
+\newcommand\ZVersionContent[1]{#1}
+\newcommand\ZVersion[1]{
+	\renewcommand{\ZVersionContent}{#1\xspace}
+}
+\ZVersion{Version du document}
+
+%-------------------------------------------------------------------------------
+%     PAGE DE COUVERTURE
+%-------------------------------------------------------------------------------
+
+\newcommand{\ZMakeCover}{
+	\begingroup
+	\thispagestyle{empty}
+	\AddToShipoutPicture*{\put(0,0){\includegraphics[scale=1]{Page-de-garde-avec-decomposition-cubique2}}}
+	\centering
+	\vspace*{60mm}
+	\par\normalfont\fontsize{40}{40}\sffamily\selectfont\scshape\bfseries
+	\ZTitleContent\par
+	\vspace*{10mm}
+	\par\normalfont\fontsize{30}{30}\sffamily\selectfont\scshape
+	\ZSubjectContent\ZVersionContent\par
+	\vspace*{20mm}
+	\par\normalfont\fontsize{20}{20}\sffamily\selectfont
+	\ZAuthorContent\par
+	\vspace*{10mm}
+	\par\normalfont\fontsize{20}{20}\sffamily\selectfont
+	\ZDateContent\par
+	\endgroup
+	\normalfont
+	\clearpage
+}
+
+%-------------------------------------------------------------------------------
+%     PAGE D'INFORMATIONS
+%-------------------------------------------------------------------------------
+
+\newcommand{\ZMakeInformations}[3]{
+	\begingroup
+	\centering
+	\pagestyle{empty} % Print headers again
+	\chapter*{Page d'informations}
+	\section*{Contacts}
+	\begin{tabularx}{\linewidth}{X X}
+		\toprule
+		Prénom(s) \& Nom & Adresse e-mail \\
+		\midrule
+		\Agopian & \AgopianEmail \\
+		\hline
+		\Balde & \BaldeEmail \\
+		\hline
+		\Cadon & \CadonEmail \\
+		\hline
+		\Gairoard & \GairoardEmail \\
+		\hline
+		\Pachy & \PachyEmail \\
+		\hline
+		\Toure & \ToureEmail \\
+		\bottomrule
+	\end{tabularx}
+	\section*{Versions}
+	\begin{tabularx}{\linewidth}{m{0.15\linewidth} m{0.15\linewidth} X X}
+		\toprule
+		Version & Date & Auteur(s) & Modification(s) \\
+		\midrule
+		#1
+		\bottomrule
+	\end{tabularx}
+	\section*{Diffusion}
+	\begin{tabularx}{\linewidth}{m{0.15\linewidth} m{0.15\linewidth} X}
+		\toprule
+		Version & Date & Approbateur(s) \\
+		\midrule
+		#2
+		\bottomrule
+	\end{tabularx}
+	\section*{Validation}
+	\begin{tabularx}{\linewidth}{m{0.15\linewidth} m{0.15\linewidth} X}
+		\toprule
+		Version & Date & Responsable(s) \\
+		\midrule
+		#3
+		\bottomrule
+	\end{tabularx}
+	\endgroup
+	\normalfont
+	\clearpage
+	\pagestyle{fancy}
+}
+
+%-------------------------------------------------------------------------------
+%     TABLE DES MATIERES
+%-------------------------------------------------------------------------------
+
+\newcommand{\ZMakeTableOfContents}{
+%	\pagestyle{empty} % No headers
+%	\tableofcontents % Print the table of contents itself
+%	\normalfont
+%	\clearpage
+%	\pagestyle{fancy} % Print headers again
+}
+
+
+
+
+
+
+
+
+
+
+\RequirePackage{hyperref} % Permet d'utiliser les hyperliens (! TOUJOURS CHARGER EN DERNIER)
+	\hypersetup{pdfstartview=XYZ} % Zoom par défaut (dieu sait pourquoi hyperref change ce dernier)
+
+
+
+
+
+
+
+
+%-------------------------------------------------------------------------------
+%     FIN DU PACKAGE
+%-------------------------------------------------------------------------------
+
+\endinput
