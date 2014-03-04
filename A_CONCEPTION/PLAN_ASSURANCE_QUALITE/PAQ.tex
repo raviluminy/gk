@@ -5,28 +5,17 @@
 %-------------------------------------------------------------------------------
 
 \documentclass[11pt,fleqn]{report}
-
-\usepackage{garmirkhatch}
-
-
-
-%-------------------------------------------------------------------------------
-%
-%     GLOBAL VALUES
-%
-%-------------------------------------------------------------------------------
-
+\usepackage{GarmirKhatch}
 
 %-------------------------------------------------------------------------------
 %     Informations spécifiques au document
 %-------------------------------------------------------------------------------
 
 \ZTitle{Système de gestion des transports}
-\ZSubject{Cahier des charges}
-\ZVersion{2.0}
-\ZDate{2014-03-03}
+\ZSubject{Plan d'assurance qualité}
+\ZVersion{2.1}
+\ZDate{\today}
 \ZAuthor{\Balde,\\\Cadon,\\\Gairoard,\\\Julien,\\\Lericolais,\\\Mezelle,\\\Pachy,\\\SuangaWeto,\\\Toure}
-
 
 %-------------------------------------------------------------------------------
 %     Contenu
@@ -39,15 +28,17 @@
 \ZMakeInformations{
 	% Historique des modifications
 	% Version & Date & Auteur(s) & Modification(s)
-	0.0 & 2014-03-03 & \Cadon & Création \\
+	2.0 & 2014-03-03 & \Cadon & Création à partir de l'ancienne version \\
+	\midrule
+	2.1 & 2014-03-04 & \Pachy & Mise à jour en fonction de la réunion interne du 2014-03-03\\
 }{
 	% Historique des approbations
 	% Version & Date & Approbateur(s)
-	0.0 & 2014-03-03 & \Cadon \\
+	\ZVersion & - & - \\
 }{
 	% Historique des validations
 	% Version & Date & Responsable(s)
-	0.0 & 2014-03-03 & \Cadon \\
+	2.1 & - & - \\
 }
 
 \ZMakeTableOfContents
@@ -110,10 +101,40 @@ Afin de favoriser le partage des connaissances entre chaque membre du groupe, le
 \\
 Une fois qu'une tâche est terminée, si celle-ci a une suite logique, il incombe aux prédécesseurs de prévenir les successeurs.
 
+\section{Travail d'équipe}
+% ------------------------------------------------------------------------------
+\subsection{Communication}
+Lorsque des membres du groupe ont besoin de communiquer\footnote{Les moyens de communication sont décrits dans le tableau \ref{OutilsCommunication}}
+% Fin de la sous-section [Communication]
+% ------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------
+\subsection{Binômes}
+Toutes les tâches sont réalisées en binôme afin de faciliter le partage des connaissances. Toujours dans cette optique, les binômes seront constitués d'un membre de chaque groupe pour faciliter la prise en main du projet existant par l'équipe arrivante.
+% Fin de la sous-section [Binômes]
+% ------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------
+\subsection{Direction}
+Un binôme de direction est constitué à chaque itération afin d'avoir une organisation optimale.
+% Fin de la sous-section [Direction]
+% ------------------------------------------------------------------------------
+% ------------------------------------------------------------------------------
+\subsection{Réalisation des tâches}
+Lorsqu'une tâche est terminée et qu'une autre lui succède directement, il revient au binôme qui précède d'avertir le suivant que la tâche est terminée et qu'il peut prendre la relève.
+% Fin de la sous-section [Réalisation des tâches]
+% ------------------------------------------------------------------------------
+
 \section{Réunions}
 
 \subsection{Réunions internes}
-Des réunions internes bihebdomadaires sont organisées afin de garantir une bonne coordination de l'équipe. Durant ces réunions tous les membres sont présents.
+Des réunions interne sont organisées afin de garantir une bonne coordination de l'équipe. Durant ces réunions tous les membres sont présents, et un bilan concis des tâches à réaliser est fait par les responsables de celles-ci. Avant une réunion interne, un ordre du jour succint est envoyé par mail par la direction du projet pour rappeler l'objectif de la réunion et éventuellement rajouter des points spécifiques à aborder.\\
+Il y a trois réunions internes par semaine, à savoir :
+\begin{itemize}
+	\item Lundi : Bilan du travail du week end
+	\item Mercredi : Bilan du travail de début de semaine et préparation de la réunion externe du vendredi
+	\item Vendredi : Compte-rendu de la réunion externe et assignation des tâches pour la semaine suivante
+\end{itemize}
+Toutes les réunions internes commencent à 14h, se déroulent dans les salles informatique du 3eme étage, et donnent lieu à la rédaction d'un compte-rendu sommaire pour servir de récapitulatif.
+Si des retards sont inévitables ou constatés, c'est lors de ces réunions que la planification est ajustée pour respecter au mieux les dates limites.
 
 \subsection{Réunions externes}
 Des réunions externes hebdomadaires sont organisées avec le représentant de la société afin de garantir une réactivité optimale concernant ses attentes et ses besoins.
@@ -135,6 +156,19 @@ Afin d'éviter des problèmes d'incompatibilité, les outils suivants seront uti
 	\end{tabularx}
 	\caption{Outils de travail~: systèmes d'exploitation}
 	\label{OutilsOS}
+\end{table}
+\begin{table}[htbp]
+	\centering
+	\begin{tabularx}{\linewidth}{m{30mm} X}
+		\toprule
+		\textbf{Type} & \textbf{Commentaires} \\
+		\midrule
+		E-mail & Client au choix de l'utilisateur; \textbf{tous les membres} du groupe sont mis en copie à chaque envoi de mail.\\
+		Téléphone & Dans le cas ou la situation l'exige; e-mail sinon.\\
+		\bottomrule
+	\end{tabularx}
+	\caption{Outils de travail~: communication}
+	\label{OutilsCommunication}
 \end{table}
 \begin{table}[htbp]
 	\centering
