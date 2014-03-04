@@ -10,3 +10,27 @@
 % 
 % Bon courage ;-)
 
+\subsection{Problématique}
+
+Il est indiqué dans le cahier des charges que la suite logicielle doit pouvoir synchroniser des données, à la fois entre postes clients et serveur local, mais également entre serveur local et serveur central.
+Cette demande pose les problèmes de la disponibilité du serveur local et de l'intégrité des données. Différentes architectures vont être proposées afin de garantir ces contraintes.
+
+\subsection{Cluster}
+
+Une première solution utilisant la technologie du \textit{cluster} peut être envisagée. Cette technique permet de créer un groupe logique de serveurs qui s'exécutent simultanément tout en donnant l'impression aux utilisateurs de ne constituer qu'un seul serveur.
+En considérant le matériel existant, et le fait que l'achat de serveur dédié pour ce cluster serait couteux au client, une solution de \textit{clustering} peut être effectuée grâce à de simples postes clients qu'il faut configurer comme des serveurs. Les étapes de cette configuration sera fournie dans le manuel de déploiement.
+\
+Deux architectures différentes sont proposées :
+\begin{itemize}
+	\item Deux postes clients ( configurés comme des serveurs maître/esclave) sont reliés directement par un cable eternet, ce qui va permettre de dupliquer au fur et à mesure toutes les données. Le serveur maître transmet les données au serveur esclave, et en cas d'incident sur le serveur maître, c'est le serveur esclave qui reprend la main.
+	% Schéma du cluster relié directement
+	\item Les deux postes ne sont pas directement reliés, mais c'est le routeur qui va transmettre les données aux deux serveurs. Cette  solution permet d'augmenter la distance entre les deux serveurs, voir d'utiliser des locaux différents en évitant ainsi une coupure d'électricité au niveau des deux locaux, ou bien la propagation d'un incendie. Par contre cette solution, va augmenter de manière significative l'utilisation réseau, ce qui n'est pas négligeable vu les contraintes des communications réseaux.
+	% Schéma du cluster avec la passerelle
+\end{itemize}
+
+\subsection{Reprise sur panne}
+% explication priorités 
+
+\subsection{Sauvegarde en dure}
+
+Une deuxième solution peut être mise en oeuvre de manière complémentaire au \textit{cluster} afin de mieux respecter la contrainte concernant l'intégrité des données. 
