@@ -1,0 +1,311 @@
+%-------------------------------------------------------------------------------
+%
+%     CHARGEMENT DES EXTENSIONS
+%
+%-------------------------------------------------------------------------------
+
+\documentclass[11pt,fleqn]{report}
+
+\usepackage{garmirkhatch}
+
+
+
+%-------------------------------------------------------------------------------
+%
+%     GLOBAL VALUES
+%
+%-------------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------------
+%     Informations spécifiques au document
+%-------------------------------------------------------------------------------
+
+\ZTitle{Système de gestion des transports}
+\ZSubject{Cahier des charges}
+\ZVersion{2.0}
+\ZDate{2014-03-03}
+\ZAuthor{\Balde,\\\Cadon,\\\Gairoard,\\\Julien,\\\Lericolais,\\\Mezelle,\\\Pachy,\\\SuangaWeto,\\\Toure}
+
+
+%-------------------------------------------------------------------------------
+%     Contenu
+%-------------------------------------------------------------------------------
+
+\begin{document}
+
+\ZMakeCover
+
+\ZMakeInformations{
+	% Historique des modifications
+	% Version & Date & Auteur(s) & Modification(s)
+	0.0 & 2014-03-03 & \Cadon & Création \\
+}{
+	% Historique des approbations
+	% Version & Date & Approbateur(s)
+	0.0 & 2014-03-03 & \Cadon \\
+}{
+	% Historique des validations
+	% Version & Date & Responsable(s)
+	0.0 & 2014-03-03 & \Cadon \\
+}
+
+\ZMakeTableOfContents
+
+\chapter{Introduction}
+Ce document présente le Plan d'Assurance Qualité (PAQ) relatif au projet de Transport Management System (TMS) par l'assistance à maîtrise d'ouvrage \amo au bénéfice de \mo.
+\\
+Il définit donc les méthodes, l'organisation et les éléments permettant d'assurer et de contrôler la qualité du projet.
+
+\chapter{Structure du projet}
+L'ensemble des documents produits durant le projet sera composé~:
+\begin{enumerate}
+	\item du PAQ~;
+	\item du cahier des charges~;
+	\item des comptes rendus de réunions~;
+	\item des listes des tâches avec les assignations.
+\end{enumerate}
+
+\chapter{Organisation et suivi du projet}
+
+\section{Acteurs}
+\begin{table}[htbp]
+	\begin{tabularx}{\linewidth}{X X}
+		\toprule
+		\textbf{Prénom(s) \& Nom} & \textbf{Adresse e-mail} \\
+		\midrule
+		\Agopian & \AgopianEmail \\
+		\hline
+		\Balde & \BaldeEmail \\
+		\hline
+		\Cadon & \CadonEmail \\
+		\hline
+		\Gairoard & \GairoardEmail \\
+		\hline
+		\Julien & \JulienEmail \\
+		\hline
+		\Lericolais & \LericolaisEmail \\
+		\hline
+		\Mezelle & \MezelleEmail \\
+		\hline
+		\Pachy & \PachyEmail \\
+		\hline
+		\SuangaWeto & \SuangaWetoEmail \\
+		\hline
+		\Toure & \ToureEmail \\
+		\bottomrule
+	\end{tabularx}
+	\caption{Liste des acteurs}
+	\label{Acteurs}
+\end{table}
+
+\section{Méthodologie de gestion du projet}
+La méthodologie de gestion du projet de réalisation du TMS suit un cycle de développement en V, guidé par les tests et dont les principes sont~:
+\begin{enumerate}
+	\item tous les acteurs sont joignables par e-mail~;
+	\item des réunions hebdomadaires externes sont planifiées jusqu'à la livraison finale tous les vendredis matins sur le campus universitaire de Saint-Charles à Marseille~;
+	\item les présentations de l'avancement de l'application sont fréquentes et se déroulent pendant les réunions avec le représentant de la société.
+\end{enumerate}
+Afin de favoriser le partage des connaissances entre chaque membre du groupe, les différentes tâches seront effectuées principalement en binôme. La composition de chaque binôme variera en fonction des tâches à réaliser et des savoir-faire de chacun.
+\\
+Une fois qu'une tâche est terminée, si celle-ci a une suite logique, il incombe aux prédécesseurs de prévenir les successeurs.
+
+\section{Réunions}
+
+\subsection{Réunions internes}
+Des réunions internes bihebdomadaires sont organisées afin de garantir une bonne coordination de l'équipe. Durant ces réunions tous les membres sont présents.
+
+\subsection{Réunions externes}
+Des réunions externes hebdomadaires sont organisées avec le représentant de la société afin de garantir une réactivité optimale concernant ses attentes et ses besoins.
+\\
+Les réunions externes donnent lieu à la rédaction d'un compte rendu contenant la liste exhaustive des tâches à réaliser, et remis au client au plus tard 48h après la fin de la réunion (dans les jours ouvrables).
+
+\section{Outils de travail}
+Afin d'éviter des problèmes d'incompatibilité, les outils suivants seront utilisés~:
+\begin{table}[htbp]
+	\centering
+	\begin{tabularx}{\linewidth}{m{30mm} m{30mm} X}
+		\toprule
+		\textbf{Nom} & \textbf{Version} & \textbf{URL} \\
+		\midrule
+		GNU/Linux & Ubuntu 12.04 LTS & www.ubuntu.fr \\
+		GNU/Linux & Debian & www.debian.org \\
+		Microsoft~Windows & 7 & www.microsoft.com \\
+		\bottomrule
+	\end{tabularx}
+	\caption{Outils de travail~: systèmes d'exploitation}
+	\label{OutilsOS}
+\end{table}
+\begin{table}[htbp]
+	\centering
+	\begin{tabularx}{\linewidth}{m{30mm} m{30mm} X}
+		\toprule
+		\textbf{Nom} & \textbf{Version} & \textbf{URL} \\
+		\midrule
+		LaTeX & - & - \\
+		\bottomrule
+	\end{tabularx}
+	\caption{Outils de travail~: documentation}
+	\label{OutilsDocumentation}
+\end{table}
+\begin{table}[htbp]
+	\centering
+	\begin{tabularx}{\linewidth}{m{30mm} m{30mm} X}
+		\toprule
+		\textbf{Nom} & \textbf{Version} & \textbf{URL} \\
+		\midrule
+		Github & 1.7.9.5 & https://github.com/raviluminy/gk \\
+		\bottomrule
+	\end{tabularx}
+	\caption{Outils de travail~: partage des fichiers}
+	\label{OutilsDepot}
+\end{table}
+
+\chapter{Abréviations}
+\begin{table}[htbp]
+	\centering
+	\begin{tabularx}{\linewidth}{m{30mm} X}
+		\toprule
+		\textbf{Abréviation} & \textbf{Signification} \\
+		\midrule
+		AMO & Assistance à Maîtrise d'Ouvrage \\
+		CdC & Cahier des Charges \\
+		CdCF & Cahier des Charges Fonctionnel \\
+		CdCT & Cahier des Charges Technique \\
+		CR & Compte-rendu \\
+		Go & Giga-octet \\
+		LdT & Liste des Tâches \\
+		OdJ & Ordre du Jour \\
+		PAQ & Plan d'Assurance Qualité \\
+		SGBD & Système de Gestion de Bases de Données \\
+		SGBDR & Système de Gestion de Bases de Données Relationnelles \\
+		DAT & Dossier d'Architecture Technique \\
+		PTI & Protocole Technique d'Installation \\
+		PdR & Procédure de Recette \\
+		DE & Dossier d'Exploitation \\
+		PCS & Plan de Continuité des Services \\
+		\bottomrule
+	\end{tabularx}
+	\caption{Abréviations communes}
+	\label{AbreviationsCommunes}
+\end{table}
+
+\chapter{Gestion de la documentation}
+Cette section décrit la manière dont sont gérés les documents relatifs au projet.
+
+\section{Structure des documents}
+Tout document produit doit se plier au modèle de document de la société.
+
+\section{Nomenclature}
+La liste exhaustive des documents concernés est décrite ci-dessous (hors sous-documents, images et librairies)~:
+\begin{enumerate}
+	\item \textbf{/Annexe/Docs/}
+	\\
+	Contient les documents relatifs à \mo, dont~:
+	\begin{enumerate}
+		\item GARMIR KHATCH - EXEMPLE DE CONTRAT DE TRANSPORT.doc,
+		\item GARMIR KHATCH - SUIVI DES TRANSPORTS (EXEMPLE).xlsx,
+		\item LOGISTICS REQUISITION.pdf,
+		\item WAYBILL DELIVERY NOTE.pdf~;
+	\end{enumerate}
+	\item \textbf{/Annexe/RE/}
+	\\
+	Contient les documents relatifs aux réunions externes~:
+	\begin{enumerate}
+		\item RE-XXX-(YYYY-MM-DD)-CR-\textit{version}.tex,
+		\item RE-XXX-(YYYY-MM-DD)-LdT-\textit{version}.tex,
+		\item RE-XXX-(YYYY-MM-DD)-OdJ-\textit{version}.tex~;
+	\end{enumerate}
+	\item \textbf{/Annexe/RI/}
+	\\
+	Contient les documents relatifs aux réunions internes~:
+	\begin{enumerate}
+		\item RI-XXX-(YYYY-MM-DD)-CR-\textit{version}.tex,
+		\item RI-XXX-(YYYY-MM-DD)-LdT-\textit{version}.tex,
+		\item RI-XXX-(YYYY-MM-DD)-OdJ-\textit{version}.tex~;
+	\end{enumerate}
+	\item \textbf{/Conception/}
+	\\
+	Contient les documents relatifs à la conception~:
+	\begin{enumerate}
+		\item CdC-\textit{version}.tex,
+		\item CdCF-\textit{version}.tex,
+		\item CdCT-\textit{version}.tex,
+		\item PAQ-\textit{version}.tex~;
+	\end{enumerate}
+	\item \textbf{/Realisation/}
+	\\
+	Contient les documents relatifs à la réalisation~:
+	\begin{enumerate}
+		\item DAT-\textit{version}.tex,
+		\item PTI-\textit{version}.tex,
+		\item PdR-\textit{version}.tex,
+		\item DE-\textit{version}.tex,
+		\item PCS-\textit{version}.tex.
+	\end{enumerate}
+\end{enumerate}
+Dans chaque document énoncé, l'élément \textit{version} représente la version du fichier dans un format pointé. Ci-dessous quelques exemples~:
+\begin{enumerate}
+	\item /Annexe/RE/RE-001-(2014-02-07)-CR-2.0.tex~;
+	\item /Annexe/RI/RI-003-(2014-02-21)-OdJ-1.3.tex~;
+	\item /Conception/CdCF-2.1.tex~;
+	\item /Realisation/DAT-0.1.tex.
+\end{enumerate}
+
+\chapter{Planification}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		% Déclaration des styles
+		\tikzstyle{tache}=[rectangle,text=black,minimum height=9mm,minimum width=19mm]
+		\tikzstyle{temps}=[rectangle,text=black,minimum height=9mm,minimum width=9mm]
+		\tikzstyle{jour}=[rectangle,text=black,minimum height=9mm,minimum width=13mm,draw=black,fill=black!5]
+		\tikzstyle{color1}=[draw=ZMainColor,fill=black!5]
+		\tikzstyle{color2}=[draw=red,       fill=red!5]
+		\tikzstyle{color3}=[draw=green,     fill=green!5]
+		\tikzstyle{color4}=[draw=orange,    fill=orange!5]
+		\tikzstyle{color5}=[draw=blue,      fill=blue!5]
+		\tikzstyle{color6}=[draw=magenta,   fill=magenta!5]
+		% Déclaration des noeuds
+		% Déclaration des noeuds de temps
+		\node[jour] (j1) at ( 30mm, 15mm) {\centering\tiny Vendredi};
+		\node[jour] (j2) at ( 44mm, 15mm) {\centering\tiny Samedi};
+		\node[jour] (j3) at ( 58mm, 15mm) {\centering\tiny Dimanche};
+		\node[jour] (j4) at ( 72mm, 15mm) {\centering\tiny Lundi};
+		\node[jour] (j5) at ( 86mm, 15mm) {\centering\tiny Mardi};
+		\node[jour] (j6) at (100mm, 15mm) {\centering\tiny Mercredi};
+		\node[jour] (j7) at (114mm, 15mm) {\centering\tiny Jeudi};
+		% Déclaration des noeuds de tâches
+		\node[tache,color1] (t1) at ( 0mm,- 0mm) {Tâche1};
+		\node[temps,color1] (h1) at (15mm,- 0mm) {Xh};
+		\node[tache,color2] (t2) at ( 0mm,-10mm) {Tâche2};
+		\node[temps,color2] (h2) at (15mm,-10mm) {Xh};
+		\node[tache,color3] (t3) at ( 0mm,-20mm) {Tâche3};
+		\node[temps,color3] (h3) at (15mm,-20mm) {Xh};
+		\node[tache,color4] (t4) at ( 0mm,-30mm) {Tâche4};
+		\node[temps,color4] (h4) at (15mm,-30mm) {Xh};
+		\node[tache,color5] (t5) at ( 0mm,-40mm) {Tâche5};
+		\node[temps,color5] (h5) at (15mm,-40mm) {Xh};
+		\node[tache,color6] (t6) at ( 0mm,-50mm) {Tâche6};
+		\node[temps,color6] (h6) at (15mm,-50mm) {Xh};
+		% Déclaration des lignes de tâches
+		\draw[color1] (h1) -- (120mm,- 0mm);
+		\draw[color2] (h2) -- (120mm,-10mm);
+		\draw[color3] (h3) -- (120mm,-20mm);
+		\draw[color4] (h4) -- (120mm,-30mm);
+		\draw[color5] (h5) -- (120mm,-40mm);
+		\draw[color6] (h6) -- (120mm,-50mm);
+		% Déclaration des noeuds d'affectation
+		\node[tache,color1] (a1) at (60mm,- 0mm) {Ressources1};
+		\node[tache,color2] (a2) at (60mm,-10mm) {Ressources2};
+		\node[tache,color3] (a3) at (60mm,-20mm) {Ressources3};
+		\node[tache,color4] (a4) at (60mm,-30mm) {Ressources4};
+		\node[tache,color5] (a5) at (60mm,-40mm) {Ressources5};
+		\node[tache,color6] (a6) at (60mm,-50mm) {Ressources6};
+	\end{tikzpicture}
+	\caption{Planification}
+	\label{Planification}
+\end{figure}
+
+\end{document}
