@@ -253,59 +253,66 @@ Dans chaque document énoncé, l'élément \textit{version} représente la versi
 \end{enumerate}
 
 \chapter{Planification}
-
 \begin{figure}
 	\centering
-	\begin{tikzpicture}
-		% Déclaration des styles
-		\tikzstyle{tache}=[rectangle,text=black,minimum height=9mm,minimum width=19mm]
-		\tikzstyle{temps}=[rectangle,text=black,minimum height=9mm,minimum width=9mm]
-		\tikzstyle{jour}=[rectangle,text=black,minimum height=9mm,minimum width=13mm,draw=black,fill=black!5]
-		\tikzstyle{color1}=[draw=ZMainColor,fill=black!5]
-		\tikzstyle{color2}=[draw=red,       fill=red!5]
-		\tikzstyle{color3}=[draw=green,     fill=green!5]
-		\tikzstyle{color4}=[draw=orange,    fill=orange!5]
-		\tikzstyle{color5}=[draw=blue,      fill=blue!5]
-		\tikzstyle{color6}=[draw=magenta,   fill=magenta!5]
-		% Déclaration des noeuds
-		% Déclaration des noeuds de temps
-		\node[jour] (j1) at ( 30mm, 15mm) {\centering\tiny Vendredi};
-		\node[jour] (j2) at ( 44mm, 15mm) {\centering\tiny Samedi};
-		\node[jour] (j3) at ( 58mm, 15mm) {\centering\tiny Dimanche};
-		\node[jour] (j4) at ( 72mm, 15mm) {\centering\tiny Lundi};
-		\node[jour] (j5) at ( 86mm, 15mm) {\centering\tiny Mardi};
-		\node[jour] (j6) at (100mm, 15mm) {\centering\tiny Mercredi};
-		\node[jour] (j7) at (114mm, 15mm) {\centering\tiny Jeudi};
-		% Déclaration des noeuds de tâches
-		\node[tache,color1] (t1) at ( 0mm,- 0mm) {Tâche1};
-		\node[temps,color1] (h1) at (15mm,- 0mm) {Xh};
-		\node[tache,color2] (t2) at ( 0mm,-10mm) {Tâche2};
-		\node[temps,color2] (h2) at (15mm,-10mm) {Xh};
-		\node[tache,color3] (t3) at ( 0mm,-20mm) {Tâche3};
-		\node[temps,color3] (h3) at (15mm,-20mm) {Xh};
-		\node[tache,color4] (t4) at ( 0mm,-30mm) {Tâche4};
-		\node[temps,color4] (h4) at (15mm,-30mm) {Xh};
-		\node[tache,color5] (t5) at ( 0mm,-40mm) {Tâche5};
-		\node[temps,color5] (h5) at (15mm,-40mm) {Xh};
-		\node[tache,color6] (t6) at ( 0mm,-50mm) {Tâche6};
-		\node[temps,color6] (h6) at (15mm,-50mm) {Xh};
-		% Déclaration des lignes de tâches
-		\draw[color1] (h1) -- (120mm,- 0mm);
-		\draw[color2] (h2) -- (120mm,-10mm);
-		\draw[color3] (h3) -- (120mm,-20mm);
-		\draw[color4] (h4) -- (120mm,-30mm);
-		\draw[color5] (h5) -- (120mm,-40mm);
-		\draw[color6] (h6) -- (120mm,-50mm);
-		% Déclaration des noeuds d'affectation
-		\node[tache,color1] (a1) at (60mm,- 0mm) {Ressources1};
-		\node[tache,color2] (a2) at (60mm,-10mm) {Ressources2};
-		\node[tache,color3] (a3) at (60mm,-20mm) {Ressources3};
-		\node[tache,color4] (a4) at (60mm,-30mm) {Ressources4};
-		\node[tache,color5] (a5) at (60mm,-40mm) {Ressources5};
-		\node[tache,color6] (a6) at (60mm,-50mm) {Ressources6};
-	\end{tikzpicture}
-	\caption{Planification}
-	\label{Planification}
+	\begin{ganttchart}[
+			y unit title=0.4cm,
+			y unit chart=0.5cm,
+			vgrid,
+			hgrid,
+			title label anchor/.style={below=-1.6ex},
+			title left shift=.05,
+			title right shift=-.05,
+			title height=1,
+			bar/.style={draw=black,fill=gray!50},
+			incomplete/.style={fill=white},
+			progress label text={},
+			bar height=0.7,
+			group right shift=0,
+			group top shift=.6,
+			group height=.3,
+			group peaks height =.2
+		]{1}{28}
+		% Titres
+		\gantttitle{Itération X}{28} \\
+		\gantttitle{Vendredi}{4}
+		\gantttitle{Samedi}{4}
+		\gantttitle{Dimanche}{4}
+		\gantttitle{Lundi}{4}
+		\gantttitle{Mardi}{4}
+		\gantttitle{Mercredi}{4}
+		\gantttitle{Jeudi}{4} \\
+		% Tâches
+		\ganttgroup{Groupe 1}{1}{8} \\
+		\ganttbar{Tâche 1}{1}{2} \\
+		\ganttbar{Tâche 2}{3}{8} \\
+		\ganttbar{Tâche 3}{9}{10} \\
+		\ganttgroup{Groupe 2}{1}{12} \\
+		\ganttbar{Tâche 4}{11}{15} \\
+		\ganttbar{Tâche 5}{20}{22} \\%[progress=33]
+		\ganttgroup{Groupe 3}{1}{12} \\
+		\ganttgroup{Groupe 4}{6}{12} \\
+		\ganttbar{Tâche 6}{18}{19} \\
+		\ganttbar{Tâche 7}{16}{18} \\
+		\ganttbar{Tâche 8}{21}{24}%[progress=0]
+		% Relations
+		\ganttlink{elem0}{elem1}
+		\ganttlink{elem0}{elem3}
+		\ganttlink{elem1}{elem2}
+		\ganttlink{elem3}{elem4}
+		\ganttlink{elem1}{elem5}
+		\ganttlink{elem3}{elem5}
+		\ganttlink{elem2}{elem6}
+		\ganttlink{elem3}{elem6}
+		\ganttlink{elem5}{elem7}
+		\node[fill=white,draw] at ([yshift=-12pt]current bounding box.south){
+			\Balde, \Cadon...
+		};
+%		\node[fill=white,draw,anchor=west] at (current bounding box.north west){Box North West};
+%		\node[fill=white,draw,anchor=west] at (current bounding box.north east){Box North East};
+	\end{ganttchart}
+	\caption{Planification par Gantt}
+	\label{PlanificationGantt}
 \end{figure}
 
 \end{document}
