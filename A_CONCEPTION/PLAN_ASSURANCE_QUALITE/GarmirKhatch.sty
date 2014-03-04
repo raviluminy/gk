@@ -492,19 +492,6 @@ innerbottommargin=5pt]{cBox}
 \fi
 }
 
-%\def\@makeschapterhead#1{
-%\thispagestyle{empty}
-%{\centering \normalfont\sffamily
-%\ifnum \c@secnumdepth >\m@ne
-%\if@mainmatter
-%\startcontents
-%{\ZEntete}
-%\par
-%\vspace*{5cm}
-%\fi
-%\fi
-%}
-
 \chapterimage{EnTete}
 
 \makeatother
@@ -694,7 +681,7 @@ innerbottommargin=5pt]{cBox}
 	\section*{Contacts}
 	\begin{tabularx}{\linewidth}{X X}
 		\toprule
-		Prénom(s) \& Nom & Adresse e-mail \\
+		\textbf{Prénom(s) \& Nom} & \textbf{Adresse e-mail} \\
 		\midrule
 		\Agopian & \AgopianEmail \\
 		\hline
@@ -718,9 +705,9 @@ innerbottommargin=5pt]{cBox}
 		\bottomrule
 	\end{tabularx}
 	\section*{Versions}
-	\begin{tabularx}{\linewidth}{m{0.15\linewidth} m{0.15\linewidth} X X}
+	\begin{tabularx}{\linewidth}{m{0.08\linewidth} m{0.14\linewidth} m{0.26\linewidth} X}
 		\toprule
-		Version & Date & Auteur(s) & Modification(s) \\
+		\textbf{Version} & \textbf{Date} & \textbf{Auteur(s)} & \textbf{Modification(s)} \\
 		\midrule
 		#1
 		\bottomrule
@@ -728,7 +715,7 @@ innerbottommargin=5pt]{cBox}
 	\section*{Diffusion}
 	\begin{tabularx}{\linewidth}{m{0.15\linewidth} m{0.15\linewidth} X}
 		\toprule
-		Version & Date & Approbateur(s) \\
+		\textbf{Version} & \textbf{Date} & \textbf{Approbateur(s)} \\
 		\midrule
 		#2
 		\bottomrule
@@ -736,7 +723,7 @@ innerbottommargin=5pt]{cBox}
 	\section*{Validation}
 	\begin{tabularx}{\linewidth}{m{0.15\linewidth} m{0.15\linewidth} X}
 		\toprule
-		Version & Date & Responsable(s) \\
+		\textbf{Version} & \textbf{Date} & \textbf{Responsable(s)} \\
 		\midrule
 		#3
 		\bottomrule
