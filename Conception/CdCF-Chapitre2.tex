@@ -1,15 +1,9 @@
 \chapter{Expression fonctionnelle du besoin}
-%% Mj %% Commenté pour décaler correctement
-%Cette section tient un compte détaillé des spécifications fonctionnelles du projet. Sont donc abordés ci-dessous~:
-%\begin{itemize}
-%	\item l'ensemble des fonctionnalités de service attendues et de contraintes à respecter~;
-%	\item les critères d'acceptation~;
-%	\item les niveaux de critères d'appréciation et ce qui les caractérise.
-%\end{itemize}
 
 \section{Fonctions de service et de contrainte}
 Cette section précise les services attendus et contraintes à respecter.
-Il est attendu de la suite logicielle qu'elle réponde à l'architecture de la figure \ref{architecture_generale}. Les fonctionnalité qui ne sont pas suivies d'une note de fonctionnalité complémentaire sont partie intégrante des services principaux attendus. Ces derniers sont la raison d'être du produit et donc incontournables.
+\\
+Il est attendu de la suite logicielle qu'elle réponde à l'architecture de la figure \ref{ArchitectureGenerale}. Les fonctionnalité qui ne sont pas suivies d'une note de fonctionnalité complémentaire sont partie intégrante des services principaux attendus. Ces derniers sont la raison d'être du produit et donc incontournables.
 
 \subsection{La localisation}
 La suite logicielle doit proposer des versions traduites en plusieurs langues, y compris avec des alphabets et des sens de lecture différents. Au minimum, les traductions dans les langages suivants doivent être fournis~:
@@ -103,27 +97,27 @@ Initialement, sont attendus à minima, l'ensemble des solutions suivantes~:
 	\begin{itemize}
 		\item NULL~: on se réserve la possibilité de ne pas crypter l'échange de clé,
 		\item RSA~: conformément à la \href{http://tools.ietf.org/html/rfc3447}{RFC 3447},
-		%\item DH\_DSS,
-		%\item DH\_RSA,
-		%\item DHE\_DSS,
-		%\item DHE\_RSA,
-		%\item DH\_anon~;
+%		\item DH\_DSS,
+%		\item DH\_RSA,
+%		\item DHE\_DSS,
+%		\item DHE\_RSA,
+%		\item DH\_anon~;
 	\end{itemize}
 	\item primitives de chiffrement~:
 	\begin{itemize}
 		\item NULL~: on se réserve la possibilité de ne pas chiffrer l'échange,
 		\item AES~: conformément à la \href{http://tools.ietf.org/html/rfc3394}{RFC 3394},
-		%\item RC4\_128,
-		%\item 3DES\_EDE\_CBC,
-		%\item AES\_128\_CBC,
-		%\item AES\_256\_CBC~;
+%		\item RC4\_128,
+%		\item 3DES\_EDE\_CBC,
+%		\item AES\_128\_CBC,
+%		\item AES\_256\_CBC~;
 	\end{itemize}
 	\item primitives de hachage~:
 	\begin{itemize}
 		\item NULL~: on se réserve la possibilité de ne pas signer l'échange,
 		\item MD5~: conformément à la \href{http://tools.ietf.org/html/rfc1321}{RFC 1321},
 		\item SHA~: conformément à la \href{http://tools.ietf.org/html/rfc3174}{RFC 3174},
-		%\item SHA256.
+%		\item SHA256.
 	\end{itemize}
 \end{itemize}
 La cryptographie étant un domaine en constante évolution, il est attendu de la suite logicielle qu'elle permette d'ajouter et supprimer facilement des solutions cryptographiques. 
@@ -139,7 +133,7 @@ Au minimum, la suite logicielle doit fournir un groupe d'utilisateurs particulie
 	\centering
 	\begin{tikzpicture}
 		\begin{scope}[xscale=1,yscale=1]
-			\tikzstyle{block} = [rectangle,draw=ocre,fill=black!5,text=black,text centered]
+			\tikzstyle{block} = [rectangle,draw=ZMainColor,fill=black!5,text=black,text centered]
 			\tikzstyle{arrow} = [->,>=latex]
 			% description et nommage des noeuds
 			\node[block] (U)  at (-4.00,0.00) {\begin{tabular}{c}Utilisateur\end{tabular}};
@@ -206,16 +200,16 @@ La suite logicielle doit permettre de générer des \emph{tableaux de bord}, qui
 \\
 Par exemple, pour une livraison donnée, on peut distinguer deux types de documents synthèse (liste non exhaustive) en fonction du destinataire~:
 \begin{itemize}
-\item le métier recevrait un document mettant en valeur les lieux et temps de chargement des marchandises avec les dates de chaque opération en rapport avec le contenu de la livraison~;
-\item le client pourrait recevoir le même type de document mais avec les prix de stockage, location des véhicules, coût du trajet, du carburant, ...
+	\item le métier recevrait un document mettant en valeur les lieux et temps de chargement des marchandises avec les dates de chaque opération en rapport avec le contenu de la livraison~;
+	\item le client pourrait recevoir le même type de document mais avec les prix de stockage, location des véhicules, coût du trajet, du carburant, ...
 \end{itemize}
 
 \subsubsection{Gestion des statistiques}
 La suite logicielle devrait permettre de produire un ensemble de statistiques à partir des informations enregistrées. Le choix de ces dernières n'étant pas encore arrêtées, une conception modulaire serait préférée de sorte à pouvoir en ajouter ou en supprimer facilement, leur prix devant être précisé dans un bordereau de prix unitaire ou un forfait.
 \begin{notation}
-\emph{Gestion des statistiques.}
-\\
-Cette fonction participe à améliorer, faciliter ou compléter le service rendu. Elle est souhaitée mais non prioritaires.
+	\emph{Gestion des statistiques.}
+	\\
+	Cette fonction participe à améliorer, faciliter ou compléter le service rendu. Elle est souhaitée mais non prioritaires.
 \end{notation}
 
 \subsubsection{Gestion des réquisitions \& waybills/delivery~notes}
@@ -243,11 +237,11 @@ Un 3ième cas existe également, lors duquel un partenaire émet une \emph{réqu
 \\
 La suite logicielle doit être en mesure de gérer chacun des cas de figure énoncé, ainsi que d'ajouter, modifier, supprimer, importer, exporter, imprimer et archiver ces deux documents ainsi que l'ensemble des informations qu'ils véhiculent (cf. annexe).
 \begin{notation}
-\emph{Heuristique organisationnelle.}
-\\
-Rappelons que l'objectif étant d'optimiser les ressources engagées, il est souhaité que la suite logicielle fournisse une aide à la décision dans l'attribution des moyens de transport, via une heuristique analytique.
-\\
-De même, il serait souhaité de faciliter l'organisation actuelle via l'analyse des logs d'activité. Cette heuristique pourrait notamment repérer des enchaînements logiques d'actions et ainsi proposer un accès rapide aux successeurs les plus fréquents.
+	\emph{Heuristique organisationnelle.}
+	\\
+	Rappelons que l'objectif étant d'optimiser les ressources engagées, il est souhaité que la suite logicielle fournisse une aide à la décision dans l'attribution des moyens de transport, via une heuristique analytique.
+	\\
+	De même, il serait souhaité de faciliter l'organisation actuelle via l'analyse des logs d'activité. Cette heuristique pourrait notamment repérer des enchaînements logiques d'actions et ainsi proposer un accès rapide aux successeurs les plus fréquents.
 \end{notation}
 
 \subsubsection{Gestion des chauffeurs, des transports et des prestataires}
@@ -304,35 +298,35 @@ La solution sera évaluée en fonction des critères suivants~:
 Plus un niveau est faible, plus ce critère est apprécié.
 \\
 \begin{tabularx}{\linewidth}{>{\centering}m{2.0cm} c X}
-\toprule
-Critère & Niveau & Détails
-\\\midrule
-Disponibilité & 1 & La solution devra être utilisable dans les conditions et les termes convenus.
-\\\hline
-Capacité & 1 & L'ensemble du personnel logistique doit pouvoir avoir un accès simultané, et le produit devra prendre en compte une évolution du nombre d'utilisateurs en fonction de la croissance de \mo.
-\\\hline
-Sécurité & 1 & L'association manipulant des informations personnelles, le produit devra gérer la sécurité des communications et du stockage des informations (en prenant en compte les contraintes légales des états du lieu d'intervention).
-\\\hline
-Continuité & 1 & Le prestataire fournira des solutions pour assurer la continuité, comme un plan de reprise d'activité pour assurer un rétablissement de la disponibilité dans des délais optimaux.
-\\\hline
-Accessibilité & 2 & La suite logicielle pourra être utilisée par du personnel sans compétences fortes dans le domaine des technologies de l'information, et par des équipes internationales. À cette fin, l'accessibilité, l'interface, la prise en main, et le nombre de langues seront des facteurs d'évaluation de la solution.
-\\\hline
-Ressources matérielles consommées & 4 & La consommation de ressources entraîne des coûts (e.g. utilisation des serveurs), et des contraintes techniques (e.g. consommation de batterie sur les clients).
-\\\hline
-Trafic réseau & 2 & Les coûts de communications variant en fonction du support réseau (internet, GSM, satellitaire), la consommation de bande passante sera également un point déterminant.
-\\\hline
-Modularité & 4 & La modularité correspond à la minimisation du travail à réaliser dans le cas d'une éventuelle évolution de la suite logicielle.
-\\\hline
-Compatibilité & 3 & La solution devra avoir un niveau suffisant de compatibilité avec les normes et standards les plus répandus.
-\\\hline
-Heuristique & 5 & \og{}L'intelligence\fg{} de l'heuristique organisationnelle pour la réalisation de tâches récurrentes et la planification.
-\\\hline
-Planification & 2 & La planification des transports, livraisons, temps de chargement, et d'attente.
-\\\hline
-Statistiques & 4 & La génération des statistiques fonctionnelles et organisationnelles.
-\\\hline
-Gestion des documents & 3 & La production, l'édition, la modification, la numérisation des documents correspondra aux documents actuellement utilisés et aux standards de l'organisation.
-\\\bottomrule
+	\toprule
+	Critère & Niveau & Détails \\
+	\midrule
+	Disponibilité & 1 & La solution devra être utilisable dans les conditions et les termes convenus. \\
+	\hline
+	Capacité & 1 & L'ensemble du personnel logistique doit pouvoir avoir un accès simultané, et le produit devra prendre en compte une évolution du nombre d'utilisateurs en fonction de la croissance de \mo. \\
+	\hline
+	Sécurité & 1 & L'association manipulant des informations personnelles, le produit devra gérer la sécurité des communications et du stockage des informations (en prenant en compte les contraintes légales des états du lieu d'intervention). \\
+	\hline
+	Continuité & 1 & Le prestataire fournira des solutions pour assurer la continuité, comme un plan de reprise d'activité pour assurer un rétablissement de la disponibilité dans des délais optimaux. \\
+	\hline
+	Accessibilité & 2 & La suite logicielle pourra être utilisée par du personnel sans compétences fortes dans le domaine des technologies de l'information, et par des équipes internationales. À cette fin, l'accessibilité, l'interface, la prise en main, et le nombre de langues seront des facteurs d'évaluation de la solution. \\
+	\hline
+	Ressources matérielles consommées & 4 & La consommation de ressources entraîne des coûts (e.g. utilisation des serveurs), et des contraintes techniques (e.g. consommation de batterie sur les clients). \\
+	\hline
+	Trafic réseau & 2 & Les coûts de communications variant en fonction du support réseau (internet, GSM, satellitaire), la consommation de bande passante sera également un point déterminant. \\
+	\hline
+	Modularité & 4 & La modularité correspond à la minimisation du travail à réaliser dans le cas d'une éventuelle évolution de la suite logicielle. \\
+	\hline
+	Compatibilité & 3 & La solution devra avoir un niveau suffisant de compatibilité avec les normes et standards les plus répandus. \\
+	\hline
+	Heuristique & 5 & \og{}L'intelligence\fg{} de l'heuristique organisationnelle pour la réalisation de tâches récurrentes et la planification. \\
+	\hline
+	Planification & 2 & La planification des transports, livraisons, temps de chargement, et d'attente. \\
+	\hline
+	Statistiques & 4 & La génération des statistiques fonctionnelles et organisationnelles. \\
+	\hline
+	Gestion des documents & 3 & La production, l'édition, la modification, la numérisation des documents correspondra aux documents actuellement utilisés et aux standards de l'organisation. \\
+	\bottomrule
 \end{tabularx}
 
 \subsection{Niveaux dont l'obtention est imposée}
