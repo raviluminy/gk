@@ -10,7 +10,7 @@
 
 % ------------------------------------------------------------------------------
 \subsection{Introduction}
-L'objectif de cette section est de décrire les méthodes proposées afin de répondre au problème de synchronisation. Les échanges de données pouvant être limités (pas de réseau, liaison satellitaire uniquement) il convient de pouvoir choisir précisément les éléments que l'on souhaite synchroniser.\\
+L'objectif de cette section est de décrire les méthodes proposées afin de répondre au problème de synchronisation. Les échanges de données pouvant être limités (pas de réseau, liaison satellitaire uniquement) il convient de pouvoir choisir précisément les éléments que l'on souhaite synchroniser\footnote{Il est à noter que la synchronisation est bi-directionnelle : on reçoit les informations du serveur autant qu'on en envoie.}.\\
 Pour permettre la gestion de ces éléments, on introduit la notion de \emph{priorité}; à chaque catégorie d'éléments (e.g. planning des transports, liste des fournisseurs, informations sur les véhicules, ...) peut être associée une priorité de laquelle dépendra la synchronisation ou non. À partir de cette \og{}hiérarchie d'importance\fg{}, on associe des \emph{profils de synchronisation} paramétrables qui - une fois activés - gère la synchronisation de façon transparente en fonction des choix de l'utilisateur.\\
 Pour résoudre les problèmes de connexion et assurer le fonctionnement de la suite logicielle indépendamment de la liaison réseau, deux modes sont prévus :
 \begin{itemize}
@@ -21,12 +21,40 @@ Pour résoudre les problèmes de connexion et assurer le fonctionnement de la su
 \begin{figure}[htbp]
     \centering
 	\begin{tikzpicture}
+	    % Styles :
 		\tikzstyle{titre}=[rectangle,draw,fill=white,text=black]
-		\draw[fill=red!10] (0,0) rectangle (13, 6);
-		\draw[fill=green!10] (0,7) rectangle (13, 13);
-		\node[titre] (e) at (,-3) {Mode connecté};
-		\umlactor[x=1.00, y=3.50]{Utilisateur}
-		\umlactor[x=1.00, y=10.50]{Utilisateur}
+		\tikzstyle{symbole}=[rectangle,text=black, scale=4]
+		\tikzstyle{serveurloc}=[rectangle,draw,fill=blue!50,text=white, minimum height=2cm]
+		\tikzstyle{serveurcen}=[rectangle,draw,fill=yellow!50,text=black, minimum height=2cm]
+	    % #### CADRE ROUGE :
+		% Fond :
+		\draw[fill=red!10] (0,0) rectangle (13, 5);
+		% Titres :
+		\node[titre] at (6.50,0.00) {Mode hors-ligne};
+		% Serveurs :
+		\node[serveurloc] at (6.00,2.50) {Serveur local};
+		\node[serveurcen] at (11.00,2.50) {Serveur central};
+		\node[symbole] at (8.50,2.50) {?};
+		\node[symbole] at (3.00,2.50) {X};
+		% Traits :
+		\draw[line width=2pt] (2, 2.5) -- (4, 2.5);
+		\draw[line width=2pt] (7.5, 2.5) -- (9.5, 2.5);
+		% Utilisateurs :
+		\umlactor[x=1.00, y=2.50]{Utilisateur}
+		% #### CADRE VERT :
+		% Fond :
+		\draw[fill=green!10] (0,6) rectangle (13, 11);
+		% Titres :
+		\node[titre] at (6.50,6.00) {Mode connecté};
+		% Serveurs :
+		\node[serveurloc] at (6.00,8.50) {Serveur local};
+		\node[serveurcen] at (11.00,8.50) {Serveur central};
+		\node[symbole] at (8.50, 8.50) {?};
+		% Traits :
+		\draw[line width=2pt] (2, 8.5) -- (4, 8.5);
+		\draw[line width=2pt] (7.5, 8.5) -- (9.5, 8.5);
+		% Utilisateurs :
+		\umlactor[x=1.00, y=8.50]{Utilisateur}
 	\end{tikzpicture}
 	\caption{Utilisation des modes connecté et hors-ligne}
 	\label{explicationcodeco}
