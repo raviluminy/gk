@@ -17,7 +17,12 @@
 *.synctex.gz
 *.synctex.gz(buzy)
 *.toc
-A_CONCEPTION/CAHIER_DES_CHARGES/LaTeX/main.pdf
+
+# PDF files
+Annexe/RE/[^/]*.pdf
+Annexe/RI/[^/]*.pdf
+Conception/CdCF.pdf
+Realisation/DAT.pdf
 
 # Open/Libre Office lock files
 .~lock.*

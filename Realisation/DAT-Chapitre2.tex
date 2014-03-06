@@ -6,3 +6,302 @@
 % 
 % Bon courage ;-)
 
+\section{Architecture générale}
+La solution est prévue pour fonctionner sur l'architecture générale présentée dans la figure \ref{ArchitectureGenerale}.
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}
+		% Définition des styles
+		\tikzstyle{sup} = [rectangle,draw=white,text=black,text centered,minimum width=20mm,minimum height=80mm]
+		\tikzstyle{one} = [fill=colone,rectangle,draw=white,minimum width=20mm]
+		\tikzstyle{two} = [fill=coltwo,rectangle,draw=white,minimum width=20mm]
+		\tikzstyle{three} = [fill=colthree,rectangle,draw=white,minimum width=20mm]
+		\tikzstyle{four} = [fill=colfour,rectangle,draw=white,minimum width=20mm]
+		\tikzstyle{five} = [fill=colfive,rectangle,draw=white,minimum width=20mm]
+		\tikzstyle{six} = [fill=colsix,rectangle,draw=white,minimum width=20mm]
+		\tikzstyle{seven} = [fill=colseven,rectangle,draw=white,minimum width=20mm]
+		\tikzstyle{inf} = [rectangle,draw=white,text=black,text centered,minimum width=20mm,minimum height=10mm]
+		\tikzstyle{oneonthree} = [minimum height=26mm]
+		\tikzstyle{twoonthree} = [minimum height=28mm]
+		\tikzstyle{threeonthree} = [minimum height=26mm]
+		\tikzstyle{oneonfour} = [minimum height=20mm]
+		\tikzstyle{twoonfour} = [minimum height=20mm]
+		\tikzstyle{threeonfour} = [minimum height=20mm]
+		\tikzstyle{fouronfour} = [minimum height=20mm]
+		\tikzstyle{arrow}=[->,>=latex,thick,rounded corners=4pt]
+		% Noeuds utilisateurs
+		\node[inf,one] at (  0mm, 0mm) {\centering\tiny\bfseries\scshape Utilisateurs};
+		\node[one,oneonthree] (Utilisateurs) at (  0mm,18mm) {};
+		\node at (  0mm,9mm) {\centering\tiny\itshape Métier};
+		\node at (  0mm,19mm) {\centering\includegraphics[height=16mm]{"Logistician"}};
+		\node[one,twoonthree] (Logistician) at (  0mm,45mm) {};
+		\node at (  0mm,36mm) {\centering\tiny\itshape Logisticien};
+		\node at (  0mm,46mm) {\centering\includegraphics[height=16mm]{"Logistician"}};
+		\node[one,threeonthree] (Administrateur) at (  0mm,72mm) {};
+		\node at (  0mm,63mm) {\centering\tiny\itshape Administrateur};
+		\node at (  0mm,73mm) {\centering\includegraphics[height=16mm]{"Logistician"}};
+		% Noeuds matériels
+		\node[inf,two] at ( 20mm, 0mm) {\centering\tiny\bfseries\scshape Matériels};
+		\node[two,oneonthree] (Matériels) at ( 20mm,18mm) {};
+		\node at ( 20mm,9mm) {\centering\tiny\itshape Portable};
+		\node at ( 20mm,19mm) {\centering\includegraphics[width=16mm]{"Laptop computer"}};
+		\node[two,twoonthree] (Smartphone) at ( 20mm,45mm) {};
+		\node at ( 20mm,36mm) {\centering\tiny\itshape Smartphone};
+		\node at ( 20mm,46mm) {\centering\includegraphics[height=16mm]{"Smartphone"}};
+		\node[two,threeonthree] (Satphone) at ( 20mm,72mm) {};
+		\node at ( 20mm,63mm) {\centering\tiny\itshape Téléphone satellite};
+		\node at ( 20mm,73mm) {\centering\includegraphics[height=16mm]{"Smartphone"}};
+		% Noeuds application
+		\node[inf,three] at ( 40mm, 0mm) {\centering\tiny\bfseries\scshape Application(s)};
+		\node[three,minimum width=20mm,minimum height=80mm] (Application) at ( 40mm,45mm) {\centering};
+		% Noeuds synchronisation
+		\node[inf,four] at ( 60mm, 0mm) {\centering\tiny\bfseries\scshape Synchro};
+		\node[four,oneonfour] (Physique1) at ( 60mm,15mm) {};
+		\node at ( 60mm, 9mm) {\centering\tiny\itshape Physique};
+		\node at ( 56mm,16mm) {\centering\includegraphics[width=6mm]{"Compact disk"}};
+		\node at ( 64mm,16mm) {\centering\includegraphics[width=8mm]{"USB key"}};
+		\node[four,twoonfour] (Internet1) at ( 60mm,35mm) {};
+		\node at ( 60mm,29mm) {\centering\tiny\itshape Internet};
+		\node at ( 60mm,36mm) {\centering\includegraphics[width=16mm]{"Internet"}};
+		\node[four,threeonfour] (Téléphonie1) at ( 60mm,55mm) {};
+		\node at ( 60mm,49mm) {\centering\tiny\itshape Téléphonie};
+		\node at ( 60mm,56mm) {\centering\includegraphics[height=16mm]{"Phone antenna"}};
+		\node[four,fouronfour] (Satellite1) at ( 60mm,75mm) {};
+		\node at ( 60mm,69mm) {\centering\tiny\itshape Satellite};
+		\node at ( 60mm,76mm) {\centering\includegraphics[height=16mm]{"Satellite"}};
+		% Noeuds serveur local
+		\node[inf,five] at ( 80mm, 0mm) {\centering\tiny\bfseries\scshape\begin{tabular}{c}Serveur \\ local\end{tabular}};
+		\node[five,minimum height=80mm] (Server1) at (80mm,45mm) {};
+		\node at (80mm,34mm) {\centering\tiny\itshape Serveur};
+		\node at (80mm,48mm) {\centering\includegraphics[width=16mm]{"Server"}};
+		% Noeuds synchronisation
+		\node[inf,six] at (100mm, 0mm) {\centering\tiny\bfseries\scshape Synchro};
+		\node[six,oneonfour] (Physique1) at (100mm,15mm) {};
+		\node at (100mm, 9mm) {\centering\tiny\itshape Physique};
+		\node at ( 96mm,16mm) {\centering\includegraphics[width=6mm]{"Compact disk"}};
+		\node at (104mm,16mm) {\centering\includegraphics[width=8mm]{"USB key"}};
+		\node[six,twoonfour] (Internet2) at (100mm,35mm) {};
+		\node at (100mm,29mm) {\centering\tiny\itshape Internet};
+		\node at (100mm,36mm) {\centering\includegraphics[width=16mm]{"Internet"}};
+		\node[six,threeonfour] (Téléphonie2) at (100mm,55mm) {};
+		\node at (100mm,49mm) {\centering\tiny\itshape Téléphonie};
+		\node at (100mm,56mm) {\centering\includegraphics[height=16mm]{"Phone antenna"}};
+		\node[six,fouronfour] (Satellite2) at (100mm,75mm) {};
+		\node at (100mm,69mm) {\centering\tiny\itshape Satellite};
+		\node at (100mm,76mm) {\centering\includegraphics[height=16mm]{"Satellite"}};
+		% Noeuds serveur central
+		\node[inf,seven] at (120mm, 0mm) {\centering\tiny\bfseries\scshape\begin{tabular}{c}Serveur \\ central\end{tabular}};
+		\node[seven,minimum height=80mm] (Server2) at (120mm,45mm) {};
+		\node at (120mm,34mm) {\centering\tiny\itshape Serveur};
+		\node at (120mm,48mm) {\centering\includegraphics[width=16mm]{"Server"}};
+		\end{tikzpicture}
+	\caption{Architecture générale}
+	\label{ArchitectureGenerale}
+\end{figure}
+
+Comme présenté en figure \ref{ArchitectureGenerale}, les utilisateurs seront en mesure d'interagir avec l'application par l'intermédiaire de différents matériels que sont ordinateurs portables, smart-phones et téléphones satellitaires.
+\\
+Les informations ainsi traitées seront mise en commun sur un serveur dit \og local \fg{} à un lieu d'intervention.
+\\
+Si nécessaire, une synchronisation des informations pourra avoir lieu entre le serveur \og local \fg{} et le serveur \og central \fg{} du siège.
+
+\section{Fonctions de service et de contrainte}
+Cette section précise les services fonctionnels mis à disposition des utlisateurs et contraintes respectées.
+
+\subsection{La localisation}
+La suite logicielle proposera des versions traduites en plusieurs langues, y compris avec des alphabets différents. Au minimum, les traductions dans les langages suivants seront fournis~:
+\begin{itemize}
+	\item anglais~;
+	\item arabe~;
+	\item espagnol~;
+	\item français.
+\end{itemize}
+En outre, la suite logicielle fournira la possibilité de passer \emph{aisément} d'une langue à l'autre sans nécessiter de redémarrage.
+
+\subsection{Les cas d'utilisations}
+Cette section présente le diagramme des cas d'utilisation et précise pour chacun d'eux l'ensemble des actions prévues.
+\begin{figure}[htbp]
+	\begin{tikzpicture}
+		\begin{umlsystem}[x=8.00,y=11.00,fill=red!10]{Administration}
+			\umlusecase[x=0.00,y=0.00,name=GSauvegarde]{Gestion des sauvegardes}
+			\umlusecase[x=0.00,y=1.00,name=GDroits]{Gestion des droits d'accès}
+			\umlusecase[x=0.00,y=2.00,name=GSécurité]{Gestion des niveaux de sécurité (cryptographie)}
+		\end{umlsystem}
+		\begin{umlsystem}[x=8.00,y=0.00,fill=green!10]{Gestion des ressources}
+			\umlusecase[x=0.00,y=0.00,name=GPrestataires]{Gestion des prestataires}
+			\umlusecase[x=0.00,y=1.00,name=GTransports]{Gestion des moyens de transport}
+			\umlusecase[x=0.00,y=2.00,name=GChauffeurs]{Gestion des chauffeurs}
+			\umlusecase[x=0.00,y=3.00,name=GRéquisitions]{Gestion des réquisitions}
+			\umlusecase[x=0.00,y=4.00,name=GWaybills]{Gestion des waybills/delivery~notes}
+			\umlusecase[x=0.00,y=5.00,name=GTableauxBord]{Gestion des tableaux de bord}
+			\umlusecase[x=0.00,y=6.00,name=GStatistiques]{Gestion des statistiques}
+			\umlusecase[x=0.00,y=7.00,name=GSynchronisation]{Gestion de la synchronisation}
+			\umlusecase[x=0.00,y=8.00,name=GPréférences]{Gestion des préférences}
+		\end{umlsystem}
+		\umlactor[x=0.00,y=10.00]{Administrateur}
+		\umlactor[x=0.00,y=3.00]{Utilisateur}
+		\umlinherit{Administrateur}{Utilisateur}
+		\umlassoc{Utilisateur}{GPrestataires}
+		\umlassoc{Utilisateur}{GTransports}
+		\umlassoc{Utilisateur}{GChauffeurs}
+		\umlassoc{Utilisateur}{GRéquisitions}
+		\umlassoc{Utilisateur}{GWaybills}
+		\umlassoc{Utilisateur}{GTableauxBord}
+		\umlassoc{Utilisateur}{GStatistiques}
+		\umlassoc{Utilisateur}{GSynchronisation}
+		\umlassoc{Utilisateur}{GPréférences}
+		\umlassoc{Administrateur}{GSauvegarde}
+		\umlassoc{Administrateur}{GDroits}
+		\umlassoc{Administrateur}{GSécurité}
+	\end{tikzpicture}
+	\caption{Diagramme des cas d'utilisation}
+	\label{ucd}
+\end{figure}
+
+\subsubsection{Gestion des niveaux de sécurité (cryptographie)}
+La suite logicielle fournira une interface permettant d'ajouter, supprimer et définir les règles de sécurités appliquées aux communications sur un lieu d'intervention, c'est à dire, les algorithmes de chiffrement utilisés lors des échanges de données sur le réseau.
+\\
+Initialement, les algorithmes suivants seront fournis~:
+\begin{itemize}
+	\item primitives d'échange de clé~:
+	\begin{itemize}
+		\item NULL~: i.e. aucun,
+		\item RSA~: conformément à la \href{http://tools.ietf.org/html/rfc3447}{RFC 3447}~;
+	\end{itemize}
+	\item primitives de chiffrement~:
+	\begin{itemize}
+		\item NULL~: i.e. aucun,
+		\item AES~: conformément à la \href{http://tools.ietf.org/html/rfc3394}{RFC 3394}~;
+	\end{itemize}
+	\item primitives de hachage~:
+	\begin{itemize}
+		\item NULL~: i.e. aucun,
+		\item MD5~: conformément à la \href{http://tools.ietf.org/html/rfc1321}{RFC 1321},
+		\item SHA~: conformément à la \href{http://tools.ietf.org/html/rfc3174}{RFC 3174}~;
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Gestion des utilisateurs et des droits d'accès}
+La suite logicielle permettra de gérer~:
+\begin{enumerate}
+	\item utilisateurs~;
+	\item groupes d'utilisateurs.
+\end{enumerate}
+Un utilisateur pourra appartenir à un ou plusieurs groupes d'utilisateurs.
+\\
+La suite logicielle fournira à minima un groupe d'utilisateur appelé \emph{administrateur} capable de~:
+\begin{enumerate}
+	\item ajouter, modifier et/ou supprimer utilisateurs et groupes d'utilisateurs~;
+	\item affecter des droits d'accès aux utilisateurs et groupes d'utilisateurs~;
+	\item ranger les utilisateurs dans des groupes d'utilisateurs.
+\end{enumerate}
+Les droits d'accès possibles seront les suivants~:
+\begin{enumerate}
+	\item autorisé~;
+	\item indéfini~;
+	\item interdit~;
+\end{enumerate}
+Les conflits de droits résultant seront gérés par les 2 priorités suivantes~:
+\begin{enumerate}
+	\item les droits d'accès individuels seront prioritaires sur ceux inhérents aux groupes~;
+	\item les interdictions seront prioritaires sur les autorisations~;
+\end{enumerate}
+
+\subsubsection{Gestion des sauvegardes}
+La suite logicielle permettra d'effectuer des sauvegardes externalisées. Les moyens techniques mis en place à cette fin sont décris dans la section \ref{SauvegardeTechnique}.
+\\
+Ce système permettra les manipulations suivantes~:
+\begin{enumerate}
+	\item lancer une sauvegarde (aussi bien distante que locale)~;
+	\item charger une sauvegarde existante (qu'elle soit distante ou locale)~;
+	\item ajouter, modifier, supprimer, importer et exporter une \emph{configuration de sauvegarde}.
+\end{enumerate}
+Une \emph{configuration de sauvegarde} rassemblera les paramètres suivants~:
+\begin{enumerate}
+	\item la liste exhaustive des données sauvegardées~;
+	\item la planification (date, heure, minute, ...) et ses répétitions (une seule fois, tous les jours - ou seulement certains, toutes les semaines, tous les mois, ...)~;
+	\item le support de réception qu'il soit distant ou local (serveur, client, baie de disque, disque dur, disque optique, clé USB, ...).
+\end{enumerate}
+
+\subsubsection{Gestion des préférences}
+La solution sera conçue de sorte à permettre l'intégration d'un module permettant aux utilisateurs de garder en mémoire leurs préférences, comme la langue utilisée. Néanmoins, ce module ne sera pas fournit, mais pourra faire l'objet d'une mise à jour ultérieure.
+
+\subsubsection{Gestion de la synchronisation}
+La suite logicielle est prévue pour fonctionner avec ou sans réseau. Afin de mettre à jour les données lorsque les moyens de communications sont rétablis, un système de synchronisation sera mis en place. Les détails techniques de cette synchronisation sont présentés en section \ref{SynchronisationTechnique}.
+
+\subsubsection{Gestion des tableaux de bord}
+La suite logicielle permettra de générer des \emph{tableaux de bord}, dont le contenu pourra être définit, chargé et enregistré dans une \emph{configuration de tableau de bord}.
+
+\subsubsection{Gestion des statistiques}
+La suite logicielle sera conçue de sorte à permettre l'intégration d'un module capable de produire un ensemble de statistiques à partir des informations enregistrées. Néanmoins, ce module ne sera pas fournit par la solution proposée, mais pourra faire l'objet d'une mise à jour ultérieure.
+
+\subsubsection{Gestion des données}
+La suite logicielle permettra de numériser, des documents papier. Ces derniers pourront être ensuite enregistrés, affichés, supprimés, importés, exportés et archivés.
+\\
+En outre, la suite logicielle permettra d'ajouter, modifier, et supprimer les informations qu'elle aura à traiter, et les liens qui les relies. Initialement, les informations suivantes seront déjà définies et pourront être traitées~:
+\begin{enumerate}
+	\item planifications~;
+	\item réquisitions~;
+	\item waybills / delivery notes~;
+	\item prestataires~;
+	\item chauffeurs~;
+	\item véhicules.
+\end{enumerate}
+
+\paragraph{Planifications}
+Une planification rassemble les informations suivantes~:
+\begin{enumerate}
+	\item planifications~;
+	\item réquisitions~;
+	\item waybills / delivery notes~;
+	\item prestataires~;
+	\item chauffeurs~;
+	\item véhicules.
+\end{enumerate}
+
+\paragraph{Réquisitions}
+Une Réquisition rassemble les informations suivantes~:
+\begin{enumerate}
+	\item code du pays, et numéro unique de réquisition~;
+	\item origine, destination, date de la réquisition, date de livraison souhaitée~;
+	\item moyen de transport (air, mer, route, ...)~;
+	\item pour chaque article~:
+	\begin{enumerate}
+		\item code de l'article,
+		\item numéro de compte,
+		\item description de l'article,
+		\item quantité,
+		\item unité~;
+		\item limite budgétaire (prix unitaire, prix total)~;
+	\end{enumerate}
+	\item les accords~:
+	\begin{enumerate}
+		\item nom, et date de signature du demandeur,
+		\item nom, et date de signature du  chef de projet (en charge du budget),
+		\item nom, et date de signature de l'agent financier,
+		\item nom, et date de signature de la logistique~;
+	\end{enumerate}
+	\item les détails de l'envoi~:
+	\begin{enumerate}
+		\item adresse du consignataire (adresse complète, téléphone, mobile, fax, nom du contact \& adresse e-mail),
+		\item adresse de livraison (si différente - adresse complète, téléphone, mobile, fax, nom du contact \& adresse e-mail),
+		\item agent de dédouanement (le cas échéant - adresse complète, tel, mobile, fax, contact \& email),
+		\item marquage de l'envoi (ex: no. CTN, logo Croix-Rouge, "en transit", "donation de..."),
+		\item demandes spéciales ou remarques (ex: instructions d'emballage, incoterms, documents joints, etc.)~;
+	\end{enumerate}
+\end{enumerate}
+
+\paragraph{Waybills / delivery notes}
+
+\paragraph{Prestataires}
+
+\paragraph{Chauffeurs}
+
+\paragraph{Véhicules}
+
+\subsection{Contraintes}
+Cette section tient compte des contraintes respectées jusque là non évoquées.
+
+\begin{constraint}[Contraintes de délai]
+\amo s'engage à fournir des garanties contractuelles de délais, et à s'y tenir. Les éventuelles pénalités de retard seront fixées d'un accord commun avec \mo.
+\end{constraint}
