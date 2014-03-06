@@ -82,7 +82,7 @@ Initialement, les algorithmes suivants seront fournis~:
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{Gestion des droits d'accès}
+\subsubsection{Gestion des utilisateurs et des droits d'accès}
 La suite logicielle permettra de gérer~:
 \begin{enumerate}
 	\item utilisateurs~;
@@ -163,26 +163,41 @@ Une planification rassemble les informations suivantes~:
 \paragraph{Réquisitions}
 Une Réquisition rassemble les informations suivantes~:
 \begin{enumerate}
-	\item pour accord~:
+	\item code du pays, et numéro unique de réquisition~;
+	\item origine, destination, date de la réquisition, date de livraison souhaitée~;
+	\item moyen de transport (air, mer, route, ...)~;
+	\item pour chaque article~:
+	\begin{enumerate}
+		\item code de l'article,
+		\item numéro de compte,
+		\item description de l'article,
+		\item quantité,
+		\item unité~;
+		\item limite budgétaire (prix unitaire, prix total)~;
+	\end{enumerate}
+	\item les accords~:
 	\begin{enumerate}
 		\item nom, et date de signature du demandeur,
 		\item nom, et date de signature du  chef de projet (en charge du budget),
 		\item nom, et date de signature de l'agent financier,
 		\item nom, et date de signature de la logistique~;
 	\end{enumerate}
-	\item détails de l'envoi~:
+	\item les détails de l'envoi~:
 	\begin{enumerate}
 		\item adresse du consignataire (adresse complète, téléphone, mobile, fax, nom du contact & adresse e-mail),
 		\item adresse de livraison (si différente - adresse complète, téléphone, mobile, fax, nom du contact & adresse e-mail),
-		\item Agent de dédouanement (le cas échéant - adresse complète, tel, mobile, fax, contact & email),
-		\item Marquage de l'envoi (ex: no. CTN, logo Croix-Rouge, "en transit", "donation de..."),
-		\item Demandes spéciales ou remarques (ex: instructions d'emballage, incoterms, documents joints, etc.)~;
+		\item agent de dédouanement (le cas échéant - adresse complète, tel, mobile, fax, contact & email),
+		\item marquage de l'envoi (ex: no. CTN, logo Croix-Rouge, "en transit", "donation de..."),
+		\item demandes spéciales ou remarques (ex: instructions d'emballage, incoterms, documents joints, etc.)~;
 	\end{enumerate}
 \end{enumerate}
 
 \paragraph{Waybills / delivery notes}
+
 \paragraph{Prestataires}
+
 \paragraph{Chauffeurs}
+
 \paragraph{Véhicules}
 
 \subsection{Contraintes}
