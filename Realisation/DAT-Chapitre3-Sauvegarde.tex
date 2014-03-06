@@ -40,12 +40,12 @@ Deux architectures différentes sont proposées :
 		
 		% #### CADRE VERT :
 		% Fond :
-		\draw[fill=green!10] (0,6) rectangle (17, 11);
+		\draw[fill=green!10] (0,6) rectangle (16, 11);
 		\draw[fill=red!10] (2,11) rectangle (11, 6);
 		% Titres :
-		\node[titre] at (6.50,6.00) {Serveur local};
+		\node[titre] at (6.50,7.00) {Serveur local};
 		% Serveurs :
-		\node[serveurloc1] at (4.00,8.50) {Serveur Maître};
+		\node[serveurloc1] at (4.00,8.50) {Serveur maître};
 		\node[serveurloc2] at (9.00,8.50) {Serveur esclave};
 		\node[serveurcentral] at (14.00,8.50) {Serveur central};
 		% Traits :
@@ -55,13 +55,14 @@ Deux architectures différentes sont proposées :
 		% Utilisateurs :
 		\umlactor[x=1.00, y=8.50]{Utilisateur}
 	\end{tikzpicture}
-	\caption{Cluster, serveur mâitre et esclave directement connecté}
+	\caption{Cluster, serveur maître et esclave directement connecté}
 	\label{explicationcodeco}
 \end{figure}
-a
+
 \subsection{Reprise sur panne}
 % explication priorités 
 
 \subsection{Sauvegarde en dure}
 
-Une deuxième solution peut être mise en oeuvre de manière complémentaire au \textit{cluster} afin de mieux respecter la contrainte concernant l'intégrité des données. 
+Une deuxième solution peut être mise en oeuvre de manière complémentaire au \textit{cluster} afin de mieux respecter la contrainte concernant l'intégrité des données.
+Un support mobile de stockage est utilisé afin de directement sauvegarder le contenu des serveurs. Le support peut être un disque dur, une clé usb, une carte mémoire... 
