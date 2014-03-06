@@ -36,28 +36,29 @@ Deux architectures différentes sont proposées :
 		\tikzstyle{symbole}=[rectangle,text=black, scale=4]
 		\tikzstyle{serveurloc1}=[rectangle,draw,fill=blue!50,text=white, minimum height=2cm]
 		\tikzstyle{serveurloc2}=[rectangle,draw,fill=yellow!50,text=black, minimum height=2cm]
-		\tikzstyle{serveurcentral}=[rectangle,draw,fill=red!50,text=black, minimum height=2cm]
+		\tikzstyle{serveurcentral}=[rectangle,draw,fill=violet!50,text=black, minimum height=2cm]
 		
 		% #### CADRE VERT :
 		% Fond :
-		\draw[fill=green!10] (0,6) rectangle (13, 11);
-		\draw[fill=red!10] (4,11) rectangle (13, 6);
+		\draw[fill=green!10] (0,6) rectangle (17, 11);
+		\draw[fill=red!10] (2,11) rectangle (11, 6);
 		% Titres :
-		\node[titre] at (6.50,6.00) {Directement connecté};
-		\node[titre] at (8.50,7.00) {Serveur local};
+		\node[titre] at (6.50,6.00) {Serveur local};
 		% Serveurs :
-		\node[serveurloc1] at (6.00,8.50) {Serveur Maître};
-		\node[serveurloc2] at (11.00,8.50) {Serveur esclave};
+		\node[serveurloc1] at (4.00,8.50) {Serveur Maître};
+		\node[serveurloc2] at (9.00,8.50) {Serveur esclave};
+		\node[serveurcentral] at (14.00,8.50) {Serveur central};
 		% Traits :
-		\draw[line width=2pt] (2, 8.5) -- (4, 8.5);
-		\draw[line width=2pt] (7.5, 8.5) -- (9.5, 8.5);
+		\draw[line width=2pt] (1.5, 8.5) -- (2.5, 8.5);
+		\draw[line width=2pt] (5.5, 8.5) -- (7.5, 8.5);
+		\draw[line width=2pt] (10.5, 8.5) -- (12.5, 8.5);
 		% Utilisateurs :
 		\umlactor[x=1.00, y=8.50]{Utilisateur}
 	\end{tikzpicture}
-	\caption{Cluster}
+	\caption{Cluster, serveur mâitre et esclave directement connecté}
 	\label{explicationcodeco}
 \end{figure}
-
+a
 \subsection{Reprise sur panne}
 % explication priorités 
 
