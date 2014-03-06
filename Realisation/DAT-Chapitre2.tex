@@ -6,3 +6,188 @@
 % 
 % Bon courage ;-)
 
+\section{Fonctions de service et de contrainte}
+Cette section précise les services fonctionnels prévus et contraintes respectées.
+
+\subsection{La localisation}
+La suite logicielle proposera des versions traduites en plusieurs langues, y compris avec des alphabets différents. Au minimum, les traductions dans les langages suivants seront fournis~:
+\begin{itemize}
+	\item anglais~;
+	\item arabe~;
+	\item espagnol~;
+	\item français.
+\end{itemize}
+En outre, la suite logicielle fournira la possibilité de passer \emph{aisément} d'une langue à l'autre sans nécessiter de redémarrage.
+
+\subsection{Les cas d'utilisations}
+Cette section présente le diagramme des cas d'utilisation et précise pour chacun d'eux l'ensemble des actions prévues.
+\begin{figure}[htbp]
+	\begin{tikzpicture}
+		\begin{umlsystem}[x=8.00,y=11.00,fill=red!10]{Administration}
+			\umlusecase[x=0.00,y=0.00,name=GSauvegarde]{Gestion des sauvegardes}
+			\umlusecase[x=0.00,y=1.00,name=GDroits]{Gestion des droits d'accès}
+			\umlusecase[x=0.00,y=2.00,name=GSécurité]{Gestion des niveaux de sécurité (cryptographie)}
+		\end{umlsystem}
+		\begin{umlsystem}[x=8.00,y=0.00,fill=green!10]{Gestion des ressources}
+			\umlusecase[x=0.00,y=0.00,name=GPrestataires]{Gestion des prestataires}
+			\umlusecase[x=0.00,y=1.00,name=GTransports]{Gestion des moyens de transport}
+			\umlusecase[x=0.00,y=2.00,name=GChauffeurs]{Gestion des chauffeurs}
+			\umlusecase[x=0.00,y=3.00,name=GRéquisitions]{Gestion des réquisitions}
+			\umlusecase[x=0.00,y=4.00,name=GWaybills]{Gestion des waybills/delivery~notes}
+			\umlusecase[x=0.00,y=5.00,name=GTableauxBord]{Gestion des tableaux de bord}
+			\umlusecase[x=0.00,y=6.00,name=GStatistiques]{Gestion des statistiques}
+			\umlusecase[x=0.00,y=7.00,name=GSynchronisation]{Gestion de la synchronisation}
+			\umlusecase[x=0.00,y=8.00,name=GPréférences]{Gestion des préférences}
+		\end{umlsystem}
+		\umlactor[x=0.00,y=10.00]{Administrateur}
+		\umlactor[x=0.00,y=3.00]{Utilisateur}
+		\umlinherit{Administrateur}{Utilisateur}
+		\umlassoc{Utilisateur}{GPrestataires}
+		\umlassoc{Utilisateur}{GTransports}
+		\umlassoc{Utilisateur}{GChauffeurs}
+		\umlassoc{Utilisateur}{GRéquisitions}
+		\umlassoc{Utilisateur}{GWaybills}
+		\umlassoc{Utilisateur}{GTableauxBord}
+		\umlassoc{Utilisateur}{GStatistiques}
+		\umlassoc{Utilisateur}{GSynchronisation}
+		\umlassoc{Utilisateur}{GPréférences}
+		\umlassoc{Administrateur}{GSauvegarde}
+		\umlassoc{Administrateur}{GDroits}
+		\umlassoc{Administrateur}{GSécurité}
+	\end{tikzpicture}
+	\caption{Diagramme des cas d'utilisation}
+	\label{ucd}
+\end{figure}
+
+\subsubsection{Gestion des niveaux de sécurité (cryptographie)}
+La suite logicielle fournira une interface permettant d'ajouter, supprimer et définir les règles de sécurités appliquées aux communications sur un lieu d'intervention, c'est à dire, les algorithmes de chiffrement utilisés lors des échanges de données sur le réseau.
+\\
+Initialement, les algorithmes suivants seront fournis~:
+\begin{itemize}
+	\item primitives d'échange de clé~:
+	\begin{itemize}
+		\item NULL~: i.e. aucun,
+		\item RSA~: conformément à la \href{http://tools.ietf.org/html/rfc3447}{RFC 3447}~;
+	\end{itemize}
+	\item primitives de chiffrement~:
+	\begin{itemize}
+		\item NULL~: i.e. aucun,
+		\item AES~: conformément à la \href{http://tools.ietf.org/html/rfc3394}{RFC 3394}~;
+	\end{itemize}
+	\item primitives de hachage~:
+	\begin{itemize}
+		\item NULL~: i.e. aucun,
+		\item MD5~: conformément à la \href{http://tools.ietf.org/html/rfc1321}{RFC 1321},
+		\item SHA~: conformément à la \href{http://tools.ietf.org/html/rfc3174}{RFC 3174}~;
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Gestion des droits d'accès}
+La suite logicielle permettra de gérer~:
+\begin{enumerate}
+	\item utilisateurs~;
+	\item groupes d'utilisateurs.
+\end{enumerate}
+Un utilisateur pourra appartenir à un ou plusieurs groupes d'utilisateurs.
+\\
+La suite logicielle fournira à minima un groupe d'utilisateur appelé \emph{administrateur} capable de~:
+\begin{enumerate}
+	\item ajouter, modifier et/ou supprimer utilisateurs et groupes d'utilisateurs~;
+	\item affecter des droits d'accès aux utilisateurs et groupes d'utilisateurs~;
+	\item ranger les utilisateurs dans des groupes d'utilisateurs.
+\end{enumerate}
+Les droits d'accès possibles seront les suivants~:
+\begin{enumerate}
+	\item autorisé~;
+	\item indéfini~;
+	\item interdit~;
+\end{enumerate}
+Les conflits de droits résultant seront gérés par les 2 priorités suivantes~:
+\begin{enumerate}
+	\item les droits d'accès individuels seront prioritaires sur ceux inhérents aux groupes~;
+	\item les interdictions seront prioritaires sur les autorisations~;
+\end{enumerate}
+
+\subsubsection{Gestion des sauvegardes}
+La suite logicielle permettra d'effectuer des sauvegardes externalisées. Les moyens techniques mis en place à cette fin sont décris dans la section \ref{SauvegardeTechnique}.
+\\
+Ce système permettra les manipulations suivantes~:
+\begin{enumerate}
+	\item lancer une sauvegarde (aussi bien distante que locale)~;
+	\item charger une sauvegarde existante (qu'elle soit distante ou locale)~;
+	\item ajouter, modifier, supprimer, importer et exporter une \emph{configuration de sauvegarde}.
+\end{enumerate}
+Une \emph{configuration de sauvegarde} rassemblera les paramètres suivants~:
+\begin{enumerate}
+	\item la liste exhaustive des données sauvegardées~;
+	\item la planification (date, heure, minute, ...) et ses répétitions (une seule fois, tous les jours - ou seulement certains, toutes les semaines, tous les mois, ...)~;
+	\item le support de réception qu'il soit distant ou local (serveur, client, baie de disque, disque dur, disque optique, clé USB, ...).
+\end{enumerate}
+
+\subsubsection{Gestion des préférences}
+La solution sera conçue de sorte à permettre l'intégration d'un module permettant aux utilisateurs de garder en mémoire leurs préférences, comme la langue utilisée. Néanmoins, ce module ne sera pas fournit, mais pourra faire l'objet d'une mise à jour ultérieure.
+
+\subsubsection{Gestion de la synchronisation}
+La suite logicielle est prévue pour fonctionner avec ou sans réseau. Afin de mettre à jour les données lorsque les moyens de communications sont rétablis, un système de synchronisation sera mis en place. Les détails techniques de cette synchronisation sont présentés en section \ref{SynchronisationTechnique}.
+
+\subsubsection{Gestion des tableaux de bord}
+La suite logicielle permettra de générer des \emph{tableaux de bord}, dont le contenu pourra être définit, chargé et enregistré dans une \emph{configuration de tableau de bord}.
+
+\subsubsection{Gestion des statistiques}
+La suite logicielle sera conçue de sorte à permettre l'intégration d'un module capable de produire un ensemble de statistiques à partir des informations enregistrées. Néanmoins, ce module ne sera pas fournit par la solution proposée, mais pourra faire l'objet d'une mise à jour ultérieure.
+
+\subsubsection{Gestion des données}
+La suite logicielle permettra de numériser, des documents papier. Ces derniers pourront être ensuite enregistrés, affichés, supprimés, importés, exportés et archivés.
+\\
+En outre, la suite logicielle permettra d'ajouter, modifier, et supprimer les informations qu'elle aura à traiter, et les liens qui les relies. Initialement, les informations suivantes seront déjà définies et pourront être traitées~:
+\begin{enumerate}
+	\item planifications~;
+	\item réquisitions~;
+	\item waybills / delivery notes~;
+	\item prestataires~;
+	\item chauffeurs~;
+	\item véhicules.
+\end{enumerate}
+
+\paragraph{Planifications}
+Une planification rassemble les informations suivantes~:
+\begin{enumerate}
+	\item planifications~;
+	\item réquisitions~;
+	\item waybills / delivery notes~;
+	\item prestataires~;
+	\item chauffeurs~;
+	\item véhicules.
+\end{enumerate}
+
+\paragraph{Réquisitions}
+Une Réquisition rassemble les informations suivantes~:
+\begin{enumerate}
+	\item pour accord~:
+	\begin{enumerate}
+		\item nom, et date de signature du demandeur,
+		\item nom, et date de signature du  chef de projet (en charge du budget),
+		\item nom, et date de signature de l'agent financier,
+		\item nom, et date de signature de la logistique~;
+	\end{enumerate}
+	\item détails de l'envoi~:
+	\begin{enumerate}
+		\item adresse du consignataire (adresse complète, téléphone, mobile, fax, nom du contact & adresse e-mail),
+		\item adresse de livraison (si différente - adresse complète, téléphone, mobile, fax, nom du contact & adresse e-mail),
+		\item Agent de dédouanement (le cas échéant - adresse complète, tel, mobile, fax, contact & email),
+		\item Marquage de l'envoi (ex: no. CTN, logo Croix-Rouge, "en transit", "donation de..."),
+		\item Demandes spéciales ou remarques (ex: instructions d'emballage, incoterms, documents joints, etc.)~;
+	\end{enumerate}
+\end{enumerate}
+
+\paragraph{Waybills / delivery notes}
+\paragraph{Prestataires}
+\paragraph{Chauffeurs}
+\paragraph{Véhicules}
+
+\subsection{Contraintes}
+Cette section tient compte des contraintes respectées jusque là non évoquées.
+
+\begin{constraint}[Contraintes de délai]
+\amo s'engage à fournir des garanties contractuelles de délais, et à s'y tenir. Les éventuelles pénalités de retard seront fixées d'un accord commun avec \mo.
+\end{constraint}
