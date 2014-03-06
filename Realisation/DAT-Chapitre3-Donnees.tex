@@ -8,3 +8,52 @@
 % 
 % Bon courage ;-)
 
+\subsection{Problématique}
+
+Ce chapître traite du stockage et du formatage des données sur les différents postes, et dans les différentes situations d'utilisation précédemment décrites.
+Cette problématique est divisée selon trois points clefs :
+\begin{itemize}
+	\item Le stockage;
+	\item Le transfert;
+	\item L'importation et l'exportation.
+\end{itemize}
+
+\subsection{Le stockage}
+
+\subsubsection{Côté serveur}
+
+Le stockage des données côté serveur se fera grâce au SGDB Postgrès SQL. En effet, cette solution à été retenue pour plusieurs raisons :
+\begin{itemize}
+	\item Il s'agit d'une olution libre;
+	\item Cette solution est compatible avec la pluspart des systèmes d'exploitation (Window, Linux, Mac, ...);
+	\item Elle est pratiquement conforme aux normes qui régissent le langage SQL, ce qui garantit une bonne portabilité en cas de migration sur une autre solution;
+	\item Il s'agit de la solution de prédilection de notre entreprise, ce qui garantit donc une bonne qualité de réalisation.
+\end{itemize}
+
+\subsubsection{Côté client}
+
+Le stockage des données côté client se fera soit via une base de données locale (également sous Postgrès SQL), s'il est possible de la synchroniser avec la base de données centrale et que le périphérique le permet, soit via des fichiers au format XML.
+Le choix de l'utilisation e fichiers XML est dû aux raions suivantes :
+\begin{itemize}
+	\item Il s'agit d'un format universel, et compatible à l'import/export avec la pluspart des SGDB (dont Postgrès SQL;
+	\item On obtient un taux de compression assez important sur ce format, ce qui peut favoriser le transfert des données dans des situations où la connexion est limitée;
+	\item Ce format est exploitable sur les périphériques Androïd.
+\end{itemize}
+
+\subsection{Le transfert}
+
+\subsubsection{Format}
+Eu égard des solutions retenues pour le transfert des données, le transfert des données se fera grâce à des fichiers XML.
+La possibilité sera donnée de compresser ces fichiers, dans un premier temps au format \textit{zip}, mais ce choix pourra être remis en question selon les observations réalisées sur les données de test, afin de retenir une éventuelle meilleure solution.
+
+\subsubsection{norme}
+%définir la norme du format XML correspondant à une table SQL
+
+\subsection{L'import/export de données}
+
+L'import et l'export de données se fera directement via une fonctionnalité de l'outil côté client, qui permettra de sélectionner les données à importer dans le contexte spécifique, ainsi que les données à exporter vers le serveur central, toujours selon ce contexte.
+Comme décris dans la partie traitant de ce sujet, l'import/export de données pourra être réalisé selon différents supports (réseau, support physique) à la discrétion de l'exploitant.
+
+
+	
+
