@@ -6,8 +6,107 @@
 % 
 % Bon courage ;-)
 
+\section{Architecture générale}
+La solution est prévue pour fonctionner sur l'architecture générale présentée dans la figure \ref{ArchitectureGenerale}.
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}
+		% Définition des styles
+		\tikzstyle{sup} = [rectangle,draw=white,text=black,text centered,minimum width=20mm,minimum height=80mm]
+		\tikzstyle{one} = [fill=colone,rectangle,draw=white,minimum width=20mm]
+		\tikzstyle{two} = [fill=coltwo,rectangle,draw=white,minimum width=20mm]
+		\tikzstyle{three} = [fill=colthree,rectangle,draw=white,minimum width=20mm]
+		\tikzstyle{four} = [fill=colfour,rectangle,draw=white,minimum width=20mm]
+		\tikzstyle{five} = [fill=colfive,rectangle,draw=white,minimum width=20mm]
+		\tikzstyle{six} = [fill=colsix,rectangle,draw=white,minimum width=20mm]
+		\tikzstyle{seven} = [fill=colseven,rectangle,draw=white,minimum width=20mm]
+		\tikzstyle{inf} = [rectangle,draw=white,text=black,text centered,minimum width=20mm,minimum height=10mm]
+		\tikzstyle{oneonthree} = [minimum height=26mm]
+		\tikzstyle{twoonthree} = [minimum height=28mm]
+		\tikzstyle{threeonthree} = [minimum height=26mm]
+		\tikzstyle{oneonfour} = [minimum height=20mm]
+		\tikzstyle{twoonfour} = [minimum height=20mm]
+		\tikzstyle{threeonfour} = [minimum height=20mm]
+		\tikzstyle{fouronfour} = [minimum height=20mm]
+		\tikzstyle{arrow}=[->,>=latex,thick,rounded corners=4pt]
+		% Noeuds utilisateurs
+		\node[inf,one] at (  0mm, 0mm) {\centering\tiny\bfseries\scshape Utilisateurs};
+		\node[one,oneonthree] (Utilisateurs) at (  0mm,18mm) {};
+		\node at (  0mm,9mm) {\centering\tiny\itshape Métier};
+		\node at (  0mm,19mm) {\centering\includegraphics[height=16mm]{"Logistician"}};
+		\node[one,twoonthree] (Logistician) at (  0mm,45mm) {};
+		\node at (  0mm,36mm) {\centering\tiny\itshape Logisticien};
+		\node at (  0mm,46mm) {\centering\includegraphics[height=16mm]{"Logistician"}};
+		\node[one,threeonthree] (Administrateur) at (  0mm,72mm) {};
+		\node at (  0mm,63mm) {\centering\tiny\itshape Administrateur};
+		\node at (  0mm,73mm) {\centering\includegraphics[height=16mm]{"Logistician"}};
+		% Noeuds matériels
+		\node[inf,two] at ( 20mm, 0mm) {\centering\tiny\bfseries\scshape Matériels};
+		\node[two,oneonthree] (Matériels) at ( 20mm,18mm) {};
+		\node at ( 20mm,9mm) {\centering\tiny\itshape Portable};
+		\node at ( 20mm,19mm) {\centering\includegraphics[width=16mm]{"Laptop computer"}};
+		\node[two,twoonthree] (Smartphone) at ( 20mm,45mm) {};
+		\node at ( 20mm,36mm) {\centering\tiny\itshape Smartphone};
+		\node at ( 20mm,46mm) {\centering\includegraphics[height=16mm]{"Smartphone"}};
+		\node[two,threeonthree] (Satphone) at ( 20mm,72mm) {};
+		\node at ( 20mm,63mm) {\centering\tiny\itshape Téléphone satellite};
+		\node at ( 20mm,73mm) {\centering\includegraphics[height=16mm]{"Smartphone"}};
+		% Noeuds application
+		\node[inf,three] at ( 40mm, 0mm) {\centering\tiny\bfseries\scshape Application(s)};
+		\node[three,minimum width=20mm,minimum height=80mm] (Application) at ( 40mm,45mm) {\centering};
+		% Noeuds synchronisation
+		\node[inf,four] at ( 60mm, 0mm) {\centering\tiny\bfseries\scshape Synchro};
+		\node[four,oneonfour] (Physique1) at ( 60mm,15mm) {};
+		\node at ( 60mm, 9mm) {\centering\tiny\itshape Physique};
+		\node at ( 56mm,16mm) {\centering\includegraphics[width=6mm]{"Compact disk"}};
+		\node at ( 64mm,16mm) {\centering\includegraphics[width=8mm]{"USB key"}};
+		\node[four,twoonfour] (Internet1) at ( 60mm,35mm) {};
+		\node at ( 60mm,29mm) {\centering\tiny\itshape Internet};
+		\node at ( 60mm,36mm) {\centering\includegraphics[width=16mm]{"Internet"}};
+		\node[four,threeonfour] (Téléphonie1) at ( 60mm,55mm) {};
+		\node at ( 60mm,49mm) {\centering\tiny\itshape Téléphonie};
+		\node at ( 60mm,56mm) {\centering\includegraphics[height=16mm]{"Phone antenna"}};
+		\node[four,fouronfour] (Satellite1) at ( 60mm,75mm) {};
+		\node at ( 60mm,69mm) {\centering\tiny\itshape Satellite};
+		\node at ( 60mm,76mm) {\centering\includegraphics[height=16mm]{"Satellite"}};
+		% Noeuds serveur local
+		\node[inf,five] at ( 80mm, 0mm) {\centering\tiny\bfseries\scshape\begin{tabular}{c}Serveur \\ local\end{tabular}};
+		\node[five,minimum height=80mm] (Server1) at (80mm,45mm) {};
+		\node at (80mm,34mm) {\centering\tiny\itshape Serveur};
+		\node at (80mm,48mm) {\centering\includegraphics[width=16mm]{"Server"}};
+		% Noeuds synchronisation
+		\node[inf,six] at (100mm, 0mm) {\centering\tiny\bfseries\scshape Synchro};
+		\node[six,oneonfour] (Physique1) at (100mm,15mm) {};
+		\node at (100mm, 9mm) {\centering\tiny\itshape Physique};
+		\node at ( 96mm,16mm) {\centering\includegraphics[width=6mm]{"Compact disk"}};
+		\node at (104mm,16mm) {\centering\includegraphics[width=8mm]{"USB key"}};
+		\node[six,twoonfour] (Internet2) at (100mm,35mm) {};
+		\node at (100mm,29mm) {\centering\tiny\itshape Internet};
+		\node at (100mm,36mm) {\centering\includegraphics[width=16mm]{"Internet"}};
+		\node[six,threeonfour] (Téléphonie2) at (100mm,55mm) {};
+		\node at (100mm,49mm) {\centering\tiny\itshape Téléphonie};
+		\node at (100mm,56mm) {\centering\includegraphics[height=16mm]{"Phone antenna"}};
+		\node[six,fouronfour] (Satellite2) at (100mm,75mm) {};
+		\node at (100mm,69mm) {\centering\tiny\itshape Satellite};
+		\node at (100mm,76mm) {\centering\includegraphics[height=16mm]{"Satellite"}};
+		% Noeuds serveur central
+		\node[inf,seven] at (120mm, 0mm) {\centering\tiny\bfseries\scshape\begin{tabular}{c}Serveur \\ central\end{tabular}};
+		\node[seven,minimum height=80mm] (Server2) at (120mm,45mm) {};
+		\node at (120mm,34mm) {\centering\tiny\itshape Serveur};
+		\node at (120mm,48mm) {\centering\includegraphics[width=16mm]{"Server"}};
+		\end{tikzpicture}
+	\caption{Architecture générale}
+	\label{ArchitectureGenerale}
+\end{figure}
+
+Comme présenté en figure \ref{ArchitectureGenerale}, les utilisateurs seront en mesure d'interagir avec l'application par l'intermédiaire de différents matériels que sont ordinateurs portables, smart-phones et téléphones satellitaires.
+\\
+Les informations ainsi traitées seront mise en commun sur un serveur dit \og local \fg{} à un lieu d'intervention.
+\\
+Si nécessaire, une synchronisation des informations pourra avoir lieu entre le serveur \og local \fg{} et le serveur \og central \fg{} du siège.
+
 \section{Fonctions de service et de contrainte}
-Cette section précise les services fonctionnels prévus et contraintes respectées.
+Cette section précise les services fonctionnels mis à disposition des utlisateurs et contraintes respectées.
 
 \subsection{La localisation}
 La suite logicielle proposera des versions traduites en plusieurs langues, y compris avec des alphabets différents. Au minimum, les traductions dans les langages suivants seront fournis~:
@@ -184,9 +283,9 @@ Une Réquisition rassemble les informations suivantes~:
 	\end{enumerate}
 	\item les détails de l'envoi~:
 	\begin{enumerate}
-		\item adresse du consignataire (adresse complète, téléphone, mobile, fax, nom du contact & adresse e-mail),
-		\item adresse de livraison (si différente - adresse complète, téléphone, mobile, fax, nom du contact & adresse e-mail),
-		\item agent de dédouanement (le cas échéant - adresse complète, tel, mobile, fax, contact & email),
+		\item adresse du consignataire (adresse complète, téléphone, mobile, fax, nom du contact \& adresse e-mail),
+		\item adresse de livraison (si différente - adresse complète, téléphone, mobile, fax, nom du contact \& adresse e-mail),
+		\item agent de dédouanement (le cas échéant - adresse complète, tel, mobile, fax, contact \& email),
 		\item marquage de l'envoi (ex: no. CTN, logo Croix-Rouge, "en transit", "donation de..."),
 		\item demandes spéciales ou remarques (ex: instructions d'emballage, incoterms, documents joints, etc.)~;
 	\end{enumerate}
