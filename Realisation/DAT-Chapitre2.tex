@@ -6,8 +6,35 @@
 % 
 % Bon courage ;-)
 
-\section{Architecture générale}
-La solution est prévue pour fonctionner sur l'architecture générale présentée dans la figure \ref{ArchitectureGenerale}.
+\section{Architecture fonctionnelle}
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}
+		% Définition des styles
+		\tikzstyle{f} = [rectangle,draw=white,text=black,text centered,minimum height=10mm]
+		% nodes
+		\node[f,fill=colone,minimum width=160mm] at (80mm,0mm) {\tiny Gestion des statistiques};
+		\node[f,fill=coltwo,minimum width=160mm] at (80mm,-10mm) {\tiny Gestion des tableaux de bord};
+		\node[f,fill=colthree,minimum width=80mm] at (40mm,-20mm) {\tiny Gestion des planifications \& suivis};
+		\node[f,fill=colfour,minimum width=60mm] at (30mm,-30mm) {\tiny Gestion des ressources};
+		\node[f,fill=colfive,minimum width=20mm] at (10mm,-40mm) {\tiny \begin{tabular}{c}Gestion des \\ prestataires\end{tabular}};
+		\node[f,fill=colfive,minimum width=20mm] at (50mm,-40mm) {\tiny \begin{tabular}{c}Gestion des \\ chauffeurs\end{tabular}};
+		\node[f,fill=colfive,minimum width=20mm] at (30mm,-40mm) {\tiny \begin{tabular}{c}Gestion des \\ moyens de \\ transport\end{tabular}};
+		\node[f,fill=colfour,minimum height=20mm,minimum width=20mm] at (70mm,-35mm) {\tiny \begin{tabular}{c}Gestion des \\ réquisitions \& \\ waybills \\ delivery~notes\end{tabular}};
+		\node[f,fill=colthree,minimum width=80mm] at (120mm,-20mm) {\tiny Gestion de l'administration};
+		\node[f,fill=colfour,minimum width=40mm] at (100mm,-30mm) {\tiny Gestion des droits d'accès};
+		\node[f,fill=colfive,minimum width=20mm] at (90mm,-40mm) {\tiny \begin{tabular}{c}Gestion des \\ utilisateurs\end{tabular}};
+		\node[f,fill=colfive,minimum width=20mm] at (110mm,-40mm) {\tiny \begin{tabular}{c}Gestion des \\ groupes \\ d'utilisateurs\end{tabular}};
+		\node[f,fill=colfour,minimum height=20mm,minimum width=20mm] at (130mm,-35mm) {\tiny \begin{tabular}{c}Gestion des \\ règles de \\ sécurité\end{tabular}};
+		\node[f,fill=colfour,minimum height=20mm,minimum width=20mm] at (150mm,-35mm) {\tiny \begin{tabular}{c}Gestion des \\ sauvegardes\end{tabular}};
+		\node[f,fill=colsix,minimum width=160mm] at (80mm,-50mm) {\tiny Gestion de la synchronisation};
+	\end{tikzpicture}
+	\caption{Architecture fonctionnelle}
+	\label{ArchitectureFonctionnelle}
+\end{figure}
+
+\section{Architecture physique}
+La solution est prévue pour fonctionner sur l'architecture générale présentée dans la figure \ref{ArchitecturePhysique}.
 \begin{figure}[htbp]
 	\centering
 	\begin{tikzpicture}
@@ -96,17 +123,17 @@ La solution est prévue pour fonctionner sur l'architecture générale présent�
 		\node at (120mm,48mm) {\centering\includegraphics[width=16mm]{"Server"}};
 		\end{tikzpicture}
 	\caption{Architecture générale}
-	\label{ArchitectureGenerale}
+	\label{ArchitecturePhysique}
 \end{figure}
 
-Comme présenté en figure \ref{ArchitectureGenerale}, les utilisateurs seront en mesure d'interagir avec l'application par l'intermédiaire de différents matériels que sont ordinateurs portables, smart-phones et téléphones satellitaires.
+Comme présenté en figure \ref{ArchitecturePhysique}, les utilisateurs seront en mesure d'interagir avec l'application par l'intermédiaire de différents matériels que sont ordinateurs portables, smart-phones et téléphones satellitaires.
 \\
 Les informations ainsi traitées seront mise en commun sur un serveur dit \og local \fg{} à un lieu d'intervention.
 \\
 Si nécessaire, une synchronisation des informations pourra avoir lieu entre le serveur \og local \fg{} et le serveur \og central \fg{} du siège.
 
 \section{Fonctions de service et de contrainte}
-Cette section précise les services fonctionnels mis à disposition des utlisateurs et contraintes respectées.
+Cette section précise les services fonctionnels mis à disposition des utilisateurs et contraintes respectées.
 
 \subsection{La localisation}
 La suite logicielle proposera des versions traduites en plusieurs langues, y compris avec des alphabets différents. Au minimum, les traductions dans les langages suivants seront fournis~:
@@ -157,6 +184,9 @@ Cette section présente le diagramme des cas d'utilisation et précise pour chac
 	\caption{Diagramme des cas d'utilisation}
 	\label{ucd}
 \end{figure}
+
+\subsection{Les cas d'utilisations}
+Cette section présente le diagramme des cas d'utilisation et précise pour chacun d'eux l'ensemble des actions prévues.
 
 \subsubsection{Gestion des niveaux de sécurité (cryptographie)}
 La suite logicielle fournira une interface permettant d'ajouter, supprimer et définir les règles de sécurités appliquées aux communications sur un lieu d'intervention, c'est à dire, les algorithmes de chiffrement utilisés lors des échanges de données sur le réseau.
