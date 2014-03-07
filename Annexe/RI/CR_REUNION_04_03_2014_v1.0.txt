@@ -1,0 +1,59 @@
+-------------------------------------------------------------------
+CR de réunion 04/03/2014
+-------------------------------------------------------------------
+
+Heure de début : 14h00
+Heure de fin : 16h00
+
+Personnes présentes :
+MJ, Ravi, Anthony, Adrien, Bien Aime, Rémy
+
+Personnes absentes :
+Ahoua, Sory Ibrahima
+
+-------------------------------------------------------------------
+
+- Présentation du CdC
+
+- Rappel des tâches évaoquées lors de la réunion précédente
+
+- Discussion autour de l'architecture fonctionnelle
+  * création du schéma général d'architecture
+    - clustering
+    - matériels
+    - mode de synchronisation (~ Git mode : connecté/hors connecté)
+    - gestion de la synchronisation
+    - gestion de sauvegarde 
+    - stockage/transfert
+
+- Matériels:
+  * ordinateur portable
+  * smartphone (HTC ) 
+  * satellite
+
+- Définition des tâches prioritaires
+  * architecture réseau
+  * Choix technologique (XML...
+  * gestion des flux (optimisation par compression)
+  
+- Liste contractuelle des besoins et de la réponse aux besoins
+
+- Définition des groupes pour l'architecture
+  * Stockage : Adrien / Lionel
+  * Sauvegarde : Rémy / Anthony
+  * Documents : MJ
+  * Synchronisation : Bien Aime / Ravi
+    - connecté (Live)
+    - non connecté (~ Git)
+
+- Suite
+  * Renseignement des différentes méthodes de partionnement
+    afin de garantir la sécurité 
+
+- OJ du vendredi 07/03/2014
+  * Question :
+      Quel est le type du serveur locale ?
+      Quel est le mode d'authentification ?
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------

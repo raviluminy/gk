@@ -1,0 +1,159 @@
+%-------------------------------------------------------------------------------
+%
+%     CHARGEMENT DES EXTENSIONS
+%
+%-------------------------------------------------------------------------------
+
+\documentclass[11pt,fleqn]{report}
+\usepackage{GarmirKhatch}
+
+%-------------------------------------------------------------------------------
+%     Informations spécifiques au document
+%-------------------------------------------------------------------------------
+
+\ZTitle{Système de gestion des transports}
+\ZSubject{Compte-rendu du 2014-02-07}
+\ZVersion{2.0}
+\ZDate{2014-03-05}
+\ZAuthor{\Balde,\\\Cadon,\\\Gairoard,\\\Julien,\\\Lericolais,\\\Mezelle,\\\Pachy,\\\SuangaWeto,\\\Toure}
+
+%-------------------------------------------------------------------------------
+%     Contenu
+%-------------------------------------------------------------------------------
+
+\begin{document}
+
+\ZMakeCover
+
+\ZMakeInformations{
+	% Historique des modifications
+	% Version & Date & Auteur(s) & Modification(s)
+	1.0 & 2014-02-11 & \Balde, \Cadon, \Pachy, \Toure & Rédaction \\
+	2.0 & 2014-03-05 & \Cadon & Migration \\
+}{
+	% Historique des approbations
+	% Version & Date & Approbateur(s)
+	1.0 & 2014-02-11 & \Balde, \Pachy, \Toure \\
+	2.0 & 2014-03-05 & \Cadon \\
+}{
+	% Historique des validations
+	% Version & Date & Responsable(s)
+	1.0 & 2014-02-14 & \Agopian \\
+}
+
+\chapter{Objectifs \& points abordés}
+
+\section{Objectifs}
+Ce document rend compte de la réunion du vendredi matin 2014-02-07, déroulée en salle CH301 du campus de Saint-Charles à Marseille de 11:50 à 13:30, entre la maîtrise d'ouvrage \mo et son assistance à maîtrise d'ouvrage \amo.
+\\
+À cette fin, rappelons que cette réunion se déroule dans le cadre de la demande de prestation d'assistance à maîtrise d'ouvrage (AMO) dont l'objectif est de fournir un cahier des charges répondant aux besoins de la maîtrise d'ouvrage.
+
+\section{Acteurs}
+Étaient présents lors de la réunion (et par ordre alphabétique)~:
+\begin{enumerate}
+	\item représentant \mo~:
+	\begin{enumerate}
+		\item M. \Agopian,
+	\end{enumerate}
+	\item représentant \amo~:
+	\begin{enumerate}
+		\item M. \Balde,
+		\item M. \Cadon,
+		\item Mlle. \Toure.
+	\end{enumerate}
+\end{enumerate}
+
+\section{Points abordés}
+Pour commencer, il a été supposé que, dans un cadre général, un client était dit \og satisfait \fg{} lorsque la solution apportée~:
+\begin{enumerate}
+	\item répond adéquatement aux besoins exprimés~;
+	\item est livrée dans les délais convenus~;
+	\item n'occasionne pas de surcouts.
+\end{enumerate}
+Au cours de la réunion, il fut donc précisé l'importance de rendre le cahier des charges le plus exhaustif possible en vue d'obtenir la réponse la plus adaptée. À cette fin, les éléments suivants sont apparus comme devant nécessairement être évoqués dans le cahier des charges.
+
+\subsection{Les éléments nécessaires à la réponse au cahier des charges}
+Afin qu'une société (appelée ci après sous-missionnaire) puisse répondre au cahier des charges, il convient de spécifier dans ce dernier les éléments attendus ou les contraintes à respecter comme~:
+\begin{enumerate}
+	\item la date limite de dépôt de dossier~;
+	\item la procédure à suivre pour obtenir des informations supplémentaires
+Les livrables attendus, dont~:
+	\begin{enumerate}
+		\item le mémoire technique, constituant la réponse technique aux besoins fonctionnels formulés,
+		\item le catalogue des services décrivant non seulement les services attendus mais également et pour chacun un bordereau de prix unitaire (BPU). Les services en question pouvant répondre à des besoins~:
+		\begin{enumerate}
+			\item de matériel supplémentaire,
+			\item de personnel qualifié~;
+		\end{enumerate}
+	\end{enumerate}
+	\item les détails du support tels que~:
+	\begin{enumerate}
+		\item les horaires,
+		\item la garantie,
+		\item la maintenance.
+	\end{enumerate}
+\end{enumerate}
+
+\subsection{Les éléments nécessaires à la réponse au projet}
+Bien que certains des éléments nécessaires à la réponse au projet peuvent sembler être implicitement demandés, il a été établi l'importance de les spécifier de façon exhaustif et par écrit dans le cahier des charges. Parmi ces derniers, notons au minimum~:
+\begin{enumerate}
+	\item les droits de propriété attendus~;
+	\item le code source (le cas échéant)~;
+	\item les documents d'architecture~;
+	\item les documents d'exploitation.
+\end{enumerate}
+
+\subsection{Les éléments nécessaires à la compréhension et l'élaboration du projet}
+Après avoir notifié ce qui est attendu, il convient de décrire en détail le contenu même du projet et tout ce qu'il faut nécessairement prendre en compte dans sa réalisation. Ainsi devront être précisés~:
+\begin{enumerate}
+	\item le \emph{contexte}, aussi bien métier que technique (architecture, OS, environnement, navigateur(s),  etc.)~;
+	\item l'\emph{objectif}~;
+	\item les \emph{fonctionnalités attendues}~;
+	\item les \emph{contraintes}, qu'elles soient environnementales, techniques, légales, réglementaires, contractuelles, de temps ou de sécurité...
+\end{enumerate}
+En outre, toute forme de modélisation sera bienvenue (par exemple par diagramme d'utilisation ou de séquence...). L'objectif étant de rendre le document le plus explicite et clair possible afin d'éviter toute perte malheureuse de temps et de ressources.
+
+\subsubsection{Contexte fonctionnel}
+Des précisions supplémentaires ont été apportées sur la gestion des transports.
+\\
+En prélude, Il est important de préciser que tout document interne dispose d'un numéro d'identification unique, généré par le secrétariat central.
+\\
+Dans le cadre général, on ne met à disposition un transport qu'après qu'une réquisition est déposée et enregistrée. Cette réquisition donne lieu à un ou plusieurs bordereau(x) d'expédition à raison d'un pour chaque véhicule mis à disposition. Ce bordereau (en anglais Waybill out) notifie les informations relatives au transport telles que les détails du chauffeur, du véhicule, du fret (de son origine jusqu'à sa destination). Toutefois, il est des cas de figure où la réquisition répond au(x) besoin(s) d'un partenaire, auquel sont simplement mis à disposition les véhicules demandés. Dans ce dernier cas, il incombe généralement au dit partenaire de créer ses propres bordereau(x) d'expédition dont il n'est volontairement pas gardé de trace en interne.
+\\
+Dans le cadre d'une urgence ou d'un imprévu, il reste possible de mettre à disposition un transport sans réquisition préalable. La réquisition est alors créée et disposera d'un  numéro d'identification temporaire, le temps que le secrétariat central lui en établisse un définitif.
+\\
+En vue de simplifier l'explication ci-dessus, voici la représentation schématique des différents cas de figure envisagés~:
+\\
+1 réquisition (définitive ou temporaire) -> 1 ou plusieurs bordereau(x) d'expédition.
+\\
+1 réquisition (définitive ou temporaire) -> 0 bordereau d'expédition.
+\\
+Enfin, la réunion s'est clôturée sur la présentation de deux documents d'archives que sont~:
+\begin{enumerate}
+	\item un exemple de contrat type avec une société de transport~;
+	\item un exemple de tableau (actuellement utilisé en interne) pour assurer le suivi des transports.
+\end{enumerate}
+
+\subsubsection{Contexte technique}
+La solution pourra exploiter l'architecture matérielle déjà existante de \mo. Cette dernière est composée de machines serveurs et clientes comme suit.
+\\
+Les serveurs tournent actuellement sur un système d'exploitation Microsoft~Windows, mais il a été prévu, à une date encore indéterminée, une migration vers une distribution GNU/Linux. Ces derniers disposent également de deux SGBDR que sont MySQL~Server et SQL~Oracle avec lesquels la solution devra être compatible indifféremment et sans restrictions. N'occultant pas la possibilité de changer de SGBD à l'avenir, la solution devra permettre de s'interfacer facilement avec d'autres SGBD.
+\\
+Les machines clientes quant à elles, tournent sous Microsoft~Windows~7, disposent de 16Go de RAM, 250Go de mémoire disque, et des navigateurs Firefox et Internet~Explorer. Chaque utilisateur ayant ses propres préférences d'utilisation, la solution devra se montrer tout aussi compatible et fonctionnelle sous l'un ou l'autre de ces navigateurs.
+\\
+Une dernière composante importante et obligatoire est la possibilité d'utiliser la solution depuis un appareil de téléphonie mobile (smart-phone par exemple).
+
+\subsubsection{Fonctionnalités attendues}
+Parmi les fonctionnalités attendues, figure un ensemble de statistiques encore indéterminées. Lors de la réunion, il a été mis en avant que serait préféré une conception permettant une gestion modulaire des statistiques. Le prix de l'ajout d'une ou plusieurs statistiques devant être précisé dans un bordereau de prix unitaire ou un forfait.
+\\
+Également, et pour finir, il a été spécifié que la solution devra être multilingue anglais, français, espagnol et arabe.
+
+\section{Liste des tâches}
+\begin{enumerate}
+	\item rédaction et envoi d'un compte rendu de réunion~;
+	\item rédaction d'un modèle de documents types~;
+	\item rédaction d'une première ébauche de Cahier des Charges Fonctionnel (CdCF)~;
+	\item rédaction d'un Plan d'Assurance Qualité (PAQ)~;
+\end{enumerate}
+
+\end{document}

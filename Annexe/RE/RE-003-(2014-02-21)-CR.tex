@@ -1,0 +1,161 @@
+%-------------------------------------------------------------------------------
+%
+%     CHARGEMENT DES EXTENSIONS
+%
+%-------------------------------------------------------------------------------
+
+\documentclass[11pt,fleqn]{report}
+\usepackage{GarmirKhatch}
+
+%-------------------------------------------------------------------------------
+%     Informations spécifiques au document
+%-------------------------------------------------------------------------------
+
+\ZTitle{Système de gestion des transports}
+\ZSubject{Compte-rendu du 2014-02-21}
+\ZVersion{2.0}
+\ZDate{2014-03-05}
+\ZAuthor{\Balde,\\\Cadon,\\\Gairoard,\\\Julien,\\\Lericolais,\\\Mezelle,\\\Pachy,\\\SuangaWeto,\\\Toure}
+
+%-------------------------------------------------------------------------------
+%     Contenu
+%-------------------------------------------------------------------------------
+
+\begin{document}
+
+\ZMakeCover
+
+\ZMakeInformations{
+	% Historique des modifications
+	% Version & Date & Auteur(s) & Modification(s)
+	1.0 & 2014-02-24 & \Cadon, \Pachy, \Toure & Rédaction \\
+	2.0 & 2014-03-05 & \Cadon & Migration \\
+}{
+	% Historique des approbations
+	% Version & Date & Approbateur(s)
+	1.0 & 2014-02-24 & \Balde, \Pachy \\
+	2.0 & 2014-03-05 & \Cadon \\
+}{
+	% Historique des validations
+	% Version & Date & Responsable(s)
+	1.0 & 2014-02-14 & \Agopian \\
+}
+
+\chapter{Objectifs \& points abordés}
+
+\section{Objectifs}
+Ce document rend compte de la réunion du vendredi matin 2014-02-21, qui s'est déroulée en salle 3 au sous sol du bâtiment 5 du campus universitaire de Saint-Charles à Marseille de 10:20 à 12:05, entre la maîtrise d'ouvrage \mo et son assistance à maîtrise d'ouvrage \amo.
+\\
+À cette fin, rappelons que cette réunion se déroule dans le cadre de la demande de prestation d'assistance à maîtrise d'ouvrage (AMO) dont l'objectif est de fournir un cahier des charges répondant aux besoins de la maîtrise d'ouvrage.
+
+\section{Acteurs}
+Étaient présents lors de la réunion (et par ordre alphabétique)~:
+\begin{enumerate}
+	\item représentant \mo~:
+	\begin{enumerate}
+		\item M. \Agopian (maîtrise d'ouvrage),
+	\end{enumerate}
+	\item représentant \amo~:
+	\begin{enumerate}
+		\item M. \Balde (assistant),
+		\item M. \Cadon (assistant, conseiller et secrétaire),
+		\item M. \Gairoard (chef de projet),
+		\item M. \Pachy (assistant, conseiller),
+		\item Mlle. \Toure (assistant, conseiller et secrétaire).
+	\end{enumerate}
+\end{enumerate}
+
+\section{Points abordés}
+
+\subsection{Ordre du jour de la réunion du 2014-02-21}
+L'ordre du jour n'ayant pas été précisé à l'avance, il a été défini en début de réunion. Un rappel a donc été fait d'envoyer ce dernier à l'avance, accompagné de toute documentation relative (en l'occurrence le cahier des charges) afin de faire perdre le moins de temps possible à chacune des parties.
+\\
+M. \Agopian précise qu'il est toujours possible d'envoyer une version non finale du CdCF en précisant l'état d'avancement de celui-ci. Cette procédure étant destinée à gagner du temps lors de la réalisation. Dans ce but, il conviendra lors de ces envois de préciser les parties inchangées pour éviter une lecture redondante.
+
+\subsection{Compte rendu 002 de la réunion du 2014-02-14}
+Le compte rendu a été validé sur son contenu moyennant une remarque relative à la fiche d'itération. Il a été remarqué que seule la liste des livrables attendus était pertinente pour la maîtrise d'ouvrage mais pas l'assignation des tâches destinées à les produire. De fait, cette fiche sera remplacée par une simple liste tenant compte des documents demandée pendant l'itération.
+
+\section{Cahier des charges v1.2.7}
+Suite à la présentation de la version 1.2.7 du cahier des charges, plusieurs éclaircissements ont été apportés.
+
+\subsection{Contexte}
+Parmi les 5 domaines métier de \mo, il a été rappelé que Logistique et Télécoms sont tous deux des services supports aux autres comme à eux mêmes.
+\\
+Pour ce qui est de la logistique et bien évidemment, lors des processus d'échanges de Réception entrante ou sortante, i.e. lorsque est reçu ou expédiée de la marchandise, il convient de, respectivement, prévoir ou prévenir des informations relatives à celle-ci (date, heure, lieu, produit, quantité, poids, volume, ...).
+
+\subsubsection{Contraintes légales}
+Étant donné que les lois sont différentes pour chaque pays, il faut s'informer de toutes celles en vigueur et qui interviennent dans l'établissement d'un service de la chaîne logistique. Chaque contrat dépend alors de la législation du pays concerné.
+
+\subsubsection{Secrétariat central}
+Le secrétariat central a pour mission de centraliser toutes les données du système. Cela permet autant de fournir des statistiques que de garder une trace des actions menées. L'objectif étant de pouvoir analyser ou prouver l'efficience (ou non) des ressources investies.
+
+\subsection{Documents}
+
+\subsubsection{Réquisition}
+Une Réquisition est émise par la distribution et correspond à une mission de transport. Ce document rassemble les informations de la mission telles que~:
+\begin{enumerate}
+	\item la marchandise transportée (nom, quantité, poids, volume, ...)~;
+	\item les acteurs en jeu (propriétaire, expéditeur, destinataire, ...)~;
+	\item les détails de la mission (date, heure et lieu de livraison, ...).
+\end{enumerate}
+
+\subsubsection{Waybill / Delivery note}
+Il s'agit d'un seul et même document. On parle de Waybill lorsque la mission reste de bout en bout à l'intérieur même de la chaîne logistique, et de Delivery note lorsque la mission a pour origine ou destination un acteur extérieur à la chaîne logistique.
+\\
+Ce document est actuellement composé de 4 feuilles carbonées, dont les exemplaires sont répartis comme suit~:
+\begin{enumerate}
+	\item un premier exemplaire est conservé par la logistique au moment de l'envoi du transport (donc avant réception, si réception il y a).
+\end{enumerate}
+Après réception (la signature du destinataire faisant foi), les 3 feuilles restantes sont réparties comme suit~:
+\begin{enumerate}
+	\item un exemplaire est conservé par le destinataire (le métier)~;
+	\item un exemplaire est conservé par la société de transport~;
+	\item un exemplaire est retourné à la logistique pour justifier la livraison et ainsi procéder au paiement de la société de transport.
+\end{enumerate}
+
+\subsubsection{Tableaux de bord}
+Ce document, qui se doit d'être modulaire, peut remplir de nombreux rôles en fonction des situations, et des destinataires. Généralement, il se présente sous la forme d'un tableau se terminant par un total ou un ratio, et permettant ainsi de justifier des ressources engagées, ou de témoigner des performance d'un service. Il s'agit d'un document de synthèse permettant un suivi.
+\\
+Le module d'édition de tableaux de bord de la suite logicielle doit ainsi permettre à un utilisateur d'afficher, comme il l'entend, toutes les informations qu'il souhaite parmi celles auxquelles il a accès.
+
+\subsubsection{Bons pour accord de paiement}
+Destiné au processus financier, ce document doit fournir le montant total à payer à un prestataire. Il détaille celui-ci en listant chacune des missions de transport effectuée et, pour chacune d'elle, la confirmation (ou pas) de la part de la logistique, ainsi que son coût.
+\\
+Dans le cadre de la solution logicielle, l'édition de ces bons doit pouvoir gérer automatiquement le calcul des coûts, en fonction des ressources engagées et du type de contrat dont il est question (au km, à la journée, au poids, ...).
+
+\subsection{Documents à numériser}
+La solution logicielle doit prendre en charge des documents numérisés. Elle devra par conséquent prévoir explicitement les contraintes relatives à ce type de document à savoir (liste non-exhaustive)~:
+\begin{enumerate}
+	\item le poids numérique~;
+	\item les dimensions~;
+	\item la résolution~;
+	\item la couleur~;
+	\item le format.
+\end{enumerate}
+Parmi les documents qui peuvent être numérisés figurent~:
+\begin{enumerate}
+	\item patentes des sociétés de transport employées~;
+	\item permis de conduire, carte d'identité, et photo des chauffeurs...
+\end{enumerate}
+
+\subsection{Solution de sauvegarde}
+Pour l'instant, il n'y a pas de solution de sauvegarde. La solution logicielle doit donc  fournir un moyen de sauvegarde externe, permettant de choisir ce que l'on souhaite sauvegarder, ainsi qu'un outil de planification, afin de rendre cette dernière récurrente et automatisée.
+\\
+En outre, la solution proposée doit être compatible avec le top 10 des solutions de sauvegarde les plus communes, au cas où elles seraient utilisées en remplacement.
+
+\section{Documents demandés}
+
+\subsection{Pour \mo}
+La maîtrise d'ouvrage a explicitement demandé que, pendant l'itération à venir, de plus amples détails lui soient fournis sur la norme AFNOR NF X50-151 utilisée dans la rédaction de son cahier des charges.
+
+\subsection{Pour \amo}
+De son côté, l'assistance à maîtrise d'ouvrage souhaite que, pendant l'itération à venir, lui soit fournit des exemples des documents suivants~:
+\begin{enumerate}
+	\item réquisition~;
+	\item waybill / delivery note.
+\end{enumerate}
+
+\section{Objectifs en vue de la prochaine réunion}
+Pour la prochaine réunion, il a été demandé de finir la réalisation du cahier des charges. Une version finale est donc attendue pour approbation, et l'ordre du jour de la réunion à venir sera donc la validation du cahier des charges.
+
+\end{document}

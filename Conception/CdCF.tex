@@ -1,0 +1,61 @@
+%-------------------------------------------------------------------------------
+%
+%     CHARGEMENT DES EXTENSIONS
+%
+%-------------------------------------------------------------------------------
+
+\documentclass[11pt,fleqn]{report}
+\usepackage{GarmirKhatch}
+
+\definecolor{colone}{RGB}{209,220,204}
+\definecolor{coltwo}{RGB}{204,222,210}
+\definecolor{colthree}{RGB}{207,233,232}
+\definecolor{colfour}{RGB}{248,243,214}
+\definecolor{colfive}{RGB}{245,238,197}
+\definecolor{colsix}{RGB}{243,235,179}
+\definecolor{colseven}{RGB}{241,231,163}
+
+
+%-------------------------------------------------------------------------------
+%     Informations spécifiques au document
+%-------------------------------------------------------------------------------
+
+\ZTitle{Système de gestion des transports}
+\ZSubject{Cahier des Charges Fonctionnel}
+\ZVersion{2.1}
+\ZDate{\today}
+\ZAuthor{\Cadon,\\\Gairoard,\\\Pachy,\\\Toure}
+
+%-------------------------------------------------------------------------------
+%     Contenu
+%-------------------------------------------------------------------------------
+
+\begin{document}
+
+\ZMakeCover
+
+\ZMakeInformations{
+	% Historique des modifications
+	% Version & Date & Auteur(s) & Modification(s)
+	2.0 & 2014-03-03 & \Cadon & Création à partir de l'ancienne version \\
+	\midrule
+	2.1 & 2014-03-04 & \Pachy & Mise à jour en fonction de la réunion interne du 2014-03-03 \\
+	\midrule
+	2.2 & 2014-03-06 & \Lericolais & Mise à jour de la partie données \\
+}{
+	% Historique des approbations
+	% Version & Date & Approbateur(s)
+	\ZVersion & - & - \\
+}{
+	% Historique des validations
+	% Version & Date & Responsable(s)
+	2.1 & - & - \\
+}
+
+\ZMakeTableOfContents
+
+\include{CdCF-Chapitre1}
+\include{CdCF-Chapitre2}
+\include{CdCF-Chapitre3}
+
+\end{document}

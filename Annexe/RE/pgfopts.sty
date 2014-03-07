@@ -1,0 +1,99 @@
+%%
+%% This is file `pgfopts.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% pgfopts.dtx  (with options: `package')
+%%  --------------------------------------------------------------
+%%  The pgfopts package --- LaTeX package options with pgfkeys
+%%  Maintained by Joseph Wright
+%%  E-mail: joseph.wright@morningstar2.co.uk
+%%  Released under the LaTeX Project Public License v1.3 or later
+%%  See http://www.latex-project.org/lppl.txt
+%%  --------------------------------------------------------------
+%% 
+\NeedsTeXFormat{LaTeX2e}
+\newcommand*{\pgfopts@id}{}
+\def\pgfopts@id$#1: #2.#3 #4 #5-#6-#7 #8 #9${%
+    #5/#6/#7\space v1.0\space}
+\ProvidesPackage{pgfopts}
+  [\pgfopts@id $Id: pgfopts.dtx 28 2008-06-26 11:59:34Z joseph $
+   LaTeX package options with pgfkeys]
+\RequirePackage{pgfkeys}
+\edef\pgfopts@catcodes{%
+  \catcode\string`\string ` \the\catcode\string`\`\relax
+  \catcode\string`\string = \the\catcode\string`\=\relax
+  \catcode\string`\string : \the\catcode\string`\:\relax
+  \catcode\string`\string , \the\catcode\string`\,\relax
+  \catcode\string`\string / \the\catcode\string`\/\relax
+  \catcode\string`\string . \the\catcode\string`\.\relax}
+\catcode\string`\` 12\relax
+\catcode`\= 12\relax
+\@makeother{\:}
+\@makeother{\,}
+\@makeother{\/}
+\@makeother{\.}
+\newcommand*{\ProcessPgfOptions}{%
+  \@ifstar
+    {\begingroup
+       \edef\@tempa{%
+         \endgroup
+         \noexpand\pgfopts@ProcessOptions
+           {/\@currname}}%
+     \@tempa}%
+    {\pgfopts@ProcessOptions}}
+\@onlypreamble\ProcessPgfOptions
+\newcommand*{\pgfopts@temp}{}
+\newcommand*{\pgfopts@ProcessOptions}[1]{%
+  \def\pgfopts@temp{,}%
+  \ifx\@currext\@clsextension\else
+    \ifx\@classoptionslist\relax\else
+      \@for\pgfopts@CurrentOption:=\@classoptionslist\do{%
+        \pgfkeysifdefined{#1/\expandafter\pgfopts@sepkeyval%
+          \pgfopts@CurrentOption=\@nil/.@cmd}
+          {\edef\pgfopts@temp{%
+             \pgfopts@temp\pgfopts@CurrentOption,}%
+           \@expandtwoargs\@removeelement\pgfopts@CurrentOption
+             \@unusedoptionlist\@unusedoptionlist}%
+          {}}%
+    \fi
+  \fi
+  \begingroup
+    \@ifundefined{opt@\@currname.\@currext}
+      {\toks@\expandafter{\pgfopts@temp}}
+      {\toks@\expandafter\expandafter\expandafter{%
+         \csname opt@\@currname.\@currext\endcsname}%
+       \ifx\@currext\@clsextension
+         \edef\@tempa{\the\toks@}%
+         \toks@\expandafter{\pgfopts@temp}%
+         \@for\CurrentOption:=\@tempa\do{%
+           \pgfkeysifdefined{#1/\expandafter%
+             \pgfopts@sepkeyval\CurrentOption=\@nil/.@cmd}
+             {\toks@\expandafter{\the\expandafter\toks@
+                \expandafter,\CurrentOption}}
+             {\ifx\@empty\@unusedoptionlist\@empty
+                \global\let\@unusedoptionlist\CurrentOption
+              \else
+                \expandafter\expandafter\expandafter\gdef
+                \expandafter\expandafter\expandafter
+                \@unusedoptionlist\expandafter\expandafter
+                \expandafter{%
+                  \expandafter\@unusedoptionlist
+                  \expandafter,\CurrentOption}%
+              \fi}}%
+      \else
+        \toks@\expandafter\expandafter\expandafter{%
+            \expandafter\pgfopts@temp\the\toks@}%
+      \fi}%
+    \edef\pgfopts@temp{\endgroup
+      \noexpand\pgfkeys{#1/.cd,\the\toks@}}%
+  \pgfopts@temp
+  \let\CurrentOption\@empty
+  \AtEndOfPackage{\let\@unprocessedoptions\relax}}
+\newcommand*{\pgfopts@sepkeyval}{}
+\def\pgfopts@sepkeyval#1=#2\@nil{#1}
+\pgfopts@catcodes
+\endinput
+%%
+%% End of file `pgfopts.sty'.
