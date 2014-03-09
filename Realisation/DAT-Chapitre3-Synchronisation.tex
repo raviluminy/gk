@@ -20,6 +20,7 @@ Pour résoudre les problèmes de connexion et assurer le fonctionnement de la su
     \item Connecté
     \item Hors-ligne
 \end{itemize}
+L'utilisation de ces deux modes est décrit dans la Fig. \ref{explicationcodeco} : on utilise le mode connecté lorsque la liaison réseau est établie avec le serveur local; et le mode hors-ligne quand il n'y a pas de liaison avec le serveur local. Dans les deux cas, nous faisons abstraction de la liaison entre le serveur local et le serveur central dans la mesure où l'utilisateur ne se synchronisera qu'avec le serveur local.
 % Schéma pour montrer la différence d'utilisation entre le mode connecté et hors ligne :
 \begin{figure}[htbp]
     \centering
@@ -31,33 +32,33 @@ Pour résoudre les problèmes de connexion et assurer le fonctionnement de la su
 		\tikzstyle{serveurcen}=[rectangle,draw,fill=yellow!50,text=black, minimum height=2cm]
 	    % #### CADRE ROUGE :
 		% Fond :
-		\draw[fill=red!10] (0,0) rectangle (13, 5);
+		\draw[fill=red!10] (0,0) rectangle (13, 4);
 		% Titres :
-		\node[titre] at (6.50,0.00) {Mode hors-ligne};
+		\node[titre] at (6.50,4.00) {Mode hors-ligne};
 		% Serveurs :
-		\node[serveurloc] at (6.00,2.50) {Serveur local};
-		\node[serveurcen] at (11.00,2.50) {Serveur central};
-		\node[symbole] at (8.50,2.50) {?};
-		\node[symbole] at (3.00,2.50) {X};
+		\node[serveurloc] at (6.00,2) {Serveur local};
+		\node[serveurcen] at (11.00,2) {Serveur central};
+		\node[symbole] at (8.50,2) {?};
+		\node[symbole] at (3.00,2) {X};
 		% Traits :
-		\draw[line width=2pt] (2, 2.5) -- (4, 2.5);
-		\draw[line width=2pt] (7.5, 2.5) -- (9.5, 2.5);
+		\draw[line width=2pt] (2, 2) -- (4, 2);
+		\draw[line width=2pt] (7.5, 2) -- (9.5, 2);
 		% Utilisateurs :
-		\umlactor[x=1.00, y=2.50]{Utilisateur}
+		\umlactor[x=1.00, y=2]{Utilisateur}
 		% #### CADRE VERT :
 		% Fond :
-		\draw[fill=green!10] (0,6) rectangle (13, 11);
+		\draw[fill=green!10] (0,5) rectangle (13, 9);
 		% Titres :
-		\node[titre] at (6.50,6.00) {Mode connecté};
+		\node[titre] at (6.50,9.00) {Mode connecté};
 		% Serveurs :
-		\node[serveurloc] at (6.00,8.50) {Serveur local};
-		\node[serveurcen] at (11.00,8.50) {Serveur central};
-		\node[symbole] at (8.50, 8.50) {?};
+		\node[serveurloc] at (6.00,7) {Serveur local};
+		\node[serveurcen] at (11.00,7) {Serveur central};
+		\node[symbole] at (8.50, 7) {?};
 		% Traits :
-		\draw[line width=2pt] (2, 8.5) -- (4, 8.5);
-		\draw[line width=2pt] (7.5, 8.5) -- (9.5, 8.5);
+		\draw[line width=2pt] (2, 7) -- (4, 7);
+		\draw[line width=2pt] (7.5, 7) -- (9.5, 7);
 		% Utilisateurs :
-		\umlactor[x=1.00, y=8.50]{Utilisateur}
+		\umlactor[x=1.00, y=7]{Utilisateur}
 	\end{tikzpicture}
 	\caption{Utilisation des modes connecté et hors-ligne}
 	\label{explicationcodeco}
@@ -164,7 +165,12 @@ Contrairement au mode conecté, le mode hors ligne permet à l'utilisateur de mo
 
 % ------------------------------------------------------------------------------
 \subsection{Gestion des conflits}
-Durant la synchronisation, que ce soit en mode connecté ou hors-ligne, des conflits peuvent survenir au niveau du contenu des informations. Il reviendra à l'utilisateur le soin de gérer ces conflits en choisissant l'information correcte qui doit être enregistrée sur le serveur.
+Durant la synchronisation, que ce soit en mode connecté ou hors-ligne, des conflits peuvent survenir au niveau du contenu des informations. Dans ce cas, l'utilisateur est averti du conflit et des informations qu'il touche et il lui revient le soin de les gérer en choisissant explicitement ce qui est correct et qui doit être enregistré sur le serveur.\\
+Afin de savoir si la version des informations sur le serveur est plus récente (ou plus vieille) que la version locale, un horodatage est mis en place tel que :
+\begin{itemize}
+    \item Chaque modification locale est horodatée avec l'heure locale
+    \item À la synchronisation, l'écart temporel entre l'heure locale et l'heure serveur est mesuré\footnote{Par exemple, supposons que la machine locale retarde de deux heures : si une information a été modifiée à 17h (heure serveur) et qu'une modification est apportée à 16h le même jour en local, l'écart de deux heures entre les deux machines est mesuré lors de la synchronisation (i.e. deux heures) et permet de dater réellement la modification en local et ainsi déterminer laquelle succède à l'autre. À cette fin, l'application enregistre les éventuels changements d'heure oppérés en local pour notifier le serveur des écarts d'horodatage.}
+\end{itemize}
 % Fin de la sous-section [Gestin des conflits]
 % ------------------------------------------------------------------------------
 
