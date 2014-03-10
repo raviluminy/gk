@@ -1,8 +1,5 @@
-\section{Sauvegarde}
+\section{Sauvegarde}\label{SauvegardeTechnique}
 
-\label{SauvegardeTechnique}
-
-% À charge à Anthony et Rémi de remplir cette partie
 % Indications :
 %  Reprise sur panne
 %  Réseau
@@ -13,32 +10,25 @@
 % Bon courage ;-)
 
 \subsection{Problématique}
-
-Il est indiqué dans le cahier des charges que la suite logicielle doit pouvoir synchroniser des données, à la fois entre postes clients et serveur local, mais également entre serveur local et serveur central.
-Cette demande pose les problèmes de la disponibilité du serveur local et de l'intégrité des données. Différentes architectures vont être proposées afin de garantir ces contraintes.
+La suite logicielle permet de synchroniser des données, à la fois entre postes clients et serveur local, mais également entre serveur local et serveur central, et ce, via les différentes architectures ci dessous.
 
 \subsection{Cluster}
-
-Une première solution utilisant la technologie du \textit{cluster} peut être envisagée. Cette technique permet de créer un groupe logique de serveurs qui s'exécutent simultanément tout en donnant l'impression aux utilisateurs de ne constituer qu'un seul serveur.
-En considérant le matériel existant, et le fait que l'achat de serveur dédié pour ce cluster serait coûteux au client, une solution de \textit{clustering} peut être effectuée grâce à de simples postes clients qu'il faut configurer comme des serveurs. Les étapes de cette configuration seront fournies dans le manuel de déploiement.
+Une première solution utilisant la technologie du \emph{cluster} peut être envisagée. Cette technique permet de créer un groupe logique de serveurs qui s'exécutent simultanément tout en donnant l'impression aux utilisateurs de ne constituer qu'un seul serveur.
+En considérant le matériel existant, et le fait que l'achat de serveur dédié pour ce cluster serait coûteux au client, une solution de \emph{clustering} peut être effectuée grâce à de simples postes clients qu'il faut configurer comme des serveurs.
+Les étapes de cette configuration seront fournies dans le manuel de déploiement.
 \\
-L'architecture proposée (voir figure 3.1) :
-\begin{itemize}
-	\item Deux postes clients (configurés comme des serveurs maître/esclave) sont reliés directement par un câble eternet, ce qui va permettre de dupliquer au fur et à mesure toutes les données. Le serveur maître transmet les données au serveur esclave, et en cas d'incident sur le serveur maître, c'est le serveur esclave (ou de secours) qui reprend la main.
-\end{itemize}
+Dans l'architecture proposée (voir figure \ref{SchemaCluster}), deux postes clients (configurés comme des serveurs maître/esclave) sont reliés directement par un câble ethernet, ce qui permet de dupliquer au fur et à mesure toutes les données.
+Le serveur maître transmet les données au serveur esclave, et en cas d'incident sur le serveur maître, c'est le serveur esclave (ou de secours) qui reprend la main.
 
-
-
-\begin{figure}[!h]
-\centering
- \includegraphics[scale=0.9]{Images/SchemaCluster.png}
- \caption{Cluster, serveur maître et esclave directement connectés}
- \label{schemacluster}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.9]{Images/SchemaCluster.png}
+	\caption{Cluster, serveur maître et esclave directement connectés}
+	\label{SchemaCluster}
 \end{figure}
 
-
 %\begin{figure}[htbp]
- %   \centering
+%	\centering
 %	\begin{tikzpicture}
 %	    % Styles :
 %		\tikzstyle{titre}=[rectangle,draw,fill=white,text=black]
@@ -69,59 +59,49 @@ L'architecture proposée (voir figure 3.1) :
 %	\label{explicationcodeco}
 %\end{figure}
 
+Le serveur de secours est en \emph{hot standby}, c'est-à-dire qu'il reste allumé en mode passif, attendant que des requêtes clients soient reçues (requêtes qui sont envoyées au maître tant que ce dernier est actif).
 
-\newpage
-
-Le serveur de secours sera en \textit{hot standby} c'est-à-dire qu'il restera allumé en mode passif, attendant que des requêtes clients soient reçues (requêtes qui sont envoyées au maître tant que ce dernier est actif).
-
-\textcolor{white}{Saut de ligne}
-
-\textit{Fail-over} : Dans le cadre d'une architecture serveur haute disponibilité, le \textit{fail-over} permet une reprise automatique inférieure à une minute sur le serveur de secours en cas de défaillance du serveur maître. Le \textit{fail-over} est donc la capacité d'un équipement à basculer automatiquement vers un chemin réseau redondant ou en veille. Cette solution est préconisée sur les serveurs ou les architectures serveurs qui nécessitent une disponibilité permanente et un haut niveau de connectivité.
-
-\textcolor{white}{Saut de ligne}
-
-Il existe deux utilisations du protocole \textit{fail-over} :
+\paragraph{Fail-over}
+Dans le cadre d'une architecture serveur haute disponibilité, le \emph{fail-over} permet une reprise automatique inférieure à une minute sur le serveur de secours en cas de défaillance du serveur maître. Le \emph{fail-over} est donc la capacité d'un équipement à basculer automatiquement vers un chemin réseau redondant ou en veille.
+Cette solution est préconisée sur les serveurs ou les architectures serveurs qui nécessitent une disponibilité permanente et un haut niveau de connectivité.
+\\
+Il existe deux utilisations du protocole \emph{fail-over}~:
 \begin{itemize}
-\item Mode statique : Chaque client est configuré pour basculer sur une URI précise si la standard ne répond plus.
-\item Mode dynamique : Le maître fournit dynamiquement l'URI de l'esclave aux clients qui peuvent la mettre à jour.
+	\item mode statique~: chaque client est configuré pour basculer sur une URI précise si la standard ne répond plus~;
+	\item mode dynamique~: le maître fournit dynamiquement l'URI de l'esclave aux clients qui peuvent la mettre à jour.
 \end{itemize}
-Le mode retenu sera le mode statique, chaque client aura sa configuration et la conservera, aucune configuration spécifique ne sera nécessaire pour le maître, et il faudra simplement configurer sur l'esclave la connection avec le maître.
+Le mode retenu est le mode statique, où chaque client a sa configuration et la conserve, aucune configuration spécifique n'est donc nécessaire pour le maître, et il faut simplement configurer sur l'esclave la connection avec le maître.
 
-\textcolor{white}{Saut de ligne}
+\paragraph{Réplication des bases de données en temps réel}
+Les écritures sur le serveur maître sont répliquées en temps réel sur le serveur de secours, ne ralentissent pas le serveur maître et permettent de minimiser les pertes de données.
+La réplication se fait par recopie des journaux de transactions entre le maître et l'esclave.
+\\
+Le mode de synchronisation choisi est le mode synchrone~: une transaction émise par un client n'est validée que si l'écriture sur le maître ainsi que la synchronisation avec le serveur de secours sont validées.
+Ceci permet de s'assurer de la bonne duplication des données sur les deux serveurs. 
 
-\textit{Réplication des bases de données en tempts réel} : 
-Les écritures sur le serveur maître sont répliquées en temps réel sur le serveur de secours, ne ralentissent pas le serveur maître et permettent de minimiser au maximum les pertes de données. La réplication se fera par recopie des journaux de transactions entre le maître et l'esclave.
-
-Le mode de synchronisation choisi est le mode synchrone : une transaction émise par un client ne sera validée que si l'écriture sur le maître ainsi que la synchronisation avec le serveur de secours sont validées. Ceci permet de s'assurer de la bonne duplication des données sur les deux serveurs. 
-
-\textcolor{white}{Saut de ligne}
-
-\textit{Limitations} :
+\paragraph{Limitations}
 Seul un esclave à la fois peut être connecté au maître.
 Un maître hors ligne ne peut être réintroduit qu'à froid.
 Répliquer les données de l'esclave vers le maître une fois ce dernier remonté n'est pas automatique, cela nécessite une intervention manuelle.
 
-\textcolor{white}{Saut de ligne} 
-
-\textit{Procédure de fail-back (rétablissement du serveur maître)} :
+\paragraph{Procédure de fail-back (rétablissement du serveur maître)}
 \begin{itemize}
-\item Eteindre le serveur escalve.
-Note : Les clients n'ont pas besoin d'être redémarrés. Etant préalablement configurés ils se reconnecteront au maître une fois ce dernier remis en ligne.
-\item Copier les données de l'esclave sur le maître.
-\item Redémarrer les deux serveurs.
+	\item éteindre le serveur esclave~;
+	\begin{notation}
+		Les clients n'ont pas besoin d'être redémarrés.
+		Étant préalablement configurés ils se reconnecteront au maître une fois ce dernier remis en ligne.
+	\end{notation}
+	\item copier les données de l'esclave sur le maître~;
+	\item redémarrer les deux serveurs.
 \end{itemize}
 
-\textcolor{white}{Saut de ligne}
-
-\textit{Logiciel} :
-
-Apache Active MQ est un agent de messages open source, écrit en Java et associé avec un client Java Message Service. 
-
+\paragraph{Logiciel}
+Apache Active MQ est un agent de messages open source, écrit en Java et associé avec un client Java Message Service.
 Cette suite prend en charge divers protocoles de transport et précisément le protocole de fail-over qui permet de configurer les clients afin qu'ils basculent sur le serveur esclave en cas de non réponse du maître. 
 Il permet aussi de charger les différentes configurations (clients, maître et esclave) conservées dans des fichiers XML. 
 
 \subsection{Sauvegarde en dur}
-
-Une deuxième solution peut être mise en oeuvre de manière complémentaire au \textit{cluster} afin de mieux respecter la contrainte concernant l'intégrité des données.
-Un support mobile de stockage est utilisé afin de directement sauvegarder le contenu des serveurs. Le support peut être un disque dur, une clé usb, une carte mémoire... 
+Une deuxième solution peut être mise en œuvre de manière complémentaire au \emph{cluster} afin de mieux respecter la contrainte concernant l'intégrité des données.
+Un support mobile de stockage est utilisé afin de directement sauvegarder le contenu des serveurs.
+Le support peut être un disque dur, une clé USB, une carte mémoire...
 Cette sauvegarde devra être effectuée toutes les six heures afin de permettre de remonter les données en cas de panne des deux serveurs.  

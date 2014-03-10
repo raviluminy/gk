@@ -1,6 +1,5 @@
 \chapter{Architecture fonctionnelle}
 
-% À charge à Mj de remplir cette partie
 % Indications :
 %  Utilisateurs, traitements, données...
 % 
@@ -126,27 +125,27 @@ La solution est prévue pour fonctionner sur l'architecture générale présent�
 	\label{ArchitecturePhysique}
 \end{figure}
 
-Comme présenté en figure \ref{ArchitecturePhysique}, les utilisateurs seront en mesure d'interagir avec l'application par l'intermédiaire de différents matériels que sont ordinateurs portables, smart-phones et téléphones satellitaires.
+Comme présenté en figure \ref{ArchitecturePhysique}, les utilisateurs sont en mesure d'interagir avec l'application par l'intermédiaire de différents matériels que sont ordinateurs portables, smart-phones et téléphones satellitaires.
 \\
-Les informations ainsi traitées seront mise en commun sur un serveur dit \og local \fg{} à un lieu d'intervention.
+Les informations ainsi traitées sont mises en commun sur un serveur dit \og local \fg{} à un lieu d'intervention.
 \\
-Si nécessaire, une synchronisation des informations pourra avoir lieu entre le serveur \og local \fg{} et le serveur \og central \fg{} du siège.
+Si nécessaire, une synchronisation des informations peut avoir lieu entre le serveur \og local \fg{} et le serveur \og central \fg{} du siège.
 
 \section{Fonctions de service et de contrainte}
 Cette section précise les services fonctionnels mis à disposition des utilisateurs et contraintes respectées.
 
 \subsection{La localisation}
-La suite logicielle proposera des versions traduites en plusieurs langues, y compris avec des alphabets différents. Au minimum, les traductions dans les langages suivants seront fournis~:
-\begin{itemize}
+La suite logicielle propose des versions traduites en plusieurs langues, y compris avec des alphabets différents. Au minimum, les traductions dans les langages suivants sont fournis~:
+\begin{enumerate}[label=$\bullet$]
 	\item anglais~;
 	\item arabe~;
 	\item espagnol~;
 	\item français.
-\end{itemize}
-En outre, la suite logicielle fournira la possibilité de passer \emph{aisément} d'une langue à l'autre sans nécessiter de redémarrage.
+\end{enumerate}
+En outre, la suite logicielle fournit la possibilité de passer \emph{aisément} d'une langue à l'autre sans nécessiter de redémarrage.
 
 \subsection{Les cas d'utilisations}
-Cette section présente le diagramme des cas d'utilisation et précise pour chacun d'eux l'ensemble des actions prévues.
+Cette section présente le diagramme des cas d'utilisation et précise pour chacun d'eux l'ensemble des actions possibles.
 \begin{figure}[htbp]
 	\begin{tikzpicture}
 		\begin{umlsystem}[x=8.00,y=11.00,fill=red!10]{Administration}
@@ -185,13 +184,10 @@ Cette section présente le diagramme des cas d'utilisation et précise pour chac
 	\label{ucd}
 \end{figure}
 
-\subsection{Les cas d'utilisations}
-Cette section présente le diagramme des cas d'utilisation et précise pour chacun d'eux l'ensemble des actions prévues.
-
 \subsubsection{Gestion des niveaux de sécurité (cryptographie)}
-La suite logicielle fournira une interface permettant d'ajouter, supprimer et définir les règles de sécurités appliquées aux communications sur un lieu d'intervention, c'est à dire, les algorithmes de chiffrement utilisés lors des échanges de données sur le réseau.
+La suite logicielle fournit une interface permettant d'ajouter, supprimer et définir les règles de sécurités appliquées aux communications sur un lieu d'intervention, c'est à dire, les algorithmes de chiffrement utilisés lors des échanges de données sur le réseau.
 \\
-Initialement, les algorithmes suivants seront fournis~:
+Initialement, les algorithmes suivants sont fournis~:
 \begin{itemize}
 	\item primitives d'échange de clé~:
 	\begin{itemize}
@@ -212,41 +208,41 @@ Initialement, les algorithmes suivants seront fournis~:
 \end{itemize}
 
 \subsubsection{Gestion des utilisateurs et des droits d'accès}
-La suite logicielle permettra de gérer~:
+La suite logicielle permet de gérer~:
 \begin{enumerate}
 	\item utilisateurs~;
 	\item groupes d'utilisateurs.
 \end{enumerate}
-Un utilisateur pourra appartenir à un ou plusieurs groupes d'utilisateurs.
+Un utilisateur peut appartenir à un ou plusieurs groupes d'utilisateurs.
 \\
-La suite logicielle fournira à minima un groupe d'utilisateur appelé \emph{administrateur} capable de~:
+La suite logicielle fournit à minima un groupe d'utilisateur appelé \emph{administrateur} capable de~:
 \begin{enumerate}
 	\item ajouter, modifier et/ou supprimer utilisateurs et groupes d'utilisateurs~;
 	\item affecter des droits d'accès aux utilisateurs et groupes d'utilisateurs~;
 	\item ranger les utilisateurs dans des groupes d'utilisateurs.
 \end{enumerate}
-Les droits d'accès possibles seront les suivants~:
+Les droits d'accès possibles sont les suivants~:
 \begin{enumerate}
 	\item autorisé~;
 	\item indéfini~;
 	\item interdit~;
 \end{enumerate}
-Les conflits de droits résultant seront gérés par les 2 priorités suivantes~:
+Les conflits de droits résultant sont gérés par les 2 priorités suivantes~:
 \begin{enumerate}
-	\item les droits d'accès individuels seront prioritaires sur ceux inhérents aux groupes~;
-	\item les interdictions seront prioritaires sur les autorisations~;
+	\item les droits d'accès individuels sont prioritaires sur ceux inhérents aux groupes~;
+	\item les interdictions sont prioritaires sur les autorisations~;
 \end{enumerate}
 
 \subsubsection{Gestion des sauvegardes}
-La suite logicielle permettra d'effectuer des sauvegardes externalisées. Les moyens techniques mis en place à cette fin sont décris dans la section \ref{SauvegardeTechnique}.
+La suite logicielle permet d'effectuer des sauvegardes externalisées. Les moyens techniques mis en place à cette fin sont décris dans la section \ref{SauvegardeTechnique}.
 \\
-Ce système permettra les manipulations suivantes~:
+Ce système permet les manipulations suivantes~:
 \begin{enumerate}
 	\item lancer une sauvegarde (aussi bien distante que locale)~;
 	\item charger une sauvegarde existante (qu'elle soit distante ou locale)~;
 	\item ajouter, modifier, supprimer, importer et exporter une \emph{configuration de sauvegarde}.
 \end{enumerate}
-Une \emph{configuration de sauvegarde} rassemblera les paramètres suivants~:
+Une \emph{configuration de sauvegarde} rassemble les paramètres suivants~:
 \begin{enumerate}
 	\item la liste exhaustive des données sauvegardées~;
 	\item la planification (date, heure, minute, ...) et ses répétitions (une seule fois, tous les jours - ou seulement certains, toutes les semaines, tous les mois, ...)~;
@@ -254,25 +250,25 @@ Une \emph{configuration de sauvegarde} rassemblera les paramètres suivants~:
 \end{enumerate}
 
 \subsubsection{Gestion des préférences}
-La solution sera conçue de sorte à permettre l'intégration d'un module permettant aux utilisateurs de garder en mémoire leurs préférences, comme la langue utilisée. Néanmoins, ce module ne sera pas fournit, mais pourra faire l'objet d'une mise à jour ultérieure.
+La solution est conçue de sorte à permettre l'intégration d'un module permettant aux utilisateurs de garder en mémoire leurs préférences, comme la langue utilisée. Néanmoins, ce module n'est pas fournit, mais pourra faire l'objet d'une mise à jour ultérieure.
 
 \subsubsection{Gestion de la synchronisation}
-La suite logicielle est prévue pour fonctionner avec ou sans réseau. Afin de mettre à jour les données lorsque les moyens de communications sont rétablis, un système de synchronisation sera mis en place. Les détails techniques de cette synchronisation sont présentés en section \ref{SynchronisationTechnique}.
+La suite logicielle est prévue pour fonctionner avec ou sans réseau. Afin de mettre à jour les données lorsque les moyens de communications sont rétablis, un système de synchronisation est mis en place. Les détails techniques de cette synchronisation sont présentés en section \ref{SynchronisationTechnique}.
 
 \subsubsection{Gestion des tableaux de bord}
-La suite logicielle permettra de générer des \emph{tableaux de bord}, dont le contenu pourra être définit, chargé et enregistré dans une \emph{configuration de tableau de bord}.
+La suite logicielle permet de générer des \emph{tableaux de bord}, dont le contenu peut être définit, chargé et enregistré dans une \emph{configuration de tableau de bord}.
 
 \subsubsection{Gestion des statistiques}
-La suite logicielle sera conçue de sorte à permettre l'intégration d'un module capable de produire un ensemble de statistiques à partir des informations enregistrées. Néanmoins, ce module ne sera pas fournit par la solution proposée, mais pourra faire l'objet d'une mise à jour ultérieure.
+La suite logicielle est conçue de sorte à permettre l'intégration d'un module capable de produire un ensemble de statistiques à partir des informations enregistrées. Néanmoins, ce module n'est pas fournit par la solution proposée, mais pourra faire l'objet d'une mise à jour ultérieure.
 
 \subsubsection{Gestion des données}
-La suite logicielle permettra de numériser, des documents papier. Ces derniers pourront être ensuite enregistrés, affichés, supprimés, importés, exportés et archivés.
+La suite logicielle permet de numériser des documents papier. Ces derniers peuvent être ensuite enregistrés, affichés, supprimés, importés, exportés et archivés.
 \\
-En outre, la suite logicielle permettra d'ajouter, modifier, et supprimer les informations qu'elle aura à traiter, et les liens qui les relies. Initialement, les informations suivantes seront déjà définies et pourront être traitées~:
+En outre, la suite logicielle permet d'ajouter, modifier, et supprimer les informations qu'elle aura à traiter, et les liens qui les relies. Initialement, les informations suivantes sont déjà définies et peuvent être traitées~:
 \begin{enumerate}
 	\item planifications~;
 	\item réquisitions~;
-	\item waybills / delivery notes~;
+	\item waybills/delivery~notes~;
 	\item prestataires~;
 	\item chauffeurs~;
 	\item véhicules.
@@ -321,7 +317,7 @@ Une Réquisition rassemble les informations suivantes~:
 	\end{enumerate}
 \end{enumerate}
 
-\paragraph{Waybills / delivery notes}
+\paragraph{Waybills/delivery~notes}
 
 \paragraph{Prestataires}
 

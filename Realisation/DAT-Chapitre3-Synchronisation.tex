@@ -1,9 +1,6 @@
 % ==============================================================================
-\section{Synchronisation}
+\section{Synchronisation}\label{SynchronisationTechnique}
 
-\label{SynchronisationTechnique}
-
-% À charge à Bien Aimé et Ravi de remplir cette partie
 % Indications :
 %  Configuration des priorités etc.
 %  Mode connecté (lié au serveur local)
@@ -13,14 +10,19 @@
 
 % ------------------------------------------------------------------------------
 \subsection{Introduction}
-L'objectif de cette section est de décrire les méthodes proposées afin de répondre au problème de synchronisation. Les échanges de données pouvant être limités (pas de réseau, liaison satellitaire uniquement) il convient de pouvoir choisir précisément les éléments que l'on souhaite synchroniser\footnote{Il est à noter que la synchronisation est bi-directionnelle : on reçoit les informations du serveur autant qu'on en envoie.}.\\
-Pour permettre la gestion de ces éléments, on introduit la notion de \emph{priorité}; à chaque catégorie d'éléments (e.g. planning des transports, liste des fournisseurs, informations sur les véhicules, ...) peut être associée une priorité de laquelle dépendra la synchronisation ou non. À partir de cette \og{}hiérarchie d'importance\fg{}, on associe des \emph{profils de synchronisation} paramétrables qui - une fois activés - gère la synchronisation de façon transparente en fonction des choix de l'utilisateur.\\
-Pour résoudre les problèmes de connexion et assurer le fonctionnement de la suite logicielle indépendamment de la liaison réseau, deux modes sont prévus :
+L'objectif de cette section est de décrire les méthodes proposées afin de répondre au problème de synchronisation.
+Les échanges de données pouvant être limités (pas de réseau, liaison satellitaire uniquement), il convient de pouvoir choisir précisément les éléments que l'on souhaite synchroniser\footnote{Il est à noter que la synchronisation est bi-directionnelle : on reçoit les informations du serveur autant qu'on en envoie.}.
+\\
+Pour permettre la gestion de ces éléments, on introduit la notion de \emph{priorité}~; à chaque catégorie d'éléments (e.g. planning des transports, liste des fournisseurs, informations sur les véhicules, ...) peut être associée une priorité de laquelle dépendra la synchronisation ou non.
+À partir de cette \og hiérarchie d'importance \fg{}, on associe des \emph{profils de synchronisation} paramétrables qui -~une fois activés~- gère la synchronisation de façon transparente en fonction des choix de l'utilisateur.
+\\
+Pour résoudre les problèmes de connexion et assurer le fonctionnement de la suite logicielle indépendamment de la liaison réseau, deux modes sont prévus~:
 \begin{itemize}
-    \item Connecté
-    \item Hors-ligne
+    \item connecté~;
+    \item hors-ligne.
 \end{itemize}
-L'utilisation de ces deux modes est décrit dans la Fig. \ref{explicationcodeco} : on utilise le mode connecté lorsque la liaison réseau est établie avec le serveur local; et le mode hors-ligne quand il n'y a pas de liaison avec le serveur local. Dans les deux cas, nous faisons abstraction de la liaison entre le serveur local et le serveur central dans la mesure où l'utilisateur ne se synchronisera qu'avec le serveur local.
+L'utilisation de ces deux modes est décrit dans la Fig. \ref{explicationcodeco}~: on utilise le mode connecté lorsque la liaison réseau est établie avec le serveur local~; et le mode hors-ligne quand il n'y a pas de liaison avec le serveur local.
+Dans les deux cas, nous faisons abstraction de la liaison entre le serveur local et le serveur central dans la mesure où l'utilisateur ne se synchronisera qu'avec le serveur local.
 % Schéma pour montrer la différence d'utilisation entre le mode connecté et hors ligne :
 \begin{figure}[htbp]
     \centering
@@ -70,15 +72,16 @@ L'utilisation de ces deux modes est décrit dans la Fig. \ref{explicationcodeco}
 
 % ------------------------------------------------------------------------------
 \subsection{Gestion des priorités \& des profils de synchronisation}
-Une priorité permettra à l'application de \og{}choisir\fg{} ce qui transitera sur le réseau. Cinq priorités seront définies (par ordre d'importance croissant) pour qualifier des éléments synchronisables :
+Une priorité permet à l'application de \og choisir \fg{} ce qui transite sur le réseau.
+Cinq priorités sont définies (par ordre d'importance croissant) pour qualifier des éléments synchronisables~:
 \begin{enumerate}
-    \item Négligeable
-    \item Secondaire
-    \item Normal
-    \item Important
-    \item Crucial
+    \item négligeable~;
+    \item secondaire~;
+    \item normal~;
+    \item important~;
+    \item crucial.
 \end{enumerate}
-L'utilisateur pourra gérer les priorités à synchroniser en les associant à un profil : lorsque l'utilisateur choisit un profil de synchronisation, seuls les éléments ayant une priorité inclue dans le profil sont synchronisés.
+L'utilisateur peut gérer les priorités à synchroniser en les associant à un profil~: lorsque l'utilisateur choisit un profil de synchronisation, seuls les éléments ayant une priorité inclue dans le profil sont synchronisés.
 % Diagramme des CU pour la gestion des profils et des priorités :
 \begin{figure}[htbp]
     \centering
@@ -107,11 +110,12 @@ L'utilisateur pourra gérer les priorités à synchroniser en les associant à u
 
 % ------------------------------------------------------------------------------
 \subsection{Mode connecté}
-Dans ce mode, on suppose qu'il y a une liaison réseau entre l'utilisateur et le serveur local; toutes les modifications sont effectuées en \og{}temps réel\footnote{Un écart de temps pourra être constaté dans le cas où le réseau n'offre qu'un faible débit.}\fg{}. Pour ce mode, l'utilisateur doit :
+Dans ce mode, on suppose qu'il y a une liaison réseau entre l'utilisateur et le serveur local~; toutes les modifications sont effectuées en \og temps réel\footnote{Un écart de temps pourra être constaté dans le cas où le réseau n'offre qu'un faible débit.} \fg{}.
+Pour ce mode, l'utilisateur doit~:
 \begin{enumerate}
-    \item Se connecter
-    \item Utiliser la suite logicielle
-    \item Se déconnecter après utilisation
+    \item se connecter~;
+    \item utiliser la suite logicielle~;
+    \item se déconnecter après utilisation.
 \end{enumerate}
 L'utilisateur ne pourra effectuer que les modifications dont il a les \emph{permissions}.
 % Diagramme des CU pour le mode connecté :
@@ -140,7 +144,9 @@ L'utilisateur ne pourra effectuer que les modifications dont il a les \emph{perm
 
 % ------------------------------------------------------------------------------
 \subsection{Mode hors-ligne}
-Contrairement au mode conecté, le mode hors ligne permet à l'utilisateur de modifier toutes les informations dont il dospose localement. Lorsqu'il souhaitera synchroniser ses informations avec le serveur, il devra se connecter et c'est à ce moment là que le serveur vérifiera que l'utilisateur n'outrepasse pas les droits qui lui sont accordés. Si c'est le cas, le serveur rejettera les modifications locales.
+Contrairement au mode connecté, le mode hors-ligne permet à l'utilisateur de modifier toutes les informations dont il dispose localement.
+Lorsqu'il souhaite synchroniser ses informations avec le serveur, il doit se connecter et c'est à ce moment là que le serveur vérifie que l'utilisateur n'outrepasse pas les droits qui lui sont accordés.
+Si c'est le cas, le serveur rejette les modifications locales.
 % Diagramme des CU pour le mode hors ligne :
 \begin{figure}[htbp]
     \centering
@@ -165,11 +171,13 @@ Contrairement au mode conecté, le mode hors ligne permet à l'utilisateur de mo
 
 % ------------------------------------------------------------------------------
 \subsection{Gestion des conflits}
-Durant la synchronisation, que ce soit en mode connecté ou hors-ligne, des conflits peuvent survenir au niveau du contenu des informations. Dans ce cas, l'utilisateur est averti du conflit et des informations qu'il touche et il lui revient le soin de les gérer en choisissant explicitement ce qui est correct et qui doit être enregistré sur le serveur.\\
-Afin de savoir si la version des informations sur le serveur est plus récente (ou plus vieille) que la version locale, un horodatage est mis en place tel que :
+Durant la synchronisation, que ce soit en mode connecté ou hors-ligne, des conflits peuvent survenir au niveau du contenu des informations.
+Dans ce cas, l'utilisateur est averti du conflit et des informations qu'il touche et il lui revient le soin de les gérer en choisissant explicitement ce qui est correct et qui doit être enregistré sur le serveur.
+\\
+Afin de savoir si la version des informations sur le serveur est plus récente (ou plus vieille) que la version locale, un horodatage est mis en place tel que~:
 \begin{itemize}
-    \item Chaque modification locale est horodatée avec l'heure locale
-    \item À la synchronisation, l'écart temporel entre l'heure locale et l'heure serveur est mesuré\footnote{Par exemple, supposons que la machine locale retarde de deux heures : si une information a été modifiée à 17h (heure serveur) et qu'une modification est apportée à 16h le même jour en local, l'écart de deux heures entre les deux machines est mesuré lors de la synchronisation (i.e. deux heures) et permet de dater réellement la modification en local et ainsi déterminer laquelle succède à l'autre. À cette fin, l'application enregistre les éventuels changements d'heure oppérés en local pour notifier le serveur des écarts d'horodatage.}
+    \item chaque modification locale est horodatée avec l'heure locale~;
+    \item à la synchronisation, l'écart temporel entre l'heure locale et l'heure serveur est mesuré\footnote{Par exemple, supposons que la machine locale retarde de deux heures~: si une information a été modifiée à 17h (heure serveur) et qu'une modification est apportée à 16h le même jour en local, l'écart de deux heures entre les deux machines est mesuré lors de la synchronisation (i.e. deux heures) et permet de dater réellement la modification en local et ainsi déterminer laquelle succède à l'autre. À cette fin, l'application enregistre les éventuels changements d'heure opérés en local pour notifier le serveur des écarts d'horodatage.}.
 \end{itemize}
 % Fin de la sous-section [Gestin des conflits]
 % ------------------------------------------------------------------------------
