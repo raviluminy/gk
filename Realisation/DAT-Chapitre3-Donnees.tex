@@ -40,6 +40,75 @@ Le choix de l'utilisation des fichiers XML est dû aux raisons suivantes~:
 	\item exploitable sur les périphériques Android.
 \end{itemize}
 
+\subsubsection{Structuration des données}
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}
+		\begin{umlpackage}[x=0,y=0]{Requisition}
+			\umlclass[x=0,y=0,width=60mm]{Requisition}{
+				% Identifiants
+				\ZPrimaryKey{CountryCode}			: VARCHAR	\\ % Code du pays (du lieu d'intervention)
+				\ZPrimaryKey{Number(Id)}			: VARCHAR	\\ % Numéro unique de réquisition
+				% Estimations~?
+				\ZNoneKey	{ForCostEstimate}		: INTEGER	\\ % Demande de devis
+				\ZNoneKey	{ForPurchase}			: INTEGER	\\ % Demande d'achat
+				\ZNoneKey	{WhDispatchRelease}		: INTEGER	\\ % Mouvement de stock
+				% Informations générales
+				\ZNoneKey	{To}					: VARCHAR	\\ % Destination
+				\ZNoneKey	{From}					: VARCHAR	\\ % Origine
+				\ZNoneKey	{Date}					: DATE		\\ % Date de demande
+				\ZNoneKey	{DesiredDeliveryDate}	: DATE		\\ % Date de livraison souhaitée
+				% Codes budgétaires et devises
+				\ZNoneKey	{Project}				: INTEGER	\\ % Demande d'achat
+				\ZNoneKey	{Activity}				: INTEGER	\\ % Demande d'achat
+				\ZNoneKey	{MCode}					: INTEGER	\\ % Demande d'achat
+				\ZNoneKey	{Currency}				: INTEGER	\\ % Demande d'achat
+				% Moyen(s) de transport
+				\ZNoneKey	{TransportMeans}		: [AIR,SEA,ROAD]	\\ % Type de transport (aérien, maritime, terrestre, ...)
+				% Cargaison/marchandises transportées
+				\ZForeignKey{Cargo}					: REFERENCE	\\ % Cargaison (possiblement complexe)
+				\ZNoneKey	{CargoTotalValue}		: INTEGER	\\ % Valeur totale de la cargaison
+				% Accords
+				\ZForeignKey{Requester}				: REFERENCE	\\ % Demandeur
+				\ZNoneKey	{RequesterDate}			: DATE		\\ % Date d'accord du demandeur
+				\ZForeignKey{ProjectManager}		: REFERENCE	\\ % Chef de projet (en charge du budget)
+				\ZNoneKey	{ProjectManagerDate}	: DATE		\\ % Date d'accord du chef de projet
+				\ZForeignKey{FinanceOfficer}		: REFERENCE	\\ % Agent financier (seulement pour les demandes d'achat)
+				\ZNoneKey	{FinanceOfficerDate}	: DATE		\\ % Date d'accord de l'agent financier (seulement pour les demandes d'achat)
+				\ZForeignKey{Logistics}				: REFERENCE	\\ % Responsable de la logistique (seulement pour les mouvements d'entrepôt)
+				\ZNoneKey	{LogisticsDate}			: DATE		\\ % Date d'accord du responsable de la logistique (seulement pour les mouvements d'entrepôt)
+				\ZForeignKey{GlobalFleetBase}		: REFERENCE	\\ % Base générale de la flotte de véhicules (seulement pour les demandes de véhicules)
+				\ZNoneKey	{GlobalFleetBaseDate}	: DATE		\\ % Date d'accord de la base générale de la flotte de véhicules (seulement pour les demandes de véhicules)
+				% Détails de l'envoi
+				\ZForeignKey{Consignee}				: REFERENCE	\\ % Consignataire
+				\ZForeignKey{Delivery}				: REFERENCE	\\ % Livraison
+				\ZForeignKey{ClearingAgent}			: REFERENCE	\\ % Agent de dédouanement
+				\ZForeignKey{ShippingMarks}			: REFERENCE	\\ % Marquage de l'envoi
+				\ZNoneKey	{SpecialRequirementsOrRemarks}	: VARCHAR	% Demande spéciales ou remarques
+			}{}
+			\umlclass[x=70mm,y=0,width=60mm]{Cargo}{
+				\ZPrimaryKey{Number(Id)}			: INTEGER	\\ % Identifiant
+				\ZForeignKey{ItemCode}				: REFERENCE	\\ % Code de l'article
+				\ZNoneKey	{Quantity}				: INTEGER	\\ % Quantité
+				\ZNoneKey	{UoM}					: INTEGER	\\ % Unité
+				% Limite budgétaire
+				\ZNoneKey	{UnitPrice}				: INTEGER	\\ % Prix unitaire
+				\ZNoneKey	{TotalPrice}			: INTEGER	% Prix total
+			}{}
+			\umlclass[x=70mm,y=50mm,width=60mm]{Item}{
+				\ZPrimaryKey{ItemCode(Id)}			: INTEGER	\\ % Code de l'article
+				\ZNoneKey	{Account}				: VARCHAR	\\ % Numéro du compte
+				\ZNoneKey	{ItemDescription}		: VARCHAR	% Description de l'article
+			}{}
+			\umlclass[x=70mm,y=-50mm,width=60mm]{Person}{
+			}{}
+		\end{umlpackage}
+	\end{tikzpicture}
+	\caption{Structuration des données dans le SGBDR}
+	\label{DonneesStructurationSgbdr}
+\end{figure}
+
+
 \subsection{Le transfert}
 Le transfert des données quant à lui, est réalisé selon un format et une norme qui est préalablement défini.
 
