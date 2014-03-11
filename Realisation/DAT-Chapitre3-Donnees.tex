@@ -8,7 +8,7 @@
 % Bon courage ;-)
 
 \subsection{Problématique}
-Ce chapitre traite du stockage et du formatage des données sur les différents postes, et dans les différentes situations d'utilisation précédemment décrites.
+Ce chapitre traite du stockage et du formatage des données sur les différents postes, et dans les différentes situations d'utilisation précédemment décrites. \\
 Cette problématique est divisée selon trois points clés~:
 \begin{itemize}
 	\item le stockage~;
@@ -20,22 +20,20 @@ Cette problématique est divisée selon trois points clés~:
 Cette section développe en détail les différents type de stockage au sein de l'architecture clients/serveurs.
 
 \subsubsection{Côté serveur}
-%% Mj %% Je ne suis pas vraiment en accord avec le choix de cette solution, cf. CdCF. Il est précisé que \mo dispose déjà de SGBDR opérationnels et en service que sont MySQL et SQL~Oracle dont les licenses sont déjà possédées. En outre, cela implique que \mo dispose des connaisances et des compétences internes en relation avec ces 2 SGBDR...
-Le stockage des données côté serveur se fait grâce au SGDBR PostgreSQL. Cette solution a été retenue pour plusieurs raisons~:
+Le stockage des données côté serveur se fait grâce au SGDBR MySQL. Cette solution a été retenue pour plusieurs raisons~:
 \begin{itemize}
-	\item solution libre et gratuite (sans coût de licence)~;
+	\item solution traitant rapidement les données~;
 	\item solution compatible avec la plupart des systèmes d'exploitation (Windows, GNU/Linux, MacOS, ...)~;
-	\item solution conforme aux normes qui régissent le langage SQL, ce qui garantit une bonne portabilité en cas de migration sur une autre solution~;
-	\item solution pouvant gérer de très gros volumes de données à l'aide de son optimiseur très performant (\~ 13To)~;
+	\item solution facile à utiliser~;
+	\item solution pouvant facilement s'interfacer à l'aide d'API diverses~;
 	\item solution de prédilection de notre entreprise, ce qui garantit une interopérabilité maximale.
 \end{itemize}
 
 \subsubsection{Côté client}
-%% Mj %% Pas très clair. Qu'est-ce qui est effectivement mis en place côté client~? SGBDR et/ou XML~?
-Le stockage des données côté client se fait soit via une base de données locale (également sous PostgreSQL), s'il est possible de la synchroniser avec la base de donnée centrale et que le périphérique le permet, soit via des fichiers au format XML.
+Le stockage des données côté client se fait soit via deux représentations d'une base de données locale : une tournant sur MySQL et un autre utilisant des fichiers au format XML. s'il est possible d'effectuer la synchronisation avec la base de donnée centrale et que le périphérique le permet, la première représentation est choisi par défaut. Si la synchronisation au serveur central est indisponible, le stockage des données est fait par la deuxième représentation de la base au format XML. \\
 Le choix de l'utilisation des fichiers XML est dû aux raisons suivantes~:
 \begin{itemize}
-	\item format universel, compatible à l'import/export avec la plupart des SGDBR (dont PostgreSQL)~;
+	\item format universel, compatible à l'import/export avec la plupart des SGDBR (dont MySQL)~;
 	\item taux de compression assez important sur ce format, ce qui peut favoriser le transfert des données dans des situations où la connexion est limitée~;
 	\item exploitable sur les périphériques Android.
 \end{itemize}
@@ -296,8 +294,8 @@ MCD~:
 Le transfert des données quant à lui, est réalisé selon un format et une norme qui est préalablement défini.
 
 \subsubsection{Format}
-Eu égard des solutions retenues pour le transfert des données, le transfert des données se fera grâce à des fichiers XML.
-La possibilité sera donnée de compresser ces fichiers, dans un premier temps au format \emph{ZIP}, mais ce choix peut être remis en question selon les observations réalisées sur les données de test, afin de retenir une éventuelle meilleure solution.
+Eu égard des solutions retenues pour le transfert des données, le transfert des données se fera grâce à des fichiers XML. \\
+La possibilité est donnée de compresser ces fichiers, dans un premier temps au format \emph{ZIP}, mais ce choix peut être remis en question selon les observations réalisées sur les données de test, afin de retenir une éventuelle meilleure solution.
 
 \subsubsection{norme}
 % Définir la norme du format XML correspondant à une table SQL
