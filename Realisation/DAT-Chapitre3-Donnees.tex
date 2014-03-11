@@ -165,14 +165,6 @@ Le choix de l'utilisation des fichiers XML est dû aux raisons suivantes~:
 %				\ZNoneKey	{Volume}					: NUMBER	\\	% Volume total
 				\ZNoneKey	{Remarks}					: STRING		% Prix total
 			}{}
-			\umlclass[x=70mm,y=100mm,width=60mm]{Provider}{
-				\ZPrimaryKey{ItemCode(Id)}				: NUMBER	\\	% Code de l'article
-				\ZNoneKey	{Account}					: STRING	\\	% Numéro du compte
-				\ZNoneKey	{CommodityTrackingOrDonor}	: NUMBER	\\	% Unité
-				\ZNoneKey	{ItemDescription}			: STRING	\\	% Description de l'article
-				\ZNoneKey	{Weight}					: NUMBER	\\	% Unité
-				\ZNoneKey	{Volume}					: NUMBER		% Prix unitaire
-			}{}
 		\end{umlpackage}
 	\end{tikzpicture}
 	\caption{Structuration des données dans le SGBDR~: le package waybill/delivery~note}
@@ -232,6 +224,73 @@ Le choix de l'utilisation des fichiers XML est dû aux raisons suivantes~:
 	\caption{Structuration des données dans le SGBDR~: le package vehicle}
 	\label{DonneesStructurationSgbdrVehicle}
 \end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}
+		\begin{umlpackage}[x=0,y=0]{Provider}
+			\umlclass[x=70mm,y=-50mm,width=60mm]{Provider}{
+				\ZPrimaryKey{ProviderId}				: NUMBER	\\	% Identifiant du prestataire
+				\ZNoneKey	{ProvideName}				: STRING	\\	% Nom du prestataire
+				\ZNoneKey	{ProvideLicence}			: NUMBER	\\	% Patente du prestataire
+			}{}
+			\umlclass[x=70mm,y=0mm,width=60mm]{ProviderContracts}{
+				\ZPrimaryKey{ProviderId}				: STRING		% Identifiant du prestataire
+				\ZForeignKey{ProviderContractTypeId}	: ?				% Identifiant du type de contract
+				\ZNoneKey	{ProviderContractNumeric}	: IMAGE			% Version numérique du contract
+			}{}
+			\umlclass[x=70mm,y=0mm,width=60mm]{ProviderContractType}{
+				\ZPrimaryKey{ProviderContractTypeId}	: STRING		% Identifiant du type de vehicle (avion, bateau, train, camion, mule, ...)
+			}{}
+		\end{umlpackage}
+	\end{tikzpicture}
+	\caption{Structuration des données dans le SGBDR~: le package provider}
+	\label{DonneesStructurationSgbdrProvider}
+\end{figure}
+
+\clearpage
+MCD~:
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}
+		\begin{umlpackage}[x=10,y=0]{VehiclePackage}
+			\umlsimpleclass[x=0mm,y=-10mm,width=40mm]{Vehicle}{}{}
+			\umlsimpleclass[x=0mm,y=0mm,width=40mm]{VehicleType}{}{}
+		\end{umlpackage}
+		\begin{umlpackage}[x=10,y=-5]{ProviderPackage}
+			\umlsimpleclass[x=0mm,y=0mm,width=40mm]{Provider}{}{}
+			\umlsimpleclass[x=0mm,y=-10mm,width=40mm]{ProviderContracts}{}{}
+			\umlsimpleclass[x=0mm,y=-20mm,width=40mm]{ProviderContractType}{}{}
+		\end{umlpackage}
+		\umlsimpleclass[x=10,y=-3,width=40mm]{EmployerVehicle}{}{}
+		\umluniassoc{Vehicle}{EmployerVehicle}
+		\umluniassoc{Provider}{EmployerVehicle}
+		\begin{umlpackage}[x=10,y=-10]{Driver}
+			\umlsimpleclass[x=0mm,y=0mm,width=40mm]{Driver}{}{}
+			\umlsimpleclass[x=0mm,y=-10mm,width=40mm]{OwndDrivingLicence}{}{}
+			\umlsimpleclass[x=0mm,y=-20mm,width=40mm]{DrivingLicence}{}{}
+		\end{umlpackage}
+		\umlsimpleclass[x=10,y=-8,width=40mm]{EmployerEmployee}{}{}
+		\umluniassoc{Driver}{EmployerEmployee}
+		\umluniassoc{Provider}{EmployerEmployee}
+		\begin{umlpackage}[x=0,y=0]{WaybillDeliveryNote}
+			\umlsimpleclass[x=0mm,y=0mm,width=40mm]{WaybillDeliveryNote}{}{}
+			\umlsimpleclass[x=0mm,y=-10mm,width=40mm]{Cargo}{}{}
+		\end{umlpackage}
+		\begin{umlpackage}[x=0,y=-5]{Requisition}
+			\umlsimpleclass[x=0mm,y=0mm,width=40mm]{Requisition}{}{}
+			\umlsimpleclass[x=0mm,y=-10mm,width=40mm]{Cargo}{}{}
+			\umlsimpleclass[x=0mm,y=-20mm,width=40mm]{Item}{}{}
+		\end{umlpackage}
+%		\begin{umlpackage}[x=100,y=0]{TransportMean}
+%			\umlclass[x=0,y=0,width=60mm]{TransportMean}{}{}
+%		\end{umlpackage}
+	\end{tikzpicture}
+	\caption{Structuration des données dans le SGBDR~: MCD}
+	\label{DonneesStructurationSgbdrMcd}
+\end{figure}
+
+%\umluniassoc[geometry=-|,arg1=x,mult1=1,pos1=1.9,arg2=y,mult2=*,pos2=0.2]{A1}{A2} 
 
 \subsection{Le transfert}
 Le transfert des données quant à lui, est réalisé selon un format et une norme qui est préalablement défini.
