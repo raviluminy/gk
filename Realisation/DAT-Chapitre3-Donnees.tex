@@ -64,7 +64,7 @@ Le choix de l'utilisation des fichiers XML est dû aux raisons suivantes~:
 				\ZNoneKey	{MCode}					: INTEGER	\\ % Demande d'achat
 				\ZNoneKey	{Currency}				: INTEGER	\\ % Demande d'achat
 				% Moyen(s) de transport
-				\ZNoneKey	{TransportMeans}		: [AIR,SEA,ROAD]	\\ % Type de transport (aérien, maritime, terrestre, ...)
+				\ZNoneKey	{TransportMeans}		: [AIR,SEA,ROAD,RAIL]	\\ % Type de transport (aérien, maritime, terrestre, ...)
 				% Cargaison/marchandises transportées
 				\ZForeignKey{Cargo}					: REFERENCE	\\ % Cargaison (possiblement complexe)
 				\ZNoneKey	{CargoTotalValue}		: INTEGER	\\ % Valeur totale de la cargaison
@@ -98,9 +98,90 @@ Le choix de l'utilisation des fichiers XML est dû aux raisons suivantes~:
 			\umlclass[x=70mm,y=50mm,width=60mm]{Item}{
 				\ZPrimaryKey{ItemCode(Id)}			: INTEGER	\\ % Code de l'article
 				\ZNoneKey	{Account}				: VARCHAR	\\ % Numéro du compte
+				\ZNoneKey	{CommodityTrackingOrDonor}	: INTEGER	\\ % Unité
 				\ZNoneKey	{ItemDescription}		: VARCHAR	% Description de l'article
+				\ZNoneKey	{Weight}					: INTEGER	\\ % Unité
+				\ZNoneKey	{Volume}				: INTEGER	\\ % Prix unitaire
+				
 			}{}
-			\umlclass[x=70mm,y=-50mm,width=60mm]{Person}{
+			%\umlclass[x=70mm,y=-50mm,width=60mm]{Person}{
+			%}{}
+			\umlclass[[x=70mm,y=-50mm,width=60mm]{Waybill}{
+				\ZPrimaryKey{CountryCode}			: INTEGER	\\ % Code de l'article
+				\ZPrimaryKey{Number(Id)}			: VARCHAR	\\ % Numéro du compte
+				\ZNoneKey	{Date}				: VARCHAR	\\ % Numéro du compte
+				\ZNoneKey	{Warehouse}				: VARCHAR	\\ % Numéro du compte
+				\ZNoneKey	{Destination}				: VARCHAR	\\ % Numéro du compte
+				\ZNoneKey	{Beneficiary}				: VARCHAR	\\ % Numéro du compte
+				% Transport Data
+				\ZNoneKey	{ContractNumber}				: VARCHAR	\\ % Numéro du compte
+				\ZNoneKey	{Vehicle}				: VARCHAR	\\ % Numéro du véhicule (avec type de transport)
+				\ZNoneKey	{RegistrationNumber}				: VARCHAR	\\ % Numéro du compte
+				\ZNoneKey	{ETD}				: VARCHAR	\\ % Numéro du compte
+				\ZNoneKey	{Vehicle}				: VARCHAR	\\ % Numéro du compte
+				\ZNoneKey	{Vehicle}				: VARCHAR	\\ % Numéro du compte
+				\ZNoneKey	{Vehicle}				: VARCHAR	\\ % Numéro du compte
+				\ZForeignKey{Cargo}				: REFERENCE	\\ % Code de l'article
+				\ZNoneKey	{Comments}				: VARCHAR	\\ % Numéro du compte
+				\ZNoneKey	{CommentsFromReceiver}				: VARCHAR	\\ % Numéro du compte
+%				\ZNoneKey	{UnitTotal}				: VARCHAR	\\ % Numéro du compte
+%				\ZNoneKey	{WeightTotal}			: VARCHAR	\\ % Numéro du compte
+				\ZNoneKey	{}					: INTEGER	\\ % Unité
+				% Informations de chargement
+				\ZForeignKey	{LoadedBy}				: REFERENCE	\\ % Prix unitaire
+				\ZForeignKey	{TransportedBy}			: REFERENCE	\\ % Prix unitaire
+				\ZNoneKey	{LoadingDate}				: INTEGER	\\ % Prix unitaire
+%				\ZNoneKey	{TransportingLocation}				: INTEGER	\\ % Prix unitaire
+				\ZNoneKey	{TransportingDate}				: INTEGER	\\ % Prix unitaire
+				\ZNoneKey	{LoadingLocation}				: INTEGER	\\ % Prix unitaire
+				\ZNoneKey	{LoadedCondition}				: VARCHAR	\\ % Prix unitaire
+				\ZNoneKey	{TransportesCondition}				: VARCHAR	\\ % Prix unitaire
+				% Informations de reception
+				\ZForeignKey	{Receiver}				: REFERENCE	\\ % Prix unitaire
+				\ZNoneKey	{ReceptionDate}				: INTEGER	\\ % Prix unitaire
+				\ZNoneKey	{ReceptionLocation}				: INTEGER	\\ % Prix unitaire
+				\ZNoneKey	{ReceptionCondition}				: VARCHAR	\\ % Prix unitaire
+			}{}
+			\umlclass[x=70mm,y=0,width=60mm]{Cargo}{
+				\ZPrimaryKey{Number(Id)}			: INTEGER	\\ % Identifiant
+				\ZForeignKey{ItemCode}				: REFERENCE	\\ % Code de l'article
+				\ZNoneKey	{Quantity}				: INTEGER	\\ % Quantité
+%				\ZNoneKey	{UnitTypeWeight}				: INTEGER	\\ % Quantité
+				\ZForeignKey{Requisition}		: REFERENCE	\\ % Code de l'article
+				\ZNoneKey	{Remarks}			: VARCHAR	% Prix total
+%				\ZNoneKey	{Weight}					: INTEGER	\\ % Poids total
+%				\ZNoneKey	{Volume}				: INTEGER	\\ % Volume total
+			}{}
+			\umlclass[x=70mm,y=50mm,width=60mm]{Transporter}{
+				\ZPrimaryKey{ItemCode(Id)}			: INTEGER	\\ % Code de l'article
+				\ZNoneKey	{Lastname}				: VARCHAR	\\ % Numéro du compte
+				\ZNoneKey	{Firstname}	: INTEGER	\\ % Unité
+				\ZNoneKey	{Birthday}		: VARCHAR	% Description de l'article
+				\ZNoneKey	{NumberID}					: INTEGER	\\ % Unité
+				\ZForeignKey	{DrivingLicence}		: REFERENCE	\\ % Unité
+			}{}
+			\umlclass[x=70mm,y=50mm,width=60mm]{Vehicle}{
+				\ZPrimaryKey{ItemCode(Id)}			: INTEGER	\\ % Code de l'article
+				\ZNoneKey	{Account}				: VARCHAR	\\ % Numéro du compte
+				\ZNoneKey	{CommodityTrackingOrDonor}	: INTEGER	\\ % Unité
+				\ZNoneKey	{ItemDescription}		: VARCHAR	% Description de l'article
+				\ZNoneKey	{Weight}					: INTEGER	\\ % Unité
+				\ZNoneKey	{Volume}				: INTEGER	\\ % Prix unitaire
+				
+			}{}
+			\umlclass[x=70mm,y=50mm,width=60mm]{Provider}{
+				\ZPrimaryKey{ItemCode(Id)}			: INTEGER	\\ % Code de l'article
+				\ZNoneKey	{Account}				: VARCHAR	\\ % Numéro du compte
+				\ZNoneKey	{CommodityTrackingOrDonor}	: INTEGER	\\ % Unité
+				\ZNoneKey	{ItemDescription}		: VARCHAR	% Description de l'article
+				\ZNoneKey	{Weight}					: INTEGER	\\ % Unité
+				\ZNoneKey	{Volume}				: INTEGER	\\ % Prix unitaire
+				
+			}{}
+			\umlclass[x=70mm,y=50mm,width=60mm]{DrivingLicence}{
+				\ZPrimaryKey{ItemCode(Id)}			: INTEGER	\\ % Code de l'article
+				\ZNoneKey	{Category}				: VARCHAR	\\ % Numéro du compte
+				\ZNoneKey	{ValidityArea}	: VARCHAR	\\ % National ou international
 			}{}
 		\end{umlpackage}
 	\end{tikzpicture}
