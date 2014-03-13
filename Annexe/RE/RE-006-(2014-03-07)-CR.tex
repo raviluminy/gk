@@ -12,9 +12,9 @@
 %-------------------------------------------------------------------------------
 
 \ZTitle{Système de gestion des transports}
-\ZSubject{Compte-rendu du 2014-02-26}
-\ZVersion{2.0}
-\ZDate{2014-03-05}
+\ZSubject{CR - Réunion externe - 2014-03-07}
+\ZVersion{1.1}
+\ZDate{2014-03-09}
 \ZAuthor{\Balde,\\\Cadon,\\\Gairoard,\\\Julien,\\\Lericolais,\\\Mezelle,\\\Pachy,\\\SuangaWeto,\\\Toure}
 
 %-------------------------------------------------------------------------------
@@ -29,7 +29,7 @@
 	% Historique des modifications
 	% Version & Date & Auteur(s) & Modification(s)
 	1.0 & 2014-03-07 & \Gairoard & Rédaction \\
-	1.1 & 2014-03-08 & \Pachy & Mise en forme \\
+	1.1 & 2014-03-08 & \Pachy & Complétion \& mise en forme \\
 }{
 	% Historique des approbations
 	% Version & Date & Approbateur(s)
@@ -40,12 +40,12 @@
 	1.1 & - & \Agopian \\
 }
 
-\chapter{Objectifs \& points abordés}
+\chapter*{Compte-rendu}
+\setcounter{chapter}{1}
 
-\section{Objectifs}
-Ce document rend compte de la réunion du vendredi matin 2014-02-26, qui s'est déroulée au département informatique du campus universitaire de Saint-Charles à Marseille de 09h05 à 10h45, entre la maîtrise d'ouvrage \mo et son assistance à maîtrise d'ouvrage \amo.
+\section{Préambule}
+Ce document rend compte de la réunion du vendredi matin 2014-03-07, qui s'est déroulée au département informatique du campus universitaire de Saint-Charles à Marseille de 09h05 à 10h45, entre la maîtrise d'ouvrage \mo et son assistance à maîtrise d'ouvrage \amo.
 
-\section{Acteurs}
 Étaient présents lors de la réunion~:
 \begin{itemize}
 	\item \mo~:
@@ -56,9 +56,9 @@ Ce document rend compte de la réunion du vendredi matin 2014-02-26, qui s'est d
 	\begin{itemize}
 		\item \Cadon
 		\item \Gairoard
-		\item \Pachy
 		\item \Julien
 		\item \Mezelle
+		\item \Pachy
 		\item \SuangaWeto
 		\item \Toure
 	\end{itemize}
@@ -71,53 +71,81 @@ Excusés~:
 
 \section{Documents attendus}
 
-M. \Agopian rappelle qu'il n'a toujours pas reçu le CdCF dans les délais contrairement à ce qui était annoncé par \amo, à savoir dimanche 9 mars dans la soirée.
+M. \Agopian rappelle qu'il n'a pas reçu le cahier des charges fonctionnel dans les délais contrairement à ce qui était annoncé par \amo, à savoir le dimanche 9 mars dans la soirée.
 
 % ==============================================================================
 \section{Résumé de la semaine de travail}
 
-Il est proposé par \amo que le récapitulatif de chaque partie développée dans le D.A.T soit présentée par les binômes concernés.
+\amo fait un récapitulatif de la semaine de travail en laissant le soin à chaque binôme de présenter son travail.
 
-% ------------------------------------------------------------------------------
-\subsection{}
-
-% Fin de la sous-section []
-% ------------------------------------------------------------------------------
+Après présentation, M. \Agopian fait les remarques suivantes :
+\begin{itemize}
+    \item Le planning n'a pas sa place dans le D.A.T (ce n'est pas le rôle de ce document). Il est toutefois possible de faire référence à des documents annexes si l'utilité s'en fait sentir
+    \item Un glossaire faciliterait la lecture et la compréhension des termes techniques et métiers employés
+    \item Les versions des documents devraient être sous forme $x$.$y$ (avec $y\ne0$) jusqu'à ce que ce soit des versions finale; auquel cas $y=0$
+    \item Les éléments fonctionnels devraient être découpés en jalons, et inclus dans un diagramme de Gantt
+    \item Les versions des logiciels ne sont pas précisées (notament celle du SGBDR utilisé)
+    \item Il convient d'utiliser le présent dans le DAT même si les éléments ne sont pas encore traités
+    \item Il faut valoriser le coût des solutions logicielles que l'on utilise(ra); en particulier si celles-ci sont gratuites : ceci constitue un critère de choix
+    \item Il n'est pas nécessaire d'expliciter si l'on utilise des solutions techniques existantes; si l'explication s'avère nécessaire alors il faut réorganiser le document de façon à ce que le lecteur sache que les informations fournies sont complémentaires
+    \item Des coquilles n'ont pas été relevées\\
+\end{itemize}
+La question de la présence de l'architecture fonctionnelle dans un dossier d'architecture technique est évoquée. \amo justifie en précisant que le techinque découlant logiquement du fonctionnel, il est préférable de l'inclure afin de faciliter la compréhension pour une éventuelle reprise du projet par une autre équipe.
 
 % Fin de la section [Résumé de la semaine de travail]
 % ==============================================================================
 
-%- Rappel de l'ordre du jour par Rémi
-%  * M. Agopian précise qu'il n'a toujours pas reçu les nouvelles versions du CdC des deux groupes alors qu'ils étaient prévu pour dimanche soir 02/03/2014.
+% ==============================================================================
+\section{Remarques diverses}
 
-%- Résumé de la semaine de travail (répartition par binôme des sections du DAT)
-%  * Réunions :
-%    1) PAQ + Màj du CdC
-%    2) Discussion autour du schéma d'architecture et création du DAT
+% ------------------------------------------------------------------------------
+\subsection{Authentification}
 
-%- Explication de chaque partie composant le DAT par le groupe de binonme associé
+\mo demande pourquoi la question de l'authentification n'est pas traitée. \amo répond que celle-ci n'étant pas prioritaire à ce stade de développement (architecture du programme), elle n'a pas encore été traitée.
 
-%- Corrections apportées au DAT :
-%  * Suppression de la partie "Plannification" au profit d'une référence au CdC
-%  * Partie 2.1 : Schéma + Texte explicite
-%    --> glossaire (waybill*)
-%  * Partie authentification à paraître dans le DAT
-%  * Partie données :
-%    version du SGBDR PostgreSQL ?
-%    "[...]se fait grâce[..]" au présent !
-%  * Partie sauvegarde : "[...]tous les six heures[...]" (inutile, réservé pour l'exploitation)
-%  * Partie synchronisation :
-%    refaire la conception
-%    schéma + texte explicite
+% Fin de la sous-section [Authentification]
+% ------------------------------------------------------------------------------
 
-%-------------------------------------------------------------------
+% ------------------------------------------------------------------------------
+\subsection{Sauvegarde}
 
-%- A faire :
-%  * Remettre les CdC et le PAQ à M. Agopian
-%  * Demander la date et l'heure de la soutenance du projet de fin d'étude à Jean-Luc Massat
-%  * Corriger les parties du DAT (suppression, coquilles, ajout...)
-%  * GANTT du projet
-%  * Faire l'architecture en groupe de binôme/trinôme
-%-------------------------------------------------------------------
+La fréquence des sauvegardes ne doit pas être abordé dans le DAT mais plutôt dans le dossier d'exploitation.
+
+% Fin de la sous-section [Sauvegarde]
+% ------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------
+\subsection{Synchronisation}
+
+Les schémas présentants l'utilisation des modes \og{}connecté\fg{} et \og{}hors-ligne\fg{} sont présents sans explication et ne permettent donc pas une compréhension facile.\\
+Concernant les conflits lors de la synchronisation, il faut également préciser que l'utilisateur sera averti si une telle situation se produit.\\
+M. \Agopian note également que le problème de l'horodatage n'a pas été traité. Il faudra modifier le DAT pour expliquer comment il sera géré.
+
+% Fin de la sous-section [Synchronisation]
+% ------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------
+\subsection{Plan Assurance Qualité}
+
+Concernant le PAQ, il faut y inclure un découpage des membres de \amo en commités (pilotage, technique, ...) pour justifier de la répartition du travail.
+
+% Fin de la sous-section [Plan Assurance Qualité]
+% ------------------------------------------------------------------------------
+
+% Fin de la section [Remarques diverses]
+% ==============================================================================
+
+% ==============================================================================
+\section{Pour la prochaine fois}
+
+\begin{itemize}
+    \item Envoyer le PAQ et le CdCF à M. \Agopian
+    \item Mettre à jour le PAQ, et le DAT en conséquence des remarques
+    \item Expliciter l'authentification
+    \item Prévoir la date de soutenance du projet
+\end{itemize}
+
+% Fin de la section [Pour la prochaine fois]
+% ==============================================================================
 
 \end{document}
