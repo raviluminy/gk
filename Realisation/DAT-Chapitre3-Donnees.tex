@@ -39,277 +39,32 @@ Le choix de l'utilisation des fichiers XML est dû aux raisons suivantes~:
 \end{itemize}
 
 \subsubsection{Structuration des données}
-\begin{figure}[htbp]
-	\centering
-	\begin{MjMcd}
-		\MjMcdEntity{Requisition}{
-			RequisitionCountryCode	: VARCHAR(3)	\\	%
-			RequisitionId			: VARCHAR(25)	\\	%
-			ForCostEstimate			: NUMERIC()		\\	%
-			ForPurchase				: NUMERIC()		\\	%
-			WhDispatchRelease		: NUMERIC()		\\	%
-			RequisitionDate			: DATE			\\	%
-			DesiredDeliveryDate		: DATE			\\	%
-			Project					: VARCHAR()		\\	%
-			Activity				: VARCHAR()		\\	%
-			MCode					: VARCHAR()		\\	%
-			TransportMeans			: TRANSPORTMEAN		%
-		}
-	\end{MjMcd}
-	\caption{Structuration des données dans le SGBDR~: le MCD}
-	\label{DonneesStructurationSgbdrMcd}
-\end{figure}
-
-\begin{figure}[htbp]
-	\centering
-	\begin{tikzpicture}
-		\begin{umlpackage}[x=0,y=0]{Requisition}
-			\umlclass[x=0mm,y=0mm,width=60mm]{Requisition}{
-				% Identifiants
-				\ZPrimaryKey{CountryCode}			: STRING	\\ % Code du pays (du lieu d'intervention)
-				\ZPrimaryKey{Number(Id)}			: STRING	\\ % Numéro unique de réquisition
-				% Estimations~?
-				\ZNoneKey	{ForCostEstimate}		: NUMBER	\\ % Demande de devis
-				\ZNoneKey	{ForPurchase}			: NUMBER	\\ % Demande d'achat
-				\ZNoneKey	{WhDispatchRelease}		: NUMBER	\\ % Mouvement de stock
-				% Informations générales
-				\ZNoneKey	{To}					: STRING	\\ % Destination
-				\ZNoneKey	{From}					: STRING	\\ % Origine
-				\ZNoneKey	{Date}					: DATE		\\ % Date de demande
-				\ZNoneKey	{DesiredDeliveryDate}	: DATE		\\ % Date de livraison souhaitée
-				% Codes budgétaires et devises
-				\ZNoneKey	{Project}				: NUMBER	\\ % ?
-				\ZNoneKey	{Activity}				: NUMBER	\\ % ?
-				\ZNoneKey	{MCode}					: NUMBER	\\ % ?
-				\ZNoneKey	{Currency}				: NUMBER	\\ % ?
-				% Moyen(s) de transport
-				\ZForeignKey{TransportMeans}		: ?			\\ % Type de transport (aérien, maritime, terrestre, ...)
-				% Cargaison/marchandises transportées
-				\ZForeignKey{Cargo}					: ?			\\ % Cargaison (possiblement complexe)
-				\ZNoneKey	{CargoTotalValue}		: NUMBER	\\ % Valeur totale de la cargaison
-				% Accords
-				\ZForeignKey{Requester}				: ?			\\ % Demandeur
-				\ZNoneKey	{RequesterDate}			: DATE		\\ % Date d'accord du demandeur
-				\ZForeignKey{ProjectManager}		: ?			\\ % Chef de projet (en charge du budget)
-				\ZNoneKey	{ProjectManagerDate}	: DATE		\\ % Date d'accord du chef de projet
-				\ZForeignKey{FinanceOfficer}		: ?			\\ % Agent financier (seulement pour les demandes d'achat)
-				\ZNoneKey	{FinanceOfficerDate}	: DATE		\\ % Date d'accord de l'agent financier (seulement pour les demandes d'achat)
-				\ZForeignKey{Logistics}				: ?			\\ % Responsable de la logistique (seulement pour les mouvements d'entrepôt)
-				\ZNoneKey	{LogisticsDate}			: DATE		\\ % Date d'accord du responsable de la logistique (seulement pour les mouvements d'entrepôt)
-				\ZForeignKey{GlobalFleetBase}		: ?			\\ % Base générale de la flotte de véhicules (seulement pour les demandes de véhicules)
-				\ZNoneKey	{GlobalFleetBaseDate}	: DATE		\\ % Date d'accord de la base générale de la flotte de véhicules (seulement pour les demandes de véhicules)
-				% Détails de l'envoi
-				\ZForeignKey{Consignee}						: ?			\\	% Consignataire
-				\ZForeignKey{Delivery}						: ?			\\	% Livraison
-				\ZForeignKey{ClearingAgent}					: ?			\\	% Agent de dédouanement
-				\ZForeignKey{ShippingMarks}					: ?			\\	% Marquage de l'envoi
-				\ZNoneKey	{SpecialRequirementsOrRemarks}	: STRING		% Demande spéciales ou remarques
-			}{}
-			\umlclass[x=70mm,y=0mm,width=60mm]{Cargo}{
-				\ZPrimaryKey{Number(Id)}				: NUMBER	\\	% Identifiant
-				\ZForeignKey{ItemCode}					: ?			\\	% Code de l'article
-				\ZNoneKey	{Quantity}					: NUMBER	\\	% Quantité
-				\ZNoneKey	{UoM}						: NUMBER	\\	% Unité
-				% Limite budgétaire
-				\ZNoneKey	{UnitPrice}					: NUMBER	\\	% Prix unitaire
-				\ZNoneKey	{TotalPrice}				: NUMBER		% Prix total
-			}{}
-			\umlclass[x=70mm,y=50mm,width=60mm]{Item}{
-				\ZPrimaryKey{ItemCode(Id)}				: NUMBER	\\	% Code de l'article
-				\ZNoneKey	{Description}				: STRING	\\	% Description de l'article
-				\ZNoneKey	{Account}					: STRING	\\	% Numéro du compte
-				\ZNoneKey	{CommodityTrackingOrDonor}	: STRING	\\	% Unité
-				\ZNoneKey	{Weight}					: NUMBER	\\	% Poids (en kg)
-				\ZNoneKey	{Volume}					: NUMBER		% Volume (en m3)
-			}{}
-		\end{umlpackage}
-		\begin{umlpackage}[x=100,y=0]{TransportMean}
-			\umlclass[x=0,y=0,width=60mm]{TransportMean}{
-				\ZPrimaryKey{TransportMeanId(Id)}		: STRING		% Type de transport (aérien, ferroviaire, routié, maritime, ...) respectivement noté [AIR, RAIL, ROAD, SEA, ...]
-			}{}
-		\end{umlpackage}
-	\end{tikzpicture}
-	\caption{Structuration des données dans le SGBDR~: le package réquisition}
-	\label{DonneesStructurationSgbdrRequisition}
-\end{figure}
-
-\begin{figure}[htbp]
-	\centering
-	\begin{tikzpicture}
-		\begin{umlpackage}[x=0,y=0]{WaybillDeliveryNote}
-			%\umlclass[x=70mm,y=-50mm,width=60mm]{Person}{
-			%}{}
-			\umlclass[x=0mm,y=0mm,width=60mm]{WaybillDeliveryNote}{
-				\ZPrimaryKey{CountryCode}				: NUMBER	\\ % Code de l'article
-				\ZPrimaryKey{Number(Id)}				: STRING	\\ % Numéro du compte
-				\ZNoneKey	{Date}						: STRING	\\ % Numéro du compte
-				\ZNoneKey	{Warehouse}					: STRING	\\ % Numéro du compte
-				\ZNoneKey	{Destination}				: STRING	\\ % Numéro du compte
-				\ZNoneKey	{Beneficiary}				: STRING	\\ % Numéro du compte
-				% Transport Data
-				\ZNoneKey	{ContractNumber}			: STRING	\\ % Numéro du compte
-				\ZNoneKey	{Vehicle}					: STRING	\\ % Numéro du véhicule (avec type de transport)
-				\ZNoneKey	{RegistrationNumber}		: STRING	\\ % Numéro du compte
-				\ZNoneKey	{ETD}						: STRING	\\ % Numéro du compte
-				\ZNoneKey	{Vehicle}					: STRING	\\ % Numéro du compte
-				\ZNoneKey	{Vehicle}					: STRING	\\ % Numéro du compte
-				\ZNoneKey	{Vehicle}					: STRING	\\ % Numéro du compte
-				\ZForeignKey{Cargo}						: ?			\\ % Code de l'article
-				\ZNoneKey	{Comments}					: STRING	\\ % Numéro du compte
-				\ZNoneKey	{CommentsFromReceiver}		: STRING	\\ % Numéro du compte
-%				\ZNoneKey	{UnitTotal}					: STRING	\\ % Numéro du compte
-%				\ZNoneKey	{WeightTotal}				: STRING	\\ % Numéro du compte
-				% Informations de chargement
-				\ZForeignKey{Loader}					: ?			\\	% Responsable du chargement
-				\ZNoneKey	{LoadingDate}				: DATE		\\	% Date de chargement
-				\ZNoneKey	{LoadingLocation}			: STRING	\\	% Lieu (site) du chargement
-				\ZNoneKey	{LoadingCondition}			: STRING	\\	% Condition du chargement
-				\ZForeignKey{Transporter}				: ?			\\	% Responsable du transport
-				\ZNoneKey	{TransportingDate}			: DATE		\\	% Date du transport
-%				\ZNoneKey	{TransportingLocation}		: STRING	\\	% Lieu (site) du transport
-				\ZNoneKey	{TransportingCondition}		: STRING	\\	% Condition du transport
-				% Informations de reception
-				\ZForeignKey{Receiver}					: ?			\\	% Responsable de la réception
-				\ZNoneKey	{ReceptionDate}				: NUMBER	\\	% Date de réception
-				\ZNoneKey	{ReceptionLocation}			: NUMBER	\\	% Lieu (site) de réception
-				\ZNoneKey	{ReceptionCondition}		: STRING		% Condition de réception
-			}{}
-			\umlclass[x=70mm,y=0,width=60mm]{Cargo}{
-				\ZPrimaryKey{Number(Id)}				: NUMBER	\\	% Identifiant
-				\ZForeignKey{ItemCode}					: REFERENCE	\\	% Code de l'article
-				\ZNoneKey	{Quantity}					: NUMBER	\\	% Quantité
-%				\ZNoneKey	{UnitTypeWeight}			: NUMBER	\\	% Quantité
-				\ZForeignKey{Requisition}				: REFERENCE	\\	% Code de l'article
-%				\ZNoneKey	{Weight}					: NUMBER	\\	% Poids total
-%				\ZNoneKey	{Volume}					: NUMBER	\\	% Volume total
-				\ZNoneKey	{Remarks}					: STRING		% Prix total
-			}{}
-		\end{umlpackage}
-	\end{tikzpicture}
-	\caption{Structuration des données dans le SGBDR~: le package waybill/delivery~note}
-	\label{DonneesStructurationSgbdrWaybill}
-\end{figure}
-
-\begin{figure}[htbp]
-	\centering
-	\begin{tikzpicture}
-		\begin{umlpackage}[x=0,y=0]{Driver}
-			\umlclass[x=70mm,y=0mm,width=60mm]{Driver}{
-				\ZPrimaryKey{DriverId}					: NUMBER	\\	% Identifiant du conducteur
-				\ZNoneKey	{Lastname}					: STRING	\\	% Nom de famille du conducteur
-				\ZNoneKey	{Firstname}					: STRING	\\	% Prénom du conducteur
-				\ZNoneKey	{Birthday}					: DATE		\\	% Date de naissance du conducteur
-				\ZForeignKey{DrivingLicence}			: ?				% Permis possédés par le conducteur
-			}{}
-			\umlclass[x=70mm,y=0mm,width=60mm]{OwndDrivingLicence}{
-				\ZForeignKey{DriverId}					: ?			\\	% Identifiant du conducteur
-				\ZForeignKey{DrivingLicenceId}			: ?				% Identifiant du permis de conduire
-			}{}
-			\umlclass[x=70mm,y=50mm,width=60mm]{DrivingLicence}{
-				\ZPrimaryKey{DrivingLicenceId}			: STRING	\\	% Identifiant du permis de conduire
-				\ZNoneKey	{Category}					: STRING	\\	% Catégorie des véhicules concernés (A, B, C, D, ...)
-				\ZNoneKey	{ValidityArea}				: STRING		% Zone de validité du permis de conduire (pays si national, europe, international, ...)
-			}{}
-			\umlclass[x=70mm,y=0mm,width=60mm]{EmployerEmployee}{
-				\ZForeignKey{ProviderId}				: ?			\\	% Identifiant du prestataire
-				\ZForeignKey{DriverId}					: ?				% Identifiant du conducteur
-			}{}
-		\end{umlpackage}
-	\end{tikzpicture}
-	\caption{Structuration des données dans le SGBDR~: le package driver}
-	\label{DonneesStructurationSgbdrDriver}
-\end{figure}
-
-\begin{figure}[htbp]
-	\centering
-	\begin{tikzpicture}
-		\begin{umlpackage}[x=0,y=0]{Vehicle}
-			\umlclass[x=70mm,y=-50mm,width=60mm]{Vehicle}{
-				\ZPrimaryKey{VehicleId}					: NUMBER	\\	% Identifiant du vehicle
-				\ZForeignKey{VehicleTypeId}				: ?			\\	% Identifiant du type du vehicle
-				\ZNoneKey	{MaxWeight}					: NUMBER	\\	% Poids maximal embarquable
-				\ZNoneKey	{MaxVolume}					: NUMBER	\\	% Volume maximal embarquable
-				\ZNoneKey	{MaxDistance}				: NUMBER		% Distance maximale parcourable sans refaire le plein
-			}{}
-			\umlclass[x=70mm,y=0mm,width=60mm]{VehicleType}{
-				\ZPrimaryKey{VehicleTypeId}				: STRING		% Identifiant du type de vehicle (avion, bateau, train, camion, mule, ...)
-			}{}
-			\umlclass[x=70mm,y=0mm,width=60mm]{EmployerVehicle}{
-				\ZForeignKey{ProviderId}				: ?			\\	% Identifiant du prestataire
-				\ZForeignKey{VehicleId}					: ?				% Identifiant du véhicule
-			}{}
-		\end{umlpackage}
-	\end{tikzpicture}
-	\caption{Structuration des données dans le SGBDR~: le package vehicle}
-	\label{DonneesStructurationSgbdrVehicle}
-\end{figure}
-
-\begin{figure}[htbp]
-	\centering
-	\begin{tikzpicture}
-		\begin{umlpackage}[x=0,y=0]{Provider}
-			\umlclass[x=70mm,y=-50mm,width=60mm]{Provider}{
-				\ZPrimaryKey{ProviderId}				: NUMBER	\\	% Identifiant du prestataire
-				\ZNoneKey	{ProvideName}				: STRING	\\	% Nom du prestataire
-				\ZNoneKey	{ProvideLicence}			: NUMBER	\\	% Patente du prestataire
-			}{}
-			\umlclass[x=70mm,y=0mm,width=60mm]{ProviderContracts}{
-				\ZPrimaryKey{ProviderId}				: STRING		% Identifiant du prestataire
-				\ZForeignKey{ProviderContractTypeId}	: ?				% Identifiant du type de contract
-				\ZNoneKey	{ProviderContractNumeric}	: IMAGE			% Version numérique du contract
-			}{}
-			\umlclass[x=70mm,y=0mm,width=60mm]{ProviderContractType}{
-				\ZPrimaryKey{ProviderContractTypeId}	: STRING		% Identifiant du type de vehicle (avion, bateau, train, camion, mule, ...)
-			}{}
-		\end{umlpackage}
-	\end{tikzpicture}
-	\caption{Structuration des données dans le SGBDR~: le package provider}
-	\label{DonneesStructurationSgbdrProvider}
-\end{figure}
-
-\clearpage
-MCD~:
-\begin{figure}[htbp]
-	\centering
-	\begin{tikzpicture}
-		\begin{umlpackage}[x=10,y=0]{VehiclePackage}
-			\umlsimpleclass[x=0mm,y=-10mm,width=40mm]{Vehicle}{}{}
-			\umlsimpleclass[x=0mm,y=0mm,width=40mm]{VehicleType}{}{}
-		\end{umlpackage}
-		\begin{umlpackage}[x=10,y=-5]{ProviderPackage}
-			\umlsimpleclass[x=0mm,y=0mm,width=40mm]{Provider}{}{}
-			\umlsimpleclass[x=0mm,y=-10mm,width=40mm]{ProviderContracts}{}{}
-			\umlsimpleclass[x=0mm,y=-20mm,width=40mm]{ProviderContractType}{}{}
-		\end{umlpackage}
-		\umlsimpleclass[x=10,y=-3,width=40mm]{EmployerVehicle}{}{}
-		\umluniassoc{Vehicle}{EmployerVehicle}
-		\umluniassoc{Provider}{EmployerVehicle}
-		\begin{umlpackage}[x=10,y=-10]{Driver}
-			\umlsimpleclass[x=0mm,y=0mm,width=40mm]{Driver}{}{}
-			\umlsimpleclass[x=0mm,y=-10mm,width=40mm]{OwndDrivingLicence}{}{}
-			\umlsimpleclass[x=0mm,y=-20mm,width=40mm]{DrivingLicence}{}{}
-		\end{umlpackage}
-		\umlsimpleclass[x=10,y=-8,width=40mm]{EmployerEmployee}{}{}
-		\umluniassoc{Driver}{EmployerEmployee}
-		\umluniassoc{Provider}{EmployerEmployee}
-		\begin{umlpackage}[x=0,y=0]{WaybillDeliveryNote}
-			\umlsimpleclass[x=0mm,y=0mm,width=40mm]{WaybillDeliveryNote}{}{}
-			\umlsimpleclass[x=0mm,y=-10mm,width=40mm]{Cargo}{}{}
-		\end{umlpackage}
-		\begin{umlpackage}[x=0,y=-5]{Requisition}
-			\umlsimpleclass[x=0mm,y=0mm,width=40mm]{Requisition}{}{}
-			\umlsimpleclass[x=0mm,y=-10mm,width=40mm]{Cargo}{}{}
-			\umlsimpleclass[x=0mm,y=-20mm,width=40mm]{Item}{}{}
-		\end{umlpackage}
-%		\begin{umlpackage}[x=100,y=0]{TransportMean}
-%			\umlclass[x=0,y=0,width=60mm]{TransportMean}{}{}
-%		\end{umlpackage}
-	\end{tikzpicture}
-	\caption{Structuration des données dans le SGBDR~: MCD}
-	\label{DonneesStructurationSgbdrMcd}
-\end{figure}
-
-%\umluniassoc[geometry=-|,arg1=x,mult1=1,pos1=1.9,arg2=y,mult2=*,pos2=0.2]{A1}{A2} 
+%% Mj %% Librairie MjMcd en cours de développement...
+%\begin{figure}[htbp]
+%	\centering
+%	\begin{MjMcd}
+%		\MjMcdEntity{Requisition}{
+%			RequisitionCountryCode	: VARCHAR(3)	\\	%
+%			RequisitionId			: VARCHAR(25)	\\	%
+%			ForCostEstimate			: NUMERIC()		\\	%
+%			ForPurchase				: NUMERIC()		\\	%
+%			WhDispatchRelease		: NUMERIC()		\\	%
+%			RequisitionDate			: DATE			\\	%
+%			DesiredDeliveryDate		: DATE			\\	%
+%			Project					: VARCHAR()		\\	%
+%			Activity				: VARCHAR()		\\	%
+%			MCode					: VARCHAR()		\\	%
+%			TransportMeans			: TRANSPORTMEAN		%
+%		}
+%	\end{MjMcd}
+%	\caption{Structuration des données dans le SGBDR~: le MCD}
+%	\label{DonneesStructurationSgbdrMcd}
+%\end{figure}
+%\begin{figure}[htbp]
+%	\centering
+%	\caption{MCD (Modèle Conceptuel des Données)}
+%	\label{DonneesStructurationSgbdrMcd}
+%\end{figure}
 
 \subsection{Le transfert}
 Le transfert des données quant à lui, est réalisé selon un format et une norme qui est préalablement défini.
