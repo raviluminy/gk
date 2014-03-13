@@ -1,0 +1,121 @@
+\section{Diagramme de classes}
+
+Veuillez trouver ci-dessous les différentes explications des classes présentes dans le diagramme de classes.
+\subsection{Classe Person}
+La classe \textit{Personne} est la classe représentative des personnes intervenant dans le processus de la gestion des transports.
+\begin{itemize}
+	\item \textit{Last Name} : Nom de famille de la personne.		
+	\item \textit{First Name} : Prénom de la personne.
+	\item \textit{Nationality} : Nationalité de la personne.
+	\item \textit{Birth Date} : Date de naissance de la personne.
+\end{itemize}
+
+\subsection{Classe Logistics}
+La classe \textit{Logisticien} hérite de la classe \textit{Personne} et représente un logisticien dans le processus de la gestion des transports.
+\begin{itemize}
+	\item \textit{Id} : Numéro d'identification du logisticien.
+\end{itemize}
+
+\subsection{Classe Project Manager}
+La classe \textit{Chef de projet} hérite de la classe \textit{Personne} et représente un chef de projet dans le processus de la gestion des transports.
+\begin{itemize}
+	\item \textit{Id} : Numéro d'identification du chef de projet.
+\end{itemize}
+
+\subsection{Classe Requester}
+La classe \textit{Réquisitioneur} hérite de la classe \textit{Personne} et représente la personne qui fait une réquisition dans le processus de la gestion des transports.
+\begin{itemize}
+	\item \textit{Id} : Numéro d'identification du réquisitioneur.
+\end{itemize}
+
+\subsection{Classe Driver}
+La classe \textit{Chauffeur} hérite de la classe \textit{Personne} et représente un chauffeur dans le processus de la gestion des transports.
+\begin{itemize}
+	\item \textit{Id} : Numéro d'identification du chauffeur.
+	\item \textit{Licence Id} : Numéro de permis.
+	\item \textit{Class} :	Tyoe du permis.
+	\item \textit{Expires} : Date d'expiration du permis.
+\end{itemize}
+
+\subsection{Classe Contact}
+La classe \textit{Contact} hérite de la classe \textit{Personne} et représente un contact dans le processus de la gestion des transports.
+\begin{itemize}
+	\item \textit{Id} : Numéro d'identification du contact.
+	\item \textit{Phone} :	Numéro de téléphone du contact.
+	\item \textit{Adress} : Adresse du contact.
+	\item \textit{Mail} : Adresse e-mail du contact.
+\end{itemize}
+
+\subsection{Classe Prestataire}
+La classe \textit{Prestataire} représente un prestataire affilié à l'oraganisation.
+\begin{itemize}
+	\item \textit{Id} : Numéro d'identification du prestataire.
+	\item \textit{Company Name} : Nom de la société.
+	\item \textit{Siret/Siren} : Numéro de Siret/Siren.
+\end{itemize}
+
+\subsection{Classe Vehicle}
+La classe \textit{Véhicule} représente un véhicule utilisable par l'oraganisation.
+\begin{itemize}
+	\item \textit{Id} : Numéro d'identification du véhicule.
+\end{itemize}
+
+\subsection{Classe Truck}
+La classe \textit{Camion} hérite de la classe \textit{Véhicule} et représente un camion utilisable par l'organisation.
+\begin{itemize}
+	\item \textit{Model} : Modèle du camion.
+	\item \textit{Brand} : Marque du camion.
+	\item \textit{Number Plate} : Numéro de la plaque d'immatriculation.
+\end{itemize}
+
+\subsection{Classe Cargo}
+La classe \textit{Cargaison} représente un chargement d'un véhicule.
+\begin{itemize}
+	\item \textit{Id} : Numéro d'identification de la cargaison.
+	\item \textit{ItemCode} : Numéro d'identification des articles chargés.
+	\item \textit{Quantity} : Quantité des articles chargés.
+	\item \textit{UoM} : Unité de mesure.
+	\item \textit{UnitPrice} : Prix unitaire.
+	\item \textit{TotalPrice} : Prix total.
+\end{itemize}
+
+\subsection{Classe Item}
+La classe \textit{Article} représente un article.
+\begin{itemize}
+	\item \textit{ItemCode} : Numéro d'identification de l'article.
+	\item \textit{Account} : Valeur de l'article.	
+	\item \textit{ItemDescription} : Description de l'article.
+\end{itemize}
+
+\subsection{Classe Requisition}
+La classe \textit{Réquisition} représente une réquisition.
+\begin{itemize}
+	\item \textit{Id} : Numéro d'identification de la réquisition.
+	\item \textit{CountryCode} : Code du pays.
+	\item \textit{ForCostEstimate} : Estimation du prix.
+	\item \textit{ForPurchase} :
+	\item \textit{WhDispatchRelease} :
+	\item \textit{To} : Emeteur.
+	\item \textit{From} : Destinataire.
+	\item \textit{Date} : Date de la réquisition.
+	\item \textit{DesiredDeliveryDate} : Date souhaitée de la livraison.
+	\item \textit{Project} : Projet.
+	\item \textit{Activity} : Activité.
+	\item \textit{MCode} :
+	\item \textit{Currency} : Devise.
+	\item \textit{TransportMeans} : Moyen de transport.
+	\item \textit{CargoId} : Numéro d'identification de la cargaison.
+	\item \textit{CargoTotalValue} : Valeur totale de la cargaison.
+\end{itemize}
+
+\subsection{Classe Waybill}
+La classe \textit{Bon de commande} représente une réquisition si celle-ci a été validée.
+\begin{itemize}
+	\item \textit{Id} : Numéro d'identification du bon de commande.
+\end{itemize}
+
+\subsection{Classe Schedule item}
+La classe \textit{Planning} représente une ligne du planning représentant un bon de commande.
+\begin{itemize}
+	\item \textit{Id} : Numéro d'identification du planning.
+\end{itemize}
