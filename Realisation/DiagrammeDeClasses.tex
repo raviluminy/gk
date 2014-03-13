@@ -1,0 +1,46 @@
+%-------------------------------------------------------------------------------
+%
+%     CHARGEMENT DES EXTENSIONS
+%
+%-------------------------------------------------------------------------------
+
+\documentclass[11pt,fleqn]{report}
+\usepackage{GarmirKhatch}
+
+%-------------------------------------------------------------------------------
+%     Informations spécifiques au document
+%-------------------------------------------------------------------------------
+\ZTitle{Système de gestion des transports}
+\ZSubject{Diagramme de classes}
+\ZVersion{0.1}
+\ZDate{\today}
+\ZAuthor{\Balde,\\\Cadon,\\\Gairoard,\\\Julien,\\\Lericolais,\\\Mezelle,\\\Pachy,\\\SuangaWeto,\\\Toure}
+
+%-------------------------------------------------------------------------------
+%     Contenu
+%-------------------------------------------------------------------------------
+
+\begin{document}
+ 
+\ZMakeCover
+
+\ZMakeInformations{
+	% Historique des modifications
+	% Version & Date & Auteur(s) & Modification(s)
+	0.1 & 2014-03-13 & \Julien & Création \\
+	\midrule
+}{
+	% Historique des approbations
+	% Version & Date & Approbateur(s)
+	\ZVersion & - & - \\
+}{
+	% Historique des validations
+	% Version & Date & Responsable(s)
+	0.1 & - & - \\
+}
+
+\include{Diagramme1}
+\newpage
+\include{Diagramme-explications}
+
+\end{document}
