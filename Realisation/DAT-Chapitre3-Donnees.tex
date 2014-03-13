@@ -41,6 +41,27 @@ Le choix de l'utilisation des fichiers XML est dû aux raisons suivantes~:
 \subsubsection{Structuration des données}
 \begin{figure}[htbp]
 	\centering
+	\begin{MjMcd}
+		\MjMcdEntity{Requisition}{
+			RequisitionCountryCode	: VARCHAR(3)	\\	%
+			RequisitionId			: VARCHAR(25)	\\	%
+			ForCostEstimate			: NUMERIC()		\\	%
+			ForPurchase				: NUMERIC()		\\	%
+			WhDispatchRelease		: NUMERIC()		\\	%
+			RequisitionDate			: DATE			\\	%
+			DesiredDeliveryDate		: DATE			\\	%
+			Project					: VARCHAR()		\\	%
+			Activity				: VARCHAR()		\\	%
+			MCode					: VARCHAR()		\\	%
+			TransportMeans			: TRANSPORTMEAN		%
+		}
+	\end{MjMcd}
+	\caption{Structuration des données dans le SGBDR~: le MCD}
+	\label{DonneesStructurationSgbdrMcd}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
 	\begin{tikzpicture}
 		\begin{umlpackage}[x=0,y=0]{Requisition}
 			\umlclass[x=0mm,y=0mm,width=60mm]{Requisition}{
