@@ -1,0 +1,69 @@
+  %-------------------------------------------------------------------------------
+  %
+  %     CHARGEMENT DES EXTENSIONS
+  %
+  %-------------------------------------------------------------------------------
+
+  \documentclass[11pt,fleqn]{report}
+  \usepackage{GarmirKhatch}
+
+  %-------------------------------------------------------------------------------
+  %     Informations spécifiques au document
+  %-------------------------------------------------------------------------------
+  \ZTitle{Système de gestion des transports}
+  \ZSubject{Cahier de recette}
+  \ZVersion{0.1}
+  \ZDate{\today}
+  \ZAuthor{\Balde,\\\Cadon,\\\Gairoard,\\\Julien,\\\Lericolais,\\\Mezelle,\\\Pachy,\\\SuangaWeto,\\\Toure}
+
+  %-------------------------------------------------------------------------------
+  %     Contenu
+  %-------------------------------------------------------------------------------
+
+
+  \begin{document}
+  
+  \ZMakeCover
+
+  \ZMakeInformations{
+	  % Historique des modifications
+	  % Version & Date & Auteur(s) & Modification(s)
+	  0.1 & 2014-03-15 & \Julien & Création \\
+	  \midrule
+  }{
+	  % Historique des approbations
+	  % Version & Date & Approbateur(s)
+	  \ZVersion & - & - \\
+  }{
+	  % Historique des validations
+	  % Version & Date & Responsable(s)
+	  0.1 & - & - \\
+  }
+
+
+  \chapter{Introduction}
+
+  \section{Objectif}
+  Ce document propose une série de scénarios décrivant avec précision les démarches à suivre dans le cadre de l’utilisation du
+  logiciel de gestion des transports. Il sert de support à la validation du logiciel lors de la recette auprès du client.
+
+  \chapter{Tests fonctionnels}
+  \section{Gestion des personnes}
+  \subsection{Scénario 1}
+  \begin{center}
+  \newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+  \newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+  \newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+  \begin{tabular}{|L{3cm}|L{10cm}|}
+  \hline \textbf{Cas de test :} & Test-01  \\
+  \hline \textbf{Titre :} & Création d'une personne   \\
+  \hline \textbf{Objectif :} & Vérifier le cas de la création d'une personne à partir du logiciel   \\
+  \hline \textbf{Procédure :} & Création d'une personne à l'aide la méthode blabla   \\
+  \hline \textbf{Données de test :} & toto   \\
+  \hline \textbf{Résultat :} & copié collé   \\
+  \hline 
+  \end{tabular} 
+  \end{center}
+
+  \chapter{Validation de la recette}
+  \end{document}
