@@ -4,3 +4,98 @@
 %  Mise en production, déploiement, formation, support et exploitation proprement dite....
 % 
 % Bon courage ;-)
+
+\section{Installation des librairies et drivers}
+Afin d'assurer le bon fonctionnement de l'application, cette dernière requiert que soient présents les packages suivants (dans une version égale ou supérieure à celle précisée)~:
+\begin{tabularx}{\linewidth}{X X}
+	\toprule
+	Microsoft Windows	& GNU/Linux		\\
+	\midrule
+	Windows 7			&				\\
+	MinGW 4.8.1 (TMD)	&				\\
+	Qt 5.2.1			& Qt 5.2.1		\\
+	MySQL 5.6.16		& 				\\
+	\bottomrule
+\end{tabularx}
+
+Les éléments nécessaires à la première mise en service sont fournis dans le livrable initial.
+Dans le cas de figure où ces derniers soient perdus ou endommagés, le paragraph suivant précise les procédures nécessaire à leur re-production.
+
+\subsection{Création du pilote MySQL pour Qt5 sur Windows}
+Cette section précise comment créer le pilote MySQL pour Qt5 sur Windows en utilisant MinGW.
+La rédaction de cette dernière a été motivée par le fait que le pilote en question n'est malheureusement pas fournit par défaut dans le framework Qt.
+
+\paragraph{Obtention du matériel}
+Les outils suivants sont nécessaires (dans une version égale ou supérieure)~:
+\begin{enumerate}
+	\item Windows 7~;
+	\item MinGW 4.8.1 (TDM)~;
+	\item Qt 5.2.1 installer \& sources~;
+	\item MySQL 5.6.16.
+\end{enumerate}
+
+\paragraph{Installation du matériel}
+\subparagraph{Installation du framework Qt}
+L'installation des composants par défaut convient.
+L'installation des composants par défaut convient très bien, mais il est tout à fait possible de procéder à une installation complète.
+Sélectionner le répertoire racine d'installation du framework (ici C:).
+À terme, Qt est alors installé, ici dans le répertoire C:/Qt/Qt5.2.1.
+\\
+Ensuite, extraire les sources Qt dans un répertoire temporaire de son choix, puis copier le dossier \begin{quote}qt-everywhere-opensource-src-5.2.1\end{quote} ainsi obtenu dans le répertoire C:/Qt/Qt5.2.1/ et le renommer \begin{quote}sources\end{quote}.
+\\
+En fin de manipulation, le framework Qt est installé dans le répertoire C:/Qt/Qt5.2.1/ et les sources présentes dans C:/Qt/Qt5.2.1/sources/.
+
+\subparagraph{Installation de MySQL}
+Sélectionner l'installation personnalisée.
+A minima, est requis le {\quote Client C API Library}, le reste étant optionnel.
+Laisser faire l'installation dans le répertoire de son choix (par défaut C:/Program Files (x86)/MySQL/My SQL Server 5.6/).
+
+\paragraph{Construction \& déploiement}
+Ouvrir le terminal de commande de Qt.
+Ce dernier fonctionne comme n'importe quel terminal à ceci prêt qu'il définit par défaut toutes les variables d'environnement Qt nécessaires.
+Il s'ouvre sur le répertoire Qt.
+\\
+Exécuter les commandes suivantes~:
+\begin{lstlisting}[language=Bash]
+set mysql=C:\\PROGRA~2\\MySQL\\MYSQLS~1.6
+cd C:\Qt\Qt5.2.1\sources\qtbase\src\plugins\sqldrivers\mysql\ qmake "INCLUDEPATH+=%mysql%\\include" "LIBS+=%mysql%\\lib\\libmysql.lib" -o Makefile mysql.pro
+mingw32-make
+\end{lstlisting}
+Après construction réussie (et sans erreur), des fichiers seront produits dans C:/Qt/Qt5.2.1/sources/qtbase/plugins/sqldrivers, que sont~:
+\begin{enumerate}
+	\item libqsqlmysql.a~;
+	\item libqsqlmysqld.a~;
+	\item qsqlmysql.dll~;
+	\item qsqlmysqld.dll.
+\end{enumerate}
+
+For .dll files, move them to C:\Qt\QT5.1.1\5.1.1\mingw48_32\plugins\sqldrivers.
+
+For .a files, move them to C:\Qt\Qt5.1.1\5.1.1\mingw48_32\lib
+
+Also, copy libmysql.dll from %mysql%\lib to C:\Windows
+Testing
+
+To use the driver, don’t forget to add QT += sql to project file, else it don’t work.
+
+Check which drivers are available by this code:
+
+C++
+#include <QtCore/QCoreApplication> #include <QtSql> int main() { QCoreApplication a(argc, argv); aDebug() << QSqlDatabase::drivers(); return a.exec(); }
+1
+2
+3
+4
+5
+6
+7
+8
+	
+#include <QtCore/QCoreApplication>
+#include <QtSql>
+ 
+int main() {
+    QCoreApplication a(argc, argv);
+    aDebug() << QSqlDatabase::drivers();
+    return a.exec();
+}

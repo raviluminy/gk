@@ -1,5 +1,7 @@
 \section{Données}\label{DonneesTechnique}
 
+\newcommand{\Qt}{\href{http://qt-project.org/}{Qt}\xspace}
+
 % Indications :
 %  Stockage (coté client, coté serveur, SGBD, format, ...)
 %  Transfert (format, norme, ...)
@@ -70,6 +72,7 @@ Le choix de l'utilisation des fichiers XML est dû aux raisons suivantes~:
 Le bon fonctionnement de la base de données s'appuie sur les fichiers suivants~:
 \begin{enumerate}
 	\item \emph{Database.properties}~;
+	\item \emph{Database.mcd}~;
 	\item \emph{Database.sql}.
 \end{enumerate}
 
@@ -85,12 +88,20 @@ Il se présente sous la forme suivante~:
 	\item \emph{dbPassword} est le mot de passe d'utilisateur (ici aucun)~;
 	\item \emph{dbName} est le nom que l'on souhaite donner à la base de donnée considérée (ici GkLogistic). Ce dernier est optionnel, et ne présente de réel intérêt que dans le cas où plusieurs bases de données distinctes seraient utilisées.
 \end{enumerate}
-En Qt, l'utilisation de ces informations de connexion se fait, par exemple, de la façon suivante~:
+Via \Qt, l'utilisation de ces informations de connexion se fait, par exemple, de la façon suivante~:
 \lstinputlisting[language=Qt]{Database.example.cpp}
 \label{Database.example.cpp}
 
+\paragraph{Database.mcd}
+Ce fichier définit le MCD (Modèle Conceptuel des Données) éditable par l'intermédiaire de l'outil de développement \JMerise.
+Ce dernier permet, entre autres choses, de générer le fichier de script \emph{Database.sql}.
+
 \paragraph{Database.sql}
 Ce fichier définit l'architecture relationnelle (en SQL) de la base de données.
+Ce script est exécuté quand la base de données n'existe pas, et la crée.
+
+\paragraph{Database.xml}
+Ce fichier définit l'architecture relationnelle (en XML) de la base de données.
 Ce script est exécuté quand la base de données n'existe pas, et la crée.
 
 \subsection{Le transfert}

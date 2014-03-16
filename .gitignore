@@ -32,3 +32,10 @@ Thumbs.db
 
 # GIMP files
 *.xcf
+
+# Compilation configuration files
+Realisation/Programs/QTms/*.pro.user*
+
+# Binaries files
+Realisation/Programs/QTms-Debug/*
+Realisation/Programs/QTms-Release/*
