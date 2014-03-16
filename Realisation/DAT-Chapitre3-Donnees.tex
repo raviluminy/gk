@@ -66,6 +66,33 @@ Le choix de l'utilisation des fichiers XML est dû aux raisons suivantes~:
 %	\label{DonneesStructurationSgbdrMcd}
 %\end{figure}
 
+\subsubsection{Génération de la base de données}
+Le bon fonctionnement de la base de données s'appuie sur les fichiers suivants~:
+\begin{enumerate}
+	\item \emph{Database.properties}~;
+	\item \emph{Database.sql}.
+\end{enumerate}
+
+\paragraph{Database.properties}
+Ce fichier définit les propriétés indispensables à la connexion avec la base de données.
+Il se présente sous la forme suivante~:
+\lstinputlisting[language=Bash]{Database.properties}
+\label{Database.properties}
+\begin{enumerate}
+	\item \emph{dbDriver} est le driver Qt correspondant à la base de données considérée (dans le cas présent MySQL)~;
+	\item \emph{dbHostName} est l'adresse URL de la base de données (ici localhost)~;
+	\item \emph{dbUserName} est le nom d'utilisateur (ici root)~;
+	\item \emph{dbPassword} est le mot de passe d'utilisateur (ici aucun)~;
+	\item \emph{dbName} est le nom que l'on souhaite donner à la base de donnée considérée (ici GkLogistic). Ce dernier est optionnel, et ne présente de réel intérêt que dans le cas où plusieurs bases de données distinctes seraient utilisées.
+\end{enumerate}
+En Qt, l'utilisation de ces informations de connexion se fait, par exemple, de la façon suivante~:
+\lstinputlisting[language=Qt]{Database.example.cpp}
+\label{Database.example.cpp}
+
+\paragraph{Database.sql}
+Ce fichier définit l'architecture relationnelle (en SQL) de la base de données.
+Ce script est exécuté quand la base de données n'existe pas, et la crée.
+
 \subsection{Le transfert}
 Le transfert des données quant à lui, est réalisé selon un format et une norme qui est préalablement défini.
 
