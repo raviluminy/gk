@@ -1,25 +1,20 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2014-03-16T04:12:08
+# Project created by QtCreator 2014-03-16T17:45:46
 #
 #-------------------------------------------------
 
-QT      += core gui sql
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET   = QTms
+TARGET = QTms
 TEMPLATE = app
 
 
-SOURCES  += \
-    Main.cpp \
-    MainWindow.cpp
+SOURCES += Main.cpp\
+        MainWindow.cpp
 
-HEADERS  += \
-    MainWindow.h
+HEADERS  += MainWindow.h
 
-FORMS    += \
-    MainWindow.ui
-
-LIBS     += C:\Program Files\MySQL\MySQL Connector C++ 1.1.3\lib\opt\mysqlcppconn.lib
+FORMS    += MainWindow.ui

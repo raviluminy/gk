@@ -58,7 +58,8 @@ Il s'ouvre sur le répertoire Qt.
 Exécuter les commandes suivantes~:
 \begin{lstlisting}[language=Bash]
 set mysql=C:\\PROGRA~2\\MySQL\\MYSQLS~1.6
-cd C:\Qt\Qt5.2.1\sources\qtbase\src\plugins\sqldrivers\mysql\ qmake "INCLUDEPATH+=%mysql%\\include" "LIBS+=%mysql%\\lib\\libmysql.lib" -o Makefile mysql.pro
+cd C:\Qt\Qt5.2.1\sources\qtbase\src\plugins\sqldrivers\mysql\
+qmake "INCLUDEPATH+=%mysql%\\include" "LIBS+=%mysql%\\lib\\libmysql.lib" -o Makefile mysql.pro
 mingw32-make
 \end{lstlisting}
 Après construction réussie (et sans erreur), des fichiers seront produits dans C:/Qt/Qt5.2.1/sources/qtbase/plugins/sqldrivers, que sont~:

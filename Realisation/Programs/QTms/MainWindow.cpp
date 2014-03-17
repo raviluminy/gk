@@ -1,84 +1,155 @@
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
-#include <QtSql>
-#include <QSqlTableModel>
+
 #include <QtDebug>
+#include <QtSql>
+#include <QtWidgets>
 
 MainWindow::MainWindow(QWidget *parent) :
 	QMainWindow(parent),
 	ui(new Ui::MainWindow)
 {
-	/**
-	 * Test simple de Dao par model
-	 */
-	// On défini des constances pour simplifier l'utilisation des indices de colonne.
-	enum {
-		REQUISITION_ID = 0,
-		REQUISITION_COUNTRY_CODE,
-		REQUISITION_FOR_COST_ESTIMATE,
-		REQUISITION_FOR_PURCHASE,
-		REQUISITION_WH_DISPATCH_RELEASE,
-		REQUISITION_DATE,
-		REQUISITION_DESIRED_DELIVERY_DATE,
-		REQUISITION_TRANSPORT_MEANS,
-		REQUISITION_ORIGIN_LOCALISATION_ID,
-		REQUISITION_DESTINATION_LOCALISATION_ID,
-		REQUISITION_CURRENCY_ID,
-		REQUISITION_FINANCE_OFFICER_AGREEMENT_DATE,
-		REQUISITION_FINANCE_OFFICER_PERSON_ID,
-		REQUISITION_MANAGER_AGREEMENT_DATE,
-		REQUISITION_MANAGER_PERSON_ID,
-		REQUISITION_REQUESTER_AGREEMENT_DATE,
-		REQUISITION_REQUESTER_PERSON_ID,
-		REQUISITION_LOGISTICS_AGREEMENT_DATE,
-		REQUISITION_LOGISTICS_PERSON_ID,
-		REQUISITION_GLOBAL_FLEET_BASE_AGREEMENT_DATE,
-		REQUISITION_GLOBAL_FLEET_BASE_PERSON_ID
-	};
-
 	ui->setupUi(this);
+	QHBoxLayout *horizontalLayout;
+	QTableView *requisitionTableView;
+	QTableView *waybillTableView;
+	requisitionTableView = new QTableView(ui->centralWidget);
+	waybillTableView = new QTableView(ui->centralWidget);
+	horizontalLayout = new QHBoxLayout(ui->centralWidget);
+	horizontalLayout->addWidget(requisitionTableView);
+	horizontalLayout->addWidget(waybillTableView);
 
-	QString dbDriver = "QMYSQL";
-	QString dbHostName = "localhost";
-	QString dbName = "gklogistic";
-	QString dbUserName = "root";
-	QString dbPassword = "";
+	QToolBar* requisitionToolBar = new QToolBar(ui->centralWidget);
+	horizontalLayout->addWidget(requisitionToolBar);
+
+	QAction* reqAdd = new QAction("Add", this);
+	QAction* reqEdi = new QAction("Edit", this);
+	QAction* reqRem = new QAction("Remove", this);
+	requisitionToolBar->addActions(QList<QAction*>() << reqAdd << reqEdi << reqRem);
+
+	connect(reqAdd, SIGNAL(triggered()), this, SLOT(addRequisition()));
+
+	loadDbSettings();
 
 	QSqlDatabase* db = new QSqlDatabase();
 
 	bool hasDriver = db && db->drivers().indexOf(dbDriver) > -1;
 	if (!hasDriver) {
-		qDebug() << dbDriver << " driver unavailable.";
+		qDebug() << dbDriver << "driver unavailable.";
 		return;
 	}
-	qDebug() << dbDriver << " driver located.";
-	db->addDatabase(dbDriver);
-	db->setHostName(dbHostName);
-	db->setDatabaseName(dbName);
-	db->setUserName(dbUserName);
-	db->setPassword(dbPassword);
-	if (!db->open()) {
-		qDebug() << db->lastError().text();
-		db->close();
-		return;
-	}
-	qDebug() << "Successfully connected to database '" << db->databaseName() << "'.";
-	// do something...
-#if 0
-	QSqlTableModel* model = new QSqlTableModel(this);
-	model->setTable("Requisition");
-	model->setSort(REQUISITION_ID, Qt::AscendingOrder); // Définition du critère de tri
-	model->setHeaderData(REQUISITION_ID, Qt::Horizontal, "ID"); // Définition de l'entête
-	model->select();
+	qDebug() << dbDriver << "driver located.";
 
-	ui->tableView->setModel(model); // Liaison entre le modèle et le tableau
-	ui->tableView->setColumnHidden(REQUISITION_ID, true); // On masque la colonne des identifiants
-	ui->tableView->resizeColumnsToContents(); // On redimentionne les colonnes en fonction de leurs contenu
-#endif
-	db->close();
-	return;
+	db2 = QSqlDatabase::addDatabase(dbDriver);
+	db2.setHostName(dbHostName);
+	db2.setDatabaseName(dbName);
+	db2.setUserName(dbUserName);
+	db2.setPassword(dbPassword);
+	if (!db2.open()) {
+		qDebug() << db2.databaseName() << "is not accessible.";
+		qDebug() << db2.lastError().text();
+		db2.close();
+		return;
+	}
+	qDebug() << "Successfully connected to database" << QString("%1/%2").arg(db2.hostName()).arg(db2.databaseName()) << ".";
+	// do something...
+
+	requisitionTableView->setModel(requisitionModel()); // Liaison entre le modèle et le tableau
+	//requisitionTableView->setColumnHidden(0, true); // On masque la colonne des identifiants
+	requisitionTableView->resizeColumnsToContents(); // On redimentionne les colonnes en fonction de leurs contenu
+	waybillTableView->setModel(waybillModel()); // Liaison entre le modèle et le tableau
+	waybillTableView->resizeColumnsToContents(); // On redimentionne les colonnes en fonction de leurs contenu
+
 }
 
-MainWindow::~MainWindow() {
+MainWindow::~MainWindow()
+{
+	db2.close();
 	delete ui;
 }
+
+void
+MainWindow::addRequisition() {
+	QSqlTableModel* model = reqModel;
+	model->database().transaction();
+	const int row = model->rowCount();
+	model->insertRows(row, 1);
+	model->setData(model->index(row, 0), row);
+	model->setData(model->index(row, 1), "FR");
+	model->setData(model->index(row, 8), row);
+	model->setData(model->index(row, 9), row);
+	if(model->submitAll()) {
+			model->database().commit();
+			qDebug() << QString("LOG INSERT REQUISITION %1 WITH 0=%1,1=%2,8=%1,9=%1")
+						.arg(QString::number(row))
+						.arg("FR");
+		} else {
+			model->database().rollback();
+					qDebug() << "Database Write Error" <<
+						 "The database reported an error: " <<
+						   model->lastError().text();
+
+		}
+}
+
+QSqlTableModel*
+MainWindow::requisitionModel()
+{
+	QSqlTableModel* model = new QSqlTableModel(this);
+	model->setTable("Requisition");
+	model->setEditStrategy(QSqlTableModel::OnManualSubmit);
+	//model->setSort(0, Qt::AscendingOrder); // Définition du critère de tri
+	model->select();
+	//model->setHeaderData(0, Qt::Horizontal, "ID");
+	//model->setHeaderData(1, Qt::Horizontal, "Name");
+	//model->setHeaderData(2, Qt::Horizontal, "Teacher");
+	reqModel= model;
+	return model;
+}
+
+QSqlTableModel*
+MainWindow::waybillModel()
+{
+	QSqlTableModel* model = new QSqlTableModel(this);
+	model->setTable("Waybill");
+	model->setEditStrategy(QSqlTableModel::OnManualSubmit);
+	//model->setSort(0, Qt::AscendingOrder); // Définition du critère de tri
+	model->select();
+	//model->setHeaderData(0, Qt::Horizontal, "ID");
+	//model->setHeaderData(1, Qt::Horizontal, "Name");
+	//model->setHeaderData(2, Qt::Horizontal, "Teacher");
+	return model;
+}
+
+void
+MainWindow::closeEvent(QCloseEvent* e) {
+	saveDbSettings();
+	e->accept();
+}
+
+void
+MainWindow::loadDbSettings() {
+	qDebug() << "loadDbSettings...";
+	QSettings settings("Logistic.DB.ini", QSettings::IniFormat);
+	settings.beginGroup("DB");
+	dbDriver   = settings.value("Driver")  .toString();
+	dbHostName = settings.value("HostName").toString();
+	dbName     = settings.value("Name")    .toString();
+	dbUserName = settings.value("UserName").toString();
+	dbPassword = settings.value("Password").toString();
+	settings.endGroup();
+}
+
+void
+MainWindow::saveDbSettings() {
+	qDebug() << "saveDbSettings...";
+	QSettings settings("Logistic.DB.ini", QSettings::IniFormat);
+	settings.beginGroup("DB");
+	settings.setValue("Driver",   dbDriver);
+	settings.setValue("HostName", dbHostName);
+	settings.setValue("Name",     dbName);
+	settings.setValue("UserName", dbUserName);
+	settings.setValue("Password", dbPassword);
+	settings.endGroup();
+}
+
