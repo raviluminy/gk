@@ -14,11 +14,9 @@ TEMPLATE = app
 
 SOURCES += Main.cpp\
         MainWindow.cpp \
-    Waybill.cpp \
     LogisticDao.cpp
 
 HEADERS  += MainWindow.h \
-    Waybill.h \
     LogisticDao.h
 
 FORMS    += \

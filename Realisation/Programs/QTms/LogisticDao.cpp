@@ -1,12 +1,9 @@
 #include "LogisticDao.h"
 
-LogisticDao::LogisticDao() {
-	dbWaybillModel = new QSqlTableModel(this);
-	dbWaybillModel->setTable("Waybill");
-	dbWaybillModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
-	dbWaybillModel->select();
+#include <QSettings>
+#include <QtDebug>
 
-	dbActivedWaybillModel = 0;
+LogisticDao::LogisticDao() {
 }
 
 LogisticDao::~LogisticDao() {
@@ -14,20 +11,20 @@ LogisticDao::~LogisticDao() {
 
 void
 LogisticDao::load() {
-	QSettings settings = QSettings("Logistic.DB.ini", QSettings::IniFormat);
+	QSettings settings("Logistic.DB.ini", QSettings::IniFormat);
 	settings.beginGroup("DB");
-	dbDriver       = settings.value("Driver");
-	dbHostName     = settings.value("HostName");
-	dbHostPort     = settings.value("HostPort");
-	dbName         = settings.value("Name");
-	dbUserName     = settings.value("UserName");
-	dbUserPassword = settings.value("UserPassword");
+	dbDriver       = settings.value("Driver")      .toString();
+	dbHostName     = settings.value("HostName")    .toString();
+	dbHostPort     = settings.value("HostPort")    .toString();
+	dbName         = settings.value("Name")        .toString();
+	dbUserName     = settings.value("UserName")    .toString();
+	dbUserPassword = settings.value("UserPassword").toString();
 	settings.endGroup();
 }
 
 void
 LogisticDao::save() {
-	QSettings settings = QSettings("Logistic.DB.ini", QSettings::IniFormat);
+	QSettings settings("Logistic.DB.ini", QSettings::IniFormat);
 	settings.beginGroup("DB");
 	settings.setValue("Driver",       dbDriver);
 	settings.setValue("HostName",     dbHostName);
@@ -38,6 +35,54 @@ LogisticDao::save() {
 	settings.endGroup();
 }
 
+void
+LogisticDao::checkDriver() {
+	if (db.drivers().contains(dbDriver)) return;
+	qDebug() << "DAO:" << dbDriver << "is unavailable.";
+	qCritical() << "DAO: None SQL driver found. The application will terminate.";
+	exit(NoneSqlDriverLoaded);
+}
+
+void
+LogisticDao::checkExistance() {
+	if (QFile(dbName).exists()) return;
+	//createDb();
+}
+
+void
+LogisticDao::checkOpenConnection() {
+	if (db.open()) return;
+	qDebug() << "DAO: fail to opening connection with" << dbName << ".";
+	qDebug() << "DAO:" << db.lastError().text();
+	qCritical() << "DAO: Impossible to connect the database. The application will terminate.";
+	exit(FailedOpeningConnection);
+}
+
+void
+LogisticDao::connect() {
+	load();
+	checkDriver();
+	db = QSqlDatabase::addDatabase(dbDriver);
+	db.setDatabaseName(dbName);
+	db.setUserName(dbUserName);
+	db.setPassword(dbUserPassword);
+	checkExistance();
+	checkOpenConnection();
+
+	dbWaybillModel = new QSqlTableModel();
+	dbWaybillModel->setTable("Waybill");
+	dbWaybillModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
+	dbWaybillModel->select();
+
+	dbActivedWaybillModel = 0;
+}
+
+void
+LogisticDao::disconnect() {
+	db.close();
+	save();
+}
+
 QAbstractItemModel*
 LogisticDao::waybillModel() {
 	return dbWaybillModel;
@@ -45,10 +90,11 @@ LogisticDao::waybillModel() {
 
 QAbstractItemModel*
 LogisticDao::activedWaybillModel(const int id) {
-	dbActivedWaybillModel = new QSqlTableModel(this);
+	dbActivedWaybillModel = new QSqlTableModel();
 	dbActivedWaybillModel->setTable("Waybill");
 	dbActivedWaybillModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
 	dbActivedWaybillModel->setFilter(QString("id=%1").arg(id));
 	dbActivedWaybillModel->select();
+	return dbActivedWaybillModel;
 }
 

@@ -21,7 +21,7 @@ public:
 
 public slots:
 
-	void activeWaybill(const int, const int);
+	void on_waybillTableView_clicked(const QModelIndex index);
 
 private:
 

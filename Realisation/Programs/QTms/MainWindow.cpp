@@ -6,18 +6,21 @@ MainWindow::MainWindow(QWidget* parent) :
 	ui(new Ui::MainWindow)
 {
 	ui->setupUi(this);
-	dao.setupDb();
+	dao.connect();
 	ui->waybillTableView->setModel(dao.waybillModel());
+
+	connect(ui->waybillTableView, SIGNAL(clicked(QModelIndex)), this, SLOT(on_waybillTableView_clicked(QModelIndex)));
 }
 
 MainWindow::~MainWindow() {
+	dao.disconnect();
 	delete ui;
 }
 
 void
-MainWindow::activeWaybill(const int x, const int y) {
-	const int id = -1;
-	id = dao.waybillModel()->data(QModelIndex(0,y));
-	dao.activedWaybillModel(id); // model retourné à appliquer à la frame...
+MainWindow::on_waybillTableView_clicked(const QModelIndex index) {
+	if (!index.isValid()) return;
+	QModelIndex pkindex = index.sibling(index.row(), 0);
+	qDebug() << "primary key clicked:" << pkindex.data();
 }
 
