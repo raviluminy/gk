@@ -33,7 +33,7 @@
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="waybillTab">
        <attribute name="title">
@@ -258,16 +258,28 @@
                    <widget class="QLineEdit" name="waybillPlannedTransportActorLineEdit"/>
                   </item>
                   <item row="2" column="3">
-                   <widget class="QDateEdit" name="waybillRealLoadingDateEdit"/>
+                   <widget class="QDateEdit" name="waybillRealLoadingDateEdit">
+                    <property name="calendarPopup">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
                   </item>
                   <item row="6" column="2">
                    <widget class="QLineEdit" name="waybillRealReceptionActorLineEdit"/>
                   </item>
                   <item row="3" column="3">
-                   <widget class="QDateEdit" name="waybillPlannedTransportDateEdit"/>
+                   <widget class="QDateEdit" name="waybillPlannedTransportDateEdit">
+                    <property name="calendarPopup">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
                   </item>
                   <item row="5" column="3">
-                   <widget class="QDateEdit" name="waybillPlannedReceptionDateEdit"/>
+                   <widget class="QDateEdit" name="waybillPlannedReceptionDateEdit">
+                    <property name="calendarPopup">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
                   </item>
                   <item row="0" column="4">
                    <widget class="QLabel" name="waybillLocationLabel">
@@ -280,7 +292,11 @@
                    </widget>
                   </item>
                   <item row="4" column="3">
-                   <widget class="QDateEdit" name="waybillRealTransportDateEdit"/>
+                   <widget class="QDateEdit" name="waybillRealTransportDateEdit">
+                    <property name="calendarPopup">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
                   </item>
                   <item row="5" column="0" rowspan="2">
                    <widget class="QLabel" name="waybillReceptionLabel">
@@ -362,7 +378,11 @@
                    </widget>
                   </item>
                   <item row="1" column="3">
-                   <widget class="QDateEdit" name="waybillPlannedLoadingDateEdit"/>
+                   <widget class="QDateEdit" name="waybillPlannedLoadingDateEdit">
+                    <property name="calendarPopup">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
                   </item>
                   <item row="2" column="1">
                    <widget class="QLabel" name="waybillRealLoadingLabel">
@@ -378,7 +398,11 @@
                    <widget class="QLineEdit" name="waybillPlannedLoadingActorLineEdit"/>
                   </item>
                   <item row="6" column="3">
-                   <widget class="QDateEdit" name="waybillRealReceptionDateEdit"/>
+                   <widget class="QDateEdit" name="waybillRealReceptionDateEdit">
+                    <property name="calendarPopup">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
                   </item>
                   <item row="0" column="3">
                    <widget class="QLabel" name="waybillDateLabel">
@@ -969,7 +993,7 @@
               <property name="geometry">
                <rect>
                 <x>0</x>
-                <y>-118</y>
+                <y>0</y>
                 <width>495</width>
                 <height>572</height>
                </rect>
@@ -2493,11 +2517,29 @@
      <string>Connection</string>
     </property>
    </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
    <addaction name="menuConnection"/>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="waybillAddAction">
+   <property name="icon">
+    <iconset resource="gui.qrc">
+     <normaloff>:/gui/icon/add.png</normaloff>:/gui/icon/add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Add</string>
+   </property>
+   <property name="toolTip">
+    <string>Create a new waybill/delivery note</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="gui.qrc"/>

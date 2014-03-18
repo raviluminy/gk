@@ -13,9 +13,13 @@ TEMPLATE = app
 
 
 SOURCES += Main.cpp\
-        MainWindow.cpp
+        MainWindow.cpp \
+    Waybill.cpp \
+    LogisticDao.cpp
 
-HEADERS  += MainWindow.h
+HEADERS  += MainWindow.h \
+    Waybill.h \
+    LogisticDao.h
 
 FORMS    += \
     MainWindow.ui
