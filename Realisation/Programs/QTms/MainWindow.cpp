@@ -10,6 +10,13 @@ MainWindow::MainWindow(QWidget* parent) :
 	ui->waybillTableView->setModel(dao.waybillModel());
 
 	connect(ui->waybillTableView, SIGNAL(clicked(QModelIndex)), this, SLOT(on_waybillTableView_clicked(QModelIndex)));
+
+	ui->waybillCountryCodeLabel->setProperty("class", QString("LeftWidget"));
+	QFile css("web.css");
+	if (css.open(QIODevice::ReadOnly)) {
+		qApp->setStyleSheet(css.readAll());
+		css.close();
+	}
 }
 
 MainWindow::~MainWindow() {

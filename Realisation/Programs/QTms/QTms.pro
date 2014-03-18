@@ -23,4 +23,4 @@ FORMS    += \
     MainWindow.ui
 
 RESOURCES += \
-    gui.qrc
+    Gui.qrc
