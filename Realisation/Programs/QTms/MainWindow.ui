@@ -33,106 +33,71 @@
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="waybillTab">
        <attribute name="title">
         <string>Waybill</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_2">
-        <item row="1" column="2">
-         <widget class="QScrollArea" name="scrollArea">
-          <property name="widgetResizable">
-           <bool>true</bool>
+        <item row="1" column="1" rowspan="2">
+         <widget class="QFrame" name="waybillEditionFrame">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
           </property>
-          <widget class="QWidget" name="scrollAreaWidgetContents">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>-26</y>
-             <width>363</width>
-             <height>510</height>
-            </rect>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Sunken</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_9">
+           <property name="leftMargin">
+            <number>0</number>
            </property>
-           <layout class="QGridLayout" name="gridLayout_8">
-            <property name="leftMargin">
-             <number>0</number>
-            </property>
-            <property name="topMargin">
-             <number>0</number>
-            </property>
-            <property name="rightMargin">
-             <number>0</number>
-            </property>
-            <property name="bottomMargin">
-             <number>0</number>
-            </property>
-            <item row="0" column="0">
-             <widget class="QFrame" name="frame">
-              <layout class="QGridLayout" name="gridLayout_3">
-               <item row="0" column="2" colspan="2">
-                <widget class="QLineEdit" name="lineEdit"/>
-               </item>
-               <item row="4" column="1">
-                <widget class="QLabel" name="label_5">
-                 <property name="text">
-                  <string>Requisition ID</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="1">
-                <widget class="QLabel" name="label_4">
-                 <property name="text">
-                  <string>Transport mean</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="2" colspan="2">
-                <widget class="QLineEdit" name="lineEdit_2"/>
-               </item>
-               <item row="1" column="1">
-                <widget class="QLabel" name="label_2">
-                 <property name="text">
-                  <string>ID</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="21" column="1">
-                <spacer name="verticalSpacer">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>20</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item row="0" column="1">
-                <widget class="QLabel" name="label">
-                 <property name="text">
-                  <string>Country code</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="1">
-                <widget class="QLabel" name="label_3">
-                 <property name="text">
-                  <string>Request date</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="8" column="2" rowspan="9" colspan="2">
-                <widget class="QFrame" name="frame_2">
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QGridLayout" name="gridLayout_5">
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item row="2" column="0">
+            <widget class="QDialogButtonBox" name="waybillEditionButtonBox">
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="standardButtons">
+              <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QScrollArea" name="waybillEditionScrollArea">
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
+             </property>
+             <property name="widgetResizable">
+              <bool>true</bool>
+             </property>
+             <widget class="QWidget" name="waybillEditionScrollAreaWidgetContents">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>512</width>
+                <height>454</height>
+               </rect>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_10">
+               <item row="1" column="0">
+                <widget class="QWidget" name="waybillStatusWidget" native="true">
+                 <layout class="QGridLayout" name="gridLayout_13">
                   <property name="leftMargin">
                    <number>0</number>
                   </property>
@@ -145,357 +110,664 @@
                   <property name="bottomMargin">
                    <number>0</number>
                   </property>
-                  <item row="0" column="0">
-                   <widget class="QGroupBox" name="groupBox">
-                    <property name="title">
-                     <string>Planned</string>
-                    </property>
-                    <layout class="QGridLayout" name="gridLayout_6">
-                     <item row="3" column="0" colspan="2">
-                      <widget class="QLineEdit" name="lineEdit_7"/>
-                     </item>
-                     <item row="1" column="0" colspan="2">
-                      <widget class="QDateEdit" name="dateEdit_2"/>
-                     </item>
-                     <item row="0" column="0" colspan="2">
-                      <widget class="QLineEdit" name="lineEdit_6"/>
-                     </item>
-                     <item row="2" column="0">
-                      <widget class="QLineEdit" name="lineEdit_11"/>
-                     </item>
-                     <item row="2" column="1">
-                      <widget class="QPushButton" name="pushButton_7">
-                       <property name="maximumSize">
-                        <size>
-                         <width>24</width>
-                         <height>24</height>
-                        </size>
-                       </property>
-                       <property name="text">
-                        <string>...</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="5" column="1">
-                      <widget class="QPushButton" name="pushButton_8">
-                       <property name="maximumSize">
-                        <size>
-                         <width>24</width>
-                         <height>24</height>
-                        </size>
-                       </property>
-                       <property name="text">
-                        <string>...</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="8" column="0">
-                      <widget class="QLineEdit" name="lineEdit_13"/>
-                     </item>
-                     <item row="5" column="0">
-                      <widget class="QLineEdit" name="lineEdit_12"/>
-                     </item>
-                     <item row="8" column="1">
-                      <widget class="QPushButton" name="pushButton_9">
-                       <property name="maximumSize">
-                        <size>
-                         <width>24</width>
-                         <height>24</height>
-                        </size>
-                       </property>
-                       <property name="text">
-                        <string>...</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="4" column="0" colspan="2">
-                      <widget class="QDateEdit" name="dateEdit_3"/>
-                     </item>
-                     <item row="7" column="0" colspan="2">
-                      <widget class="QDateEdit" name="dateEdit_4"/>
-                     </item>
-                     <item row="6" column="0" colspan="2">
-                      <widget class="QLineEdit" name="lineEdit_8"/>
-                     </item>
-                    </layout>
+                  <item row="0" column="1">
+                   <widget class="QComboBox" name="waybillStatusComboBox">
+                    <item>
+                     <property name="text">
+                      <string>Cancelled</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Cancelled and deleted</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Done</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>In progress</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Undelivered</string>
+                     </property>
+                    </item>
                    </widget>
                   </item>
-                  <item row="0" column="1">
-                   <widget class="QGroupBox" name="groupBox_2">
-                    <property name="title">
-                     <string>Real</string>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="waybillStatusLabel">
+                    <property name="text">
+                     <string>Status</string>
                     </property>
-                    <layout class="QGridLayout" name="gridLayout_7">
-                     <item row="0" column="0" colspan="2">
-                      <widget class="QLineEdit" name="lineEdit_5"/>
-                     </item>
-                     <item row="8" column="0">
-                      <widget class="QLineEdit" name="lineEdit_16"/>
-                     </item>
-                     <item row="5" column="0">
-                      <widget class="QLineEdit" name="lineEdit_15"/>
-                     </item>
-                     <item row="2" column="0">
-                      <widget class="QLineEdit" name="lineEdit_14"/>
-                     </item>
-                     <item row="2" column="1">
-                      <widget class="QPushButton" name="pushButton_10">
-                       <property name="maximumSize">
-                        <size>
-                         <width>24</width>
-                         <height>24</height>
-                        </size>
-                       </property>
-                       <property name="text">
-                        <string>...</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="0" colspan="2">
-                      <widget class="QDateEdit" name="dateEdit_5"/>
-                     </item>
-                     <item row="4" column="0" colspan="2">
-                      <widget class="QDateEdit" name="dateEdit_6"/>
-                     </item>
-                     <item row="3" column="0" colspan="2">
-                      <widget class="QLineEdit" name="lineEdit_9"/>
-                     </item>
-                     <item row="5" column="1">
-                      <widget class="QPushButton" name="pushButton_11">
-                       <property name="maximumSize">
-                        <size>
-                         <width>24</width>
-                         <height>24</height>
-                        </size>
-                       </property>
-                       <property name="text">
-                        <string>...</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="8" column="1">
-                      <widget class="QPushButton" name="pushButton_12">
-                       <property name="maximumSize">
-                        <size>
-                         <width>24</width>
-                         <height>24</height>
-                        </size>
-                       </property>
-                       <property name="text">
-                        <string>...</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="6" column="0" colspan="2">
-                      <widget class="QLineEdit" name="lineEdit_10"/>
-                     </item>
-                     <item row="7" column="0" colspan="2">
-                      <widget class="QDateEdit" name="dateEdit_7"/>
-                     </item>
-                    </layout>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QTextEdit" name="waybillStatusCommentTextEdit"/>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="waybillStatusCommentLabel">
+                    <property name="text">
+                     <string>Comment</string>
+                    </property>
                    </widget>
                   </item>
                  </layout>
                 </widget>
                </item>
-               <item row="15" column="1">
-                <widget class="QLabel" name="label_14">
-                 <property name="text">
-                  <string>Reception date</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="12" column="1">
-                <widget class="QLabel" name="label_11">
-                 <property name="text">
-                  <string>Transporter</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="7" column="1">
-                <widget class="QLabel" name="label_8">
-                 <property name="text">
-                  <string>Status</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="8" column="1">
-                <spacer name="verticalSpacer_2">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                 <property name="sizeType">
-                  <enum>QSizePolicy::Fixed</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>20</width>
-                   <height>15</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item row="16" column="1">
-                <spacer name="verticalSpacer_3">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                 <property name="sizeType">
-                  <enum>QSizePolicy::Fixed</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>20</width>
-                   <height>5</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item row="2" column="2" colspan="2">
-                <widget class="QDateEdit" name="dateEdit">
-                 <property name="calendarPopup">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="5" column="1">
-                <widget class="QLabel" name="label_6">
-                 <property name="text">
-                  <string>Vehicle</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="6" column="2">
-                <widget class="QLineEdit" name="lineEdit_4"/>
-               </item>
-               <item row="6" column="1">
-                <widget class="QLabel" name="label_7">
-                 <property name="text">
-                  <string>Contract</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="6" column="3">
-                <widget class="QPushButton" name="pushButton_6">
-                 <property name="maximumSize">
-                  <size>
-                   <width>24</width>
-                   <height>24</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>...</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="2" colspan="2">
-                <widget class="QComboBox" name="comboBox_2"/>
-               </item>
-               <item row="5" column="2">
-                <widget class="QLineEdit" name="lineEdit_3"/>
-               </item>
-               <item row="7" column="2" colspan="2">
-                <widget class="QComboBox" name="comboBox_3">
-                 <item>
-                  <property name="text">
-                   <string>Cancelled</string>
+               <item row="11" column="0">
+                <widget class="QWidget" name="waybillVehicleWidget" native="true">
+                 <layout class="QGridLayout" name="gridLayout_17">
+                  <property name="leftMargin">
+                   <number>0</number>
                   </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Cancelled and deleted</string>
+                  <property name="topMargin">
+                   <number>0</number>
                   </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Done</string>
+                  <property name="rightMargin">
+                   <number>0</number>
                   </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>In progress</string>
+                  <property name="bottomMargin">
+                   <number>0</number>
                   </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Undelivered</string>
+                  <item row="0" column="1">
+                   <widget class="QComboBox" name="waybillVehicleMeanComboBox"/>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="waybillVehicleMeanLabel">
+                    <property name="text">
+                     <string>Transport mean</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="waybillVehicleIdLabel">
+                    <property name="text">
+                     <string>Vehicle</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="waybillVehicleRegistrationNoLabel">
+                    <property name="text">
+                     <string>Registration number</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="4">
+                   <widget class="QPushButton" name="waybillVehicleIdPushButton">
+                    <property name="maximumSize">
+                     <size>
+                      <width>24</width>
+                      <height>24</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>...</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1" colspan="3">
+                   <widget class="QLineEdit" name="waybillVehicleIdLineEdit"/>
+                  </item>
+                  <item row="0" column="3" colspan="2">
+                   <widget class="QLineEdit" name="waybillVehicleRegistrationNoLineEdit"/>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="13" column="0">
+                <widget class="QWidget" name="waybillWidget" native="true">
+                 <layout class="QGridLayout" name="gridLayout_3">
+                  <property name="leftMargin">
+                   <number>0</number>
                   </property>
-                 </item>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item row="6" column="1">
+                   <widget class="QLabel" name="waybillRealReceptionLabel">
+                    <property name="text">
+                     <string>Real</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="2">
+                   <widget class="QLineEdit" name="waybillPlannedTransportActorLineEdit"/>
+                  </item>
+                  <item row="2" column="3">
+                   <widget class="QDateEdit" name="waybillRealLoadingDateEdit"/>
+                  </item>
+                  <item row="6" column="2">
+                   <widget class="QLineEdit" name="waybillRealReceptionActorLineEdit"/>
+                  </item>
+                  <item row="3" column="3">
+                   <widget class="QDateEdit" name="waybillPlannedTransportDateEdit"/>
+                  </item>
+                  <item row="5" column="3">
+                   <widget class="QDateEdit" name="waybillPlannedReceptionDateEdit"/>
+                  </item>
+                  <item row="0" column="4">
+                   <widget class="QLabel" name="waybillLocationLabel">
+                    <property name="text">
+                     <string>Location</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="3">
+                   <widget class="QDateEdit" name="waybillRealTransportDateEdit"/>
+                  </item>
+                  <item row="5" column="0" rowspan="2">
+                   <widget class="QLabel" name="waybillReceptionLabel">
+                    <property name="text">
+                     <string>Reception</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="2">
+                   <widget class="QLineEdit" name="waybillPlannedReceptionActorLineEdit"/>
+                  </item>
+                  <item row="4" column="2">
+                   <widget class="QLineEdit" name="waybillRealTransportActorLineEdit"/>
+                  </item>
+                  <item row="5" column="1">
+                   <widget class="QLabel" name="waybillPlannedReceptionLabel">
+                    <property name="text">
+                     <string>Planned</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="1">
+                   <widget class="QLabel" name="waybillRealTransportLabel">
+                    <property name="text">
+                     <string>Real</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLabel" name="waybillPlannedLoadingLabel">
+                    <property name="text">
+                     <string>Planned</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="1">
+                   <widget class="QLabel" name="waybillPlannedTransportLabel">
+                    <property name="text">
+                     <string>Planned</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0" rowspan="2">
+                   <widget class="QLabel" name="waybillTransportLabel">
+                    <property name="text">
+                     <string>Transport</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="2">
+                   <widget class="QLineEdit" name="waybillRealLoadingActorLineEdit"/>
+                  </item>
+                  <item row="1" column="0" rowspan="2">
+                   <widget class="QLabel" name="waybillLoadingLabel">
+                    <property name="text">
+                     <string>Loading</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="3">
+                   <widget class="QDateEdit" name="waybillPlannedLoadingDateEdit"/>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QLabel" name="waybillRealLoadingLabel">
+                    <property name="text">
+                     <string>Real</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QLineEdit" name="waybillPlannedLoadingActorLineEdit"/>
+                  </item>
+                  <item row="6" column="3">
+                   <widget class="QDateEdit" name="waybillRealReceptionDateEdit"/>
+                  </item>
+                  <item row="0" column="3">
+                   <widget class="QLabel" name="waybillDateLabel">
+                    <property name="text">
+                     <string>Date</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="waybillActorLabel">
+                    <property name="text">
+                     <string>Actor</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="5">
+                   <widget class="QLabel" name="waybillConditionLabel">
+                    <property name="text">
+                     <string>Condition</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="5">
+                   <widget class="QLineEdit" name="waybillPlannedLoadingConditionLineEdit"/>
+                  </item>
+                  <item row="2" column="5">
+                   <widget class="QLineEdit" name="waybillRealLoadingConditionLineEdit"/>
+                  </item>
+                  <item row="3" column="5">
+                   <widget class="QLineEdit" name="waybillPlannedTransportConditionLineEdit"/>
+                  </item>
+                  <item row="4" column="4">
+                   <widget class="QWidget" name="waybillRealTransportLocationWidget" native="true">
+                    <layout class="QGridLayout" name="gridLayout_5">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item row="0" column="1">
+                      <widget class="QPushButton" name="waybillRealTransportLocationPushButton">
+                       <property name="maximumSize">
+                        <size>
+                         <width>24</width>
+                         <height>24</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>...</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QLineEdit" name="waybillRealTransportLocationLineEdit"/>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="5" column="4">
+                   <widget class="QWidget" name="waybillPlannedReceptionLocationWidget" native="true">
+                    <layout class="QGridLayout" name="gridLayout_6">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item row="0" column="1">
+                      <widget class="QPushButton" name="waybillPlannedReceptionLocationPushButton">
+                       <property name="maximumSize">
+                        <size>
+                         <width>24</width>
+                         <height>24</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>...</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QLineEdit" name="waybillPlannedReceptionLocationLineEdit"/>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="6" column="4">
+                   <widget class="QWidget" name="waybillRealReceptionLocationWidget" native="true">
+                    <layout class="QGridLayout" name="gridLayout_7">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item row="0" column="1">
+                      <widget class="QPushButton" name="waybillRealReceptionLocationPushButton">
+                       <property name="maximumSize">
+                        <size>
+                         <width>24</width>
+                         <height>24</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>...</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QLineEdit" name="waybillRealReceptionLocationLineEdit"/>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="1" column="4">
+                   <widget class="QWidget" name="waybillPlannedLoadingLocationWidget" native="true">
+                    <layout class="QGridLayout" name="gridLayout_8">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item row="0" column="1">
+                      <widget class="QPushButton" name="waybillPlannedLoadingLocationPushButton">
+                       <property name="maximumSize">
+                        <size>
+                         <width>24</width>
+                         <height>24</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>...</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QLineEdit" name="waybillPlannedLoadingLocationLineEdit"/>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="2" column="4">
+                   <widget class="QWidget" name="waybillRealLoadingLocationWidget" native="true">
+                    <layout class="QGridLayout" name="gridLayout_11">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item row="0" column="1">
+                      <widget class="QPushButton" name="waybillRealLoadingLocationPushButton">
+                       <property name="maximumSize">
+                        <size>
+                         <width>24</width>
+                         <height>24</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>...</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QLineEdit" name="waybillRealLoadingLocationLineEdit"/>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="3" column="4">
+                   <widget class="QWidget" name="waybillPlannedTransportLocationWidget" native="true">
+                    <layout class="QGridLayout" name="gridLayout_12">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item row="0" column="1">
+                      <widget class="QPushButton" name="waybillPlannedTransportLocationPushButton">
+                       <property name="maximumSize">
+                        <size>
+                         <width>24</width>
+                         <height>24</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>...</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QLineEdit" name="waybillPlannedTransportLocationLineEdit"/>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="4" column="5">
+                   <widget class="QLineEdit" name="waybillRealTransportConditionLineEdit"/>
+                  </item>
+                  <item row="5" column="5">
+                   <widget class="QLineEdit" name="waybillPlannedReceptionConditionLineEdit"/>
+                  </item>
+                  <item row="6" column="5">
+                   <widget class="QLineEdit" name="waybillRealReceptionConditionLineEdit"/>
+                  </item>
+                 </layout>
                 </widget>
                </item>
-               <item row="5" column="3">
-                <widget class="QPushButton" name="pushButton_5">
-                 <property name="maximumSize">
-                  <size>
-                   <width>24</width>
-                   <height>24</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>...</string>
-                 </property>
+               <item row="5" column="0">
+                <widget class="QWidget" name="waybillRequestWidget" native="true">
+                 <layout class="QGridLayout" name="gridLayout_16">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                 </layout>
                 </widget>
                </item>
-               <item row="9" column="1">
-                <widget class="QLabel" name="label_9">
-                 <property name="text">
-                  <string>Loader</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="2" colspan="2">
-                <widget class="QComboBox" name="comboBox"/>
-               </item>
-               <item row="10" column="1">
-                <widget class="QLabel" name="label_10">
-                 <property name="text">
-                  <string>Loading date</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="13" column="1">
-                <widget class="QLabel" name="label_12">
-                 <property name="text">
-                  <string>Transport date</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="14" column="1">
-                <widget class="QLabel" name="label_13">
-                 <property name="text">
-                  <string>Reception</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="11" column="1">
-                <widget class="QLabel" name="label_15">
-                 <property name="text">
-                  <string>Loading localisation</string>
-                 </property>
+               <item row="0" column="0">
+                <widget class="QWidget" name="waybillIdWidget" native="true">
+                 <layout class="QGridLayout" name="gridLayout_15">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="5">
+                   <widget class="QComboBox" name="waybillRequisitionIdComboBox"/>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="waybillCountryCodeLineEdit"/>
+                  </item>
+                  <item row="0" column="4">
+                   <widget class="QLabel" name="waybillRequisitionIdLabel">
+                    <property name="text">
+                     <string>Requisition ID</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="waybillCountryCodeLabel">
+                    <property name="layoutDirection">
+                     <enum>Qt::LeftToRight</enum>
+                    </property>
+                    <property name="text">
+                     <string>Country code</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3">
+                   <widget class="QLineEdit" name="waybillIdLineEdit"/>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="waybillIdLabel">
+                    <property name="layoutDirection">
+                     <enum>Qt::LeftToRight</enum>
+                    </property>
+                    <property name="text">
+                     <string>Waybill ID</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="waybillRequestDateLabel">
+                    <property name="text">
+                     <string>Request date</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QDateEdit" name="waybillRequestDateEdit">
+                    <property name="calendarPopup">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QLabel" name="waybillRequestWarehouseLabel">
+                    <property name="text">
+                     <string>Warehouse</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="3" colspan="3">
+                   <widget class="QLineEdit" name="waybillRequestWarehouseLineEdit"/>
+                  </item>
+                 </layout>
                 </widget>
                </item>
               </layout>
              </widget>
-            </item>
-           </layout>
-          </widget>
-         </widget>
-        </item>
-        <item row="2" column="2">
-         <widget class="QDialogButtonBox" name="buttonBox">
-          <property name="layoutDirection">
-           <enum>Qt::LeftToRight</enum>
-          </property>
-          <property name="standardButtons">
-           <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-          </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </item>
         <item row="1" column="0" rowspan="2">
-         <widget class="QTableView" name="tableView"/>
+         <widget class="QTableView" name="waybillTableView">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
         </item>
-        <item row="0" column="0" colspan="3">
-         <widget class="QWidget" name="widget" native="true">
+        <item row="0" column="0" colspan="2">
+         <widget class="QWidget" name="waybillActionBarWidget" native="true">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>24</height>
+           </size>
+          </property>
           <layout class="QGridLayout" name="gridLayout_4">
            <property name="leftMargin">
             <number>0</number>
@@ -510,7 +782,7 @@
             <number>0</number>
            </property>
            <item row="0" column="2">
-            <widget class="QPushButton" name="pushButton_2">
+            <widget class="QPushButton" name="waybillRollbackPushButton">
              <property name="maximumSize">
               <size>
                <width>24</width>
@@ -518,12 +790,25 @@
               </size>
              </property>
              <property name="text">
-              <string>PushButton</string>
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="gui.qrc">
+               <normaloff>:/gui/icon/rollback.png</normaloff>:/gui/icon/rollback.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
              </property>
             </widget>
            </item>
            <item row="0" column="3">
-            <widget class="QPushButton" name="pushButton">
+            <widget class="QPushButton" name="waybillCommitPushButton">
              <property name="maximumSize">
               <size>
                <width>24</width>
@@ -531,12 +816,25 @@
               </size>
              </property>
              <property name="text">
-              <string>PushButton</string>
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="gui.qrc">
+               <normaloff>:/gui/icon/commit.png</normaloff>:/gui/icon/commit.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
              </property>
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QPushButton" name="pushButton_3">
+            <widget class="QPushButton" name="waybillRemovePushButton">
              <property name="maximumSize">
               <size>
                <width>24</width>
@@ -544,12 +842,25 @@
               </size>
              </property>
              <property name="text">
-              <string>C</string>
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="gui.qrc">
+               <normaloff>:/gui/icon/remove.png</normaloff>:/gui/icon/remove.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
              </property>
             </widget>
            </item>
            <item row="0" column="0">
-            <widget class="QPushButton" name="pushButton_4">
+            <widget class="QPushButton" name="waybillAddPushButton">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -568,13 +879,32 @@
                <height>0</height>
               </size>
              </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
              <property name="text">
-              <string>A</string>
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="gui.qrc">
+               <normaloff>:/gui/icon/add.png</normaloff>:/gui/icon/add.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="default">
+              <bool>false</bool>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
              </property>
             </widget>
            </item>
            <item row="0" column="4">
-            <spacer name="horizontalSpacer">
+            <spacer name="waybillActionBarHorizontalSpacer">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -595,21 +925,1545 @@
        <attribute name="title">
         <string>Requisition</string>
        </attribute>
-      </widget>
-      <widget class="QWidget" name="vehicleTab">
-       <attribute name="title">
-        <string>Vehicle</string>
-       </attribute>
-      </widget>
-      <widget class="QWidget" name="providerTab">
-       <attribute name="title">
-        <string>Provider</string>
-       </attribute>
+       <layout class="QGridLayout" name="gridLayout_19">
+        <item row="1" column="1">
+         <widget class="QFrame" name="requisitionEditionFrame">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Sunken</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_20">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item row="2" column="0">
+            <widget class="QDialogButtonBox" name="requisitionEditionButtonBox">
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="standardButtons">
+              <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QScrollArea" name="requisitionEditionScrollArea">
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
+             </property>
+             <property name="widgetResizable">
+              <bool>true</bool>
+             </property>
+             <widget class="QWidget" name="requisitionEditionScrollAreaWidgetContents">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>495</width>
+                <height>572</height>
+               </rect>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_21">
+               <item row="1" column="0">
+                <widget class="QWidget" name="requisitionStatusWidget" native="true">
+                 <layout class="QGridLayout" name="gridLayout_22">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="1">
+                   <widget class="QComboBox" name="requisitionStatusComboBox">
+                    <item>
+                     <property name="text">
+                      <string>Cancelled</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Cancelled and deleted</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Done</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>In progress</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Undelivered</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="requisitionStatusLabel">
+                    <property name="text">
+                     <string>Status</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QTextEdit" name="requisitionStatusCommentTextEdit">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="requisitionStatusCommentLabel">
+                    <property name="text">
+                     <string>Comment</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="10" column="0">
+                <widget class="QWidget" name="requisitionTransportWidget" native="true">
+                 <layout class="QGridLayout" name="gridLayout_24">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="requisitionTransportOriginLineEdit"/>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="requisitionTransportOriginLabel">
+                    <property name="text">
+                     <string>From</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="5">
+                   <widget class="QLabel" name="requisitionTransportMeanLabel">
+                    <property name="text">
+                     <string>Mean</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="6">
+                   <widget class="QComboBox" name="requisitionTransportMeanComboBox"/>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="requisitionTransportDestinationLabel">
+                    <property name="text">
+                     <string>To</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLineEdit" name="requisitionTransportDestinationLineEdit"/>
+                  </item>
+                  <item row="1" column="5">
+                   <widget class="QLabel" name="requisitionTransportDateLabel">
+                    <property name="text">
+                     <string>Desired delivery date</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="6">
+                   <widget class="QDateEdit" name="requisitionTransportDateEdit">
+                    <property name="calendarPopup">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="12" column="0">
+                <widget class="QWidget" name="requisitionApprovalWidget" native="true">
+                 <layout class="QGridLayout" name="gridLayout_25">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item row="6" column="2">
+                   <widget class="QDateEdit" name="requisitionApprovalBaseDateEdit">
+                    <property name="calendarPopup">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="2">
+                   <widget class="QDateEdit" name="requisitionApprovalFinanceOfficerDateEdit">
+                    <property name="calendarPopup">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="1">
+                   <widget class="QLineEdit" name="requisitionApprovalFinanceOfficerLineEdit"/>
+                  </item>
+                  <item row="5" column="2">
+                   <widget class="QDateEdit" name="requisitionApprovalLogisticsDateEdit">
+                    <property name="calendarPopup">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="6" column="1">
+                   <widget class="QLineEdit" name="requisitionApprovalBaseLineEdit"/>
+                  </item>
+                  <item row="3" column="2">
+                   <widget class="QDateEdit" name="requisitionApprovalProjectManagerDateEdit">
+                    <property name="calendarPopup">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="1">
+                   <widget class="QLineEdit" name="requisitionApprovalLogisticsLineEdit"/>
+                  </item>
+                  <item row="4" column="0">
+                   <widget class="QLabel" name="requisitionApprovalFinanceOfficerLabel">
+                    <property name="text">
+                     <string>Finance officer</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="1">
+                   <widget class="QLineEdit" name="requisitionApprovalProjectManagerLineEdit"/>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QLabel" name="requisitionApprovalRequesterLabel">
+                    <property name="text">
+                     <string>Requester</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="0">
+                   <widget class="QLabel" name="requisitionApprovalLogisticsLabel">
+                    <property name="text">
+                     <string>Logistics</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="6" column="0">
+                   <widget class="QLabel" name="requisitionApprovalBaseLabel">
+                    <property name="text">
+                     <string>Global fleet base</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="2">
+                   <widget class="QDateEdit" name="requisitionApprovalRequesterDateEdit">
+                    <property name="calendarPopup">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QLabel" name="requisitionApprovalProjectManagerLabel">
+                    <property name="text">
+                     <string>Project manager</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QLineEdit" name="requisitionApprovalRequesterLineEdit"/>
+                  </item>
+                  <item row="0" column="0" colspan="3">
+                   <widget class="QLabel" name="requisitionApprovalLabel">
+                    <property name="text">
+                     <string>Approval</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QLabel" name="requisitionApprovalDateLabel">
+                    <property name="text">
+                     <string>Date</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLabel" name="requisitionApprovalActorLabel">
+                    <property name="text">
+                     <string>Actor</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QWidget" name="requisitionIdWidget" native="true">
+                 <layout class="QGridLayout" name="gridLayout_32">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="requisitionCountryCodeLineEdit"/>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="requisitionCountryCodeLabel">
+                    <property name="layoutDirection">
+                     <enum>Qt::LeftToRight</enum>
+                    </property>
+                    <property name="text">
+                     <string>Country code</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3">
+                   <widget class="QLineEdit" name="requisitionIdLineEdit"/>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="requisitionIdLabel">
+                    <property name="layoutDirection">
+                     <enum>Qt::LeftToRight</enum>
+                    </property>
+                    <property name="text">
+                     <string>Requisition ID</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="4">
+                   <widget class="QLabel" name="requisitionRequestDateLabel">
+                    <property name="text">
+                     <string>Request date</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="5">
+                   <widget class="QDateEdit" name="requisitionRequestDateEdit">
+                    <property name="calendarPopup">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="13" column="0">
+                <widget class="QWidget" name="widget" native="true">
+                 <layout class="QGridLayout" name="gridLayout_23">
+                  <item row="0" column="0" colspan="2">
+                   <widget class="QLabel" name="label">
+                    <property name="text">
+                     <string>Shipping details</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="0" colspan="2">
+                   <widget class="QLabel" name="label_2">
+                    <property name="text">
+                     <string>Special requirements or remarks</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QLabel" name="label_4">
+                    <property name="text">
+                     <string>Delivery address</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QLineEdit" name="lineEdit"/>
+                  </item>
+                  <item row="5" column="0" colspan="2">
+                   <widget class="QTextEdit" name="textEdit"/>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QLabel" name="label_3">
+                    <property name="text">
+                     <string>Clearing agent</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="label_5">
+                    <property name="text">
+                     <string>Consignee address</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLineEdit" name="lineEdit_2"/>
+                  </item>
+                  <item row="3" column="1">
+                   <widget class="QLineEdit" name="lineEdit_3"/>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QTableView" name="requisitionTableView">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" colspan="2">
+         <widget class="QWidget" name="requisitionActionBarWidget" native="true">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>24</height>
+           </size>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_14">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item row="0" column="2">
+            <widget class="QPushButton" name="requisitionRollbackPushButton">
+             <property name="maximumSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="gui.qrc">
+               <normaloff>:/gui/icon/rollback.png</normaloff>:/gui/icon/rollback.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QPushButton" name="requisitionCommitPushButton">
+             <property name="maximumSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="gui.qrc">
+               <normaloff>:/gui/icon/commit.png</normaloff>:/gui/icon/commit.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QPushButton" name="requisitionRemovePushButton">
+             <property name="maximumSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="gui.qrc">
+               <normaloff>:/gui/icon/remove.png</normaloff>:/gui/icon/remove.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QPushButton" name="requisitionAddPushButton">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="baseSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="gui.qrc">
+               <normaloff>:/gui/icon/add.png</normaloff>:/gui/icon/add.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="default">
+              <bool>false</bool>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="4">
+            <spacer name="requisitionActionBarHorizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="driverTab">
        <attribute name="title">
         <string>Driver</string>
        </attribute>
+       <layout class="QGridLayout" name="gridLayout_18">
+        <item row="1" column="1">
+         <widget class="QWidget" name="widget_4" native="true">
+          <layout class="QGridLayout" name="gridLayout_37">
+           <item row="0" column="0">
+            <widget class="QFrame" name="waybillEditionFrame_3">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Sunken</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_38">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item row="2" column="0">
+               <widget class="QDialogButtonBox" name="waybillEditionButtonBox_3">
+                <property name="layoutDirection">
+                 <enum>Qt::LeftToRight</enum>
+                </property>
+                <property name="standardButtons">
+                 <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QScrollArea" name="waybillEditionScrollArea_3">
+                <property name="frameShape">
+                 <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="widgetResizable">
+                 <bool>true</bool>
+                </property>
+                <widget class="QWidget" name="waybillEditionScrollAreaWidgetContents_3">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>451</width>
+                   <height>441</height>
+                  </rect>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_39">
+                  <item row="1" column="0">
+                   <widget class="QWidget" name="waybillStatusWidget_3" native="true">
+                    <layout class="QGridLayout" name="gridLayout_40">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item row="0" column="1">
+                      <widget class="QComboBox" name="waybillStatusComboBox_3">
+                       <item>
+                        <property name="text">
+                         <string>Cancelled</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Cancelled and deleted</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Done</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>In progress</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Undelivered</string>
+                        </property>
+                       </item>
+                      </widget>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="waybillStatusLabel_3">
+                       <property name="text">
+                        <string>Status</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="1">
+                      <widget class="QTextEdit" name="waybillStatusCommentTextEdit_3"/>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="waybillStatusCommentLabel_3">
+                       <property name="text">
+                        <string>Comment</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="5" column="0">
+                   <widget class="QWidget" name="waybillRequestWidget_3" native="true">
+                    <layout class="QGridLayout" name="gridLayout_41">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item row="1" column="3">
+                      <widget class="QLineEdit" name="waybillRequestWarehouseLineEdit_3"/>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="waybillRequestDateLabel_3">
+                       <property name="text">
+                        <string>Request date</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="2">
+                      <widget class="QLabel" name="waybillRequestWarehouseLabel_3">
+                       <property name="text">
+                        <string>Warehouse</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="1">
+                      <widget class="QDateEdit" name="waybillRequestDateEdit_3">
+                       <property name="calendarPopup">
+                        <bool>true</bool>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="11" column="0">
+                   <widget class="QWidget" name="waybillVehicleWidget_3" native="true">
+                    <layout class="QGridLayout" name="gridLayout_42">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item row="1" column="1">
+                      <widget class="QLineEdit" name="waybillVehicleIdLineEdit_3"/>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QComboBox" name="waybillVehicleMeanComboBox_3"/>
+                     </item>
+                     <item row="2" column="1">
+                      <widget class="QLineEdit" name="waybillVehicleRegistrationNoLineEdit_3"/>
+                     </item>
+                     <item row="2" column="0">
+                      <widget class="QLabel" name="waybillVehicleRegistrationNoLabel_3">
+                       <property name="text">
+                        <string>Registration number</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="waybillVehicleMeanLabel_3">
+                       <property name="text">
+                        <string>Transport mean</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="2">
+                      <widget class="QPushButton" name="waybillVehicleIdPushButton_3">
+                       <property name="maximumSize">
+                        <size>
+                         <width>24</width>
+                         <height>24</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>...</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="waybillVehicleIdLabel_3">
+                       <property name="text">
+                        <string>Vehicle</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="13" column="0">
+                   <widget class="QWidget" name="waybillWidget_3" native="true">
+                    <layout class="QGridLayout" name="gridLayout_43">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item row="6" column="1">
+                      <widget class="QLabel" name="waybillRealReceptionLabel_3">
+                       <property name="text">
+                        <string>Real</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="2">
+                      <widget class="QLineEdit" name="waybillPlannedTransportActorLineEdit_3"/>
+                     </item>
+                     <item row="2" column="3">
+                      <widget class="QDateEdit" name="waybillRealLoadingDateEdit_3"/>
+                     </item>
+                     <item row="6" column="2">
+                      <widget class="QLineEdit" name="waybillRealReceptionActorLineEdit_3"/>
+                     </item>
+                     <item row="3" column="3">
+                      <widget class="QDateEdit" name="waybillPlannedTransportDateEdit_3"/>
+                     </item>
+                     <item row="5" column="3">
+                      <widget class="QDateEdit" name="waybillPlannedReceptionDateEdit_3"/>
+                     </item>
+                     <item row="0" column="4">
+                      <widget class="QLabel" name="waybillLocationLabel_3">
+                       <property name="text">
+                        <string>Location</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="4" column="3">
+                      <widget class="QDateEdit" name="waybillRealTransportDateEdit_3"/>
+                     </item>
+                     <item row="5" column="0" rowspan="2">
+                      <widget class="QLabel" name="waybillReceptionLabel_3">
+                       <property name="text">
+                        <string>Reception</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="5" column="2">
+                      <widget class="QLineEdit" name="waybillPlannedReceptionActorLineEdit_3"/>
+                     </item>
+                     <item row="4" column="2">
+                      <widget class="QLineEdit" name="waybillRealTransportActorLineEdit_3"/>
+                     </item>
+                     <item row="5" column="1">
+                      <widget class="QLabel" name="waybillPlannedReceptionLabel_3">
+                       <property name="text">
+                        <string>Planned</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="4" column="1">
+                      <widget class="QLabel" name="waybillRealTransportLabel_3">
+                       <property name="text">
+                        <string>Real</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="1">
+                      <widget class="QLabel" name="waybillPlannedLoadingLabel_3">
+                       <property name="text">
+                        <string>Planned</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="1">
+                      <widget class="QLabel" name="waybillPlannedTransportLabel_3">
+                       <property name="text">
+                        <string>Planned</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="0" rowspan="2">
+                      <widget class="QLabel" name="waybillTransportLabel_3">
+                       <property name="text">
+                        <string>Transport</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="2">
+                      <widget class="QLineEdit" name="waybillRealLoadingActorLineEdit_3"/>
+                     </item>
+                     <item row="1" column="0" rowspan="2">
+                      <widget class="QLabel" name="waybillLoadingLabel_3">
+                       <property name="text">
+                        <string>Loading</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="3">
+                      <widget class="QDateEdit" name="waybillPlannedLoadingDateEdit_3"/>
+                     </item>
+                     <item row="2" column="1">
+                      <widget class="QLabel" name="waybillRealLoadingLabel_3">
+                       <property name="text">
+                        <string>Real</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="2">
+                      <widget class="QLineEdit" name="waybillPlannedLoadingActorLineEdit_3"/>
+                     </item>
+                     <item row="6" column="3">
+                      <widget class="QDateEdit" name="waybillRealReceptionDateEdit_3"/>
+                     </item>
+                     <item row="0" column="3">
+                      <widget class="QLabel" name="waybillDateLabel_3">
+                       <property name="text">
+                        <string>Date</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="2">
+                      <widget class="QLabel" name="waybillActorLabel_3">
+                       <property name="text">
+                        <string>Actor</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="5">
+                      <widget class="QLabel" name="waybillConditionLabel_3">
+                       <property name="text">
+                        <string>Condition</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="5">
+                      <widget class="QLineEdit" name="waybillPlannedLoadingConditionLineEdit_3"/>
+                     </item>
+                     <item row="2" column="5">
+                      <widget class="QLineEdit" name="waybillRealLoadingConditionLineEdit_3"/>
+                     </item>
+                     <item row="3" column="5">
+                      <widget class="QLineEdit" name="waybillPlannedTransportConditionLineEdit_3"/>
+                     </item>
+                     <item row="4" column="4">
+                      <widget class="QWidget" name="waybillRealTransportLocationWidget_3" native="true">
+                       <layout class="QGridLayout" name="gridLayout_44">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item row="0" column="1">
+                         <widget class="QPushButton" name="waybillRealTransportLocationPushButton_3">
+                          <property name="maximumSize">
+                           <size>
+                            <width>24</width>
+                            <height>24</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>...</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="0">
+                         <widget class="QLineEdit" name="waybillRealTransportLocationLineEdit_3"/>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item row="5" column="4">
+                      <widget class="QWidget" name="waybillPlannedReceptionLocationWidget_3" native="true">
+                       <layout class="QGridLayout" name="gridLayout_45">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item row="0" column="1">
+                         <widget class="QPushButton" name="waybillPlannedReceptionLocationPushButton_3">
+                          <property name="maximumSize">
+                           <size>
+                            <width>24</width>
+                            <height>24</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>...</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="0">
+                         <widget class="QLineEdit" name="waybillPlannedReceptionLocationLineEdit_3"/>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item row="6" column="4">
+                      <widget class="QWidget" name="waybillRealReceptionLocationWidget_3" native="true">
+                       <layout class="QGridLayout" name="gridLayout_46">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item row="0" column="1">
+                         <widget class="QPushButton" name="waybillRealReceptionLocationPushButton_3">
+                          <property name="maximumSize">
+                           <size>
+                            <width>24</width>
+                            <height>24</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>...</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="0">
+                         <widget class="QLineEdit" name="waybillRealReceptionLocationLineEdit_3"/>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item row="1" column="4">
+                      <widget class="QWidget" name="waybillPlannedLoadingLocationWidget_3" native="true">
+                       <layout class="QGridLayout" name="gridLayout_47">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item row="0" column="1">
+                         <widget class="QPushButton" name="waybillPlannedLoadingLocationPushButton_3">
+                          <property name="maximumSize">
+                           <size>
+                            <width>24</width>
+                            <height>24</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>...</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="0">
+                         <widget class="QLineEdit" name="waybillPlannedLoadingLocationLineEdit_3"/>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item row="2" column="4">
+                      <widget class="QWidget" name="waybillRealLoadingLocationWidget_3" native="true">
+                       <layout class="QGridLayout" name="gridLayout_48">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item row="0" column="1">
+                         <widget class="QPushButton" name="waybillRealLoadingLocationPushButton_3">
+                          <property name="maximumSize">
+                           <size>
+                            <width>24</width>
+                            <height>24</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>...</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="0">
+                         <widget class="QLineEdit" name="waybillRealLoadingLocationLineEdit_3"/>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item row="3" column="4">
+                      <widget class="QWidget" name="waybillPlannedTransportLocationWidget_3" native="true">
+                       <layout class="QGridLayout" name="gridLayout_49">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item row="0" column="1">
+                         <widget class="QPushButton" name="waybillPlannedTransportLocationPushButton_3">
+                          <property name="maximumSize">
+                           <size>
+                            <width>24</width>
+                            <height>24</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>...</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="0">
+                         <widget class="QLineEdit" name="waybillPlannedTransportLocationLineEdit_3"/>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item row="4" column="5">
+                      <widget class="QLineEdit" name="waybillRealTransportConditionLineEdit_3"/>
+                     </item>
+                     <item row="5" column="5">
+                      <widget class="QLineEdit" name="waybillPlannedReceptionConditionLineEdit_3"/>
+                     </item>
+                     <item row="6" column="5">
+                      <widget class="QLineEdit" name="waybillRealReceptionConditionLineEdit_3"/>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QWidget" name="waybillIdWidget_3" native="true">
+                    <layout class="QGridLayout" name="gridLayout_50">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item row="0" column="1">
+                      <widget class="QLineEdit" name="waybillCountryCodeLineEdit_3"/>
+                     </item>
+                     <item row="0" column="4">
+                      <widget class="QLabel" name="waybillRequisitionIdLabel_3">
+                       <property name="text">
+                        <string>Requisition ID</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="waybillCountryCodeLabel_3">
+                       <property name="layoutDirection">
+                        <enum>Qt::LeftToRight</enum>
+                       </property>
+                       <property name="text">
+                        <string>Country code</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="3">
+                      <widget class="QLineEdit" name="waybillIdLineEdit_3"/>
+                     </item>
+                     <item row="0" column="2">
+                      <widget class="QLabel" name="waybillIdLabel_3">
+                       <property name="layoutDirection">
+                        <enum>Qt::LeftToRight</enum>
+                       </property>
+                       <property name="text">
+                        <string>Waybill ID</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="5">
+                      <widget class="QComboBox" name="waybillRequisitionIdComboBox_3"/>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QTableView" name="tableView_2"/>
+        </item>
+        <item row="0" column="0" colspan="2">
+         <widget class="QWidget" name="waybillActionBarWidget_3" native="true">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>24</height>
+           </size>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_36">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item row="0" column="2">
+            <widget class="QPushButton" name="waybillRollbackPushButton_3">
+             <property name="maximumSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="gui.qrc">
+               <normaloff>:/gui/icon/rollback.png</normaloff>:/gui/icon/rollback.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="4">
+            <spacer name="waybillActionBarHorizontalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="0">
+            <widget class="QPushButton" name="waybillAddPushButton_3">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="baseSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="gui.qrc">
+               <normaloff>:/gui/icon/add.png</normaloff>:/gui/icon/add.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="default">
+              <bool>false</bool>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QPushButton" name="waybillRemovePushButton_3">
+             <property name="maximumSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="gui.qrc">
+               <normaloff>:/gui/icon/remove.png</normaloff>:/gui/icon/remove.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QPushButton" name="waybillCommitPushButton_3">
+             <property name="maximumSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="gui.qrc">
+               <normaloff>:/gui/icon/commit.png</normaloff>:/gui/icon/commit.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="vehicleTab">
+       <attribute name="title">
+        <string>Vehicle</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_34">
+        <item row="0" column="0">
+         <widget class="QTableView" name="tableView_3"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="providerTab">
+       <attribute name="title">
+        <string>Provider</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_35">
+        <item row="0" column="0">
+         <widget class="QTableView" name="tableView_4"/>
+        </item>
+       </layout>
       </widget>
      </widget>
     </item>
@@ -645,6 +2499,8 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="gui.qrc"/>
+ </resources>
  <connections/>
 </ui>

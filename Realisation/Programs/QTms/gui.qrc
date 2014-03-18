@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/gui">
+        <file>icon/add.png</file>
+        <file>icon/commit.png</file>
+        <file>icon/exclamation.png</file>
+        <file>icon/info.png</file>
+        <file>icon/question.png</file>
+        <file>icon/remove.png</file>
+        <file>icon/rollback.png</file>
+    </qresource>
+</RCC>
