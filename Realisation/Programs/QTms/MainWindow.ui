@@ -969,7 +969,7 @@
               <property name="geometry">
                <rect>
                 <x>0</x>
-                <y>0</y>
+                <y>-118</y>
                 <width>495</width>
                 <height>572</height>
                </rect>
@@ -1333,10 +1333,10 @@
                 </widget>
                </item>
                <item row="13" column="0">
-                <widget class="QWidget" name="widget" native="true">
+                <widget class="QWidget" name="requisitionDetailsWidget" native="true">
                  <layout class="QGridLayout" name="gridLayout_23">
                   <item row="0" column="0" colspan="2">
-                   <widget class="QLabel" name="label">
+                   <widget class="QLabel" name="requisitionDetailsLabel">
                     <property name="text">
                      <string>Shipping details</string>
                     </property>
@@ -1346,44 +1346,44 @@
                    </widget>
                   </item>
                   <item row="4" column="0" colspan="2">
-                   <widget class="QLabel" name="label_2">
+                   <widget class="QLabel" name="requisitionDetailsRemarksLabel">
                     <property name="text">
                      <string>Special requirements or remarks</string>
                     </property>
                    </widget>
                   </item>
                   <item row="3" column="0">
-                   <widget class="QLabel" name="label_4">
+                   <widget class="QLabel" name="requisitionDetailsDeliveryAddressLabel">
                     <property name="text">
                      <string>Delivery address</string>
                     </property>
                    </widget>
                   </item>
                   <item row="2" column="1">
-                   <widget class="QLineEdit" name="lineEdit"/>
+                   <widget class="QLineEdit" name="requisitionDetailsClearingAgentLineEdit"/>
                   </item>
                   <item row="5" column="0" colspan="2">
-                   <widget class="QTextEdit" name="textEdit"/>
+                   <widget class="QTextEdit" name="requisitionDetailsRemarksTextEdit"/>
                   </item>
                   <item row="2" column="0">
-                   <widget class="QLabel" name="label_3">
+                   <widget class="QLabel" name="requisitionDetailsClearingAgentLabel">
                     <property name="text">
                      <string>Clearing agent</string>
                     </property>
                    </widget>
                   </item>
                   <item row="1" column="0">
-                   <widget class="QLabel" name="label_5">
+                   <widget class="QLabel" name="requisitionDetailsConsigneeAddressLabel">
                     <property name="text">
                      <string>Consignee address</string>
                     </property>
                    </widget>
                   </item>
                   <item row="1" column="1">
-                   <widget class="QLineEdit" name="lineEdit_2"/>
+                   <widget class="QLineEdit" name="requisitionDetailsConsigneeAddressLineEdit"/>
                   </item>
                   <item row="3" column="1">
-                   <widget class="QLineEdit" name="lineEdit_3"/>
+                   <widget class="QLineEdit" name="requisitionDetailsDeliveryAddressLineEdit"/>
                   </item>
                  </layout>
                 </widget>
