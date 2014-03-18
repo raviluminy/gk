@@ -7,5 +7,10 @@
         <file>Icon/Glyph/Question.png</file>
         <file>Icon/Glyph/Remove.png</file>
         <file>Icon/Glyph/Rollback.png</file>
+        <file>Icon/Warnings/Medium/Error.png</file>
+        <file>Icon/Warnings/Medium/Idea.png</file>
+        <file>Icon/Warnings/Medium/Information.png</file>
+        <file>Icon/Warnings/Medium/Question.png</file>
+        <file>Icon/Warnings/Medium/Warning.png</file>
     </qresource>
 </RCC>

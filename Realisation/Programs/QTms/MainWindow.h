@@ -23,6 +23,8 @@ public slots:
 
 	void on_waybillTableView_clicked(const QModelIndex index);
 
+	void loadCss();
+
 private:
 
 	Ui::MainWindow *ui;
