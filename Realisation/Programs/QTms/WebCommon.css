@@ -1,3 +1,7 @@
+/*------------------------------------------------------------------*/
+/*     GENERAL STYLESHEET
+/*------------------------------------------------------------------*/
+
 QTabWidget::pane {
 	border-top: 1px solid #CCC;
 	top: -1px;
@@ -169,23 +173,24 @@ QTableView::item {
 
 
 
-
-#waybillEditionFrame,
-#waybillGlobalInformationFrame,
-#waybillTransportFrame,
-#waybillStatusFrame,
-#waybillTableFrame {
+/** NE PAS REMPLACER PAR QTabWidget QFrame POUR EMPECHER L'HERITAGE **/
+#waybillIdMainFrame,
+#waybillListMainFrame,
+#waybillPlanningMainFrame,
+#waybillStatusMainFrame,
+#waybillTransportMainFrame {
 	border-color: #CCC;
 	border-style: solid;
 	border-width: 1px;
 	border-radius: 4px;
 }
 
-#waybillEditionLabel,
-#waybillGlobalInformationLabel,
-#waybillTransportLabel,
-#waybillStatusLabel,
-#waybillTableLabel {
+/** NE PAS REMPLACER PAR QTabWidget QFrame QLabel POUR EMPECHER L'HERITAGE **/
+#waybillIdMainLabel,
+#waybillListMainLabel,
+#waybillPlanningMainLabel,
+#waybillStatusMainLabel,
+#waybillTransportMainLabel {
 	border-width: 0px 0px 1px 0px;
 /*	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 0px;
@@ -201,14 +206,52 @@ QTableView::item {
 /*     BARRES D'OUTILS
 /*------------------------------------------------------------------*/
 
-/*---- Barres d'outils de recherche --------------------------------*/
+/*---- Barres d'outils d'actions standards -------------------------*/
 
-#waybillSearchLineEdit {
+/* Standard add push button */
+#waybillAddPushButton,
+#requisitionAddPushButton,
+#driverAddPushButton,
+#vehicleAddPushButton,
+#providerAddPushButton {
+	/*
+	background-image: url("../QTms/Icon/Glyph/Add.png");
+	background-repeat: norepeat;
+	background-position: center center;
+	*/
 	border-bottom-left-radius: 4px;
 	border-top-left-radius: 4px;
 }
 
-#waybillSearchPushButton {
+/* Standard remove push button */
+#waybillRemovePushButton,
+#requisitionRemovePushButton,
+#driverRemovePushButton,
+#vehicleRemovePushButton,
+#providerRemovePushButton {
+	border-left-width: 0px;
+}
+
+/* Standard rollback push button */
+#waybillRollbackPushButton,
+#requisitionRollbackPushButton,
+#driverRollbackPushButton,
+#vehicleRollbackPushButton,
+#providerRollbackPushButton {
+	border-left-width: 0px;
+}
+
+/* Standard commit push button */
+#waybillCommitPushButton,
+#requisitionCommitPushButton,
+#driverCommitPushButton,
+#vehicleCommitPushButton,
+#providerCommitPushButton {
+	/*
+	background-image: url("../QTms/Icon/Glyph/Commit.png");
+	background-repeat: norepeat;
+	background-position: center center;
+	*/
 	border-left-width: 0px;
 	border-bottom-right-radius: 4px;
 	border-top-right-radius: 4px;
@@ -216,29 +259,49 @@ QTableView::item {
 
 /*---- Barres d'outils de recherche --------------------------------*/
 
-#waybillAddPushButton {
-/*	background-image: url("../QTms/Icon/Glyph/Add.png");
-	background-repeat: norepeat;
-	background-position: center center;
-*/	border-bottom-left-radius: 4px;
+/* Searching line edit */
+#waybillSearchLineEdit,
+#requisitionSearchLineEdit,
+#driverSearchLineEdit,
+#vehicleSearchLineEdit,
+#providerSearchLineEdit {
+	border-bottom-left-radius: 4px;
 	border-top-left-radius: 4px;
 }
 
-#waybillRemovePushButton,
-#waybillRollbackPushButton {
+/* Searching push button */
+#waybillSearchPushButton,
+#requisitionSearchPushButton,
+#driverSearchPushButton,
+#vehicleSearchPushButton,
+#providerSearchPushButton {
 	border-left-width: 0px;
-}
-
-#waybillCommitPushButton {
-/*	background-image: url("../QTms/Icon/Glyph/Commit.png");
-	background-repeat: norepeat;
-	background-position: center center;
-*/	border-left-width: 0px;
 	border-bottom-right-radius: 4px;
 	border-top-right-radius: 4px;
 }
 
 /*---- Barres de confirmation d'édition ----------------------------*/
+
+/* Edition Ok push button */
+#waybillEditionOkPushButton,
+#requisitionEditionOkPushButton,
+#driverEditionOkPushButton,
+#vehicleEditionOkPushButton,
+#providerEditionOkPushButton {
+	border-bottom-left-radius: 4px;
+	border-top-left-radius: 4px;
+}
+
+/* Edition Cancel push button */
+#waybillEditionCancelPushButton,
+#requisitionEditionCancelPushButton,
+#driverEditionCancelPushButton,
+#vehicleEditionCancelPushButton,
+#providerEditionCancelPushButton {
+	border-left-width: 0px;
+	border-bottom-right-radius: 4px;
+	border-top-right-radius: 4px;
+}
 
 /*------------------------------------------------------------------*/
 /*     CHAMPS SEPCIFIQUES
