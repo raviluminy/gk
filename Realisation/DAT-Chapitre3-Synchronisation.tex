@@ -182,5 +182,41 @@ Afin de savoir si la version des informations sur le serveur est plus récente (
 % Fin de la sous-section [Gestin des conflits]
 % ------------------------------------------------------------------------------
 
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+\subsubsection{Ajout d'une donnée}
+
+\begin{bigcenter}
+\begin{tikzpicture} 
+	\begin{umlseqdiag}
+		\umlactor[class=Utilisateur]{u}
+		\umlobject[class={Application locale}]{al}
+		\umldatabase[class={BDD locale}]{bdl}
+		\umlobject[class=Application serveur]{as}
+		\umldatabase[class=BDD serveur]{bds}
+		\begin{umlcall}[op={Ajout d'une donnée}, dt=5]{u}{al}
+			\begin{umlcall}[op={Vérif. données}]{al}{al} 
+			\end{umlcall}
+			\begin{umlfragment}[type=alt, label={Données incorrectes}, inner xsep=5]
+				\begin{umlcall}[op={Erreur}]{al}{u} 
+				\end{umlcall}
+			\umlfpart[{Donnees correctes}]
+				\begin{umlcall}[op={Check connection}]{al}{al} 
+				\end{umlcall}
+				\begin{umlfragment}[type=alt, label={Mode connecté}, inner xsep=5]
+					\begin{umlcall}[op={Erreur}]{al}{u} 
+					\end{umlcall}
+				\umlfpart[{Mode hors ligne}]
+					\begin{umlcall}[op={Vérification des données}]{al}{al} 
+					\end{umlcall}
+				\end{umlfragment} 
+			\end{umlfragment} 
+		\end{umlcall}
+	\end{umlseqdiag} 
+\end{tikzpicture}
+\end{bigcenter}
+% Fin de la sous-sous-section [Ajout d'une donnée]
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
 % Fin de la section [Synchronisation]
 % ==============================================================================
