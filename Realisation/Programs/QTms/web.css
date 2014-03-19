@@ -1,435 +1,416 @@
+QTabWidget::pane {
+	border-top: 1px solid #CCC;
+	top: -1px;
+}
+
+QTabWidget::tab-bar {
+	left: 8px;
+}
+
+QTabBar::tab {
+	background-color: #FFF;
+	border-style: solid;
+	border-color: #CCC;
+	border-width: 0px 0px 1px 0px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	padding: 8px 16px 8px 16px;
+}
+/*QTabBar::tab:selected*/
+
 QWidget {
+	background-color: #FFF;
 	font-family: "DejaVu Condensed", DejaVu, Arial, sans-serif;
 /*	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
 	font-size: 12px;
 	font-style: normal; /* normal, italic, oblique, initial, inherit */
 	font-variant: normal; /* normal, small-caps, initial, inherit */
 	font-weight: 400; /* normal, bold, bolder, lighter, 100, 200, 300..900, initial, inherit */
+	border-width: 0px;
 }
 
-/* Contenu d'un onglet */
-QTabWidget QWidget {
-	background-color: green;
-}
-
-/* Frame principale du contenu d'un onglet */
-QTabWidget QWidget QFrame {
-	background-color: #CCC;
-	/* border bottom */
-	border-bottom-color: black;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
-	/* border left */
-	border-left-color: black;
-	border-left-style: solid;
-	border-left-width: 1px;
-	/* border right */
-	border-right-color: black;
-	border-right-style: solid;
-	border-right-width: 1px;
-	/* border top */
-	border-top-color: black;
-	border-top-style: solid;
-	border-top-width: 1px;
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-}
-
-QTabWidget QWidget QFrame QLabel {
-	/* background */
-	background-color: white;
-	background-image: none;
-	/* border bottom */
-	border-bottom-color: black;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: 0px;
-	/* border left */
-	border-left-width: 0px;
-	/* border right */
-	border-right-width: 0px;
-	/* border top */
-	border-top-width: 0px;
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-	/* text */
-	color: black;
-}
-
-QTabWidget QWidget QFrame QScrollArea {
-	/* background */
-	background-color: transparent;
-	background-image: none;
-	/* border bottom */
-	border-bottom-width: 0px;
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
-	/* border left */
-	border-left-width: 0px;
-	/* border right */
-	border-right-width: 0px;
-	/* border top */
-	border-top-width: 0px;
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-}
-
-QTabWidget QWidget QFrame QScrollArea QFrame {
-	/* background */
-	background-color: transparent;
-	background-image: none;
-	/* border bottom */
-	border-bottom-color: black;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
-	/* border left */
-	border-left-color: black;
-	border-left-style: solid;
-	border-left-width: 1px;
-	/* border right */
-	border-right-color: black;
-	border-right-style: solid;
-	border-right-width: 1px;
-	/* border top */
-	border-top-color: black;
-	border-top-style: solid;
-	border-top-width: 1px;
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-}
-
-/* titre genre Waybill ID */
-QTabWidget QWidget QFrame QScrollArea QFrame QLabel {
-	/* background */
-	background-color: white;
-	background-image: none;
-	/* border bottom */
-	border-bottom-color: black;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: 0px;
-	/* border left */
-	border-left-width: 0px;
-	/* border right */
-	border-right-width: 0px;
-	/* border top */
-	border-top-width: 0px;
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-}
-
-/* Contenu bas niveau */
-QTabWidget QWidget QFrame QScrollArea QFrame QWidget {
-	/* background */
-	background-color: white;
-	background-image: none;
-	/* border bottom */
-	border-bottom-color: black;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: 0px;
-	/* border left */
-	border-left-width: 0px;
-	/* border right */
-	border-right-width: 0px;
-	/* border top */
-	border-top-width: 0px;
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-}
-
-/* Table dans laquelle se trouve la liste des objets */
-QTabWidget QWidget QFrame QTableView {
-	/* background */
-	background-color: white;
-	background-image: none;
-	/* border bottom */
-	border-bottom-width: 0px;
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
-	/* border left */
-	border-left-width: 0px;
-	/* border right */
-	border-right-width: 0px;
-	/* border top */
-	border-top-width: 0px;
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-}
 
 QFrame QWidget {
-	background-color: transparent;
+	border: 0px;
 }
 
-QScrollArea QFrame{
-	background-color: green;
-	/* border bottom */
-	border-bottom-color: black;
-	border-bottom-style: solid;
-	border-bottom-width: 2px;
-	/* border left */
-	border-left-color: black;
-	border-left-style: solid;
-	border-left-width: 2px;
-	/* border right */
-	border-right-color: black;
-	border-right-style: solid;
-	border-right-width: 2px;
-	/* border top */
-	border-top-color: black;
-	border-top-style: solid;
-	border-top-width: 2px;
+#waybillEditionFrame,
+#waybillGlobalInformationFrame,
+#waybillTransportFrame,
+#waybillStatusFrame,
+#waybillTableFrame {
+	border-color: #CCC;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 4px;
 }
 
-QScrollArea {
-	background-color: cyan;
-}
-
-QFrame {
-	background-color: #FFF;
-	/* border bottom */
-	border-bottom-color: #DDD;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	/* border left */
-	border-left-color: #DDD;
-	border-left-style: solid;
-	border-left-width: 1px;
-	/* border right */
-	border-right-color: #DDD;
-	border-right-style: solid;
-	border-right-width: 1px;
-	/* border top */
-	border-top-color: #DDD;
-	border-top-style: solid;
-	border-top-width: 1px;
-	/*color: #333;
-	/*line-height: 20px;*/
-	margin-bottom: 0px;
-}
-
-*[corner-bl=true] {
-	border-bottom-left-radius: 4px;
-}
-
-*[corner-br=true] {
-	border-bottom-right-radius: 4px;
-}
-
-*[corner-tl=true] {
+#waybillEditionLabel,
+#waybillGlobalInformationLabel,
+#waybillTransportLabel,
+#waybillStatusLabel,
+#waybillTableLabel {
+	border-width: 0px 0px 1px 0px;
+/*	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
 	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+*/	color: #555;
+	font-size: 14px;
+	font-variant: small-caps;
+	font-weight: bold;
 }
 
-*[corner-tr=true] {
-	border-top-right-radius: 4px;
+QFrame QScrollArea {
+	background-color: #FFF;
+	border-width: 0px;
+	border-radius: 4px;
+}
+
+QFrame QComboBox,
+QFrame QDateEdit,
+QFrame QLabel,
+QFrame QLineEdit,
+QFrame QProgressBar,
+QFrame QPushButton,
+QFrame QTextEdit {
+	border-color: #CCC;
+	border-radius: 0px;
+	border-style: solid;
+	border-width: 1px;
+	color: #555;
+	padding: 8px 16px 8px 16px;
+}
+
+QFrame QComboBox,
+QFrame QDateEdit,
+QFrame QLineEdit,
+QFrame QProgressBar,
+QFrame QPushButton,
+QFrame QTextEdit {
+	background-color: #FFF;
 }
 
 QLabel {
-	background-color: orange;/*#EEE;*/
-	/* border bottom */
-	border-bottom-color: red;/*#CCC;*/
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	/* border left */
-	border-left-color: red;/*#CCC;*/
-	border-left-style: solid;
-	border-left-width: 1px;
-	/* border right */
-	border-right-color: red;/*#555;*/
-	border-right-style: none;
-	border-right-width: 0px;
-	/* border top */
-	border-top-color: red;/*#CCC;*/
-	border-top-style: solid;
-	border-top-width: 1px;
-	color: #555;
-/*	line-height: 14px;*/
-	padding-bottom: 4px;
-	padding-left: 8px;
-	padding-right: 8px;
-	padding-top: 4px;
-	text-align: center;
-	vertical-align: middle;
-/*white-space: nowrap;*/
-	width: 80px;
+	background-color: #EEE;
 }
 
-QPushButton {
-	background-color: cyan;/*#FFF;*/
-	background-image: none;
-	border-bottom-color: green;/*#CCC;*/
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-left-color: green;
-	border-left-style: solid;
-	border-left-width: 1px;
-	border-right-color: green;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-top-color: green;
-	border-top-style: solid;
-	border-top-width: 1px;
-	color: #333;
-	line-height: 20px;
-	margin-bottom: 0px;
-	margin-left: -1px;
-	margin-right: 0px;
-	margin-top: 0px;
-	padding-bottom: 6px;
-	padding-left: 8px;
-	padding-right: 8px;
-	padding-top: 6px;
-	text-align: center;
-	text-transform: none;
-	vertical-align: middle;
+QComboBox::down-arrow,
+QDateEdit::down-arrow {
+	image: url(../QTms/Icon/Glyph/Expand.png);
 }
 
-QLineEdit, QDateEdit {
-	background-color: yellow;/*#FFF;*/
-	background-image: none;
-	border-bottom-color: #000;/*#CCC;*/
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-left-color: #000;
-	border-left-style: solid;
-	border-left-width: 1px;
-	border-right-color: #000;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-top-color: #000;
-	border-top-style: solid;
-	border-top-width: 1px;
-	color: #555;
-	height: 34px;
-	line-height: 17px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-	margin-right: 0px;
-	margin-top: 0px;
-	padding-bottom: 4px;
-	padding-left: 8px;
-	padding-right: 8px;
-	padding-top: 4px;
-	position: relative;
-	text-align: center;
-	vertical-align: middle;
-	/*width: 626.5px;*/
-}
-
-QComboBox {
-	background-color: yellow;/*#EBEBEB;*/
-	background-image: none;
-	border-bottom-color: blue;/*#CCC;*/
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-left-color: brown;
-	border-left-style: solid;
-	border-left-width: 1px;
-	border-right-color: brown;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-top-color: brown;
-	border-top-style: solid;
-	border-top-width: 1px;
-	color: #555;
-	margin-bottom: 0px;
-	margin-left: 0px;
-	margin-right: 0px;
-	margin-top: 0px;
-	outline-color: #333;
-	outline-offset: -2px;
-	outline-style: none;
-	outline-width: 0px;
-	padding-bottom: 10px;
-	padding-left: 16px;
-	padding-right: 16px;
-	padding-top: 10px;
-	text-align: center;
-	text-decoration: none;
-	text-transform: none;
-	vertical-align: middle;
-	white-space: nowrap;
-}
-
-QComboBox::drop-down :on{
-	background-color: red;
-}
-QComboBox::drop-down {
-	background-color: cyan;
-	background-image: none;
-	border-bottom-color: #CCC;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-bottom-right-radius: 4px;
-	border-left-color: #CCC;
-	border-left-style: solid;
-	border-left-width: 1px;
-	border-right-color: #CCC;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-top-color: #CCC;
-	border-top-style: solid;
-	border-top-width: 1px;
-	border-top-right-radius: 4px;
-	color: #333;
-	line-height: 20px;
-	margin-bottom: 0px;
-	margin-left: -1px;
-	margin-right: 0px;
-	margin-top: 0px;
-	padding-bottom: 6px;
-	padding-left: 8px;
-	padding-right: 8px;
-	padding-top: 6px;
-	position: relative;
-	text-align: center;
-	text-transform: none;
-	vertical-align: middle;
-}
-
-QComboBox QAbstractItemView {
-	background-color: blue;
-}
-
-QComboBox::down-arrow :on{
-	background-color: green;
-}
-
-QComboBox::down-arrow {
+QComboBox::drop-down,
+QDateEdit::drop-down {
 	background-color: #FFF;
-	background-image: none;
-	border-bottom-color: #CCC;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-bottom-right-radius: 4px;
-	border-left-color: #CCC;
-	border-left-style: solid;
+	border-color: #CCC;
+	border-style: solid;
 	border-left-width: 1px;
-	border-right-color: #CCC;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-top-color: #CCC;
-	border-top-style: solid;
-	border-top-width: 1px;
-	border-top-right-radius: 4px;
+	width: 24px;
+}
+
+QComboBox::drop-down:hover,
+QDateEdit::drop-down:hover {
+	border-style: solid;
+	border-left-width: 1px;
+}
+
+QComboBox:editable,
+QDateEdit::editable {
+}
+
+QComboBox:hover,
+QComboBox::drop-down:hover,
+QComboBox::editable:hover,
+QDateEdit:hover,
+QDateEdit::drop-down:hover,
+QDateEdit::editable:hover,
+QLineEdit:hover,
+QPushButton:hover,
+QTextEdit:hover {
+	border-color: #ADADAD;
 	color: #333;
-	line-height: 20px;
-	margin-bottom: 0px;
-	margin-left: -1px;
-	margin-right: 0px;
-	margin-top: 0px;
-	padding-bottom: 6px;
-	padding-left: 8px;
-	padding-right: 8px;
-	padding-top: 6px;
-	text-align: center;
-	text-transform: none;
-	vertical-align: middle;
+}
+
+QComboBox::drop-down:hover,
+QDateEdit::drop-down:hover,
+QPushButton:hover,
+QTabBar::tab:hover {
+	background-color: #EBEBEB;
+}
+
+QTabBar::tab,
+QTabBar::tab:hover {
+	color: blue;
+}
+
+QTabBar::tab:selected,
+QTabBar::tab:selected:hover {
+	background-color: #FFF;
+	border-bottom: 1px solid #FFF;
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #CCC;
+	color: #555;
+}
+
+QComboBox::drop-down:pressed,
+QDateEdit::drop-down:pressed,
+QPushButton:pressed {
+	background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.721, stop:0 rgba(255, 255, 255, 255), stop:0.954774 rgba(49, 49, 49, 206));
+	/*rgba(0, 0, 0, 0.125) 0px 3px 5px 0px inset;*/
+}
+
+QTableView {
+	background-color: #FFF;
+	border-width: 0px;
+	border-radius: 0px;
+}
+
+QTableView QHeaderView {
+	background-color: transparent;
+	border-width: 0px;
+	color: #555;
+}
+
+QTableView QHeaderView::section {
+}
+
+QTableView QHeaderView::section:checked {
+}
+
+QTableView::item {
+	background-color: #FFF;
+	border-color: #888;
+	border-style: solid;
+	border-width: 0px 0px 1px 0px;
+	color: #555;
+}
+
+/*------------------------------------------------------------------*/
+/*     BARRES D'OUTILS
+/*------------------------------------------------------------------*/
+
+/*---- Barres d'outils de recherche --------------------------------*/
+
+#waybillSearchLineEdit {
+	border-bottom-left-radius: 4px;
+	border-top-left-radius: 4px;
+}
+
+#waybillSearchPushButton {
+	border-left-width: 0px;
+	border-bottom-right-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+/*---- Barres d'outils de recherche --------------------------------*/
+
+#waybillAddPushButton {
+/*	background-image: url("../QTms/Icon/Glyph/Add.png");
+	background-repeat: norepeat;
+	background-position: center center;
+*/	border-bottom-left-radius: 4px;
+	border-top-left-radius: 4px;
+}
+
+#waybillRemovePushButton,
+#waybillRollbackPushButton {
+	border-left-width: 0px;
+}
+
+#waybillCommitPushButton {
+/*	background-image: url("../QTms/Icon/Glyph/Commit.png");
+	background-repeat: norepeat;
+	background-position: center center;
+*/	border-left-width: 0px;
+	border-bottom-right-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+/*---- Barres de confirmation d'édition ----------------------------*/
+
+/*------------------------------------------------------------------*/
+/*     CHAMPS SEPCIFIQUES
+/*------------------------------------------------------------------*/
+
+#waybillTransportMeanImageLabel,
+#waybillStatusSynthesisImageLabel {
+	padding: 0px;
+}
+
+#waybillTransportVehicleLabel,
+#waybillTransportRegistrationNoLabel,
+#waybillCountryCodeLabel,
+#waybillIdLabel,
+#waybillRequisitionIdLabel,
+#waybillRequestDateLabel,
+#waybillWarehouseLabel {
+	border-bottom-left-radius: 4px;
+	border-top-left-radius: 4px;
+}
+
+#waybillTransportMeanLabel {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+#waybillTransportMeanComboBox {
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+
+#waybillTransportMeanImageLabel {
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+#waybillCountryCodeLineEdit,
+#waybillIdLineEdit,
+#waybillRequisitionIdComboBox,
+#waybillRequestDateEdit,
+#waybillWarehousePushButton,
+#waybillTransportVehiclePushButton,
+#waybillTransportRegistrationNoLineEdit {
+	border-bottom-right-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+#waybillStatusSynthesisProgressBar,
+#waybillStatusDummyLabel {
+	border-top-left-radius: 4px;
+}
+
+#waybillStatusSynthesisProgressBar,
+#waybillStatusConditionLabel {
+	border-top-right-radius: 4px;
+}
+
+#waybillStatusSynthesisImageLabel,
+#waybillStatusReceptionLabel {
+	border-bottom-left-radius: 4px;
+}
+
+#waybillStatusSynthesisCommentTextEdit,
+#waybillStatusRealReceptionConditionLineEdit {
+	border-bottom-right-radius: 4px;
+}
+
+/* Waybill infos */
+#waybillCountryCodeLineEdit,
+#waybillIdLineEdit,
+#waybillRequisitionIdComboBox,
+#waybillRequestDateEdit,
+#waybillWarehouseLineEdit,
+#waybillWarehousePushButton,
+/* Transport */
+#waybillTransportVehicleLineEdit,
+#waybillTransportVehiclePushButton,
+#waybillTransportRegistrationNoLineEdit,
+/* Status synthesis */
+#waybillStatusSynthesisCommentTextEdit,
+/* Horizontal header */
+#waybillStatusActorLabel,
+#waybillStatusDateLabel,
+#waybillStatusLocationLabel,
+#waybillStatusConditionLabel,
+/* Actor */
+#waybillStatusPlannedLoadingActorLineEdit,
+#waybillStatusPlannedTransportActorLineEdit,
+#waybillStatusPlannedReceptionActorLineEdit,
+#waybillStatusRealLoadingActorLineEdit,
+#waybillStatusRealTransportActorLineEdit,
+#waybillStatusRealReceptionActorLineEdit,
+/* Date */
+#waybillStatusPlannedLoadingDateEdit,
+#waybillStatusPlannedTransportDateEdit,
+#waybillStatusPlannedReceptionDateEdit,
+#waybillStatusRealLoadingDateEdit,
+#waybillStatusRealTransportDateEdit,
+#waybillStatusRealReceptionDateEdit,
+/* Location */
+#waybillStatusPlannedLoadingLocationLineEdit,
+#waybillStatusPlannedLoadingLocationPushButton,
+#waybillStatusPlannedTransportLocationLineEdit,
+#waybillStatusPlannedTransportLocationPushButton,
+#waybillStatusPlannedReceptionLocationLineEdit,
+#waybillStatusPlannedReceptionLocationPushButton,
+#waybillStatusRealLoadingLocationLineEdit,
+#waybillStatusRealLoadingLocationPushButton,
+#waybillStatusRealTransportLocationLineEdit,
+#waybillStatusRealTransportLocationPushButton,
+#waybillStatusRealReceptionLocationLineEdit,
+#waybillStatusRealReceptionLocationPushButton,
+/* Condition */
+#waybillStatusPlannedLoadingConditionLineEdit,
+#waybillStatusPlannedTransportConditionLineEdit,
+#waybillStatusPlannedReceptionConditionLineEdit,
+#waybillStatusRealLoadingConditionLineEdit,
+#waybillStatusRealTransportConditionLineEdit,
+#waybillStatusRealReceptionConditionLineEdit,
+/* Vertical header */
+#waybillStatusPlannedLoadingLabel,
+#waybillStatusPlannedTransportLabel,
+#waybillStatusPlannedReceptionLabel,
+#waybillStatusRealLoadingLabel,
+#waybillStatusRealTransportLabel,
+#waybillStatusRealReceptionLabel
+{
+	border-left-width: 0px;
+}
+
+/* Transport */
+#waybillTransportMeanComboBox,
+/* Status synthesis */
+#waybillStatusSynthesisCommentTextEdit,
+#waybillStatusSynthesisImageLabel,
+/* Actor */
+#waybillStatusPlannedLoadingActorLineEdit,
+#waybillStatusPlannedTransportActorLineEdit,
+#waybillStatusPlannedReceptionActorLineEdit,
+#waybillStatusRealLoadingActorLineEdit,
+#waybillStatusRealTransportActorLineEdit,
+#waybillStatusRealReceptionActorLineEdit,
+/* Date */
+#waybillStatusPlannedLoadingDateEdit,
+#waybillStatusPlannedTransportDateEdit,
+#waybillStatusPlannedReceptionDateEdit,
+#waybillStatusRealLoadingDateEdit,
+#waybillStatusRealTransportDateEdit,
+#waybillStatusRealReceptionDateEdit,
+/* Location */
+#waybillStatusPlannedLoadingLocationLineEdit,
+#waybillStatusPlannedLoadingLocationPushButton,
+#waybillStatusPlannedTransportLocationLineEdit,
+#waybillStatusPlannedTransportLocationPushButton,
+#waybillStatusPlannedReceptionLocationLineEdit,
+#waybillStatusPlannedReceptionLocationPushButton,
+#waybillStatusRealLoadingLocationLineEdit,
+#waybillStatusRealLoadingLocationPushButton,
+#waybillStatusRealTransportLocationLineEdit,
+#waybillStatusRealTransportLocationPushButton,
+#waybillStatusRealReceptionLocationLineEdit,
+#waybillStatusRealReceptionLocationPushButton,
+/* Condition */
+#waybillStatusPlannedLoadingConditionLineEdit,
+#waybillStatusPlannedTransportConditionLineEdit,
+#waybillStatusPlannedReceptionConditionLineEdit,
+#waybillStatusRealLoadingConditionLineEdit,
+#waybillStatusRealTransportConditionLineEdit,
+#waybillStatusRealReceptionConditionLineEdit,
+/* Main vertical header */
+#waybillStatusLoadingLabel,
+#waybillStatusTransportLabel,
+#waybillStatusReceptionLabel,
+/* Vertical header */
+#waybillStatusPlannedLoadingLabel,
+#waybillStatusPlannedTransportLabel,
+#waybillStatusPlannedReceptionLabel,
+#waybillStatusRealLoadingLabel,
+#waybillStatusRealTransportLabel,
+#waybillStatusRealReceptionLabel
+{
+	border-top-width: 0px;
 }

@@ -3,7 +3,7 @@
 
 void
 MainWindow::loadCss() {
-	QFile css("web.css");
+	QFile css("../QTms/web.css");
 	if (css.open(QIODevice::ReadOnly)) {
 		qApp->setStyleSheet(css.readAll());
 		css.close();
@@ -21,18 +21,6 @@ MainWindow::MainWindow(QWidget* parent) :
 	connect(ui->waybillTableView, SIGNAL(clicked(QModelIndex)), this, SLOT(on_waybillTableView_clicked(QModelIndex)));
 	connect(ui->waybillAddPushButton, SIGNAL(clicked()), this, SLOT(loadCss()));
 
-	ui->waybillIdLabel->setProperty("corner-bl", true);
-	ui->waybillIdLabel->setProperty("corner-tl", true);
-	ui->waybillIdLineEdit->setProperty("corner-br", true);
-	ui->waybillIdLineEdit->setProperty("corner-tr", true);
-	ui->waybillRequisitionIdLabel->setProperty("corner-bl", true);
-	ui->waybillRequisitionIdLabel->setProperty("corner-tl", true);
-	ui->waybillRequisitionIdComboBox->setProperty("corner-br", true);
-	ui->waybillRequisitionIdComboBox->setProperty("corner-tr", true);
-	ui->waybillCountryCodeLabel->setProperty("corner-bl", true);
-	ui->waybillCountryCodeLabel->setProperty("corner-tl", true);
-	ui->waybillCountryCodeLineEdit->setProperty("corner-br", true);
-	ui->waybillCountryCodeLineEdit->setProperty("corner-tr", true);
 	loadCss();
 }
 
