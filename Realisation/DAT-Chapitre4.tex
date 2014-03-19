@@ -56,7 +56,10 @@ Ce dernier fonctionne comme n'importe quel terminal à ceci prêt qu'il définit
 Il s'ouvre sur le répertoire Qt.
 \\
 Exécuter les commandes suivantes~:
-\begin{lstlisting}[language=Bash]
+
+% XXX @mj : essaie de push des fichiers qui compilent ...
+
+\begin{lstlisting}[language=Bash, escapechar=$]
 set mysql=C:\\PROGRA~2\\MySQL\\MYSQLS~1.6
 cd C:\Qt\Qt5.2.1\sources\qtbase\src\plugins\sqldrivers\mysql\
 qmake "INCLUDEPATH+=%mysql%\\include" "LIBS+=%mysql%\\lib\\libmysql.lib" -o Makefile mysql.pro
@@ -69,7 +72,7 @@ Après construction réussie (et sans erreur), des fichiers seront produits dans
 	\item qsqlmysql.dll~;
 	\item qsqlmysqld.dll.
 \end{enumerate}
-
+\begin{lstlisting}[language=Bash, escapechar=$]
 For .dll files, move them to C:\Qt\QT5.1.1\5.1.1\mingw48_32\plugins\sqldrivers.
 
 For .a files, move them to C:\Qt\Qt5.1.1\5.1.1\mingw48_32\lib
@@ -77,7 +80,7 @@ For .a files, move them to C:\Qt\Qt5.1.1\5.1.1\mingw48_32\lib
 Also, copy libmysql.dll from %mysql%\lib to C:\Windows
 Testing
 
-To use the driver, don’t forget to add QT += sql to project file, else it don’t work.
+To use the driver, don't forget to add QT += sql to project file, else it don't work.
 
 Check which drivers are available by this code:
 
@@ -100,3 +103,5 @@ int main() {
     aDebug() << QSqlDatabase::drivers();
     return a.exec();
 }
+
+\end{lstlisting}
