@@ -1,0 +1,174 @@
+%-------------------------------------------------------------------------------
+%
+%     CHARGEMENT DES EXTENSIONS
+%
+%-------------------------------------------------------------------------------
+
+\documentclass[11pt,fleqn]{report}
+\usepackage{GarmirKhatch}
+
+%-------------------------------------------------------------------------------
+%     Informations spécifiques au document
+%-------------------------------------------------------------------------------
+
+\ZTitle{Système de gestion des transports}
+\ZSubject{CR - Réunion du 2014-03-14}
+\ZVersion{1.0}
+\ZDate{2014-03-15}
+\ZAuthor{\Balde,\\\Cadon,\\\Gairoard,\\\Julien,\\\Lericolais,\\\Mezelle,\\\Pachy,\\\SuangaWeto,\\\Toure}
+
+%-------------------------------------------------------------------------------
+%     Contenu
+%-------------------------------------------------------------------------------
+
+\begin{document}
+
+\ZMakeCover
+
+\ZMakeInformations{
+	% Historique des modifications
+	% Version & Date & Auteur(s) & Modification(s)
+	1.0 & 2014-03-15 & \Pachy & Rédaction \\
+}{
+	% Historique des approbations
+	% Version & Date & Approbateur(s)
+	1.0 & - & - \\
+}{
+	% Historique des validations
+	% Version & Date & Responsable(s)
+	1.1 & - & \Agopian \\
+}
+
+\chapter*{Compte-rendu}
+\setcounter{chapter}{1}
+
+\section{Préambule}
+Ce document rend compte de la réunion du vendredi matin 2014-03-14, qui s'est déroulée au département informatique du campus universitaire de Saint-Charles à Marseille de \textbf{09h05 à 10h45}, entre la maîtrise d'ouvrage \mo et son assistance à maîtrise d'ouvrage \amo.
+
+Étaient présents lors de la réunion~:
+\begin{itemize}
+	\item \mo~:
+	\begin{itemize}
+		\item \Agopian
+	\end{itemize}
+	\item \amo~:
+	\begin{itemize}
+		\item \Cadon
+		\item \Julien
+		\item \Lericolais
+		\item \Mezelle
+		\item \Pachy
+		\item \SuangaWeto
+		\item \Toure
+	\end{itemize}
+\end{itemize}
+Excusés~:
+\begin{itemize}
+	\item \Balde
+	\item \Gairoard
+\end{itemize}
+
+% ==============================================================================
+\section{Présentation du travail de la semaine}
+
+\amo a présenté le travail réalisé cette semaine, qui s'est principalement axé autour de la base de données. 
+
+% Fin de la section [Présentation du travail de la semaine]
+% ==============================================================================
+
+% ==============================================================================
+\section{Remarques}
+
+Les sections suivantes traitent des remarques émises par \mo.
+
+% ------------------------------------------------------------------------------
+\subsection{Organisationnelles}
+
+Les compte-rendus doivent se terminer par une liste des tâches sous forme de tableau RACI (Responsible, Accountable, Consulted, Informed) plutôt que par une section \og{}Pour la prochaine fois\fg{}.\\
+Les soutanances de projet se dérouleront le 27/03/2014, et la démonstration le 28/03/2014. Il faudra préparer une présentation pour le jour de la soutenance et insister sur l'aspect organisationnel (chef de groupe, découpage des tâches), et justifier les choix techniques réalisés (e.g. pourquoi n'y a-t-il pas d'interface web). De plus, il conviendra de mettre en avant l'aspect visuel inhérent à une démonstration.\\
+L'application devra être testée, mais par manque de temps il est préconisé de ne traiter qu'une partie de l'application (mais cette partie devra être complètement testée).
+
+% Fin de la sous-section [Organisationnelles]
+% ------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------
+\subsection{Fonctionnelles \& techniques}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+\subsubsection{Généralités}
+
+L'identifiant des pays utilisé par \mo est codé sur 3 chiffres et répond à la norme \emph{ISO 3166-1 numeric}.\\
+Lors de la production de tableaux de bord, il est préférable de se concentrer sur le transport et non sur la cargaison.\\
+Il faut pouvoir réaliser une recherche critérisée sur les lieux, en considérant notament les types suivants (liste non-exhaustive) :
+\begin{itemize}
+	\item Entrepots
+	\item Lieux de distribution
+	\item Ports
+	\item Aéroports
+	\item Gares féroviaires
+\end{itemize}
+Da manière générale, le tableaur fourni par \mo à \amo donne un bon aperçu de fonctionnalités réellement indispensables dans la mesure où il constitue un des principaux dupport actuellement pour la logistique.
+
+% Fin de la sous-sous-section [Généralités]
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+\subsubsection{Réquisitions \& Waybills}
+
+Concernant les waybills :
+\begin{itemize}
+	\item Certains de ces documents sont pré-numérotés pour les missions
+	\item Le champ \og{}Comodity tracking number\fg{} (CTN) représente un traçage pour les donnateurs qui souhaitent réaliser un suivi de leurs actions de bout-en-bout; par conséquent, s'il existe plusieurs CTN pour un même item, il y aura deux lignes dans le waybill
+	\item Le nombre réel d'unité du produit figurant sur le waybill est obtenu en multipliant le \emph{N° of units} par le \emph{Unit type} (i.e. le conditionnement)
+	\item Si des conflits d'identifiants se présentent, ils sont gérés à posteriori
+	\item La cargaison est secondaire, mais les numéros de réquisition associés ne le sont pas
+\end{itemize}
+Concernant les réquisitions :
+\begin{itemize}
+	\item \mo fait remarquer que s'il y a deux réquisitions, il y aura alors au moins deux waybills dans la mesure où les destinataires seront différents (et ce même si un seul camion est utilisé pour les deux livraisons)
+	\item Dans les réquisitions, M. \Agopian suggère de ne pas se focaliser sur le code budgétaire et la devise dans la mesure où ils n'occupent pas une grande importance lors des missions de terrain
+\end{itemize}
+
+% Fin de la sous-sous-section [Réquisitions & Waybills]
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+\subsubsection{Personnes}
+
+L'adresse des personnes n'est pas utile dans la base de donnée; par contre leur qualité (i.e. fonction) est souhaitable pour pouvoir effectuer des recherches critérisées.
+
+% Fin de la sous-sous-section [Personens]
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+% Fin de la sous-section [Fonctionnelles]
+% ------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------
+\subsection{Diverses}
+
+Les numéros de page sont manquants dans la norme graphique lorsqu'il s'agit d'un début de section.
+
+% Fin de la sous-section [Diverses]
+% ------------------------------------------------------------------------------
+
+% Fin de la section [Remarques]
+% ==============================================================================
+\newpage
+% ==============================================================================
+\section{Liste des tâches}
+
+\begin{table}[h]
+	\begin{tabularx}{\linewidth}{X X X X}
+		\toprule
+		\textbf{Concerné(s)} & \textbf{Responsable(s)} & \textbf{Consulté(s)} & \textbf{Informé(s)} \\
+		\midrule
+		- & - & - & - \\
+		\bottomrule
+	\end{tabularx}
+	\caption{Tableau RACI de la liste des tâches}
+\end{table}
+
+% Fin de la section [Liste des tâches]
+% ==============================================================================
+
+\end{document}
