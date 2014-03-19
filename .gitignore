@@ -37,5 +37,7 @@ Thumbs.db
 Realisation/Programs/QTms/*.pro.user*
 
 # Binaries files
-Realisation/Programs/QTms-Debug/*
-Realisation/Programs/QTms-Release/*
+Realisation/Programs/QTms/ui_*
+Realisation/Programs/QTms/Makefile*
+Realisation/Programs/QTms/debug/*
+Realisation/Programs/QTms/release/*

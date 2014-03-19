@@ -3,7 +3,7 @@
 
 void
 MainWindow::loadCss() {
-	QFile css("../QTms/web.css");
+    QFile css("WebCommon.css");
 	if (css.open(QIODevice::ReadOnly)) {
 		qApp->setStyleSheet(css.readAll());
 		css.close();
