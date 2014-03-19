@@ -16,9 +16,9 @@ MainWindow::MainWindow(QWidget* parent) :
 {
 	ui->setupUi(this);
 	dao.connect();
-	ui->waybillTableView->setModel(dao.waybillModel());
+	ui->waybillListTableView->setModel(dao.waybillModel());
 
-	connect(ui->waybillTableView, SIGNAL(clicked(QModelIndex)), this, SLOT(on_waybillTableView_clicked(QModelIndex)));
+	connect(ui->waybillListTableView, SIGNAL(clicked(QModelIndex)), this, SLOT(on_waybillTableView_clicked(QModelIndex)));
 	connect(ui->waybillAddPushButton, SIGNAL(clicked()), this, SLOT(loadCss()));
 
 	loadCss();
