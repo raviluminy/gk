@@ -11,7 +11,7 @@ LogisticDao::~LogisticDao() {
 
 void
 LogisticDao::load() {
-	QSettings settings("../QTms/Logistic.DB.ini", QSettings::IniFormat);
+	QSettings settings("Logistic.DB.ini", QSettings::IniFormat);
 	settings.beginGroup("DB");
 	dbDriver       = settings.value("Driver")      .toString();
 	dbHostName     = settings.value("HostName")    .toString();
@@ -24,7 +24,7 @@ LogisticDao::load() {
 
 void
 LogisticDao::save() {
-	QSettings settings("../QTms/Logistic.DB.ini", QSettings::IniFormat);
+	QSettings settings("Logistic.DB.ini", QSettings::IniFormat);
 	settings.beginGroup("DB");
 	settings.setValue("Driver",       dbDriver);
 	settings.setValue("HostName",     dbHostName);
