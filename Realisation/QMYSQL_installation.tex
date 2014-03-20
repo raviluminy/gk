@@ -1,0 +1,93 @@
+%-------------------------------------------------------------------------------
+%
+%     CHARGEMENT DES EXTENSIONS
+%
+%-------------------------------------------------------------------------------
+
+\documentclass[11pt,fleqn]{report}
+\usepackage{GarmirKhatch}
+\usepackage{MjMcd}
+
+\definecolor{colone}{RGB}{209,220,204}
+\definecolor{coltwo}{RGB}{204,222,210}
+\definecolor{colthree}{RGB}{207,233,232}
+\definecolor{colfour}{RGB}{248,243,214}
+\definecolor{colfive}{RGB}{245,238,197}
+\definecolor{colsix}{RGB}{243,235,179}
+\definecolor{colseven}{RGB}{241,231,163}
+
+
+%-------------------------------------------------------------------------------
+%     Informations spécifiques au document
+%-------------------------------------------------------------------------------
+
+\ZTitle{Système de gestion des transports}
+\ZSubject{Manuel d'installation du driver QMYSQL}
+\ZVersion{0.1}
+\ZDate{\today}
+
+
+%-------------------------------------------------------------------------------
+%     Contenu
+%-------------------------------------------------------------------------------
+
+\begin{document}
+
+\ZMakeCover
+
+\ZMakeInformations{
+	% Historique des modifications
+	% Version & Date & Auteur(s) & Modification(s)
+	0.1 & 2014-03-06 & \Gairoard & Rédaction \\
+}{
+	% Historique des approbations
+	% Version & Date & Approbateur(s)
+	1.0 & - & - \\
+}{
+	% Historique des validations
+	% Version & Date & Responsable(s)
+	1.0 & - & - \\
+}
+
+\ZMakeTableOfContents
+
+% ======================================================================= %
+%     Ce fichier décrit la procédure d'installation du driver QMYSQL     %
+%     dans les environnements Windows, Lunix et Mac OSX.                  %
+% ======================================================================= %
+%     Auteur : Lionel GAIROARD                                            %
+% ----------------------------------------------------------------------- %
+
+\section{Installation manuelle du driver QMYSQL}
+\subsection{Comment compiler le plugin QMYSQL sous Unix et Mac OS X}
+Vous avez besoin des fichiers d'en-tête de MySQL ainsi que la bibliothèque partagée \textit{libmysqlclient.so}. \\
+Selon votre distribution Linux, vous devez peut-être installer un paquet qui est généralement appelé "mysql-dev".
+\\
+Dites à \textbf{qmake} où trouver les fichiers d'en-tête de MySQL et les bibliothèques partagées (ici, on suppose que MySQL est installé dans /usr/local) et lancez make :
+\begin{lstlisting}
+cd $QTDIR/src/plugins/sqldrivers/mysql
+qmake "INCLUDEPATH+=/usr/local/include" "LIBS+=-L/usr/local/lib -lmysqlclient_r" mysql.pro
+make
+\end{lstlisting}
+
+Après l'installation de Qt, vous devez également installer le plugin dans l'emplacement standard :
+\begin{lstlisting}
+cd $QTDIR/src/plugins/sqldrivers/mysql
+make install
+\end{lstlisting}
+
+\subsection{Comment compiler le plugin QMYSQL sous Windows}
+ Vous devez obtenir les fichiers d'installation de MySQL. Exécutez \textit{Setup.exe} et sélectionnez "Installation personnalisée". Installez le module "Libs \& Inclure les fichiers". Construire le plugin comme suit (ici on suppose que MySQL est installé dans C:\textbackslash MySQL) :
+\begin{lstlisting}
+cd %QTDIR%\src\plugins\sqldrivers\mysql
+qmake "INCLUDEPATH+=C:/MySQL/include" "LIBS+=C:/MYSQL/MySQL Server <version>/lib/opt/libmysql.lib" mysql.pro
+nmake
+\end{lstlisting}
+
+Si vous n'utilisez pas un compilateur Microsoft, remplacer \textbf{nmake} avec \textbf{make} dans la ligne ci-dessus.
+\\
+
+\textbf{Note} : Ce plugin de base de données n'est pas pris en charge pour Windows CE. \\
+\textbf{Note} : En ajoutant l'option "-o Makefile" comme argument de \textbf{qmake} (pour lui dire où construire le makefile) peut générer la construction du plugin en mode release seulement. Si vous vous attendez à une version de débogage compilée, n'utilisez pas l'option "-o Makefile".
+
+\end{document}
