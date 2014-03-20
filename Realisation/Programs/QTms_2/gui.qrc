@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/Gui">
+        <file>Icon/Glyph/Add.png</file>
+        <file>Icon/Glyph/Commit.png</file>
+        <file>Icon/Glyph/Exclamation.png</file>
+        <file>Icon/Glyph/Info.png</file>
+        <file>Icon/Glyph/Question.png</file>
+        <file>Icon/Glyph/Remove.png</file>
+        <file>Icon/Glyph/Rollback.png</file>
+        <file>Icon/Warnings/Medium/Error.png</file>
+        <file>Icon/Warnings/Medium/Idea.png</file>
+        <file>Icon/Warnings/Medium/Information.png</file>
+        <file>Icon/Warnings/Medium/Question.png</file>
+        <file>Icon/Warnings/Medium/Warning.png</file>
+        <file>Icon/cross.png</file>
+    </qresource>
+</RCC>
