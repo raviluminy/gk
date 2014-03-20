@@ -1,27 +1,4 @@
-/*------------------------------------------------------------------*/
-/*     GENERAL STYLESHEET
-/*------------------------------------------------------------------*/
-
-QTabWidget::pane {
-	border-top: 1px solid #CCC;
-	top: -1px;
-}
-
-QTabWidget::tab-bar {
-	left: 8px;
-}
-
-QTabBar::tab {
-	background-color: #FFF;
-	border-style: solid;
-	border-color: #CCC;
-	border-width: 0px 0px 1px 0px;
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-	padding: 8px 16px 8px 16px;
-}
-
-QWidget {
+QWidget{
 	background-color: #FFF;
 	font-family: "DejaVu Condensed", DejaVu, Arial, sans-serif;
 /*	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
@@ -32,24 +9,157 @@ QWidget {
 	border-width: 0px;
 }
 
-
-QFrame QWidget {
-	border: 0px;
+QMenuBar{
+	background-color: #F7F7F9;
+	border-color: #CCC;
+	border-style: solid;
+	border-width: 0px 0px 1px 0px;
+	color: #555;
+	font-weight: bold;
+}
+QMenuBar::item{
+	background-color: #F7F7F9;
+	padding: 16px;
+}
+QMenuBar::item:selected{
+	background-color: #E7E7E7;
+	color: #333;
+}
+QMenuBar::item:pressed{
+	background-color: #E7E7E7;
 }
 
-QFrame QScrollArea {
+/*------------------------------------------------------------------*/
+/*     GENERAL STYLESHEET
+/*------------------------------------------------------------------*/
+
+QTabWidget::pane {
+	border-top: 1px solid #CCC;
+	top: -1px;
+}
+QTabWidget::tab-bar {
+	left: 9px;
+}
+QTabBar::tab,
+QTabBar::tab:hover{
 	background-color: #FFF;
-	border-width: 0px;
-	border-radius: 4px;
+	border-style: solid;
+	border-color: #CCC;
+	border-width: 0px 0px 1px 0px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	color: blue;
+	padding: 8px 16px 8px 16px;
+}
+QTabBar::tab:hover {
+	background-color: #EBEBEB;
+}
+QTabBar::tab:selected,
+QTabBar::tab:selected:hover{
+	background-color: #F7F7F9;
+	border-bottom: 1px solid #F7F7F9;
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #CCC;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	color: #555;
+	padding: 8px 16px 8px 16px;
+}
+#driverTab,
+#providerTab,
+#requisitionTab,
+#vehicleTab,
+#waybillTab{
+	background-color: #F7F7F9;
 }
 
-QFrame QComboBox,
-QFrame QDateEdit,
-QFrame QLabel,
-QFrame QLineEdit,
-QFrame QProgressBar,
-QFrame QPushButton,
-QFrame QTextEdit {
+DataFrame{
+	background-color: #FFF;
+	border-color: #CCC;
+	border-style: solid;
+	border-width: 1px;
+}
+DataFrame QLabel{
+	background-color: #fff;
+	border-color: #ccc;
+	border-style: solid;
+	border-bottom-width: 1px;
+	color: #aaa;
+	font-weight: bold;
+	padding: 16px 8px 16px 8px;
+}
+DataFrame #waybillIdTitle,
+DataFrame #waybillTransportTitle,
+DataFrame #waybillStatusTitle,
+DataFrame #waybillPlanningTitle{
+	background-color: #fff;
+	background-image: url(Icon/Glyph/Expand.png);
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	border-color: #ccc;
+	border-style: solid;
+	border-width: 0px 0px 1px 0px;
+	color: #aaa;
+	font-weight: bold;
+	padding: 16px 8px 16px 8px;
+}
+DataFrame #waybillIdTitle:checked,
+DataFrame #waybillTransportTitle:checked,
+DataFrame #waybillStatusTitle:checked,
+DataFrame #waybillPlanningTitle:checked{
+	background-color: #fff;
+	background-image: url(Icon/Glyph/Collapse.png);
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	border-color: #ccc;
+	border-style: solid;
+	border-width: 0px 0px 1px 0px;
+	color: #aaa;
+	font-weight: bold;
+	padding: 16px 8px 16px 8px;
+}
+WidgetGroup QLabel{
+	background-color: #EEE;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-color: #CCC;
+	border-radius: 0px;
+	border-style: solid;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-width: 1px;
+	color: #555;
+	font-weight: normal;
+	padding: 8px 16px 8px 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+QStatusBar{
+	background-color:
+	/*
+	qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(173, 173, 173, 255), stop:1 rgba(255, 255, 255, 255));
+	*/
+	qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0.148, stop:0 rgba(206, 206, 206, 255), stop:1 rgba(255, 255, 255, 255));
+	border-color: #CCC;
+	border-style: solid;
+	border-width: 1px 0px 0px 0px;
+	padding: 8px 16px 8px 16px;
+}
+
+QComboBox{
+	background-color: #FFF;
 	border-color: #CCC;
 	border-radius: 0px;
 	border-style: solid;
@@ -57,19 +167,132 @@ QFrame QTextEdit {
 	color: #555;
 	padding: 8px 16px 8px 16px;
 }
-
-QFrame QComboBox,
-QFrame QDateEdit,
-QFrame QLineEdit,
-QFrame QProgressBar,
-QFrame QPushButton,
-QFrame QTextEdit {
+QComboBox:editable{
+	background-color: red;
+}
+QComboBox::down-arrow{
+	image: url(Icon/Glyph/Expand.png);
+}
+QComboBox::drop-down{
 	background-color: #FFF;
+	border-color: #CCC;
+	border-style: solid;
+	border-left-width: 1px;
+	width: 24px;
+}
+QComboBox:hover{
+	border-color: #ADADAD;
+	color: #333;
+}
+QComboBox::editable:hover{
+	border-color: #ADADAD;
+	color: #333;
+}
+QComboBox::drop-down:hover{
+	background-color: #EBEBEB;
+	border-color: #ADADAD;
+	border-style: solid;
+	border-left-width: 1px;
+	color: #333;
+}
+QDateEdit{
+	background-color: #FFF;
+	border-color: #CCC;
+	border-radius: 0px;
+	border-style: solid;
+	border-width: 1px;
+	color: #555;
+	padding: 8px 16px 8px 16px;
+}
+QProgressBar{
+	background-color: #FFF;
+	border-color: #CCC;
+	border-radius: 0px;
+	border-style: solid;
+	border-width: 1px;
+	color: #555;
+	padding: 8px 16px 8px 16px;
+}
+WidgetGroup QPushButton{
+	background-color: #FFF;
+	border-color: #CCC;
+	border-radius: 0px;
+	border-style: solid;
+	border-width: 1px;
+	color: #555;
+	padding: 8px 16px 8px 16px;
+}
+QLineEdit{
+	background-color: #FFF;
+	border-color: #CCC;
+	border-radius: 0px;
+	border-style: solid;
+	border-width: 1px;
+	color: #555;
+	padding: 8px 16px 8px 16px;
+}
+QScrollArea {
+	background-color: transparent;
+	border-width: 0px;
+	border-radius: 4px;
+}
+#waybillEditionScrollAreaWidgetContents{
+	background-color: transparent;
+}
+QTextEdit{
+	background-color: #FFF;
+	border-color: #CCC;
+	border-radius: 0px;
+	border-style: solid;
+	border-width: 1px;
+	color: #555;
+	padding: 8px 16px 8px 16px;
+}
+DataInteractionToolBar #addPushButton,
+DataInteractionToolBar #searchingLineEdit{
+	border-bottom-left-radius: 4px;
+	border-top-left-radius: 4px;
+}
+DataInteractionToolBar #commitPushButton,
+DataInteractionToolBar #searchingPushButton{
+	border-bottom-right-radius: 4px;
+	border-top-right-radius: 4px;
+}
+DataInteractionToolBar #removePushButton,
+DataInteractionToolBar #rollbackPushButton,
+DataInteractionToolBar #commitPushButton,
+DataInteractionToolBar #searchingPushButton{
+	border-left: 0px;
+}
+QProgressBar{
+	background-color: #5CB85C;
+	/*
+	background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	*/
+	color: #000;
+	/*background-color: #F5F5F5; fond*/
+}
+QLabel *[alert=success]{
+	background-color: #DFF0D8;
+	border-color: #D6E9C6;
+	color: #3C763D;
+}
+QLabel *[alert=info]{
+	background-color: #D9EDF7;
+	border-color: #BCE8F1;
+	color: #31708F;
+}
+QLabel *[alert=warning]{
+	background-color: #FCF8E3;
+	border-color: #FAEBCC;
+	color: #8A6D3B;
+}
+QLabel *[alert=error]{
+	background-color: #F2DEDE;
+	border-color: #EBCCD1;
+	color: #A94442;
 }
 
-QLabel {
-	background-color: #EEE;
-}
 
 QComboBox::down-arrow,
 QDateEdit::down-arrow {
@@ -110,25 +333,10 @@ QTextEdit:hover {
 
 QComboBox::drop-down:hover,
 QDateEdit::drop-down:hover,
-QPushButton:hover,
-QTabBar::tab:hover {
+QPushButton:hover{
 	background-color: #EBEBEB;
 }
 
-QTabBar::tab,
-QTabBar::tab:hover {
-	color: blue;
-}
-
-QTabBar::tab:selected,
-QTabBar::tab:selected:hover {
-	background-color: #FFF;
-	border-bottom: 1px solid #FFF;
-	border-left: 1px solid #CCC;
-	border-right: 1px solid #CCC;
-	border-top: 1px solid #CCC;
-	color: #555;
-}
 
 QComboBox::drop-down:pressed,
 QDateEdit::drop-down:pressed,
@@ -142,19 +350,15 @@ QTableView {
 	border-width: 0px;
 	border-radius: 0px;
 }
-
 QTableView QHeaderView {
 	background-color: transparent;
 	border-width: 0px;
 	color: #555;
 }
-
 QTableView QHeaderView::section {
 }
-
 QTableView QHeaderView::section:checked {
 }
-
 QTableView::item {
 	background-color: #FFF;
 	border-color: #888;
@@ -172,35 +376,6 @@ QTableView::item {
 
 
 
-
-/** NE PAS REMPLACER PAR QTabWidget QFrame POUR EMPECHER L'HERITAGE **/
-#waybillIdMainFrame,
-#waybillListMainFrame,
-#waybillPlanningMainFrame,
-#waybillStatusMainFrame,
-#waybillTransportMainFrame {
-	border-color: #CCC;
-	border-style: solid;
-	border-width: 1px;
-	border-radius: 4px;
-}
-
-/** NE PAS REMPLACER PAR QTabWidget QFrame QLabel POUR EMPECHER L'HERITAGE **/
-#waybillIdMainLabel,
-#waybillListMainLabel,
-#waybillPlanningMainLabel,
-#waybillStatusMainLabel,
-#waybillTransportMainLabel {
-	border-width: 0px 0px 1px 0px;
-/*	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: 0px;
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-*/	color: #555;
-	font-size: 14px;
-	font-variant: small-caps;
-	font-weight: bold;
-}
 
 /*------------------------------------------------------------------*/
 /*     BARRES D'OUTILS

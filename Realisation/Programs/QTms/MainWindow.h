@@ -21,9 +21,19 @@ public:
 
 public slots:
 
-	void on_waybillTableView_clicked(const QModelIndex index);
+//	void on_waybillTableView_clicked(const QModelIndex index);
 
 	void loadCss();
+
+private slots:
+
+	void on_waybillIdTitle_toggled(const bool checked);
+
+	void on_waybillPlanningTitle_toggled(const bool checked);
+
+	void on_waybillStatusTitle_toggled(const bool checked);
+
+	void on_waybillTransportTitle_toggled(const bool checked);
 
 private:
 

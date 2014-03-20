@@ -14,13 +14,22 @@ TEMPLATE = app
 
 SOURCES += Main.cpp\
         MainWindow.cpp \
-    LogisticDao.cpp
+    LogisticDao.cpp \
+    WidgetGroup.cpp \
+    DataInteractionToolBar.cpp \
+    DataFrame.cpp
 
 HEADERS  += MainWindow.h \
-    LogisticDao.h
+    LogisticDao.h \
+    WidgetGroup.h \
+    DataInteractionToolBar.h \
+    DataFrame.h
 
 FORMS    += \
-    MainWindow.ui
+    MainWindow.ui \
+    WidgetGroup.ui \
+    DataInteractionToolBar.ui \
+    DataFrame.ui
 
 RESOURCES += \
     Gui.qrc

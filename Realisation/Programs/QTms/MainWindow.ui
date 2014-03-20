@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
+   <layout class="QGridLayout" name="centralWidgetGridLayout">
     <property name="leftMargin">
      <number>0</number>
     </property>
@@ -28,7 +28,7 @@
      <number>0</number>
     </property>
     <property name="spacing">
-     <number>8</number>
+     <number>0</number>
     </property>
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
@@ -60,8 +60,18 @@
          <number>8</number>
         </property>
         <item row="0" column="1" colspan="2">
-         <widget class="QWidget" name="waybillActionBarWidget" native="true">
-          <layout class="QGridLayout" name="gridLayout_4">
+         <widget class="DataInteractionToolBar" name="waybillDataInteractionToolBar" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>16</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QWidget" name="waybillEditionConfirmMainWidget" native="true">
+          <layout class="QGridLayout" name="gridLayout_20">
            <property name="leftMargin">
             <number>0</number>
            </property>
@@ -77,8 +87,55 @@
            <property name="spacing">
             <number>8</number>
            </property>
-           <item row="0" column="6">
-            <spacer name="waybillActionBarHorizontalSpacer">
+           <item row="0" column="1">
+            <widget class="QWidget" name="waybillEditionConfirmWidget" native="true">
+             <layout class="QGridLayout" name="gridLayout_61">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QPushButton" name="waybillEditionOkPushButton">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Ok</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QPushButton" name="waybillEditionCancelPushButton">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Cancel</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <spacer name="waybillEditionConfirmHorizontalSpacer">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -89,129 +146,6 @@
               </size>
              </property>
             </spacer>
-           </item>
-           <item row="0" column="5">
-            <widget class="QWidget" name="waybillSearchWidget" native="true">
-             <layout class="QGridLayout" name="gridLayout_58">
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="rightMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
-               <number>0</number>
-              </property>
-              <property name="spacing">
-               <number>0</number>
-              </property>
-              <item row="0" column="1">
-               <widget class="QPushButton" name="waybillSearchPushButton">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Search</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QLineEdit" name="waybillSearchLineEdit">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="0" column="3">
-            <widget class="QWidget" name="waybillStandardActionBarWidget" native="true">
-             <layout class="QGridLayout" name="gridLayout_57">
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="rightMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
-               <number>0</number>
-              </property>
-              <property name="spacing">
-               <number>0</number>
-              </property>
-              <item row="0" column="1">
-               <widget class="QPushButton" name="waybillRemovePushButton">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Remove</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="3">
-               <widget class="QPushButton" name="waybillCommitPushButton">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Commit</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="2">
-               <widget class="QPushButton" name="waybillRollbackPushButton">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Rollback</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QPushButton" name="waybillAddPushButton">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true"/>
-                </property>
-                <property name="text">
-                 <string>Add</string>
-                </property>
-                <property name="default">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
            </item>
           </layout>
          </widget>
@@ -231,9 +165,9 @@
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-150</y>
-             <width>495</width>
-             <height>617</height>
+             <y>0</y>
+             <width>451</width>
+             <height>563</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="_2">
@@ -253,14 +187,11 @@
              <number>8</number>
             </property>
             <item row="4" column="0">
-             <widget class="QFrame" name="waybillStatusMainFrame">
-              <property name="frameShape">
-               <enum>QFrame::Box</enum>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Plain</enum>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_13">
+             <widget class="DataFrame" name="waybillStatusMainFrame">
+              <layout class="QVBoxLayout" name="verticalLayout_4">
+               <property name="spacing">
+                <number>0</number>
+               </property>
                <property name="leftMargin">
                 <number>0</number>
                </property>
@@ -273,39 +204,27 @@
                <property name="bottomMargin">
                 <number>0</number>
                </property>
-               <property name="spacing">
-                <number>0</number>
-               </property>
-               <item row="0" column="0" colspan="2">
-                <widget class="QLabel" name="waybillStatusMainLabel">
+               <item>
+                <widget class="QPushButton" name="waybillStatusTitle">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                    <horstretch>0</horstretch>
                    <verstretch>0</verstretch>
                   </sizepolicy>
                  </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>32</height>
-                  </size>
-                 </property>
                  <property name="text">
-                  <string>Status</string>
+                  <string>STATUS</string>
                  </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                 <property name="checkable">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="0" colspan="2">
+               <item>
                 <widget class="QWidget" name="waybillStatusWidget" native="true">
                  <layout class="QGridLayout" name="gridLayout_55">
                   <item row="0" column="0">
-                   <widget class="QFrame" name="waybillStatusFrame">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
+                   <widget class="WidgetGroup" name="waybillStatusWidget" native="true">
                     <layout class="QGridLayout" name="gridLayout_31">
                      <property name="leftMargin">
                       <number>0</number>
@@ -421,14 +340,11 @@
              </widget>
             </item>
             <item row="2" column="0">
-             <widget class="QFrame" name="waybillTransportMainFrame">
-              <property name="frameShape">
-               <enum>QFrame::Box</enum>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Plain</enum>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_52">
+             <widget class="DataFrame" name="waybillTransportMainFrame">
+              <layout class="QVBoxLayout" name="verticalLayout_2">
+               <property name="spacing">
+                <number>0</number>
+               </property>
                <property name="leftMargin">
                 <number>0</number>
                </property>
@@ -441,42 +357,27 @@
                <property name="bottomMargin">
                 <number>0</number>
                </property>
-               <property name="spacing">
-                <number>0</number>
-               </property>
-               <item row="0" column="2" colspan="3">
-                <widget class="QLabel" name="waybillTransportMainLabel">
+               <item>
+                <widget class="QPushButton" name="waybillTransportTitle">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                    <horstretch>0</horstretch>
                    <verstretch>0</verstretch>
                   </sizepolicy>
                  </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>32</height>
-                  </size>
-                 </property>
                  <property name="text">
-                  <string>Transport</string>
+                  <string>TRANSPORT</string>
                  </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                 <property name="checkable">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="2" colspan="3">
+               <item>
                 <widget class="QWidget" name="waybillTransportWidget" native="true">
                  <layout class="QGridLayout" name="gridLayout_56">
                   <item row="0" column="2">
-                   <widget class="QFrame" name="waybillTransportVehicleFrame">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Plain</enum>
-                    </property>
+                   <widget class="WidgetGroup" name="waybillTransportVehicleWidget" native="true">
                     <layout class="QGridLayout" name="gridLayout_51" rowminimumheight="0" columnminimumwidth="0,0,0,0">
                      <property name="leftMargin">
                       <number>0</number>
@@ -542,13 +443,7 @@
                    </widget>
                   </item>
                   <item row="1" column="2">
-                   <widget class="QFrame" name="waybillTransportRegistrationNoFrame">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Plain</enum>
-                    </property>
+                   <widget class="WidgetGroup" name="waybillTransportRegistrationNoWidget" native="true">
                     <layout class="QGridLayout" name="gridLayout_33">
                      <property name="leftMargin">
                       <number>0</number>
@@ -589,13 +484,7 @@
                    </widget>
                   </item>
                   <item row="0" column="0" rowspan="2">
-                   <widget class="QFrame" name="waybillTransportMeanImageFrame">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Plain</enum>
-                    </property>
+                   <widget class="WidgetGroup" name="waybillTransportMeanImageWidget" native="true">
                     <layout class="QGridLayout" name="gridLayout_17">
                      <property name="leftMargin">
                       <number>0</number>
@@ -644,18 +533,12 @@
                    </widget>
                   </item>
                   <item row="0" column="1" rowspan="2">
-                   <widget class="QFrame" name="waybillTransportMeanFrame">
+                   <widget class="WidgetGroup" name="waybillTransportMeanWidget" native="true">
                     <property name="sizePolicy">
                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                       <horstretch>0</horstretch>
                       <verstretch>0</verstretch>
                      </sizepolicy>
-                    </property>
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Plain</enum>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_53">
                      <property name="leftMargin">
@@ -763,11 +646,11 @@
              </widget>
             </item>
             <item row="1" column="0">
-             <widget class="QFrame" name="waybillIdMainFrame">
-              <property name="frameShape">
-               <enum>QFrame::Box</enum>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_15">
+             <widget class="DataFrame" name="waybillIdMainFrame">
+              <layout class="QVBoxLayout" name="verticalLayout">
+               <property name="spacing">
+                <number>0</number>
+               </property>
                <property name="leftMargin">
                 <number>0</number>
                </property>
@@ -780,20 +663,74 @@
                <property name="bottomMargin">
                 <number>0</number>
                </property>
-               <property name="spacing">
-                <number>0</number>
-               </property>
-               <item row="1" column="2" colspan="3">
+               <item>
+                <widget class="QPushButton" name="waybillIdTitle">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>WAYBILL ID</string>
+                 </property>
+                 <property name="checkable">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
                 <widget class="QWidget" name="waybillIdWidget" native="true">
                  <layout class="QGridLayout" name="gridLayout_54">
-                  <item row="1" column="1" colspan="2">
-                   <widget class="QFrame" name="waybillWarehouseFrame">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Plain</enum>
-                    </property>
+                  <item row="3" column="0">
+                   <widget class="WidgetGroup" name="waybillRequestDateWidget" native="true">
+                    <layout class="QGridLayout" name="gridLayout_29">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="spacing">
+                      <number>0</number>
+                     </property>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="waybillRequestDateLabel">
+                       <property name="text">
+                        <string>Request date</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QDateEdit" name="waybillRequestDateEdit">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                       <property name="calendarPopup">
+                        <bool>true</bool>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="3" column="1" colspan="2">
+                   <widget class="WidgetGroup" name="waybillWarehouseWidget" native="true">
                     <layout class="QGridLayout" name="gridLayout_30">
                      <property name="leftMargin">
                       <number>0</number>
@@ -858,105 +795,8 @@
                     </layout>
                    </widget>
                   </item>
-                  <item row="0" column="2">
-                   <widget class="QFrame" name="waybillRequisitionIdFrame">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Plain</enum>
-                    </property>
-                    <layout class="QGridLayout" name="gridLayout_28">
-                     <property name="leftMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="topMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="rightMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="bottomMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="spacing">
-                      <number>0</number>
-                     </property>
-                     <item row="0" column="0">
-                      <widget class="QLabel" name="waybillRequisitionIdLabel">
-                       <property name="text">
-                        <string>Requisition ID</string>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="0" column="1">
-                      <widget class="QComboBox" name="waybillRequisitionIdComboBox">
-                       <property name="frame">
-                        <bool>false</bool>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QFrame" name="waybillIdFrame">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Plain</enum>
-                    </property>
-                    <layout class="QGridLayout" name="gridLayout_27">
-                     <property name="leftMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="topMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="rightMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="bottomMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="spacing">
-                      <number>0</number>
-                     </property>
-                     <item row="1" column="1">
-                      <widget class="QLineEdit" name="waybillIdLineEdit">
-                       <property name="frame">
-                        <bool>false</bool>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="0">
-                      <widget class="QLabel" name="waybillIdLabel">
-                       <property name="text">
-                        <string>Waybill ID</string>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                  <item row="0" column="0">
-                   <widget class="QFrame" name="waybillCountryCodeFrame">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Plain</enum>
-                    </property>
+                  <item row="2" column="0">
+                   <widget class="WidgetGroup" name="waybillCountryCodeWidget" native="true">
                     <layout class="QGridLayout" name="gridLayout_26">
                      <property name="leftMargin">
                       <number>0</number>
@@ -996,15 +836,9 @@
                     </layout>
                    </widget>
                   </item>
-                  <item row="1" column="0">
-                   <widget class="QFrame" name="waybillRequestDateFrame">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Plain</enum>
-                    </property>
-                    <layout class="QGridLayout" name="gridLayout_29">
+                  <item row="2" column="2">
+                   <widget class="WidgetGroup" name="waybillRequisitionIdWidget" native="true">
+                    <layout class="QGridLayout" name="gridLayout_28">
                      <property name="leftMargin">
                       <number>0</number>
                      </property>
@@ -1021,9 +855,9 @@
                       <number>0</number>
                      </property>
                      <item row="0" column="0">
-                      <widget class="QLabel" name="waybillRequestDateLabel">
+                      <widget class="QLabel" name="waybillRequisitionIdLabel">
                        <property name="text">
-                        <string>Request date</string>
+                        <string>Requisition ID</string>
                        </property>
                        <property name="alignment">
                         <set>Qt::AlignCenter</set>
@@ -1031,18 +865,50 @@
                       </widget>
                      </item>
                      <item row="0" column="1">
-                      <widget class="QDateEdit" name="waybillRequestDateEdit">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
+                      <widget class="QComboBox" name="waybillRequisitionIdComboBox">
+                       <property name="frame">
+                        <bool>false</bool>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="WidgetGroup" name="waybillIdWidget" native="true">
+                    <layout class="QGridLayout" name="gridLayout_27">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="spacing">
+                      <number>0</number>
+                     </property>
+                     <item row="1" column="1">
+                      <widget class="QLineEdit" name="waybillIdLineEdit">
+                       <property name="frame">
+                        <bool>false</bool>
                        </property>
                        <property name="alignment">
                         <set>Qt::AlignCenter</set>
                        </property>
-                       <property name="calendarPopup">
-                        <bool>true</bool>
+                      </widget>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="waybillIdLabel">
+                       <property name="text">
+                        <string>Waybill ID</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
                        </property>
                       </widget>
                      </item>
@@ -1050,41 +916,22 @@
                    </widget>
                   </item>
                  </layout>
-                 <zorder>waybillRequisitionIdFrame</zorder>
-                 <zorder>waybillIdFrame</zorder>
-                 <zorder>waybillRequestDateFrame</zorder>
-                 <zorder>waybillWarehouseFrame</zorder>
-                 <zorder>waybillCountryCodeFrame</zorder>
-                </widget>
-               </item>
-               <item row="0" column="2" colspan="3">
-                <widget class="QLabel" name="waybillIdMainLabel">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>32</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Waybill ID</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
+                 <zorder>waybillRequisitionIdWidget</zorder>
+                 <zorder>waybillIdWidget</zorder>
+                 <zorder>waybillRequestDateWidget</zorder>
+                 <zorder>waybillWarehouseWidget</zorder>
+                 <zorder>waybillCountryCodeWidget</zorder>
                 </widget>
                </item>
               </layout>
              </widget>
             </item>
             <item row="3" column="0">
-             <widget class="QFrame" name="waybillPlanningMainFrame">
-              <property name="frameShape">
-               <enum>QFrame::Box</enum>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Plain</enum>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_9">
+             <widget class="DataFrame" name="waybillPlanningMainFrame">
+              <layout class="QVBoxLayout" name="verticalLayout_3">
+               <property name="spacing">
+                <number>0</number>
+               </property>
                <property name="leftMargin">
                 <number>0</number>
                </property>
@@ -1097,33 +944,27 @@
                <property name="bottomMargin">
                 <number>0</number>
                </property>
-               <property name="spacing">
-                <number>0</number>
-               </property>
-               <item row="0" column="0">
-                <widget class="QLabel" name="waybillPlanningMainLabel">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>32</height>
-                  </size>
+               <item>
+                <widget class="QPushButton" name="waybillPlanningTitle">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
                  </property>
                  <property name="text">
-                  <string>Planning</string>
+                  <string>PLANNING</string>
                  </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                 <property name="checkable">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="0">
+               <item>
                 <widget class="QWidget" name="waybillPlanningWidget" native="true">
                  <layout class="QGridLayout" name="gridLayout_10">
                   <item row="0" column="0">
-                   <widget class="QFrame" name="waybillPlanningFrame">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
+                   <widget class="WidgetGroup" name="waybillPlanningWidget" native="true">
                     <layout class="QGridLayout" name="gridLayout_3">
                      <property name="leftMargin">
                       <number>0</number>
@@ -1851,83 +1692,15 @@
           </widget>
          </widget>
         </item>
-        <item row="1" column="1" rowspan="2">
-         <widget class="QFrame" name="waybillListMainFrame">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
+        <item row="1" column="1">
+         <widget class="DataFrame" name="waybillListDataFrame">
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
           </property>
           <property name="frameShadow">
-           <enum>QFrame::Plain</enum>
+           <enum>QFrame::Raised</enum>
           </property>
-          <layout class="QGridLayout" name="gridLayout_16">
-           <property name="leftMargin">
-            <number>0</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
-            <number>0</number>
-           </property>
-           <item row="1" column="0">
-            <widget class="QTableView" name="waybillListTableView">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="showGrid">
-              <bool>false</bool>
-             </property>
-             <property name="cornerButtonEnabled">
-              <bool>false</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="waybillListMainLabel">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>32</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>32</height>
-              </size>
-             </property>
-             <property name="text">
-              <string>Waybill list</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="2" column="2">
-         <widget class="QWidget" name="waybillEditionConfirmMainWidget" native="true">
-          <layout class="QGridLayout" name="gridLayout_20">
+          <layout class="QGridLayout" name="waybillListDataFrameGridLayout">
            <property name="leftMargin">
             <number>0</number>
            </property>
@@ -1941,67 +1714,27 @@
             <number>0</number>
            </property>
            <property name="spacing">
-            <number>8</number>
+            <number>0</number>
            </property>
-           <item row="0" column="1">
-            <widget class="QWidget" name="waybillEditionConfirmWidget" native="true">
-             <layout class="QGridLayout" name="gridLayout_61">
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="rightMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
-               <number>0</number>
-              </property>
-              <property name="spacing">
-               <number>0</number>
-              </property>
-              <item row="0" column="0">
-               <widget class="QPushButton" name="waybillEditionOkPushButton">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Ok</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
-               <widget class="QPushButton" name="waybillEditionCancelPushButton">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Cancel</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
+           <item row="0" column="0">
+            <widget class="QLabel" name="waybillListLabel">
+             <property name="text">
+              <string>WAYBILL LIST</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
             </widget>
            </item>
-           <item row="0" column="0">
-            <spacer name="waybillEditionConfirmHorizontalSpacer">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
+           <item row="1" column="0">
+            <widget class="QTableView" name="waybillListTableView">
+             <property name="showGrid">
+              <bool>false</bool>
              </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
+             <property name="cornerButtonEnabled">
+              <bool>false</bool>
              </property>
-            </spacer>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -2049,7 +1782,7 @@
              <x>0</x>
              <y>0</y>
              <width>495</width>
-             <height>617</height>
+             <height>607</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="_3">
@@ -2118,10 +1851,7 @@
                 <widget class="QWidget" name="waybillStatusWidget_2" native="true">
                  <layout class="QGridLayout" name="gridLayout_64">
                   <item row="0" column="0">
-                   <widget class="QFrame" name="waybillStatusFrame_2">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
+                   <widget class="WidgetGroup" name="waybillStatusWidget_2" native="true">
                     <layout class="QGridLayout" name="gridLayout_32">
                      <property name="leftMargin">
                       <number>0</number>
@@ -2285,193 +2015,13 @@
                <item row="1" column="2" colspan="3">
                 <widget class="QWidget" name="waybillTransportWidget_2" native="true">
                  <layout class="QGridLayout" name="gridLayout_66">
-                  <item row="0" column="2">
-                   <widget class="QFrame" name="waybillTransportVehicleFrame_2">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Plain</enum>
-                    </property>
-                    <layout class="QGridLayout" name="gridLayout_67" rowminimumheight="0" columnminimumwidth="0,0,0,0">
-                     <property name="leftMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="topMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="rightMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="bottomMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="spacing">
-                      <number>0</number>
-                     </property>
-                     <item row="0" column="1">
-                      <widget class="QLabel" name="waybillTransportVehicleLabel_2">
-                       <property name="text">
-                        <string>Vehicle</string>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="0" column="3">
-                      <widget class="QPushButton" name="waybillTransportVehiclePushButton_2">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="minimumSize">
-                        <size>
-                         <width>24</width>
-                         <height>0</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>24</width>
-                         <height>16777215</height>
-                        </size>
-                       </property>
-                       <property name="text">
-                        <string>...</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="0" column="2">
-                      <widget class="QLineEdit" name="waybillTransportVehicleLineEdit_2">
-                       <property name="frame">
-                        <bool>false</bool>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                  <item row="1" column="2">
-                   <widget class="QFrame" name="waybillTransportRegistrationNoFrame_2">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Plain</enum>
-                    </property>
-                    <layout class="QGridLayout" name="gridLayout_68">
-                     <property name="leftMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="topMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="rightMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="bottomMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="spacing">
-                      <number>0</number>
-                     </property>
-                     <item row="0" column="0">
-                      <widget class="QLabel" name="waybillTransportRegistrationNoLabel_2">
-                       <property name="text">
-                        <string>Registration n°</string>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="0" column="1">
-                      <widget class="QLineEdit" name="waybillTransportRegistrationNoLineEdit_2">
-                       <property name="frame">
-                        <bool>false</bool>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                  <item row="0" column="0" rowspan="2">
-                   <widget class="QFrame" name="waybillTransportMeanImageFrame_2">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Plain</enum>
-                    </property>
-                    <layout class="QGridLayout" name="gridLayout_22">
-                     <property name="leftMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="topMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="rightMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="bottomMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="verticalSpacing">
-                      <number>0</number>
-                     </property>
-                     <item row="0" column="0">
-                      <widget class="QLabel" name="waybillTransportMeanImageLabel_2">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="minimumSize">
-                        <size>
-                         <width>72</width>
-                         <height>72</height>
-                        </size>
-                       </property>
-                       <property name="sizeIncrement">
-                        <size>
-                         <width>1</width>
-                         <height>1</height>
-                        </size>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
                   <item row="0" column="1" rowspan="2">
-                   <widget class="QFrame" name="waybillTransportMeanFrame_2">
+                   <widget class="WidgetGroup" name="waybillTransportMeanWidget_2" native="true">
                     <property name="sizePolicy">
                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                       <horstretch>0</horstretch>
                       <verstretch>0</verstretch>
                      </sizepolicy>
-                    </property>
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Plain</enum>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_69">
                      <property name="leftMargin">
@@ -2572,6 +2122,162 @@
                     </layout>
                    </widget>
                   </item>
+                  <item row="0" column="0" rowspan="2">
+                   <widget class="WidgetGroup" name="waybillTransportMeanImageWidget_2" native="true">
+                    <layout class="QGridLayout" name="gridLayout_22">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="verticalSpacing">
+                      <number>0</number>
+                     </property>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="waybillTransportMeanImageLabel_2">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="minimumSize">
+                        <size>
+                         <width>72</width>
+                         <height>72</height>
+                        </size>
+                       </property>
+                       <property name="sizeIncrement">
+                        <size>
+                         <width>1</width>
+                         <height>1</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="WidgetGroup" name="waybillTransportRegistrationNoWidget_2" native="true">
+                    <layout class="QGridLayout" name="gridLayout_68">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="spacing">
+                      <number>0</number>
+                     </property>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="waybillTransportRegistrationNoLabel_2">
+                       <property name="text">
+                        <string>Registration n°</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QLineEdit" name="waybillTransportRegistrationNoLineEdit_2">
+                       <property name="frame">
+                        <bool>false</bool>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="WidgetGroup" name="waybillTransportVehicleWidget_2" native="true">
+                    <layout class="QGridLayout" name="gridLayout_67" rowminimumheight="0" columnminimumwidth="0,0,0,0">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="spacing">
+                      <number>0</number>
+                     </property>
+                     <item row="0" column="1">
+                      <widget class="QLabel" name="waybillTransportVehicleLabel_2">
+                       <property name="text">
+                        <string>Vehicle</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="3">
+                      <widget class="QPushButton" name="waybillTransportVehiclePushButton_2">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="minimumSize">
+                        <size>
+                         <width>24</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>24</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>...</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="2">
+                      <widget class="QLineEdit" name="waybillTransportVehicleLineEdit_2">
+                       <property name="frame">
+                        <bool>false</bool>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
                  </layout>
                 </widget>
                </item>
@@ -2622,10 +2328,7 @@
                 <widget class="QWidget" name="waybillPlanningWidget_2" native="true">
                  <layout class="QGridLayout" name="gridLayout_25">
                   <item row="0" column="0">
-                   <widget class="QFrame" name="waybillPlanningFrame_2">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
+                   <widget class="WidgetGroup" name="waybillPlanningWidget_2" native="true">
                     <layout class="QGridLayout" name="gridLayout_76">
                      <property name="leftMargin">
                       <number>0</number>
@@ -3373,61 +3076,8 @@
                <item row="1" column="2" colspan="3">
                 <widget class="QWidget" name="requisitionIdWidget" native="true">
                  <layout class="QGridLayout" name="gridLayout_70">
-                  <item row="0" column="1">
-                   <widget class="QFrame" name="requisitionIdFrame">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Plain</enum>
-                    </property>
-                    <layout class="QGridLayout" name="gridLayout_73">
-                     <property name="leftMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="topMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="rightMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="bottomMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="spacing">
-                      <number>0</number>
-                     </property>
-                     <item row="1" column="1">
-                      <widget class="QLineEdit" name="requisitionIdLineEdit">
-                       <property name="frame">
-                        <bool>false</bool>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="0">
-                      <widget class="QLabel" name="requisitionIdLabel">
-                       <property name="text">
-                        <string>Requisition ID</string>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
                   <item row="0" column="0">
-                   <widget class="QFrame" name="requisitionCountryCodeFrame">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Plain</enum>
-                    </property>
+                   <widget class="WidgetGroup" name="requisitionCountryCodeWidget" native="true">
                     <layout class="QGridLayout" name="gridLayout_74">
                      <property name="leftMargin">
                       <number>0</number>
@@ -3467,14 +3117,49 @@
                     </layout>
                    </widget>
                   </item>
+                  <item row="0" column="1">
+                   <widget class="WidgetGroup" name="requisitionIdWidget" native="true">
+                    <layout class="QGridLayout" name="gridLayout_73">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="spacing">
+                      <number>0</number>
+                     </property>
+                     <item row="1" column="1">
+                      <widget class="QLineEdit" name="requisitionIdLineEdit">
+                       <property name="frame">
+                        <bool>false</bool>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="requisitionIdLabel">
+                       <property name="text">
+                        <string>Requisition ID</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
                   <item row="1" column="0">
-                   <widget class="QFrame" name="waybillRequestDateFrame_2">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Plain</enum>
-                    </property>
+                   <widget class="WidgetGroup" name="waybillRequestDateWidget_2" native="true">
                     <layout class="QGridLayout" name="gridLayout_75">
                      <property name="leftMargin">
                       <number>0</number>
@@ -3521,13 +3206,7 @@
                    </widget>
                   </item>
                   <item row="1" column="1">
-                   <widget class="QFrame" name="waybillWarehouseFrame_2">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Plain</enum>
-                    </property>
+                   <widget class="WidgetGroup" name="waybillWarehouseWidget_2" native="true">
                     <layout class="QGridLayout" name="gridLayout_71">
                      <property name="leftMargin">
                       <number>0</number>
@@ -3619,160 +3298,13 @@
          </widget>
         </item>
         <item row="0" column="0" colspan="2">
-         <widget class="QWidget" name="waybillActionBarWidget_2" native="true">
-          <layout class="QGridLayout" name="gridLayout_14">
-           <property name="leftMargin">
-            <number>0</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
-            <number>0</number>
-           </property>
-           <property name="spacing">
-            <number>8</number>
-           </property>
-           <item row="0" column="6">
-            <spacer name="waybillActionBarHorizontalSpacer_2">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="0" column="5">
-            <widget class="QWidget" name="waybillSearchWidget_2" native="true">
-             <layout class="QGridLayout" name="gridLayout_59">
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="rightMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
-               <number>0</number>
-              </property>
-              <property name="spacing">
-               <number>0</number>
-              </property>
-              <item row="0" column="1">
-               <widget class="QPushButton" name="waybillSearchPushButton_2">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Search</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QLineEdit" name="waybillSearchLineEdit_2">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="0" column="3">
-            <widget class="QWidget" name="waybillStandardActionBarWidget_2" native="true">
-             <layout class="QGridLayout" name="gridLayout_60">
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="rightMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
-               <number>0</number>
-              </property>
-              <property name="spacing">
-               <number>0</number>
-              </property>
-              <item row="0" column="1">
-               <widget class="QPushButton" name="waybillRemovePushButton_2">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Remove</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="3">
-               <widget class="QPushButton" name="waybillCommitPushButton_2">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Commit</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="2">
-               <widget class="QPushButton" name="waybillRollbackPushButton_2">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Rollback</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QPushButton" name="waybillAddPushButton_2">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true"/>
-                </property>
-                <property name="text">
-                 <string>Add</string>
-                </property>
-                <property name="default">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-          </layout>
+         <widget class="DataInteractionToolBar" name="requisitionDataInteractionToolBar" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>16</height>
+           </size>
+          </property>
          </widget>
         </item>
         <item row="2" column="1">
@@ -3956,6 +3488,42 @@
         <property name="spacing">
          <number>8</number>
         </property>
+        <item row="3" column="0">
+         <widget class="QPushButton" name="pushButton">
+          <property name="text">
+           <string>PushButton</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="DataInteractionToolBar" name="driverDataInteractionToolBar" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>16</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QToolButton" name="toolButton">
+          <property name="text">
+           <string>...</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QTableView" name="tableView"/>
+        </item>
+        <item row="2" column="0">
+         <widget class="QDial" name="dial"/>
+        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="vehicleTab">
@@ -3983,160 +3551,13 @@
          <number>8</number>
         </property>
         <item row="0" column="0">
-         <widget class="QWidget" name="vehicleActionBarWidget" native="true">
-          <layout class="QGridLayout" name="gridLayout_37">
-           <property name="leftMargin">
-            <number>0</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
-            <number>0</number>
-           </property>
-           <property name="spacing">
-            <number>8</number>
-           </property>
-           <item row="0" column="6">
-            <spacer name="vehicleActionBarHorizontalSpacer">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="0" column="5">
-            <widget class="QWidget" name="vehicleSearchWidget" native="true">
-             <layout class="QGridLayout" name="gridLayout_85">
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="rightMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
-               <number>0</number>
-              </property>
-              <property name="spacing">
-               <number>0</number>
-              </property>
-              <item row="0" column="1">
-               <widget class="QPushButton" name="vehicleSearchPushButton">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Search</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QLineEdit" name="vehicleSearchLineEdit">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="0" column="3">
-            <widget class="QWidget" name="vehicleStandardActionBarWidget" native="true">
-             <layout class="QGridLayout" name="gridLayout_86">
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="rightMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
-               <number>0</number>
-              </property>
-              <property name="spacing">
-               <number>0</number>
-              </property>
-              <item row="0" column="1">
-               <widget class="QPushButton" name="vehicleRemovePushButton">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Remove</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="3">
-               <widget class="QPushButton" name="vehicleCommitPushButton">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Commit</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="2">
-               <widget class="QPushButton" name="vehicleRollbackPushButton">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Rollback</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QPushButton" name="vehicleAddPushButton">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true"/>
-                </property>
-                <property name="text">
-                 <string>Add</string>
-                </property>
-                <property name="default">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-          </layout>
+         <widget class="DataInteractionToolBar" name="vehicleDataInteractionToolBar" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>16</height>
+           </size>
+          </property>
          </widget>
         </item>
         <item row="1" column="0">
@@ -4239,7 +3660,7 @@
         <property name="spacing">
          <number>8</number>
         </property>
-        <item row="1" column="0">
+        <item row="2" column="0">
          <widget class="QFrame" name="providerTableMainFrame">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
@@ -4313,161 +3734,14 @@
           </layout>
          </widget>
         </item>
-        <item row="0" column="0">
-         <widget class="QWidget" name="providerActionBarWidget" native="true">
-          <layout class="QGridLayout" name="gridLayout_38">
-           <property name="leftMargin">
-            <number>0</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
-            <number>0</number>
-           </property>
-           <property name="spacing">
-            <number>8</number>
-           </property>
-           <item row="0" column="6">
-            <spacer name="providerActionBarHorizontalSpacer">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="0" column="5">
-            <widget class="QWidget" name="providerSearchWidget" native="true">
-             <layout class="QGridLayout" name="gridLayout_87">
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="rightMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
-               <number>0</number>
-              </property>
-              <property name="spacing">
-               <number>0</number>
-              </property>
-              <item row="0" column="1">
-               <widget class="QPushButton" name="providerSearchPushButton">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Search</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QLineEdit" name="providerSearchLineEdit">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="0" column="3">
-            <widget class="QWidget" name="providerStandardActionBarWidget" native="true">
-             <layout class="QGridLayout" name="gridLayout_88">
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="rightMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
-               <number>0</number>
-              </property>
-              <property name="spacing">
-               <number>0</number>
-              </property>
-              <item row="0" column="1">
-               <widget class="QPushButton" name="providerRemovePushButton">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Remove</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="3">
-               <widget class="QPushButton" name="providerCommitPushButton">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Commit</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="2">
-               <widget class="QPushButton" name="providerRollbackPushButton">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Rollback</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QPushButton" name="providerAddPushButton">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true"/>
-                </property>
-                <property name="text">
-                 <string>Add</string>
-                </property>
-                <property name="default">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-          </layout>
+        <item row="1" column="0">
+         <widget class="DataInteractionToolBar" name="providerDataInteractionToolBar" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>16</height>
+           </size>
+          </property>
          </widget>
         </item>
        </layout>
@@ -4511,19 +3785,27 @@
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="waybillAddAction">
-   <property name="icon">
-    <iconset>
-     <normaloff>:/gui/icon/add.png</normaloff>:/gui/icon/add.png</iconset>
-   </property>
-   <property name="text">
-    <string>Add</string>
-   </property>
-   <property name="toolTip">
-    <string>Create a new waybill/delivery note</string>
-   </property>
-  </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>WidgetGroup</class>
+   <extends>QWidget</extends>
+   <header>WidgetGroup.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>DataInteractionToolBar</class>
+   <extends>QWidget</extends>
+   <header>DataInteractionToolBar.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>DataFrame</class>
+   <extends>QFrame</extends>
+   <header>DataFrame.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="Gui.qrc"/>
  </resources>
