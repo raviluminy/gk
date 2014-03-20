@@ -24,6 +24,13 @@ Annexe/RI/[^/]*.pdf
 Conception/CdCF.pdf
 Realisation/DAT.pdf
 
+# Logs de la table des figures et de la liste des tableaux
+Realisation/[^/]*.lof
+Realisation/[^/]*.lot
+
+# Les fichiers de sauvegarde temporaires de Dia
+Realisation/[^/]*.autosave
+
 # Open/Libre Office lock files
 .~lock.*
 
