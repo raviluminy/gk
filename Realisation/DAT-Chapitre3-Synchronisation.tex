@@ -171,51 +171,51 @@ Si c'est le cas, le serveur rejette les modifications locales.
 
 % ------------------------------------------------------------------------------
 \subsection{Gestion des conflits}
-Durant la synchronisation, que ce soit en mode connecté ou hors-ligne, des conflits peuvent survenir au niveau du contenu des informations.
+Durant la synchronisation, des conflits peuvent survenir au niveau du contenu des informations.
 Dans ce cas, l'utilisateur est averti du conflit et des informations qu'il touche et il lui revient le soin de les gérer en choisissant explicitement ce qui est correct et qui doit être enregistré sur le serveur.
 \\
 Afin de savoir si la version des informations sur le serveur est plus récente (ou plus vieille) que la version locale, un horodatage est mis en place tel que~:
 \begin{itemize}
     \item chaque modification locale est horodatée avec l'heure locale~;
-    \item à la synchronisation, l'écart temporel entre l'heure locale et l'heure serveur est mesuré\footnote{Par exemple, supposons que la machine locale retarde de deux heures~: si une information a été modifiée à 17h (heure serveur) et qu'une modification est apportée à 16h le même jour en local, l'écart de deux heures entre les deux machines est mesuré lors de la synchronisation (i.e. deux heures) et permet de dater réellement la modification en local et ainsi déterminer laquelle succède à l'autre. À cette fin, l'application enregistre les éventuels changements d'heure opérés en local pour notifier le serveur des écarts d'horodatage.}.
+    \item à la synchronisation, l'écart temporel entre l'heure locale et l'heure serveur est mesuré\footnote{Par exemple, supposons que la machine locale retarde de deux heures~: si une information a été modifiée à 17h (heure serveur) et qu'une modification est apportée à 16h le même jour en local, l'écart de temps entre les deux machines est mesuré lors de la synchronisation (i.e. deux heures) et permet de dater réellement la modification en local et ainsi déterminer laquelle succède à l'autre.}.
 \end{itemize}
+Les activités "ajout d'une donnée" (Fig. \ref{SyncAddData}), "modification d'une donnée" (Fig. \ref{SyncModifData}), et "synchronisation" (Fig. \ref{SyncSynchronisation}) représentent les actions réalisées par le programme.
+
+\newpage
+\paragraph{Ajout d'une donnée}
+\begin{bigcenter}
+    \begin{figure}[h]
+        \centering
+        \scalebox{0.7}{\input{Sync_AddData.tex}}
+        \caption{Diagramme d'activité : Ajout d'une donnée}
+        \label{SyncAddData}
+    \end{figure}
+\end{bigcenter}
+
+\newpage
+\paragraph{Modification d'une donnée}
+\begin{bigcenter}
+    \begin{figure}[h]
+        \centering
+        \scalebox{0.7}{\input{Sync_ModifData.tex}}
+        \caption{Diagramme d'activité : Modification d'une donnée}
+        \label{SyncModifData}
+    \end{figure}
+\end{bigcenter}
+
+\newpage
+\paragraph{Synchronisation des données}
+\begin{bigcenter}
+    \begin{figure}[h]
+        \centering
+        \scalebox{0.7}{\input{Sync_Synchronisation.tex}}
+        \caption{Diagramme d'activité : Synchronisation des données}
+        \label{SyncSynchronisation}
+    \end{figure}
+\end{bigcenter}
+
 % Fin de la sous-section [Gestin des conflits]
 % ------------------------------------------------------------------------------
-
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-\subsubsection{Ajout d'une donnée}
-
-\begin{bigcenter}
-\begin{tikzpicture} 
-	\begin{umlseqdiag}
-		\umlactor[class=Utilisateur]{u}
-		\umlobject[class={Application locale}]{al}
-		\umldatabase[class={BDD locale}]{bdl}
-		\umlobject[class=Application serveur]{as}
-		\umldatabase[class=BDD serveur]{bds}
-		\begin{umlcall}[op={Ajout d'une donnée}, dt=5]{u}{al}
-			\begin{umlcall}[op={Vérif. données}]{al}{al} 
-			\end{umlcall}
-			\begin{umlfragment}[type=alt, label={Données incorrectes}, inner xsep=5]
-				\begin{umlcall}[op={Erreur}]{al}{u} 
-				\end{umlcall}
-			\umlfpart[{Donnees correctes}]
-				\begin{umlcall}[op={Check connection}]{al}{al} 
-				\end{umlcall}
-				\begin{umlfragment}[type=alt, label={Mode connecté}, inner xsep=5]
-					\begin{umlcall}[op={Erreur}]{al}{u} 
-					\end{umlcall}
-				\umlfpart[{Mode hors ligne}]
-					\begin{umlcall}[op={Vérification des données}]{al}{al} 
-					\end{umlcall}
-				\end{umlfragment} 
-			\end{umlfragment} 
-		\end{umlcall}
-	\end{umlseqdiag} 
-\end{tikzpicture}
-\end{bigcenter}
-% Fin de la sous-sous-section [Ajout d'une donnée]
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 
 % Fin de la section [Synchronisation]
