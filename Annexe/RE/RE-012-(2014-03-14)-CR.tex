@@ -13,8 +13,8 @@
 
 \ZTitle{Système de gestion des transports}
 \ZSubject{CR - Réunion du 2014-03-14}
-\ZVersion{1.0}
-\ZDate{2014-03-15}
+\ZVersion{1.1}
+\ZDate{2014-03-20}
 \ZAuthor{\Balde,\\\Cadon,\\\Gairoard,\\\Julien,\\\Lericolais,\\\Mezelle,\\\Pachy,\\\SuangaWeto,\\\Toure}
 
 %-------------------------------------------------------------------------------
@@ -29,21 +29,23 @@
 	% Historique des modifications
 	% Version & Date & Auteur(s) & Modification(s)
 	1.0 & 2014-03-15 & \Pachy & Rédaction \\
+	\midrule
+	1.1 & 2014-03-20 & \Toure & Relecture et modification \\
 }{
 	% Historique des approbations
 	% Version & Date & Approbateur(s)
-	1.0 & - & - \\
+	1.1 & - & - \\
 }{
 	% Historique des validations
 	% Version & Date & Responsable(s)
-	1.1 & - & \Agopian \\
+	1.2 & - & \Agopian \\
 }
 
 \chapter*{Compte-rendu}
 \setcounter{chapter}{1}
 
 \section{Préambule}
-Ce document rend compte de la réunion du vendredi matin 2014-03-14, qui s'est déroulée au département informatique du campus universitaire de Saint-Charles à Marseille de \textbf{09h05 à 10h45}, entre la maîtrise d'ouvrage \mo et son assistance à maîtrise d'ouvrage \amo.
+Ce document rend compte de la réunion du vendredi matin 2014-03-14, qui s'est déroulée au département informatique du campus universitaire de Saint-Charles à Marseille de \textbf{09h10 à 11h30}, entre la maîtrise d'ouvrage \mo et son assistance à maîtrise d'ouvrage \amo.
 
 Étaient présents lors de la réunion~:
 \begin{itemize}
@@ -71,7 +73,12 @@ Excusés~:
 % ==============================================================================
 \section{Présentation du travail de la semaine}
 
-\amo a présenté le travail réalisé cette semaine, qui s'est principalement axé autour de la base de données. 
+\amo a présenté le travail réalisé, qui s'est axé autour de 3 points principaux ~:
+\begin{itemize}
+      \item  La construction de la base de données~: Le modèle conceptuel de données(MCD) et le diagramme des classes ;
+      \item L'authentification avec LDAP ;
+      \item Le développement  de la maquette du logiciel avec Qt.
+      \end{itemize} 
 
 % Fin de la section [Présentation du travail de la semaine]
 % ==============================================================================
@@ -85,7 +92,7 @@ Les sections suivantes traitent des remarques émises par \mo.
 \subsection{Organisationnelles}
 
 Les compte-rendus doivent se terminer par une liste des tâches sous forme de tableau RACI (Responsible, Accountable, Consulted, Informed) plutôt que par une section \og{}Pour la prochaine fois\fg{}.\\
-Les soutanances de projet se dérouleront le 27/03/2014, et la démonstration le 28/03/2014. Il faudra préparer une présentation pour le jour de la soutenance et insister sur l'aspect organisationnel (chef de groupe, découpage des tâches), et justifier les choix techniques réalisés (e.g. pourquoi n'y a-t-il pas d'interface web). De plus, il conviendra de mettre en avant l'aspect visuel inhérent à une démonstration.\\
+Les soutenances de projet se dérouleront le 27/03/2014, et la démonstration le 28/03/2014. Il faudra préparer une présentation pour le jour de la soutenance et insister sur l'aspect organisationnel (chef de groupe, découpage des tâches), et justifier les choix techniques réalisés (e.g. pourquoi n'y a-t-il pas d'interface web). De plus, il conviendra de mettre en avant l'aspect visuel inhérent à une démonstration.\\
 L'application devra être testée, mais par manque de temps il est préconisé de ne traiter qu'une partie de l'application (mais cette partie devra être complètement testée).
 
 % Fin de la sous-section [Organisationnelles]
@@ -99,15 +106,15 @@ L'application devra être testée, mais par manque de temps il est préconisé d
 
 L'identifiant des pays utilisé par \mo est codé sur 3 chiffres et répond à la norme \emph{ISO 3166-1 numeric}.\\
 Lors de la production de tableaux de bord, il est préférable de se concentrer sur le transport et non sur la cargaison.\\
-Il faut pouvoir réaliser une recherche critérisée sur les lieux, en considérant notament les types suivants (liste non-exhaustive) :
+Il faut pouvoir réaliser une recherche critérisée sur les lieux, en considérant notamment les types suivants (liste non-exhaustive) :
 \begin{itemize}
-	\item Entrepots
+	\item Entrepôts
 	\item Lieux de distribution
 	\item Ports
 	\item Aéroports
-	\item Gares féroviaires
+	\item Gares ferroviaires
 \end{itemize}
-Da manière générale, le tableaur fourni par \mo à \amo donne un bon aperçu de fonctionnalités réellement indispensables dans la mesure où il constitue un des principaux dupport actuellement pour la logistique.
+De manière générale, le tableau fourni par \mo à \amo donne un bon aperçu de fonctionnalités réellement indispensables dans la mesure où il constitue un des principaux support actuellement pour la logistique.
 
 % Fin de la sous-sous-section [Généralités]
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -118,7 +125,7 @@ Da manière générale, le tableaur fourni par \mo à \amo donne un bon aperçu 
 Concernant les waybills :
 \begin{itemize}
 	\item Certains de ces documents sont pré-numérotés pour les missions
-	\item Le champ \og{}Comodity tracking number\fg{} (CTN) représente un traçage pour les donnateurs qui souhaitent réaliser un suivi de leurs actions de bout-en-bout; par conséquent, s'il existe plusieurs CTN pour un même item, il y aura deux lignes dans le waybill
+	\item Le champ \og{}Comodity tracking number\fg{} (CTN) représente un traçage pour les donateurs qui souhaitent réaliser un suivi de leurs actions de bout-en-bout; par conséquent, s'il existe plusieurs CTN pour un même item, il y aura deux lignes dans le waybill
 	\item Le nombre réel d'unité du produit figurant sur le waybill est obtenu en multipliant le \emph{N° of units} par le \emph{Unit type} (i.e. le conditionnement)
 	\item Si des conflits d'identifiants se présentent, ils sont gérés à posteriori
 	\item La cargaison est secondaire, mais les numéros de réquisition associés ne le sont pas
@@ -126,7 +133,7 @@ Concernant les waybills :
 Concernant les réquisitions :
 \begin{itemize}
 	\item \mo fait remarquer que s'il y a deux réquisitions, il y aura alors au moins deux waybills dans la mesure où les destinataires seront différents (et ce même si un seul camion est utilisé pour les deux livraisons)
-	\item Dans les réquisitions, M. \Agopian suggère de ne pas se focaliser sur le code budgétaire et la devise dans la mesure où ils n'occupent pas une grande importance lors des missions de terrain
+	\item Dans les réquisitions, \mo suggère de ne pas se focaliser sur le code budgétaire et la devise dans la mesure où ils n'occupent pas une grande importance lors des missions de terrain
 \end{itemize}
 
 % Fin de la sous-sous-section [Réquisitions & Waybills]
@@ -158,12 +165,22 @@ Les numéros de page sont manquants dans la norme graphique lorsqu'il s'agit d'u
 \section{Liste des tâches}
 
 \begin{table}[h]
-	\begin{tabularx}{\linewidth}{X X X X}
+	\begin{tabularx}{\linewidth}{X X X X X}
 		\toprule
-		\textbf{Concerné(s)} & \textbf{Responsable(s)} & \textbf{Consulté(s)} & \textbf{Informé(s)} \\
+	\textbf{Tâche(s)} &	\textbf{Concerné(s)} & \textbf{Responsable(s)} & \textbf{Consulté(s)} & \textbf{Informé(s)} \\
 		\midrule
-		- & - & - & - \\
-		\bottomrule
+	L'authentification LDAP &	Mezelle \& SuangaWeto  & - & - & - \\
+	    \midrule 
+	Le développement du logiciel avec Qt & Lericolais \& Cadon & - & -  & - \\
+	\midrule
+	L'élaboration du cahier des recettes  & Julien & - & -  & - \\
+	\midrule
+	Le remplissage de la base de données  & Toure & - & -  & - \\
+	\midrule	
+	La mise à jour du MCD & Gairoard & - & -  & - \\
+	\midrule	
+	La synchronisation& Pachy & - & -  & - \\
+	\midrule
 	\end{tabularx}
 	\caption{Tableau RACI de la liste des tâches}
 \end{table}
