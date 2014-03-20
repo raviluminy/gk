@@ -26,7 +26,7 @@
 	    % Historique des modifications
 	    % Version & Date & Auteur(s) & Modification(s)
 	    0.1 & 2014-03-15 & \Julien & Création \\
-	    0.2 & 2014-03-19 & \Julien & Réalisatino des tests de l'interface graphique \\
+	    0.2 & 2014-03-19 & \Julien & Réalisation des tests de l'interface graphique \\
 	    \midrule
     }{
 	    % Historique des approbations
@@ -162,9 +162,57 @@ C'est donc à l'aide de QTest que les scénarios ci-dessous ont été réalisé.
 \begin{tabular}{|L{3cm}|L{10cm}|}
 \hline \emph{Cas de test :} & Test-Graphique-06  \\
 \hline \emph{Titre :} & TestWaybillVehicle   \\
-\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ commentaire   \\
-\hline \emph{Procédure :} & Cliquer dans le champ du commentaire, saisir une chaîne et vérifier que la chaîne correspond  \\
-\hline \emph{Données de test :} & On rempli avec la chaîne ``blabla'' \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ du numéro d'identification et du champ du transport.   \\
+\hline \emph{Procédure :} & Cliquer dans les champ du numéro d'identification et  transport, saisir deux chaînes et les vérifier \\
+\hline \emph{Données de test :} & On rempli avec les chaînes ``200'' et ``100''\\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-07  \\
+\hline \emph{Titre :} & TestWaybillLoading   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement des champs concernant le chargement.   \\
+\hline \emph{Procédure :} & Cliquer dans les différents champs, et saisir des chaînes. \\
+\hline \emph{Données de test :} & On rempli avec les chaînes ``A'', ``B'', ``C''.\\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-08  \\
+\hline \emph{Titre :} & TestWaybillTransport   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement des champs concernant le transport.   \\
+\hline \emph{Procédure :} & Cliquer dans les différents champs, et saisir des chaînes. \\
+\hline \emph{Données de test :} & On rempli avec les chaînes ``A'', ``B'', ``C''.\\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-09  \\
+\hline \emph{Titre :} & TestWaybillReception   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement des champs concernant la recepetion du chargement.   \\
+\hline \emph{Procédure :} & Cliquer dans les différents champs, et saisir des chaînes. \\
+\hline \emph{Données de test :} & On rempli avec les chaînes ``A'', ``B'', ``C''.\\
 \hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
 \hline \emph{Résultat :} & PASS   \\
 \hline 
