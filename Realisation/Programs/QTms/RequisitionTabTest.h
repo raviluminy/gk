@@ -2,8 +2,6 @@
 #define REQUISITIONTABTEST_H
 
 #include "Util.h"
-
-
 #include "RequisitionTab.h"
 
 class QLineEdit;
@@ -27,6 +25,27 @@ private slots:
     void loadCss();
 
     void testCountryCode();
+
+    void testId();
+
+    void testOrigin();
+
+    void testDestination();
+
+    void testRequesterName();
+
+    void testProjectManager();
+
+    void testFinanceOfficer();
+
+    void testLogistics();
+
+    void testGlobalFleetBase();
+
+    void initTestCase();
+
+    void cleanupTestCase();
+
 
 private:
 

@@ -2,8 +2,6 @@
 #define WAYBILLTABTEST_H
 
 #include "Util.h"
-#ifdef TEST_GUI_WAYBILL_TAB
-
 #include "WaybillTab.h"
 
 class QLineEdit;
@@ -55,6 +53,10 @@ private slots:
 
 	void testWarehouse();
 
+    void cleanupTestCase();
+
+    void initTestCase();
+
 private:
 
 	/**
@@ -74,7 +76,5 @@ private:
 	void textEditTest(QTextEdit* tested, const QString& entry, const QString& expected);
 
 };
-
-#endif // TEST_GUI_WAYBILL_TAB
 
 #endif // WAYBILLTABTEST_H

@@ -1,9 +1,6 @@
 #include "WaybillTabTest.h"
 #include "ui_WaybillTab.h"
-
 #include "Util.h"
-#ifdef TEST_GUI_WAYBILL_TAB
-
 #include <QtTest>
 #include <QtWidgets>
 
@@ -106,7 +103,6 @@ WaybillTabTest::testTransportVehicle() {
 void
 WaybillTabTest::testWarehouse() {
 	lineEditTest(ui->warehouseLineEdit, QString("Marseille"), QString("Marseille"));
-    QTest::qWait(1000);
 }
 
 void
@@ -123,7 +119,12 @@ WaybillTabTest::textEditTest(QTextEdit* tested, const QString& entry, const QStr
 	QCOMPARE(tested->toPlainText(), expected);
 }
 
+void
+WaybillTabTest::cleanupTestCase(){
+    QTest::qWait(5000);
+}
 
+void
+WaybillTabTest::initTestCase() {
 
-
-#endif // TEST_GUI_WAYBILL_TAB
+}

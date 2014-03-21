@@ -25,7 +25,8 @@ SOURCES += Main.cpp\
     WaybillTabTest.cpp \
     Util.cpp \
     StatusWidgetGroup.cpp \
-    RequisitionTabTest.cpp
+    RequisitionTabTest.cpp \
+    StatusWidgetGroupTest.cpp
 
 HEADERS  += MainWindow.h \
     LogisticDao.h \
@@ -40,7 +41,8 @@ HEADERS  += MainWindow.h \
     WaybillTabTest.h \
     Util.h \
     StatusWidgetGroup.h \
-    RequisitionTabTest.h
+    RequisitionTabTest.h \
+    StatusWidgetGroupTest.h
 
 FORMS    += \
     MainWindow.ui \
