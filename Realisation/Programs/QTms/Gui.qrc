@@ -12,5 +12,10 @@
         <file>Icon/Warnings/Medium/Information.png</file>
         <file>Icon/Warnings/Medium/Question.png</file>
         <file>Icon/Warnings/Medium/Warning.png</file>
+        <file>Icon/Warnings/Small/Error.png</file>
+        <file>Icon/Warnings/Small/Idea.png</file>
+        <file>Icon/Warnings/Small/Information.png</file>
+        <file>Icon/Warnings/Small/Question.png</file>
+        <file>Icon/Warnings/Small/Warning.png</file>
     </qresource>
 </RCC>

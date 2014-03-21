@@ -7,16 +7,20 @@ namespace Ui {
 class StaffTab;
 }
 
-class StaffTab : public QWidget
-{
+class StaffTab : public QWidget {
+
 	Q_OBJECT
 
 public:
+
 	explicit StaffTab(QWidget *parent = 0);
-	~StaffTab();
+
+	virtual ~StaffTab();
 
 private:
+
 	Ui::StaffTab *ui;
+
 };
 
 #endif // STAFFTAB_H

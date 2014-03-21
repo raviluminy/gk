@@ -8,7 +8,6 @@ StaffTab::StaffTab(QWidget *parent) :
 	ui->setupUi(this);
 }
 
-StaffTab::~StaffTab()
-{
+StaffTab::~StaffTab() {
 	delete ui;
 }
