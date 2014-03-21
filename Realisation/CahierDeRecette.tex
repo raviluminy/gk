@@ -9,8 +9,8 @@
 %     Informations spécifiques au document
 %-------------------------------------------------------------------------------
 \ZTitle{Système de gestion des transports}
-\ZSubject{Cahier de recette}
-\ZVersion{0.2}
+\ZSubject{Cahier des recettes}
+\ZVersion{0.3}
 \ZDate{\today}
 \ZAuthor{\Balde,\\\Cadon,\\\Gairoard,\\\Julien,\\\Lericolais,\\\Mezelle,\\\Pachy,\\\SuangaWeto,\\\Toure}
 %-------------------------------------------------------------------------------
@@ -27,6 +27,7 @@
 	    % Version & Date & Auteur(s) & Modification(s)
 	    0.1 & 2014-03-15 & \Julien & Création \\
 	    0.2 & 2014-03-19 & \Julien & Réalisation des tests de l'interface graphique \\
+	    0.3 & 2014-03-21 & \Julien & Fin des tests de l'interface graphique \\
 	    \midrule
     }{
 	    % Historique des approbations
@@ -38,6 +39,7 @@
 	    0.1 & - & - \\
     }
 
+\ZMakeTableOfContents
 
 \chapter{Introduction}
 \section{Objectif}
@@ -55,6 +57,7 @@ Il est à noter que des tests de régression ont été fait suite à des correct
 \chapter{Tests sur interface graphique}
 L'outil a été développé en c++ à l'aide du framework QT. Ce framework intègre un outil de test grâce à la librairie QTestlib.
 C'est donc à l'aide de QTest que les scénarios ci-dessous ont été réalisé.
+Pour effectuer et visualiser tous les tests à partir de l'exécutable, il faut rajouter l'argument \emph{-testall}.
 
 \section{Test graphique de la partie waybill}
 \begin{center}
@@ -94,22 +97,6 @@ C'est donc à l'aide de QTest que les scénarios ci-dessous ont été réalisé.
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
 \newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
 \begin{tabular}{|L{3cm}|L{10cm}|}
-\hline \emph{Cas de test :} & Test-Graphique-02  \\
-\hline \emph{Titre :} & TestWaybillCountryId   \\
-\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ de l'id du pays    \\
-\hline \emph{Procédure :} & Cliquer dans le champ de l'id du pays, le remplir avec une id et vérifier que l'id correspond   \\
-\hline \emph{Données de test :} & On rempli avec l'id ``7''   \\
-\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
-\hline \emph{Résultat :} & PASS   \\
-\hline 
-\end{tabular} 
-\end{center}
-
-\begin{center}
-\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
-\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
-\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
-\begin{tabular}{|L{3cm}|L{10cm}|}
 \hline \emph{Cas de test :} & Test-Graphique-03  \\
 \hline \emph{Titre :} & TestWaybillWarehouse   \\
 \hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ de localisation de l'entrepôt   \\
@@ -121,46 +108,12 @@ C'est donc à l'aide de QTest que les scénarios ci-dessous ont été réalisé.
 \end{tabular} 
 \end{center}
 
-
 \begin{center}
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
 \newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
 \begin{tabular}{|L{3cm}|L{10cm}|}
 \hline \emph{Cas de test :} & Test-Graphique-04  \\
-\hline \emph{Titre :} & TestWaybillStatus   \\
-\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ status   \\
-\hline \emph{Procédure :} & Vérifier tous les status disponible   \\
-\hline \emph{Données de test :} &    \\
-\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
-\hline \emph{Résultat :} & PASS   \\
-\hline 
-\end{tabular} 
-\end{center}
-
-
-\begin{center}
-\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
-\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
-\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
-\begin{tabular}{|L{3cm}|L{10cm}|}
-\hline \emph{Cas de test :} & Test-Graphique-05  \\
-\hline \emph{Titre :} & TestWaybillComment   \\
-\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ commentaire   \\
-\hline \emph{Procédure :} & Cliquer dans le champ du commentaire, saisir une chaîne et vérifier que la chaîne correspond  \\
-\hline \emph{Données de test :} & On rempli avec la chaîne ``blabla'' \\
-\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
-\hline \emph{Résultat :} & PASS   \\
-\hline 
-\end{tabular} 
-\end{center}
-
-\begin{center}
-\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
-\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
-\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
-\begin{tabular}{|L{3cm}|L{10cm}|}
-\hline \emph{Cas de test :} & Test-Graphique-06  \\
 \hline \emph{Titre :} & TestWaybillVehicle   \\
 \hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ du numéro d'identification et du champ du transport.   \\
 \hline \emph{Procédure :} & Cliquer dans les champ du numéro d'identification et  transport, saisir deux chaînes et les vérifier \\
@@ -176,11 +129,11 @@ C'est donc à l'aide de QTest que les scénarios ci-dessous ont été réalisé.
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
 \newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
 \begin{tabular}{|L{3cm}|L{10cm}|}
-\hline \emph{Cas de test :} & Test-Graphique-07  \\
+\hline \emph{Cas de test :} & Test-Graphique-05  \\
 \hline \emph{Titre :} & TestWaybillLoading   \\
 \hline \emph{Objectif :} & Vérifier le bon fonctionnement des champs concernant le chargement.   \\
 \hline \emph{Procédure :} & Cliquer dans les différents champs, et saisir des chaînes. \\
-\hline \emph{Données de test :} & On rempli avec les chaînes ``A'', ``B'', ``C''.\\
+\hline \emph{Données de test :} & On rempli avec les chaînes ``Actor'', ``Location'', ``Condition''.\\
 \hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
 \hline \emph{Résultat :} & PASS   \\
 \hline 
@@ -192,11 +145,74 @@ C'est donc à l'aide de QTest que les scénarios ci-dessous ont été réalisé.
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
 \newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
 \begin{tabular}{|L{3cm}|L{10cm}|}
-\hline \emph{Cas de test :} & Test-Graphique-08  \\
+\hline \emph{Cas de test :} & Test-Graphique-06  \\
 \hline \emph{Titre :} & TestWaybillTransport   \\
 \hline \emph{Objectif :} & Vérifier le bon fonctionnement des champs concernant le transport.   \\
 \hline \emph{Procédure :} & Cliquer dans les différents champs, et saisir des chaînes. \\
-\hline \emph{Données de test :} & On rempli avec les chaînes ``A'', ``B'', ``C''.\\
+\hline \emph{Données de test :} & On rempli avec les chaînes ``Actor'', ``Location'', ``Condition''.\\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-07  \\
+\hline \emph{Titre :} & TestWaybillReception   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement des champs concernant la recepetion du chargement.   \\
+\hline \emph{Procédure :} & Cliquer dans les différents champs, et saisir des chaînes. \\
+\hline \emph{Données de test :} & On rempli avec les chaînes ``Actor'', ``Location'', ``Condition''.\\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+Les résutats de tous les tests sont satisfaisant.\\
+Pour effectuer et visualiser les tests de la partie \emph{waybill} à partir de l'exécutable, il faut rajouter l'argument \emph{-test1}.
+
+********* Start testing of WaybillTabTest *********\\
+Config: Using QtTest library 5.2.1, Qt 5.2.1\\
+PASS   : WaybillTabTest::initTestCase()\\
+PASS   : WaybillTabTest::qshowIfNotHidden()\\
+PASS   : WaybillTabTest::onplannedLoadingDateEditdateChanged()\\
+PASS   : WaybillTabTest::onrealLoadingDateEditdateChanged()\\
+PASS   : WaybillTabTest::onplannedTransportDateEditdateChanged()\\
+PASS   : WaybillTabTest::onrealTransportDateEditdateChanged()\\
+PASS   : WaybillTabTest::onplannedReceptionDateEditdateChanged()\\
+PASS   : WaybillTabTest::onrealReceptionDateEditdateChanged()\\
+PASS   : WaybillTabTest::loadCss()\\
+PASS   : WaybillTabTest::testCountryCode()\\
+PASS   : WaybillTabTest::testId()\\
+PASS   : WaybillTabTest::testPlannedLoading()\\
+PASS   : WaybillTabTest::testPlannedReception()\\
+PASS   : WaybillTabTest::testPlannedTransport()\\
+PASS   : WaybillTabTest::testRealLoading()\\
+PASS   : WaybillTabTest::testRealReception()\\
+PASS   : WaybillTabTest::testRealTransport()\\
+PASS   : WaybillTabTest::testTransportRegistrationNo()\\
+PASS   : WaybillTabTest::testTransportVehicle()\\
+PASS   : WaybillTabTest::testWarehouse()\\
+PASS   : WaybillTabTest::cleanupTestCase()\\
+Totals: 21 passed, 0 failed, 0 skipped\\
+********* Finished testing of WaybillTabTest *********\\
+
+
+\section{Test graphique de la partie réquisition}
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-08  \\
+\hline \emph{Titre :} & testCountryCode   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ du code pays dans l'onglet réquisition   \\
+\hline \emph{Procédure :} & Cliquer dans le champ du code pays, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``Fr''   \\
 \hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
 \hline \emph{Résultat :} & PASS   \\
 \hline 
@@ -209,15 +225,477 @@ C'est donc à l'aide de QTest que les scénarios ci-dessous ont été réalisé.
 \newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
 \begin{tabular}{|L{3cm}|L{10cm}|}
 \hline \emph{Cas de test :} & Test-Graphique-09  \\
-\hline \emph{Titre :} & TestWaybillReception   \\
-\hline \emph{Objectif :} & Vérifier le bon fonctionnement des champs concernant la recepetion du chargement.   \\
-\hline \emph{Procédure :} & Cliquer dans les différents champs, et saisir des chaînes. \\
-\hline \emph{Données de test :} & On rempli avec les chaînes ``A'', ``B'', ``C''.\\
+\hline \emph{Titre :} & testId   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ de l'identifiant de la réquisition   \\
+\hline \emph{Procédure :} & Cliquer dans le champ de l'identifiant, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``8''   \\
 \hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
 \hline \emph{Résultat :} & PASS   \\
 \hline 
 \end{tabular} 
 \end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-10  \\
+\hline \emph{Titre :} & testOrigin   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ de l'émetteur de la réquisition   \\
+\hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``Name1''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-11  \\
+\hline \emph{Titre :} & testDestination   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ du destinataire de la réquisition   \\
+\hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``Name2''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-12  \\
+\hline \emph{Titre :} & testRequesterName   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ de la personne responsable de la requête   \\
+\hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``Requester Name''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-13  \\
+\hline \emph{Titre :} & testProjectManager   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ de la personne responsable du projet   \\
+\hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``Project Manager''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-14  \\
+\hline \emph{Titre :} & testFinanceOfficer   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ de la personne responsable des finances   \\
+\hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``Finance Officer''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-15  \\
+\hline \emph{Titre :} & testLogistics   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ logisticien   \\
+\hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``Logistics''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-19  \\
+\hline \emph{Titre :} & testLogistics   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ GlobalFleetBase   \\
+\hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``GlobalFleetBase''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+
+Les résutats de tous les tests sont satisfaisant.\\
+Pour effectuer et visualiser les tests de la partie \emph{réquisition} à partir de l'exécutable, il faut rajouter l'argument \emph{-test2}.
+
+********* Start testing of RequisitionTabTest *********\\
+Config: Using QtTest library 5.2.1, Qt 5.2.1\\
+PASS   : RequisitionTabTest::initTestCase()\\
+PASS   : RequisitionTabTest::qshowIfNotHidden()\\
+PASS   : RequisitionTabTest::loadCss()\\
+PASS   : RequisitionTabTest::testCountryCode()\\
+PASS   : RequisitionTabTest::testId()\\
+PASS   : RequisitionTabTest::testOrigin()\\
+PASS   : RequisitionTabTest::testDestination()\\
+PASS   : RequisitionTabTest::testRequesterName()\\
+PASS   : RequisitionTabTest::testProjectManager()\\
+PASS   : RequisitionTabTest::testFinanceOfficer()\\
+PASS   : RequisitionTabTest::testLogistics()\\
+PASS   : RequisitionTabTest::testGlobalFleetBase()\\
+PASS   : RequisitionTabTest::cleanupTestCase()\\
+Totals: 13 passed, 0 failed, 0 skipped\\
+********* Finished testing of RequisitionTabTest *********\\
+
+\section{Test graphique de la partie personnels}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-20  \\
+\hline \emph{Titre :} & testId   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ d'identification d'une personne   \\
+\hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``55''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-21  \\
+\hline \emph{Titre :} & testLastName   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ nom de famille d'une personne   \\
+\hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``Agopian''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-22  \\
+\hline \emph{Titre :} & testFirstName   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ prénom d'une personne   \\
+\hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``Roland''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-23  \\
+\hline \emph{Titre :} & testFix   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ numéro de téléphone fixe   \\
+\hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``0491502148''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-24  \\
+\hline \emph{Titre :} & testMobil   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ numéro de téléphone mobile   \\
+\hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``0691502148''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-25  \\
+\hline \emph{Titre :} & testEmail   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ e-mail   \\
+\hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``roland@agopian.fr''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-26  \\
+\hline \emph{Titre :} & testAddress   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ adresse.   \\
+\hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``171 Avenue de Luminy''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-27  \\
+\hline \emph{Titre :} & testCategoty   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ catégorie du permis.   \\
+\hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``Class A''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-28  \\
+\hline \emph{Titre :} & testNumber   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ numéro de permis.   \\
+\hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``15648547''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+Les résutats de tous les tests sont satisfaisant.\\
+Pour effectuer et visualiser les tests de la partie \emph{personnel} à partir de l'exécutable, il faut rajouter l'argument \emph{-test5}.
+
+********* Start testing of StaffTabTest *********\\
+Config: Using QtTest library 5.2.1, Qt 5.2.1\\
+PASS   : StaffTabTest::initTestCase()\\
+PASS   : StaffTabTest::qshowIfNotHidden()\\
+PASS   : StaffTabTest::loadCss()\\
+PASS   : StaffTabTest::testId()\\
+PASS   : StaffTabTest::testLastName()\\
+PASS   : StaffTabTest::testFirstName()\\
+PASS   : StaffTabTest::testFix()\\
+PASS   : StaffTabTest::testMobil()\\
+PASS   : StaffTabTest::testEmail()\\
+PASS   : StaffTabTest::testAddress()\\
+PASS   : StaffTabTest::testCategoty()\\
+PASS   : StaffTabTest::testNumber()\\
+PASS   : StaffTabTest::cleanupTestCase()\\
+Totals: 13 passed, 0 failed, 0 skipped\\
+********* Finished testing of StaffTabTest *********\\
+
+\section{Test graphique de la partie véhicules}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-29  \\
+\hline \emph{Titre :} & testVehicule   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ numéro du véhicule.   \\
+\hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``vh100''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-30  \\
+\hline \emph{Titre :} & testVehiculeRegistration   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ de la plaque d'immatriculation du véhicule.   \\
+\hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``100''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+Les résutats de tous les tests sont satisfaisant.\\
+Pour effectuer et visualiser les tests de la partie \emph{véhicules} à partir de l'exécutable, il faut rajouter l'argument \emph{-test4}.
+
+********* Start testing of VehicleTabTest *********\\
+Config: Using QtTest library 5.2.1, Qt 5.2.1\\
+PASS   : VehicleTabTest::initTestCase()\\
+PASS   : VehicleTabTest::qshowIfNotHidden()\\
+PASS   : VehicleTabTest::loadCss()\\
+PASS   : VehicleTabTest::testVehiculeRegistration()\\
+PASS   : VehicleTabTest::testVehicule()\\
+PASS   : VehicleTabTest::cleanupTestCase()\\
+Totals: 6 passed, 0 failed, 0 skipped\\
+********* Finished testing of VehicleTabTest *********\\
+
+\section{Test graphique de la partie prestataires}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-31  \\
+\hline \emph{Titre :} & testWaybillCountryCode   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ du code pays du prestataire.   \\
+\hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``FRA''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-32  \\
+\hline \emph{Titre :} & testWaybillId   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ de l'identifiant du prestataire.   \\
+\hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``110''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-33  \\
+\hline \emph{Titre :} & testWaybillTransportVehicle   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ de l'identifiant du véhicule du prestataire.   \\
+\hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``vh120''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-34  \\
+\hline \emph{Titre :} & testWaybillTransportRegistration   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ de la plaque d'immatriculation du véhicule du prestataire.   \\
+\hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``56''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+Les résutats de tous les tests sont satisfaisant.\\
+Pour effectuer et visualiser les tests de la partie \emph{prestataires} à partir de l'exécutable, il faut rajouter l'argument \emph{-test6}.
+
+********* Start testing of ProviderTabTest *********\\
+Config: Using QtTest library 5.2.1, Qt 5.2.1\\
+PASS   : ProviderTabTest::initTestCase()\\
+PASS   : ProviderTabTest::qshowIfNotHidden()\\
+PASS   : ProviderTabTest::loadCss()\\
+PASS   : ProviderTabTest::testWaybillCountryCode()\\
+PASS   : ProviderTabTest::testWaybillId()\\
+PASS   : ProviderTabTest::testWaybillTransportVehicle()\\
+PASS   : ProviderTabTest::testWaybillTransportRegistration()\\
+PASS   : ProviderTabTest::cleanupTestCase()\\
+Totals: 8 passed, 0 failed, 0 skipped\\
+********* Finished testing of ProviderTabTest *********\\
+
+\section{Test graphique du status}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-35  \\
+\hline \emph{Titre :} & testComment   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ du commentaire dans le champs status.   \\
+\hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``Blablabla''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+Les résutats de tous les tests sont satisfaisant.\\
+Pour effectuer et visualiser les tests du \emph{status} à partir de l'exécutable, il faut rajouter l'argument \emph{-test3}.
+
+********* Start testing of StatusWidgetGroupTest *********\\
+Config: Using QtTest library 5.2.1, Qt 5.2.1\\
+PASS   : StatusWidgetGroupTest::initTestCase()\\
+PASS   : StatusWidgetGroupTest::qshowIfNotHidden()\\
+PASS   : StatusWidgetGroupTest::loadCss()\\
+PASS   : StatusWidgetGroupTest::testComment()\\
+PASS   : StatusWidgetGroupTest::cleanupTestCase()\\
+Totals: 5 passed, 0 failed, 0 skipped\\
+
 
 \chapter{Tests unitaires}
 \section{Gestion des personnes}

@@ -63,7 +63,7 @@ RequisitionTabTest::testLogistics() {
 
 void
 RequisitionTabTest::testGlobalFleetBase() {
-    lineEditTest(ui->globalFleetBaseLineEdit, QString("Logistics"), QString("Logistics"));
+    lineEditTest(ui->globalFleetBaseLineEdit, QString("GlobalFleetBase"), QString("GlobalFleetBase"));
 }
 
 void

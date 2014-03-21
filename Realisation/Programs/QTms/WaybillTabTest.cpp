@@ -55,7 +55,7 @@ WaybillTabTest::testPlannedTransport() {
 void
 WaybillTabTest::testRealLoading() {
 	lineEditTest(ui->realLoadingActorLineEdit,     QString("Actor"),     QString("Actor"));
-	lineEditTest(ui->realLoadingConditionLineEdit, QString("Condition"), QString("Condition2"));
+    lineEditTest(ui->realLoadingConditionLineEdit, QString("Condition"), QString("Condition"));
 	lineEditTest(ui->realLoadingLocationLineEdit,  QString("Location"),  QString("Location"));
 }
 
