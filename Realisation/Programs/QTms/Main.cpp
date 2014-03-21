@@ -1,3 +1,7 @@
+#include "Util.h"
+
+#ifndef TEST_GUI_WAYBILL_TAB
+
 #include "MainWindow.h"
 #include <QApplication>
 
@@ -9,3 +13,5 @@ int main(int argc, char *argv[])
 
 	return a.exec();
 }
+
+#endif // TEST_GUI_WAYBILL_TAB

@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql
+QT       += core gui sql testlib
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,19 +17,38 @@ SOURCES += Main.cpp\
     LogisticDao.cpp \
     WidgetGroup.cpp \
     DataInteractionToolBar.cpp \
-    DataFrame.cpp
+    DataFrame.cpp \
+    WaybillTab.cpp \
+    RequisitionTab.cpp \
+    StaffTab.cpp \
+    ProviderTab.cpp \
+    VehicleTab.cpp \
+    WaybillTabTest.cpp \
+    Util.cpp
 
 HEADERS  += MainWindow.h \
     LogisticDao.h \
     WidgetGroup.h \
     DataInteractionToolBar.h \
-    DataFrame.h
+    DataFrame.h \
+    WaybillTab.h \
+    RequisitionTab.h \
+    StaffTab.h \
+    ProviderTab.h \
+    VehicleTab.h \
+    WaybillTabTest.h \
+    Util.h
 
 FORMS    += \
     MainWindow.ui \
     WidgetGroup.ui \
     DataInteractionToolBar.ui \
-    DataFrame.ui
+    DataFrame.ui \
+    WaybillTab.ui \
+    RequisitionTab.ui \
+    StaffTab.ui \
+    ProviderTab.ui \
+    VehicleTab.ui
 
 RESOURCES += \
     Gui.qrc

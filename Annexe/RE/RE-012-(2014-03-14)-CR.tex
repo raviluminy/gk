@@ -45,147 +45,114 @@
 \setcounter{chapter}{1}
 
 \section{Préambule}
-Ce document rend compte de la réunion du vendredi matin 2014-03-14, qui s'est déroulée au département informatique du campus universitaire de Saint-Charles à Marseille de \textbf{09h10 à 11h30}, entre la maîtrise d'ouvrage \mo et son assistance à maîtrise d'ouvrage \amo.
-
+Ce document rend compte de la réunion du vendredi matin 2014-03-14, qui s'est déroulée au département informatique du campus universitaire de Saint-Charles à Marseille de \textbf{09h10 à 11h30}, entre la maîtrise d'ouvrage \mo et son sous missionnaire \amo.
+\\
 Étaient présents lors de la réunion~:
 \begin{itemize}
 	\item \mo~:
 	\begin{itemize}
-		\item \Agopian
+		\item \Agopian~;
 	\end{itemize}
 	\item \amo~:
 	\begin{itemize}
-		\item \Cadon
-		\item \Julien
-		\item \Lericolais
-		\item \Mezelle
-		\item \Pachy
-		\item \SuangaWeto
-		\item \Toure
+		\item \Cadon~;
+		\item \Julien~;
+		\item \Lericolais~;
+		\item \Mezelle~;
+		\item \Pachy~;
+		\item \SuangaWeto~;
+		\item \Toure.
 	\end{itemize}
 \end{itemize}
 Excusés~:
 \begin{itemize}
-	\item \Balde
-	\item \Gairoard
+	\item \Balde~;
+	\item \Gairoard.
 \end{itemize}
 
-% ==============================================================================
 \section{Présentation du travail de la semaine}
-
 \amo a présenté le travail réalisé, qui s'est axé autour de 3 points principaux ~:
 \begin{itemize}
-      \item  La construction de la base de données~: Le modèle conceptuel de données(MCD) et le diagramme des classes ;
-      \item L'authentification avec LDAP ;
-      \item Le développement  de la maquette du logiciel avec Qt.
-      \end{itemize} 
+	\item  La construction de la base de données~: Le modèle conceptuel de données(MCD) et le diagramme des classes ;
+	\item L'authentification avec LDAP ;
+	\item Le développement  de la maquette du logiciel avec Qt.
+\end{itemize} 
 
-% Fin de la section [Présentation du travail de la semaine]
-% ==============================================================================
-
-% ==============================================================================
 \section{Remarques}
 
 Les sections suivantes traitent des remarques émises par \mo.
 
-% ------------------------------------------------------------------------------
 \subsection{Organisationnelles}
-
 Les compte-rendus doivent se terminer par une liste des tâches sous forme de tableau RACI (Responsible, Accountable, Consulted, Informed) plutôt que par une section \og{}Pour la prochaine fois\fg{}.\\
-Les soutenances de projet se dérouleront le 27/03/2014, et la démonstration le 28/03/2014. Il faudra préparer une présentation pour le jour de la soutenance et insister sur l'aspect organisationnel (chef de groupe, découpage des tâches), et justifier les choix techniques réalisés (e.g. pourquoi n'y a-t-il pas d'interface web). De plus, il conviendra de mettre en avant l'aspect visuel inhérent à une démonstration.\\
+Les soutenances de projet se dérouleront le 27/03/2014, et la démonstration le 28/03/2014. Il faudra préparer une présentation pour le jour de la soutenance et insister sur l'aspect organisationnel (chef de groupe, découpage des tâches), et justifier les choix techniques réalisés (e.g. pourquoi n'y a-t-il pas d'interface web).
+De plus, il conviendra de mettre en avant l'aspect visuel inhérent à une démonstration.
+\\
 L'application devra être testée, mais par manque de temps il est préconisé de ne traiter qu'une partie de l'application (mais cette partie devra être complètement testée).
 
-% Fin de la sous-section [Organisationnelles]
-% ------------------------------------------------------------------------------
-
-% ------------------------------------------------------------------------------
 \subsection{Fonctionnelles \& techniques}
 
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 \subsubsection{Généralités}
-
-L'identifiant des pays utilisé par \mo est codé sur 3 chiffres et répond à la norme \emph{ISO 3166-1 numeric}.\\
-Lors de la production de tableaux de bord, il est préférable de se concentrer sur le transport et non sur la cargaison.\\
+L'identifiant des pays utilisé par \mo est codé sur 3 chiffres et répond à la norme \emph{ISO 3166-1 numeric}.
+\\
+Lors de la production de tableaux de bord, il est préférable de se concentrer sur le transport et non sur la cargaison.
+\\
 Il faut pouvoir réaliser une recherche critérisée sur les lieux, en considérant notamment les types suivants (liste non-exhaustive) :
 \begin{itemize}
-	\item Entrepôts
-	\item Lieux de distribution
-	\item Ports
-	\item Aéroports
-	\item Gares ferroviaires
+	\item entrepôts~;
+	\item lieux de distribution~;
+	\item ports~;
+	\item aéroports~;
+	\item gares ferroviaires.
 \end{itemize}
 De manière générale, le tableau fourni par \mo à \amo donne un bon aperçu de fonctionnalités réellement indispensables dans la mesure où il constitue un des principaux support actuellement pour la logistique.
 
-% Fin de la sous-sous-section [Généralités]
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 \subsubsection{Réquisitions \& Waybills}
-
-Concernant les waybills :
+Concernant les waybills~:
 \begin{itemize}
-	\item Certains de ces documents sont pré-numérotés pour les missions
-	\item Le champ \og{}Comodity tracking number\fg{} (CTN) représente un traçage pour les donateurs qui souhaitent réaliser un suivi de leurs actions de bout-en-bout; par conséquent, s'il existe plusieurs CTN pour un même item, il y aura deux lignes dans le waybill
-	\item Le nombre réel d'unité du produit figurant sur le waybill est obtenu en multipliant le \emph{N° of units} par le \emph{Unit type} (i.e. le conditionnement)
-	\item Si des conflits d'identifiants se présentent, ils sont gérés à posteriori
-	\item La cargaison est secondaire, mais les numéros de réquisition associés ne le sont pas
+	\item certains de ces documents sont pré-numérotés pour les missions~;
+	\item le champ \og{}Comodity tracking number\fg{} (CTN) représente un traçage pour les donateurs qui souhaitent réaliser un suivi de leurs actions de bout-en-bout; par conséquent, s'il existe plusieurs CTN pour un même item, il y aura deux lignes dans le waybill~;
+	\item le nombre réel d'unité du produit figurant sur le waybill est obtenu en multipliant le \emph{N° of units} par le \emph{Unit type} (i.e. le conditionnement)~;
+	\item si des conflits d'identifiants se présentent, ils sont gérés à posteriori~;
+	\item la cargaison est secondaire, mais les numéros de réquisition associés ne le sont pas.
 \end{itemize}
-Concernant les réquisitions :
+Concernant les réquisitions~:
 \begin{itemize}
-	\item \mo fait remarquer que s'il y a deux réquisitions, il y aura alors au moins deux waybills dans la mesure où les destinataires seront différents (et ce même si un seul camion est utilisé pour les deux livraisons)
-	\item Dans les réquisitions, \mo suggère de ne pas se focaliser sur le code budgétaire et la devise dans la mesure où ils n'occupent pas une grande importance lors des missions de terrain
+	\item \mo fait remarquer que s'il y a deux réquisitions, il y aura alors au moins deux waybills dans la mesure où les destinataires seront différents (et ce même si un seul camion est utilisé pour les deux livraisons)~;
+	\item dans les réquisitions, \mo suggère de ne pas se focaliser sur le code budgétaire et la devise dans la mesure où ils n'occupent pas une grande importance lors des missions de terrain.
 \end{itemize}
 
-% Fin de la sous-sous-section [Réquisitions & Waybills]
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-
-
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 \subsubsection{Personnes}
+L'adresse des personnes n'est pas encore prise en compte dans la base de données~; par contre leur qualité (i.e. fonction) est souhaitable pour pouvoir effectuer des recherches critérisées.
 
-L'adresse des personnes n'est pas utile dans la base de donnée; par contre leur qualité (i.e. fonction) est souhaitable pour pouvoir effectuer des recherches critérisées.
-
-% Fin de la sous-sous-section [Personens]
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-% Fin de la sous-section [Fonctionnelles]
-% ------------------------------------------------------------------------------
-
-% ------------------------------------------------------------------------------
 \subsection{Diverses}
-
 Les numéros de page sont manquants dans la norme graphique lorsqu'il s'agit d'un début de section.
 
-% Fin de la sous-section [Diverses]
-% ------------------------------------------------------------------------------
-
-% Fin de la section [Remarques]
-% ==============================================================================
-\newpage
-% ==============================================================================
 \section{Liste des tâches}
-
 \begin{table}[h]
 	\begin{tabularx}{\linewidth}{X X X X X}
-		\toprule
+	\toprule
 	\textbf{Tâche(s)} &	\textbf{Concerné(s)} & \textbf{Responsable(s)} & \textbf{Consulté(s)} & \textbf{Informé(s)} \\
-		\midrule
-	L'authentification LDAP &	Mezelle \& SuangaWeto  & Mezelle \& SuangaWeto  & \amo & \amo \\
-	    \midrule 
-	Le développement du logiciel avec Qt & Lericolais \& Cadon & Lericolais \& Cadon & \amo  & \amo \\
 	\midrule
-	L'élaboration du cahier des recettes  & Julien & Julien & \amo  & \amo \\
+	Développement~: Authentification LDAP & \textsc{Mezelle} \& \textsc{SuangaWeto} & \textsc{Mezelle} \& \textsc{SuangaWeto} & \amo & \amo \\
 	\midrule
-	Le remplissage de la base de données  & Toure & Toure & \amo  & \amo \\
+	Développement~: Interface graphique Qt & \textsc{Cadon} & \textsc{Cadon} & \amo  & \amo \\
+	\midrule
+	Développement~: Contrôleur (MVC) & \textsc{Cadon} \& \textsc{Lericolais} & \textsc{Cadon} \& \textsc{Lericolais} & \amo  & \amo \\
+	\midrule
+	Développement~: Tests unitaires & \textsc{Julien} & \textsc{Julien} & \amo & \amo \\
+	\midrule
+	Rédaction~: Cahier des recettes & \textsc{Julien} & \textsc{Julien} & \amo & \amo \\
+	\midrule
+	Développement~: Production de données utilisables & \textsc{Toure} & \textsc{Toure} & \amo & \amo \\
 	\midrule	
-	La mise à jour du MCD & Gairoard & Gairoard & \amo & \amo \\
+	Développement~: Production d'un driver MySQL & \textsc{Gairoard} & \textsc{Gairoard} & \amo & \amo \\
+	\midrule
+	Développement~: Mise à jour du MCD & \textsc{Gairoard} & \textsc{Gairoard} & \amo & \amo \\
 	\midrule	
-	La synchronisation& Pachy & Pachy & \amo  & \amo \\
+	Développement~: Synchronisation & \textsc{Pachy} & \textsc{Pachy} & \amo & \amo \\
 	\midrule
 	\end{tabularx}
 	\caption{Tableau RACI de la liste des tâches}
 \end{table}
-
-% Fin de la section [Liste des tâches]
-% ==============================================================================
 
 \end{document}

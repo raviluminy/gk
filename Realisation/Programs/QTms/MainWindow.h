@@ -1,8 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "LogisticDao.h"
-
 #include <QMainWindow>
 
 namespace Ui {
@@ -25,21 +23,9 @@ public slots:
 
 	void loadCss();
 
-private slots:
-
-	void on_waybillIdTitle_toggled(const bool checked);
-
-	void on_waybillPlanningTitle_toggled(const bool checked);
-
-	void on_waybillStatusTitle_toggled(const bool checked);
-
-	void on_waybillTransportTitle_toggled(const bool checked);
-
 private:
 
 	Ui::MainWindow *ui;
-
-	LogisticDao dao;
 
 };
 

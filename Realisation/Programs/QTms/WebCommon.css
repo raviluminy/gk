@@ -66,12 +66,12 @@ QTabBar::tab:selected:hover{
 	color: #555;
 	padding: 8px 16px 8px 16px;
 }
-#driverTab,
+WaybillTab,
 #providerTab,
 #requisitionTab,
 #vehicleTab,
 #waybillTab{
-	background-color: #F7F7F9;
+	background-color: red;
 }
 
 DataFrame{
@@ -89,10 +89,13 @@ DataFrame QLabel{
 	font-weight: bold;
 	padding: 16px 8px 16px 8px;
 }
-DataFrame #waybillIdTitle,
-DataFrame #waybillTransportTitle,
-DataFrame #waybillStatusTitle,
-DataFrame #waybillPlanningTitle{
+DataFrame #agreementTitle,
+DataFrame #contractTitle,
+DataFrame #drivingLicenceTitle,
+DataFrame #idTitle,
+DataFrame #transportTitle,
+DataFrame #statusTitle,
+DataFrame #planningTitle{
 	background-color: #fff;
 	background-image: url(Icon/Glyph/Expand.png);
 	background-position: center bottom;
@@ -104,10 +107,13 @@ DataFrame #waybillPlanningTitle{
 	font-weight: bold;
 	padding: 16px 8px 16px 8px;
 }
-DataFrame #waybillIdTitle:checked,
-DataFrame #waybillTransportTitle:checked,
-DataFrame #waybillStatusTitle:checked,
-DataFrame #waybillPlanningTitle:checked{
+DataFrame #agreementTitle:checked,
+DataFrame #contractTitle:checked,
+DataFrame #drivingLicenceTitle:checked,
+DataFrame #idTitle:checked,
+DataFrame #transportTitle:checked,
+DataFrame #statusTitle:checked,
+DataFrame #planningTitle:checked{
 	background-color: #fff;
 	background-image: url(Icon/Glyph/Collapse.png);
 	background-position: center bottom;
@@ -213,7 +219,7 @@ QProgressBar{
 	color: #555;
 	padding: 8px 16px 8px 16px;
 }
-WidgetGroup QPushButton{
+QPushButton{
 	background-color: #FFF;
 	border-color: #CCC;
 	border-radius: 0px;
@@ -233,8 +239,10 @@ QLineEdit{
 }
 QScrollArea {
 	background-color: transparent;
-	border-width: 0px;
-	border-radius: 4px;
+	border-color: #CCC;
+	border-style: solid;
+	border-width: 1px 0px 1px 0px;
+	padding: 8px 0px 8px 0px;
 }
 #waybillEditionScrollAreaWidgetContents{
 	background-color: transparent;
@@ -248,16 +256,66 @@ QTextEdit{
 	color: #555;
 	padding: 8px 16px 8px 16px;
 }
+/** ELEMENTS STANDARDS **/
+/* Elements standards à bordure gauche arrondie */
+#confirmationOkPushButton,
 DataInteractionToolBar #addPushButton,
 DataInteractionToolBar #searchingLineEdit{
 	border-bottom-left-radius: 4px;
 	border-top-left-radius: 4px;
 }
+/* Elements standards à bordure droite arrondie */
+#confirmationCancelPushButton,
 DataInteractionToolBar #commitPushButton,
 DataInteractionToolBar #searchingPushButton{
 	border-bottom-right-radius: 4px;
 	border-top-right-radius: 4px;
 }
+/* Elements standards sans bordure gauche */
+#confirmationCancelPushButton,
+DataInteractionToolBar #removePushButton,
+DataInteractionToolBar #rollbackPushButton,
+DataInteractionToolBar #commitPushButton,
+DataInteractionToolBar #searchingPushButton{
+	border-left: 0px;
+}
+/** ELEMENTS SPECIFIQUES **/
+/* Elements specifiques à bordure gauche arrondie */
+#addressLabel,
+#categoryLabel,
+#countryCodeLabel,
+#deliveryDateLabel,
+#destinationLabel,
+#numberLabel,
+#emailLabel,
+#firstnameLabel,
+#fixLabel,
+#functionLabel,
+#idLabel,
+#lastnameLabel,
+#mobilLabel,
+#originLabel,
+#rangeLabel,
+#registrationNoLabel,
+#requestDateLabel,
+#requisitionIdLabel,
+#transportVehicleLabel,
+#transportRegistrationNoLabel,
+#transportMeanIconLabel,
+#vehicleLabel,
+#warehouseLabel{
+	border-bottom-left-radius: 4px;
+	border-top-left-radius: 4px;
+}
+/* Elements specifiques à bordure droite arrondie */
+#confirmationCancelPushButton,
+DataInteractionToolBar #commitPushButton,
+DataInteractionToolBar #searchingPushButton{
+	border-bottom-right-radius: 4px;
+	border-top-right-radius: 4px;
+}
+/* Elements specifiques sans bordure gauche */
+#confirmationCancelPushButton,
 DataInteractionToolBar #removePushButton,
 DataInteractionToolBar #rollbackPushButton,
 DataInteractionToolBar #commitPushButton,
@@ -365,300 +423,4 @@ QTableView::item {
 	border-style: solid;
 	border-width: 0px 0px 1px 0px;
 	color: #555;
-}
-
-
-
-
-
-
-
-
-
-
-
-/*------------------------------------------------------------------*/
-/*     BARRES D'OUTILS
-/*------------------------------------------------------------------*/
-
-/*---- Barres d'outils d'actions standards -------------------------*/
-
-/* Standard add push button */
-#waybillAddPushButton,
-#requisitionAddPushButton,
-#driverAddPushButton,
-#vehicleAddPushButton,
-#providerAddPushButton {
-	/*
-	background-image: url("../QTms/Icon/Glyph/Add.png");
-	background-repeat: norepeat;
-	background-position: center center;
-	*/
-	border-bottom-left-radius: 4px;
-	border-top-left-radius: 4px;
-}
-
-/* Standard remove push button */
-#waybillRemovePushButton,
-#requisitionRemovePushButton,
-#driverRemovePushButton,
-#vehicleRemovePushButton,
-#providerRemovePushButton {
-	border-left-width: 0px;
-}
-
-/* Standard rollback push button */
-#waybillRollbackPushButton,
-#requisitionRollbackPushButton,
-#driverRollbackPushButton,
-#vehicleRollbackPushButton,
-#providerRollbackPushButton {
-	border-left-width: 0px;
-}
-
-/* Standard commit push button */
-#waybillCommitPushButton,
-#requisitionCommitPushButton,
-#driverCommitPushButton,
-#vehicleCommitPushButton,
-#providerCommitPushButton {
-	/*
-	background-image: url("../QTms/Icon/Glyph/Commit.png");
-	background-repeat: norepeat;
-	background-position: center center;
-	*/
-	border-left-width: 0px;
-	border-bottom-right-radius: 4px;
-	border-top-right-radius: 4px;
-}
-
-/*---- Barres d'outils de recherche --------------------------------*/
-
-/* Searching line edit */
-#waybillSearchLineEdit,
-#requisitionSearchLineEdit,
-#driverSearchLineEdit,
-#vehicleSearchLineEdit,
-#providerSearchLineEdit {
-	border-bottom-left-radius: 4px;
-	border-top-left-radius: 4px;
-}
-
-/* Searching push button */
-#waybillSearchPushButton,
-#requisitionSearchPushButton,
-#driverSearchPushButton,
-#vehicleSearchPushButton,
-#providerSearchPushButton {
-	border-left-width: 0px;
-	border-bottom-right-radius: 4px;
-	border-top-right-radius: 4px;
-}
-
-/*---- Barres de confirmation d'édition ----------------------------*/
-
-/* Edition Ok push button */
-#waybillEditionOkPushButton,
-#requisitionEditionOkPushButton,
-#driverEditionOkPushButton,
-#vehicleEditionOkPushButton,
-#providerEditionOkPushButton {
-	border-bottom-left-radius: 4px;
-	border-top-left-radius: 4px;
-}
-
-/* Edition Cancel push button */
-#waybillEditionCancelPushButton,
-#requisitionEditionCancelPushButton,
-#driverEditionCancelPushButton,
-#vehicleEditionCancelPushButton,
-#providerEditionCancelPushButton {
-	border-left-width: 0px;
-	border-bottom-right-radius: 4px;
-	border-top-right-radius: 4px;
-}
-
-/*------------------------------------------------------------------*/
-/*     CHAMPS SEPCIFIQUES
-/*------------------------------------------------------------------*/
-
-#waybillTransportMeanImageLabel,
-#waybillStatusSynthesisImageLabel {
-	padding: 0px;
-}
-
-#waybillTransportVehicleLabel,
-#waybillTransportRegistrationNoLabel,
-#waybillCountryCodeLabel,
-#waybillIdLabel,
-#waybillRequisitionIdLabel,
-#waybillRequestDateLabel,
-#waybillWarehouseLabel {
-	border-bottom-left-radius: 4px;
-	border-top-left-radius: 4px;
-}
-
-#waybillTransportMeanLabel {
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-}
-
-#waybillTransportMeanComboBox {
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
-}
-
-#waybillTransportMeanImageLabel {
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-}
-
-#waybillCountryCodeLineEdit,
-#waybillIdLineEdit,
-#waybillRequisitionIdComboBox,
-#waybillRequestDateEdit,
-#waybillWarehousePushButton,
-#waybillTransportVehiclePushButton,
-#waybillTransportRegistrationNoLineEdit {
-	border-bottom-right-radius: 4px;
-	border-top-right-radius: 4px;
-}
-
-#waybillStatusSynthesisProgressBar,
-#waybillStatusDummyLabel {
-	border-top-left-radius: 4px;
-}
-
-#waybillStatusSynthesisProgressBar,
-#waybillStatusConditionLabel {
-	border-top-right-radius: 4px;
-}
-
-#waybillStatusSynthesisImageLabel,
-#waybillStatusReceptionLabel {
-	border-bottom-left-radius: 4px;
-}
-
-#waybillStatusSynthesisCommentTextEdit,
-#waybillStatusRealReceptionConditionLineEdit {
-	border-bottom-right-radius: 4px;
-}
-
-/* Waybill infos */
-#waybillCountryCodeLineEdit,
-#waybillIdLineEdit,
-#waybillRequisitionIdComboBox,
-#waybillRequestDateEdit,
-#waybillWarehouseLineEdit,
-#waybillWarehousePushButton,
-/* Transport */
-#waybillTransportVehicleLineEdit,
-#waybillTransportVehiclePushButton,
-#waybillTransportRegistrationNoLineEdit,
-/* Status synthesis */
-#waybillStatusSynthesisCommentTextEdit,
-/* Horizontal header */
-#waybillStatusActorLabel,
-#waybillStatusDateLabel,
-#waybillStatusLocationLabel,
-#waybillStatusConditionLabel,
-/* Actor */
-#waybillStatusPlannedLoadingActorLineEdit,
-#waybillStatusPlannedTransportActorLineEdit,
-#waybillStatusPlannedReceptionActorLineEdit,
-#waybillStatusRealLoadingActorLineEdit,
-#waybillStatusRealTransportActorLineEdit,
-#waybillStatusRealReceptionActorLineEdit,
-/* Date */
-#waybillStatusPlannedLoadingDateEdit,
-#waybillStatusPlannedTransportDateEdit,
-#waybillStatusPlannedReceptionDateEdit,
-#waybillStatusRealLoadingDateEdit,
-#waybillStatusRealTransportDateEdit,
-#waybillStatusRealReceptionDateEdit,
-/* Location */
-#waybillStatusPlannedLoadingLocationLineEdit,
-#waybillStatusPlannedLoadingLocationPushButton,
-#waybillStatusPlannedTransportLocationLineEdit,
-#waybillStatusPlannedTransportLocationPushButton,
-#waybillStatusPlannedReceptionLocationLineEdit,
-#waybillStatusPlannedReceptionLocationPushButton,
-#waybillStatusRealLoadingLocationLineEdit,
-#waybillStatusRealLoadingLocationPushButton,
-#waybillStatusRealTransportLocationLineEdit,
-#waybillStatusRealTransportLocationPushButton,
-#waybillStatusRealReceptionLocationLineEdit,
-#waybillStatusRealReceptionLocationPushButton,
-/* Condition */
-#waybillStatusPlannedLoadingConditionLineEdit,
-#waybillStatusPlannedTransportConditionLineEdit,
-#waybillStatusPlannedReceptionConditionLineEdit,
-#waybillStatusRealLoadingConditionLineEdit,
-#waybillStatusRealTransportConditionLineEdit,
-#waybillStatusRealReceptionConditionLineEdit,
-/* Vertical header */
-#waybillStatusPlannedLoadingLabel,
-#waybillStatusPlannedTransportLabel,
-#waybillStatusPlannedReceptionLabel,
-#waybillStatusRealLoadingLabel,
-#waybillStatusRealTransportLabel,
-#waybillStatusRealReceptionLabel
-{
-	border-left-width: 0px;
-}
-
-/* Transport */
-#waybillTransportMeanComboBox,
-/* Status synthesis */
-#waybillStatusSynthesisCommentTextEdit,
-#waybillStatusSynthesisImageLabel,
-/* Actor */
-#waybillStatusPlannedLoadingActorLineEdit,
-#waybillStatusPlannedTransportActorLineEdit,
-#waybillStatusPlannedReceptionActorLineEdit,
-#waybillStatusRealLoadingActorLineEdit,
-#waybillStatusRealTransportActorLineEdit,
-#waybillStatusRealReceptionActorLineEdit,
-/* Date */
-#waybillStatusPlannedLoadingDateEdit,
-#waybillStatusPlannedTransportDateEdit,
-#waybillStatusPlannedReceptionDateEdit,
-#waybillStatusRealLoadingDateEdit,
-#waybillStatusRealTransportDateEdit,
-#waybillStatusRealReceptionDateEdit,
-/* Location */
-#waybillStatusPlannedLoadingLocationLineEdit,
-#waybillStatusPlannedLoadingLocationPushButton,
-#waybillStatusPlannedTransportLocationLineEdit,
-#waybillStatusPlannedTransportLocationPushButton,
-#waybillStatusPlannedReceptionLocationLineEdit,
-#waybillStatusPlannedReceptionLocationPushButton,
-#waybillStatusRealLoadingLocationLineEdit,
-#waybillStatusRealLoadingLocationPushButton,
-#waybillStatusRealTransportLocationLineEdit,
-#waybillStatusRealTransportLocationPushButton,
-#waybillStatusRealReceptionLocationLineEdit,
-#waybillStatusRealReceptionLocationPushButton,
-/* Condition */
-#waybillStatusPlannedLoadingConditionLineEdit,
-#waybillStatusPlannedTransportConditionLineEdit,
-#waybillStatusPlannedReceptionConditionLineEdit,
-#waybillStatusRealLoadingConditionLineEdit,
-#waybillStatusRealTransportConditionLineEdit,
-#waybillStatusRealReceptionConditionLineEdit,
-/* Main vertical header */
-#waybillStatusLoadingLabel,
-#waybillStatusTransportLabel,
-#waybillStatusReceptionLabel,
-/* Vertical header */
-#waybillStatusPlannedLoadingLabel,
-#waybillStatusPlannedTransportLabel,
-#waybillStatusPlannedReceptionLabel,
-#waybillStatusRealLoadingLabel,
-#waybillStatusRealTransportLabel,
-#waybillStatusRealReceptionLabel
-{
-	border-top-width: 0px;
 }
