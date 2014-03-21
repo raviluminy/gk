@@ -106,7 +106,7 @@ WaybillTabTest::testTransportVehicle() {
 void
 WaybillTabTest::testWarehouse() {
 	lineEditTest(ui->warehouseLineEdit, QString("Marseille"), QString("Marseille"));
-    QTest::qWait(100000);
+    QTest::qWait(1000);
 }
 
 void

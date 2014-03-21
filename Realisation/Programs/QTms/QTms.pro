@@ -24,7 +24,8 @@ SOURCES += Main.cpp\
     VehicleTab.cpp \
     WaybillTabTest.cpp \
     Util.cpp \
-    StatusWidgetGroup.cpp
+    StatusWidgetGroup.cpp \
+    RequisitionTabTest.cpp
 
 HEADERS  += MainWindow.h \
     LogisticDao.h \
@@ -38,7 +39,8 @@ HEADERS  += MainWindow.h \
     VehicleTab.h \
     WaybillTabTest.h \
     Util.h \
-    StatusWidgetGroup.h
+    StatusWidgetGroup.h \
+    RequisitionTabTest.h
 
 FORMS    += \
     MainWindow.ui \

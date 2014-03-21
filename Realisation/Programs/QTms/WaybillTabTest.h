@@ -58,7 +58,6 @@ private slots:
 private:
 
 	/**
-	 * Il faut apprendre a mutualiser son code Antho ;-)
 	 * @brief lineEditTest
 	 * @param tested
 	 * @param entry
@@ -67,7 +66,6 @@ private:
 	void lineEditTest(QLineEdit* tested, const QString& entry, const QString& expected);
 
 	/**
-	 * Meme remarque que precedemment...
 	 * @brief textEditTest
 	 * @param tested
 	 * @param entry
