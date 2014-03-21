@@ -28,7 +28,8 @@ SOURCES += Main.cpp\
     RequisitionTabTest.cpp \
     StatusWidgetGroupTest.cpp \
     VehicleTabTest.cpp \
-    StaffTabTest.cpp
+    StaffTabTest.cpp \
+    ProviderTabTest.cpp
 
 HEADERS  += MainWindow.h \
     LogisticDao.h \
@@ -46,7 +47,8 @@ HEADERS  += MainWindow.h \
     RequisitionTabTest.h \
     StatusWidgetGroupTest.h \
     VehicleTabTest.h \
-    StaffTabTest.h
+    StaffTabTest.h \
+    ProviderTabTest.h
 
 FORMS    += \
     MainWindow.ui \
