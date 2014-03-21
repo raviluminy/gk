@@ -25,6 +25,7 @@ public:
 	~WaybillTabTest();
 
 private slots:
+    void loadCss();
 
 	void testCountryCode();
 
@@ -44,10 +45,10 @@ private slots:
 
 #if 0
 	void testStatus();
-#endif
+
 
 	void testStatusComment();
-
+#endif
 	void testTransportRegistrationNo();
 
 	void testTransportVehicle();

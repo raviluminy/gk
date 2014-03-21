@@ -9,9 +9,19 @@
 
 WaybillTabTest::WaybillTabTest(QWidget* parent) :
 	WaybillTab(parent) {
+    loadCss();
 }
 
 WaybillTabTest::~WaybillTabTest() {
+}
+
+void
+WaybillTabTest::loadCss() {
+    QFile css("WebCommon.css");
+    if (css.open(QIODevice::ReadOnly)) {
+        qApp->setStyleSheet(css.readAll());
+        css.close();
+    }
 }
 
 void
@@ -78,10 +88,10 @@ MainWindowTest::testStatus(){
 }
 #endif
 
-void
+/*void
 WaybillTabTest::testStatusComment() {
-	textEditTest(ui->statusCommentTextEdit, QString("Blablabla"), QString("Blablabla"));
-}
+    textEditTest(ui->, QString("Blablabla"), QString("Blablabla"));
+}*/
 
 void
 WaybillTabTest::testTransportRegistrationNo() {
@@ -96,6 +106,7 @@ WaybillTabTest::testTransportVehicle() {
 void
 WaybillTabTest::testWarehouse() {
 	lineEditTest(ui->warehouseLineEdit, QString("Marseille"), QString("Marseille"));
+    QTest::qWait(100000);
 }
 
 void
@@ -112,7 +123,7 @@ WaybillTabTest::textEditTest(QTextEdit* tested, const QString& entry, const QStr
 	QCOMPARE(tested->toPlainText(), expected);
 }
 
-QTEST_MAIN(WaybillTabTest)
-#include "moc_WaybillTabTest.cpp"
+
+
 
 #endif // TEST_GUI_WAYBILL_TAB

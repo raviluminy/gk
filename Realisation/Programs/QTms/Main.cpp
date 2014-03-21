@@ -1,17 +1,21 @@
 #include "Util.h"
-
-#ifndef TEST_GUI_WAYBILL_TAB
-
+#include <QtTest>
+#include "WaybillTabTest.h"
 #include "MainWindow.h"
 #include <QApplication>
 
-int main(int argc, char *argv[])
-{
-	QApplication a(argc, argv);
-	MainWindow w;
-	w.show();
+int main(int argc, char** argv) {
 
-	return a.exec();
+    QApplication a(argc, argv);
+    if (argc > 1){
+        WaybillTabTest test;
+        return QTest::qExec(&test) ;
+    }
+    else{
+        MainWindow w;
+        w.show();
+        return a.exec();
+    }
 }
 
-#endif // TEST_GUI_WAYBILL_TAB
+
