@@ -29,7 +29,9 @@ SOURCES += Main.cpp\
     StatusWidgetGroupTest.cpp \
     VehicleTabTest.cpp \
     StaffTabTest.cpp \
-    ProviderTabTest.cpp
+    ProviderTabTest.cpp \
+    LdapMock.cpp \
+    LdapTest.cpp
 
 HEADERS  += MainWindow.h \
     LogisticDao.h \
@@ -48,7 +50,9 @@ HEADERS  += MainWindow.h \
     StatusWidgetGroupTest.h \
     VehicleTabTest.h \
     StaffTabTest.h \
-    ProviderTabTest.h
+    ProviderTabTest.h \
+    LdapMock.h \
+    LdapTest.h
 
 FORMS    += \
     MainWindow.ui \

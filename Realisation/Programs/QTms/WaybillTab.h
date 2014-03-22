@@ -15,7 +15,7 @@ class WaybillTab : public QWidget {
 
 public:
 
-	explicit WaybillTab(QWidget* parent = 0);
+    explicit WaybillTab(QWidget* parent = 0);
 
 	~WaybillTab();
 
