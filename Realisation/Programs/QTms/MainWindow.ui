@@ -32,6 +32,9 @@
     </property>
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="currentIndex">
        <number>0</number>
       </property>
@@ -63,6 +66,9 @@
        </attribute>
       </widget>
       <widget class="VehicleTab" name="vehicleTab">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <attribute name="icon">
         <iconset>
          <normaloff>Icon/Glyph/Cars.png</normaloff>Icon/Glyph/Cars.png</iconset>
@@ -72,6 +78,9 @@
        </attribute>
       </widget>
       <widget class="ProviderTab" name="providerTab">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <attribute name="icon">
         <iconset>
          <normaloff>Icon/Glyph/Provider.png</normaloff>Icon/Glyph/Provider.png</iconset>
