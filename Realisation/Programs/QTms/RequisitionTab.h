@@ -17,7 +17,7 @@ public:
 
 	virtual ~RequisitionTab();
 
-private:
+protected:
 
 	Ui::RequisitionTab* ui;
 

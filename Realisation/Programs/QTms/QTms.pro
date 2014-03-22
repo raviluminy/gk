@@ -11,7 +11,6 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = QTms
 TEMPLATE = app
 
-
 SOURCES += Main.cpp\
         MainWindow.cpp \
     LogisticDao.cpp \
@@ -25,7 +24,12 @@ SOURCES += Main.cpp\
     VehicleTab.cpp \
     WaybillTabTest.cpp \
     Util.cpp \
-    StatusWidgetGroup.cpp
+    StatusWidgetGroup.cpp \
+    RequisitionTabTest.cpp \
+    StatusWidgetGroupTest.cpp \
+    VehicleTabTest.cpp \
+    StaffTabTest.cpp \
+    ProviderTabTest.cpp
 
 HEADERS  += MainWindow.h \
     LogisticDao.h \
@@ -39,7 +43,12 @@ HEADERS  += MainWindow.h \
     VehicleTab.h \
     WaybillTabTest.h \
     Util.h \
-    StatusWidgetGroup.h
+    StatusWidgetGroup.h \
+    RequisitionTabTest.h \
+    StatusWidgetGroupTest.h \
+    VehicleTabTest.h \
+    StaffTabTest.h \
+    ProviderTabTest.h
 
 FORMS    += \
     MainWindow.ui \

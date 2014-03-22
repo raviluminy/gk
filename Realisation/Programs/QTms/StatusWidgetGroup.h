@@ -21,7 +21,7 @@ private slots:
 
 	void on_statusComboBox_currentIndexChanged(const int index);
 
-private:
+protected:
 
 	enum Status {
 		None = 0,

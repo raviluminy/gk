@@ -1,17 +1,24 @@
 #include "WaybillTabTest.h"
 #include "ui_WaybillTab.h"
-
 #include "Util.h"
-#ifdef TEST_GUI_WAYBILL_TAB
-
 #include <QtTest>
 #include <QtWidgets>
 
 WaybillTabTest::WaybillTabTest(QWidget* parent) :
 	WaybillTab(parent) {
+    loadCss();
 }
 
 WaybillTabTest::~WaybillTabTest() {
+}
+
+void
+WaybillTabTest::loadCss() {
+    QFile css("WebCommon.css");
+    if (css.open(QIODevice::ReadOnly)) {
+        qApp->setStyleSheet(css.readAll());
+        css.close();
+    }
 }
 
 void
@@ -48,7 +55,7 @@ WaybillTabTest::testPlannedTransport() {
 void
 WaybillTabTest::testRealLoading() {
 	lineEditTest(ui->realLoadingActorLineEdit,     QString("Actor"),     QString("Actor"));
-	lineEditTest(ui->realLoadingConditionLineEdit, QString("Condition"), QString("Condition2"));
+    lineEditTest(ui->realLoadingConditionLineEdit, QString("Condition"), QString("Condition"));
 	lineEditTest(ui->realLoadingLocationLineEdit,  QString("Location"),  QString("Location"));
 }
 
@@ -78,10 +85,10 @@ MainWindowTest::testStatus(){
 }
 #endif
 
-void
+/*void
 WaybillTabTest::testStatusComment() {
-	textEditTest(ui->statusCommentTextEdit, QString("Blablabla"), QString("Blablabla"));
-}
+    textEditTest(ui->, QString("Blablabla"), QString("Blablabla"));
+}*/
 
 void
 WaybillTabTest::testTransportRegistrationNo() {
@@ -112,7 +119,12 @@ WaybillTabTest::textEditTest(QTextEdit* tested, const QString& entry, const QStr
 	QCOMPARE(tested->toPlainText(), expected);
 }
 
-QTEST_MAIN(WaybillTabTest)
-#include "moc_WaybillTabTest.cpp"
+void
+WaybillTabTest::cleanupTestCase(){
+    QTest::qWait(5000);
+}
 
-#endif // TEST_GUI_WAYBILL_TAB
+void
+WaybillTabTest::initTestCase() {
+
+}

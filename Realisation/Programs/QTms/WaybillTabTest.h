@@ -2,8 +2,6 @@
 #define WAYBILLTABTEST_H
 
 #include "Util.h"
-#ifdef TEST_GUI_WAYBILL_TAB
-
 #include "WaybillTab.h"
 
 class QLineEdit;
@@ -25,6 +23,7 @@ public:
 	~WaybillTabTest();
 
 private slots:
+    void loadCss();
 
 	void testCountryCode();
 
@@ -44,20 +43,23 @@ private slots:
 
 #if 0
 	void testStatus();
-#endif
+
 
 	void testStatusComment();
-
+#endif
 	void testTransportRegistrationNo();
 
 	void testTransportVehicle();
 
 	void testWarehouse();
 
+    void cleanupTestCase();
+
+    void initTestCase();
+
 private:
 
 	/**
-	 * Il faut apprendre a mutualiser son code Antho ;-)
 	 * @brief lineEditTest
 	 * @param tested
 	 * @param entry
@@ -66,7 +68,6 @@ private:
 	void lineEditTest(QLineEdit* tested, const QString& entry, const QString& expected);
 
 	/**
-	 * Meme remarque que precedemment...
 	 * @brief textEditTest
 	 * @param tested
 	 * @param entry
@@ -75,7 +76,5 @@ private:
 	void textEditTest(QTextEdit* tested, const QString& entry, const QString& expected);
 
 };
-
-#endif // TEST_GUI_WAYBILL_TAB
 
 #endif // WAYBILLTABTEST_H

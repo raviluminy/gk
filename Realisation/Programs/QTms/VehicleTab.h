@@ -15,7 +15,7 @@ public:
 	explicit VehicleTab(QWidget *parent = 0);
 	~VehicleTab();
 
-private:
+protected:
 	Ui::VehicleTab *ui;
 };
 

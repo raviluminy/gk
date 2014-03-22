@@ -17,7 +17,7 @@ public:
 
 	virtual ~StaffTab();
 
-private:
+protected:
 
 	Ui::StaffTab *ui;
 

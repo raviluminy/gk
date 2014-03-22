@@ -15,7 +15,7 @@ public:
 	explicit ProviderTab(QWidget *parent = 0);
 	~ProviderTab();
 
-private:
+protected:
 	Ui::ProviderTab *ui;
 };
 
