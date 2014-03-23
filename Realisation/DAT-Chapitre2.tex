@@ -33,7 +33,9 @@
 \end{figure}
 
 \section{Architecture physique}
-La solution est prévue pour fonctionner sur l'architecture générale présentée dans la figure \ref{ArchitecturePhysique}.
+La solution est prévue pour fonctionner sur l'architecture générale présentée dans la figure \ref{ArchitecturePhysique}.  \
+Comme indiqué sur celle-ci, les utilisateurs sont en mesure d'interagir avec l'application par l'intermédiaire de différents matériels que sont ordinateurs portables, smart-phones et téléphones satellitaires. Les informations ainsi traitées sont mises en commun sur un serveur dit \og local \fg{} à un lieu d'intervention. Si nécessaire, une synchronisation des informations peut avoir lieu entre le serveur \og local \fg{} et le serveur \og central \fg{} du siège.
+
 \begin{figure}[htbp]
 	\centering
 	\begin{tikzpicture}
@@ -125,17 +127,11 @@ La solution est prévue pour fonctionner sur l'architecture générale présent�
 	\label{ArchitecturePhysique}
 \end{figure}
 
-Comme présenté en figure \ref{ArchitecturePhysique}, les utilisateurs sont en mesure d'interagir avec l'application par l'intermédiaire de différents matériels que sont ordinateurs portables, smart-phones et téléphones satellitaires.
-\\
-Les informations ainsi traitées sont mises en commun sur un serveur dit \og local \fg{} à un lieu d'intervention.
-\\
-Si nécessaire, une synchronisation des informations peut avoir lieu entre le serveur \og local \fg{} et le serveur \og central \fg{} du siège.
-
 \section{Fonctions de service et de contrainte}
 Cette section précise les services fonctionnels mis à disposition des utilisateurs et contraintes respectées.
 
 \subsection{La localisation}
-La suite logicielle propose des versions traduites en plusieurs langues, y compris avec des alphabets différents. Au minimum, les traductions dans les langages suivants sont fournis~:
+La suite logicielle propose des versions traduites en plusieurs langues, y compris avec des alphabets différents. Au minimum, les traductions dans les langues suivantes sont fournies~:
 \begin{enumerate}[label=$\bullet$]
 	\item anglais~;
 	\item arabe~;
@@ -264,7 +260,7 @@ La suite logicielle est conçue de sorte à permettre l'intégration d'un module
 \subsubsection{Gestion des données}
 La suite logicielle permet de numériser des documents papier. Ces derniers peuvent être ensuite enregistrés, affichés, supprimés, importés, exportés et archivés.
 \\
-En outre, la suite logicielle permet d'ajouter, modifier, et supprimer les informations qu'elle aura à traiter, et les liens qui les relies. Initialement, les informations suivantes sont déjà définies et peuvent être traitées~:
+En outre, la suite logicielle permet d'ajouter, modifier, et supprimer les informations qu'elle aura à traiter, et les liens qui les relient. Initialement, les informations suivantes sont déjà définies et peuvent être traitées~:
 \begin{enumerate}
 	\item planifications~;
 	\item réquisitions~;
@@ -318,13 +314,44 @@ Une Réquisition rassemble les informations suivantes~:
 \end{enumerate}
 
 \paragraph{Waybills/delivery~notes}
-
+Un Waybills/delivery~notes rassemble les informations suivantess~:
+\begin{enumerate}
+	\item code du pays, et numéro unique de Waybills/delivery~notes~;
+	\item date de la demande~;
+	\item type de transport( voix aérienne, maritime, routière ou ferroviaire)~;
+	\item code du pays et numéro de la réquisition associée à ce Waybills/delivery~notes~; 
+	\item numéro du véhicule utilisé~; 
+	\item numéro du contrat.
+	\end{enumerate}
 \paragraph{Prestataires}
-
+Les informations suivantes du prestataire doivent être traitées~:
+\begin{enumerate}
+	\item numéro d'identification dans la base;
+	\item nom du prestataire~;
+	\item patente  du prestataire.
+	\end{enumerate}
+	
 \paragraph{Chauffeurs}
+Les informations suivantes du chauffeur doivent être traitées~:
 
+\begin{enumerate}
+	\item numéro d'identification~;
+	\item numéro de la personne dont la fonction est chauffeur~;
+	\item type(s) de permis que détient ce chauffeur. 
+	\end{enumerate}
+	
 \paragraph{Véhicules}
+Les informations suivantes du véhicule doivent être traitées~:
 
+\begin{enumerate}
+	\item numéro d'identification~;
+	\item poids maximum de charge~;
+	\item volume maximum de charge~;
+	\item autonomie maximum~;
+	\item numéro du type de véhicule~;
+	\item numéro du prestataire auquel le véhicule appartient.
+	\end{enumerate}
+	
 \subsection{Contraintes}
 Cette section tient compte des contraintes respectées jusque là non évoquées.
 
