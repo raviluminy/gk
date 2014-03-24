@@ -39,7 +39,7 @@ class Directory : public QWidget {
 public:
 
 	explicit Directory(QWidget* parent = 0);
-	virtual ~Directory();
+    ~Directory();
 
 	/**
      * @brief Directory
@@ -54,7 +54,6 @@ public:
      */
     bool init_file_config();
 
-    ~Directory();
     /**
      * @brief authentification confirmation de la connection client
      * @param uid le login

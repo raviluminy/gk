@@ -4,14 +4,11 @@
 #include <QCoreApplication>
 using namespace std;
 
-/*
+
 Directory::Directory(QWidget *parent) : QWidget(parent){
 
 }
-*/
-Directory::Directory(){
 
-}
 
 bool Directory::initialize(const QString hostname, int port){
     return con.connection(hostname,port);
