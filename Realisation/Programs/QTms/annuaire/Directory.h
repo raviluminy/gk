@@ -1,39 +1,58 @@
 #ifndef DIRECTORY_H
 #define DIRECTORY_H
 
-#include <iostream>
-#include <sstream>
+#include "Util.h"
+#include "LDAPConnection.h"
+
 #include <QString>
 #include <QWidget>
 #include <QtDebug>
 
-#include "LDAPConnection.h"
-// la base d'annuaire
+#include <iostream>
+#include <sstream>
+
+/**
+ * Base d'annuaire
+ */
 #define BASEDN "dc=GarmirKatch,dc=fr"
-/** les permissions autorisees
-  */
-#define A_FIELD_READ "aFieldRead"
-#define A_FIELD_WRITE "aFieldWrite"
-#define A_TABLE_ADD "aTableAdd"
+
+/**
+ * Permissions autorisees
+ */
+#define A_FIELD_READ   "aFieldRead"
+#define A_FIELD_WRITE  "aFieldWrite"
+#define A_TABLE_ADD    "aTableAdd"
 #define A_TABLE_DELETE "aTableDel"
-/**les permissions refusees
-  */
-#define R_FIELD_READ "rFieldRead"
-#define R_FIELD_WRITE "rFieldWrite"
-#define R_TABLE_ADD "rTableAdd"
+
+/**
+ * Permissions refusees
+ */
+#define R_FIELD_READ   "rFieldRead"
+#define R_FIELD_WRITE  "rFieldWrite"
+#define R_TABLE_ADD    "rTableAdd"
 #define R_TABLE_DELETE "rTableDel"
 
 class Directory : public QWidget {
-     Q_OBJECT
-public:
-    explicit Directory(QWidget* parent = 0);
 
-    /**
+	Q_OBJECT
+
+public:
+
+	explicit Directory(QWidget* parent = 0);
+	virtual ~Directory();
+
+	/**
      * @brief Directory
      * @param hostname adresse de l'annuaire
      * @param port le port pour la connection
      */
     bool initialize(const QString hostname="localhost", int port=389);
+
+    /**
+     * @brief init_file_config
+     * @return
+     */
+    bool init_file_config();
 
     ~Directory();
     /**
@@ -89,6 +108,31 @@ private:
      * @return true si il trouve, false sinon
      */
     bool chercheField(char* str, const QString str2);
+
+    /**
+     * @brief foundField
+     * @param msg
+     * @param tableName
+     * @param fieldName
+     * @param CAS1
+     * @param CAS2
+     * @param pass
+     * @return
+     */
+    bool foundField(LDAPMessage *msg,const QString tableName,const QString fieldName,
+                    const QString CAS1,const QString CAS2,int *pass );
+    /**
+     * @brief foundTable
+     * @param msg
+     * @param tableName
+     * @param CAS1
+     * @param CAS2
+     * @param pass
+     * @return
+     */
+    bool foundTable(LDAPMessage *msg,const QString tableName,
+                    const QString CAS1,const QString CAS2,int *pass );
+
     /**
      * @brief attr un attribut
      */
@@ -101,7 +145,9 @@ private:
      * @brief entries les entrees recherche
      */
     LDAPMessage* entries;
-
+    /**
+     * @brief con
+     */
     LDAPConnection con;
 };
 

@@ -17,7 +17,6 @@ class ProviderTab : public LogisticTab {
 public:
 
 	explicit ProviderTab(QWidget* parent = 0);
-
 	virtual ~ProviderTab();
 
 	virtual void setModel(QAbstractItemModel* model);

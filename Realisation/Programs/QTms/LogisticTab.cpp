@@ -11,10 +11,10 @@ LogisticTab::~LogisticTab() {
 }
 
 void
-LogisticTab::loadTheme() {
-	QFile css("Web.Alert.css");
+LogisticTab::setTheme(const QString& name) {
+	QFile css("Theme/" + name + "/alert.css");
 	if (css.open(QIODevice::ReadOnly)) {
-		theme = css.readAll();
+		alertTheme = css.readAll();
 		css.close();
 	}
 }

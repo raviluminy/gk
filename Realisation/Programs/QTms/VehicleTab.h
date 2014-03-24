@@ -17,7 +17,6 @@ class VehicleTab : public LogisticTab {
 public:
 
 	explicit VehicleTab(QWidget* parent = 0);
-
 	virtual ~VehicleTab();
 
 	virtual void setModel(QAbstractItemModel* model);

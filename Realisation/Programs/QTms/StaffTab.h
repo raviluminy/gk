@@ -17,7 +17,6 @@ class StaffTab : public LogisticTab {
 public:
 
 	explicit StaffTab(QWidget* parent = 0);
-
 	virtual ~StaffTab();
 
 	virtual void setModel(QAbstractItemModel* model);

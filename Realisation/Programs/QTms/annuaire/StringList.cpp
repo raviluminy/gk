@@ -31,21 +31,18 @@ StringList::StringList(char** values){
 StringList::~StringList(){
 }
 
-char** StringList::toCharArray() const{
-    if(!empty()){
-        char** ret = (char**) malloc(sizeof(char*) * (size()+1));
-        StringList::const_iterator i;
-        int j=0;
-        for(i=begin(); i != end(); i++,j++){
-            ret[j]=(char*) malloc(sizeof(char) * (i->size()+1));
-            i->copy(ret[j],string::npos);
-            ret[j][i->size()]=0;
-        }
-        ret[size()]=0;
-        return ret;
-    }else{
-        return 0;
-    }
+char** StringList::toCharArray() const {
+	if (empty()) return 0;
+	char** ret = (char**) malloc(sizeof(char*) * (size() + 1));
+	StringList::const_iterator i;
+	int j=0;
+	for(i=begin(); i != end(); i++,j++){
+		ret[j]=(char*) malloc(sizeof(char) * (i->size()+1));
+		i->copy(ret[j],string::npos);
+		ret[j][i->size()]=0;
+	}
+	ret[size()]=0;
+	return ret;
 }
 
 void StringList::add(const string& value){

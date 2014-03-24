@@ -11,12 +11,13 @@ class LogisticTab : public QWidget {
 public:
 
 	explicit LogisticTab(QWidget* parent = 0);
-
 	virtual ~LogisticTab();
+
+	void setTheme(const QString& name);
 
 protected:
 
-	QString theme;
+	QString alertTheme;
 
 private:
 
