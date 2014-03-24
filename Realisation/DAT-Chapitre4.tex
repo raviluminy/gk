@@ -7,6 +7,9 @@
 
 \section{Installation des librairies et drivers}
 Afin d'assurer le bon fonctionnement de l'application, cette dernière requiert que soient présents les packages suivants (dans une version égale ou supérieure à celle précisée)~:
+Les éléments nécessaires à la première mise en service sont fournis dans le livrable initial.
+\\
+
 \begin{tabularx}{\linewidth}{X X}
 	\toprule
 	Microsoft Windows	& GNU/Linux		\\
@@ -17,31 +20,29 @@ Afin d'assurer le bon fonctionnement de l'application, cette dernière requiert 
 	MySQL 5.6.16		& 				\\
 	\bottomrule
 \end{tabularx}
-
-Les éléments nécessaires à la première mise en service sont fournis dans le livrable initial.
-Dans le cas de figure où ces derniers soient perdus ou endommagés, le paragraph suivant précise les procédures nécessaire à leur re-production.
+\\
+\\
+Dans le cas de figure où ces derniers soient perdus ou endommagés, le paragraphe suivant précise les procédures nécessaire à leur re-production.
 
 \subsection{Création du pilote MySQL pour Qt5 sur Windows}
 Cette section précise comment créer le pilote MySQL pour Qt5 sur Windows en utilisant MinGW.
 La rédaction de cette dernière a été motivée par le fait que le pilote en question n'est malheureusement pas fournit par défaut dans le framework Qt.
 
 \paragraph{Obtention du matériel}
-Les outils suivants sont nécessaires (dans une version égale ou supérieure)~:
+Les outils suivants sont nécessaires~:
 \begin{enumerate}
 	\item Windows 7~;
 	\item MinGW 4.8.1 (TDM)~;
 	\item Qt 5.2.1 installer \& sources~;
 	\item MySQL 5.6.16.
-\end{enumerate}
+\end{enumerate} 
 
 \paragraph{Installation du matériel}
+
 \subparagraph{Installation du framework Qt}
-L'installation des composants par défaut convient.
-L'installation des composants par défaut convient très bien, mais il est tout à fait possible de procéder à une installation complète.
-Sélectionner le répertoire racine d'installation du framework (ici C:).
-À terme, Qt est alors installé, ici dans le répertoire C:/Qt/Qt5.2.1.
+L'installation des composants par défaut convient très bien, mais il est tout à fait possible de procéder à une installation complète. Sélectionner le répertoire racine d'installation du framework (ici C:). À terme, Qt est alors installé, ici dans le répertoire C:/Qt/Qt5.2.1.
 \\
-Ensuite, extraire les sources Qt dans un répertoire temporaire de son choix, puis copier le dossier \begin{quote}qt-everywhere-opensource-src-5.2.1\end{quote} ainsi obtenu dans le répertoire C:/Qt/Qt5.2.1/ et le renommer \begin{quote}sources\end{quote}.
+Ensuite, extraire les sources Qt dans un répertoire temporaire de son choix, puis copier le dossier \textit{qt-everywhere-opensource-src-5.2.1} ainsi obtenu dans le répertoire \textit{C:/Qt/Qt5.2.1/} et le renommer \textit{sources}.
 \\
 En fin de manipulation, le framework Qt est installé dans le répertoire C:/Qt/Qt5.2.1/ et les sources présentes dans C:/Qt/Qt5.2.1/sources/.
 

@@ -15,8 +15,6 @@ La suite logicielle permet de synchroniser des données, à la fois entre postes
 \subsection{Cluster}
 Une première solution utilisant la technologie du \emph{cluster} peut être envisagée. Cette technique permet de créer un groupe logique de serveurs qui s'exécutent simultanément tout en donnant l'impression aux utilisateurs de ne constituer qu'un seul serveur.
 En considérant le matériel existant, et le fait que l'achat de serveur dédié pour ce cluster serait coûteux au client, une solution de \emph{clustering} peut être effectuée grâce à de simples postes clients qu'il faut configurer comme des serveurs.
-Les étapes de cette configuration seront fournies dans le manuel de déploiement.
-\\
 Dans l'architecture proposée (voir figure \ref{SchemaCluster}), deux postes clients (configurés comme des serveurs maître/esclave) sont reliés directement par un câble ethernet, ce qui permet de dupliquer au fur et à mesure toutes les données.
 Le serveur maître transmet les données au serveur esclave, et en cas d'incident sur le serveur maître, c'est le serveur esclave (ou de secours) qui reprend la main.
 
