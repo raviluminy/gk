@@ -1,10 +1,10 @@
 #ifndef LDAPTEST_H
 #define LDAPTEST_H
 #include "Util.h"
-#include "LdapMock.h"
+#include "annuaire/Directory.h"
 
 
-class LdapTest : public LdapMock
+class LdapTest : public Directory
 {
     Q_OBJECT
 public:
@@ -83,7 +83,7 @@ private slots:
      */
     void initTestCase();
 private :
-    LdapMock lm;
+    Directory lm;
 };
 
 #endif // LDAPTEST_H

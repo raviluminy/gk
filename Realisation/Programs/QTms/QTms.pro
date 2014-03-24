@@ -82,7 +82,7 @@ OTHER_FILES += \
     Web.css \
     Web.Alert.css
 
-LIBS += -L$$PWD/annuaire/lib/LDAPSDK.DLL
+LIBS += -L$$PWD/annuaire/lib/ -lldapsdk
 
 win32: INCLUDEPATH += $$PWD/annuaire/include/windows
 else:unix:!macx:!symbian: INCLUDEPATH += $$PWD/annuaire/include/linux
