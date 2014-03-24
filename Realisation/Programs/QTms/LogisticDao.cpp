@@ -11,8 +11,9 @@ LogisticDao::~LogisticDao() {
 
 void
 LogisticDao::load() {
-	QSettings settings("Logistic.DB.ini", QSettings::IniFormat);
-	settings.beginGroup("DB");
+    QSettings settings("Logistic.DB.ini", QSettings::IniFormat);
+    settings.setUserIniPath(QCoreApplication::applicationDirPath());
+    settings.beginGroup("DB");
 	dbDriver       = settings.value("Driver")      .toString();
 	dbHostName     = settings.value("HostName")    .toString();
 	dbHostPort     = settings.value("HostPort")    .toString();
@@ -24,7 +25,8 @@ LogisticDao::load() {
 
 void
 LogisticDao::save() {
-	QSettings settings("Logistic.DB.ini", QSettings::IniFormat);
+    QSettings settings("Logistic.DB.ini", QSettings::IniFormat);
+    settings.setUserIniPath(QCoreApplication::applicationDirPath());
 	settings.beginGroup("DB");
 	settings.setValue("Driver",       dbDriver);
 	settings.setValue("HostName",     dbHostName);
@@ -58,8 +60,11 @@ LogisticDao::checkOpenConnection() {
 	exit(FailedOpeningConnection);
 }
 
+#include <QCoreApplication>l
+
 void
 LogisticDao::connect() {
+    qDebug() << QCoreApplication::applicationDirPath();
 	load();
 	checkDriver();
 	db = QSqlDatabase::addDatabase(dbDriver);

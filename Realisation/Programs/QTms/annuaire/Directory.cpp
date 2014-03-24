@@ -1,16 +1,15 @@
 #include "Directory.h"
-#include <string.h>
 
 using namespace std;
 
-Directory::Directory(const string& hostname, int port) :
+Directory::Directory(const QString hostname, int port) :
         LDAPConnection(hostname, port){
 }
 
 Directory::~Directory() {
 }
 
-bool Directory::chercheField(char* str, const std::string& str2){
+bool Directory::chercheField(char* str, const QString str2){
     bool found = false;
     char * pch;
      pch = strtok (str,"("); //on enleve le nom de la Table
@@ -26,7 +25,7 @@ bool Directory::chercheField(char* str, const std::string& str2){
     return found;
 }
 
-int Directory::chercheTab(const StringList& str,const std::string& str2){
+int Directory::chercheTab(const StringList& str,const QString str2){
 
     int found = -1;
     char** chaine = str.toCharArray();
@@ -46,7 +45,7 @@ int Directory::chercheTab(const StringList& str,const std::string& str2){
 }
 
 
-bool Directory::authentification(const string &uid, const string &pwd){
+bool Directory::authentification(const QString uid, const QString pwd){
     bool found = false;
     entries = search(BASEDN,LDAPConnection::SEARCH_SUB,"uid="+uid);
 
@@ -59,7 +58,7 @@ bool Directory::authentification(const string &uid, const string &pwd){
     return found;
 }
 
-bool Directory::canAdd(const string &uid, const string &tableName){
+bool Directory::canAdd(const QString uid, const QString tableName){
 
     bool found = false;
     entries = search(BASEDN,LDAPConnection::SEARCH_SUB,"uid="+uid);
@@ -85,7 +84,7 @@ bool Directory::canAdd(const string &uid, const string &tableName){
     return found;
 }
 
-bool Directory::canDelete(const string &uid, const string &tableName){
+bool Directory::canDelete(const QString uid, const QString tableName){
     bool found = false;
     entries = search(BASEDN,LDAPConnection::SEARCH_SUB,"uid="+uid);
     if(entries != NULL){
@@ -93,7 +92,6 @@ bool Directory::canDelete(const string &uid, const string &tableName){
 
         StringList liste = get_attribute_by_name_values(entry,A_TABLE_DELETE);
         if(!liste.empty()){
-            std::cout << "-oui---- " << tableName << std::endl;
             if(chercheTab(liste,tableName) != -1){
                 found = true;
             }
@@ -111,7 +109,7 @@ bool Directory::canDelete(const string &uid, const string &tableName){
     return found;
 }
 
-bool Directory::canRead(const string &uid, const string &tableName, const string &fieldName){
+bool Directory::canRead(const QString uid, const QString tableName, const QString fieldName){
     bool found = false;
 
     entries = search(BASEDN,LDAPConnection::SEARCH_SUB,"uid="+uid);
@@ -124,7 +122,7 @@ bool Directory::canRead(const string &uid, const string &tableName, const string
         int index = chercheTab(liste,tableName);
         //si on trouve la table parmi les permis
         if(index != -1){
-            const std::string table (liste.toCharArray()[index]);
+            const QString table (liste.toCharArray()[index]);
             //si n'est pas une table avec aucun droits
             if (!(table.compare(tableName+"()") == 0)) {
                 found = chercheField(liste.toCharArray()[index],fieldName) ;
@@ -137,7 +135,7 @@ bool Directory::canRead(const string &uid, const string &tableName, const string
             liste = get_attribute_by_name_values(entry,R_FIELD_READ);
             index = chercheTab(liste,tableName);
             if(index != -1){
-                const std::string table (liste.toCharArray()[index]);
+                const QString  table (liste.toCharArray()[index]);
                 // si rien n'est interdit alors il a tous les droits
                 if ((table.compare(tableName+"()") == 0)) {
                    found = true;
@@ -156,7 +154,7 @@ bool Directory::canRead(const string &uid, const string &tableName, const string
     return found;
 }
 
-bool Directory::canWrite(const string &uid, const string &tableName, const string &fieldName){
+bool Directory::canWrite(const QString uid, const QString tableName, const QString fieldName){
     bool found = false;
 
     entries = search(BASEDN,LDAPConnection::SEARCH_SUB,"uid="+uid);
@@ -167,7 +165,7 @@ bool Directory::canWrite(const string &uid, const string &tableName, const strin
 
         int index = chercheTab(liste,tableName);
         if(index != -1){
-            const std::string table (liste.toCharArray()[index]);
+            const QString  table (liste.toCharArray()[index]);
 
             if (!(table.compare(tableName+"()") == 0)) {
                 found = chercheField(liste.toCharArray()[index],fieldName) ;
@@ -179,7 +177,7 @@ bool Directory::canWrite(const string &uid, const string &tableName, const strin
             liste = get_attribute_by_name_values(entry,R_FIELD_WRITE);
             index = chercheTab(liste,tableName);
             if(index != -1){
-                const std::string table (liste.toCharArray()[index]);
+                const QString  table (liste.toCharArray()[index]);
                 // si rien n'est interdit alors il a tous les droits
                 if ((table.compare(tableName+"()") == 0)) {
                    found = true;

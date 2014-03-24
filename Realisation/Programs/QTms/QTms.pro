@@ -32,7 +32,10 @@ SOURCES += Main.cpp\
     ProviderTabTest.cpp \
     LdapMock.cpp \
     LdapTest.cpp \
-    LogisticTab.cpp
+    LogisticTab.cpp \
+    annuaire/Directory.cpp \
+    annuaire/LDAPConnection.cpp \
+    annuaire/StringList.cpp
 
 HEADERS  += MainWindow.h \
     LogisticDao.h \
@@ -54,7 +57,10 @@ HEADERS  += MainWindow.h \
     ProviderTabTest.h \
     LdapMock.h \
     LdapTest.h \
-    LogisticTab.h
+    LogisticTab.h \
+    annuaire/Directory.h \
+    annuaire/LDAPConnection.h \
+    annuaire/StringList.h
 
 FORMS    += \
     MainWindow.ui \
@@ -75,3 +81,11 @@ OTHER_FILES += \
     Logistic.DB.ini \
     Web.css \
     Web.Alert.css
+
+LIBS += -L$$PWD/annuaire/lib/ -lldapsdk
+
+win32: INCLUDEPATH += $$PWD/annuaire/include/windows
+else:unix:!macx:!symbian: INCLUDEPATH += $$PWD/annuaire/include/linux
+
+win32: DEPENDPATH += $$PWD/annuaire/include/windows
+else:unix:!macx:!symbian: DEPENDPATH += $$PWD/annuaire/include/linux

@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <sstream>
-#include <string>
+#include <QString>
 #include "LDAPConnection.h"
 // la base d'annuaire
 #define BASEDN "dc=GarmirKatch,dc=fr"
@@ -29,7 +29,7 @@ public:
      * @param hostname adresse de l'annuaire
      * @param port le port pour la connection
      */
-    Directory(const std::string& hostname="localhost", int port=389);
+    Directory(const QString hostname="localhost", int port=389);
 
     ~Directory();
     /**
@@ -38,7 +38,7 @@ public:
      * @param pwd le mot de passe
      * @return true si on est connecté, false sinon
      */
-    bool authentification(const std::string& uid,const std::string& pwd);
+    bool authentification(const QString uid,const QString pwd);
     /**
      * @brief canRead retourne true si le login uid a droit de lire une colonne d'une table
      * @param uid       le login
@@ -46,7 +46,7 @@ public:
      * @param fieldName la colonne
      * @return true si il a le droit, false sinon
      */
-    bool canRead(const std::string& uid,const std::string& tableName,const std::string& fieldName);
+    bool canRead(const QString uid,const QString tableName,const QString fieldName);
     /**
      * @brief canRead retourne true si le login uid a droit de lire une colonne d'une table
      * @param uid       le login
@@ -54,21 +54,21 @@ public:
      * @param fieldName la colonne
      * @return true si il a le droit, false sinon
      */
-    bool canWrite(const std::string& uid,const std::string& tableName,const std::string& fieldName);
+    bool canWrite(const QString uid,const QString tableName,const QString fieldName);
     /**
      * @brief canAdd retourne true si le login uid a droit d'ajouter une table
      * @param uid           le login
      * @param tableName     la table
      * @return true si il a le droit, false sinon
      */
-    bool canAdd(const std::string& uid,const std::string& tableName);
+    bool canAdd(const QString uid,const QString tableName);
     /**
      * @brief canDelete retourne true si le login uid a droit de supprimer une table
      * @param uid       le login
      * @param tableName la table
      * @return true si il a le droit, false sinon
      */
-    bool canDelete(const std::string& uid,const std::string& tableName);
+    bool canDelete(const QString uid,const QString tableName);
 
 private:
     /**
@@ -77,14 +77,14 @@ private:
      * @param str2 le string à trouvé
      * @return l'indice du string dans la liste, sinon -1
      */
-    int chercheTab(const StringList& str,const std::string& str2);
+    int chercheTab(const StringList& str,const QString str2);
     /**
      * @brief chercheField recherche un string dans une chaine de caractere
      * @param str la chaine
      * @param str2 le string
      * @return true si il trouve, false sinon
      */
-    bool chercheField(char* str, const std::string& str2);
+    bool chercheField(char* str, const QString str2);
     /**
      * @brief attr un attribut
      */
