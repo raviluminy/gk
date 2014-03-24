@@ -1,10 +1,9 @@
 #include "WaybillTab.h"
 #include "ui_WaybillTab.h"
 
-WaybillTab::WaybillTab(QWidget *parent) :
-	QWidget(parent),
-	ui(new Ui::WaybillTab)
-{
+WaybillTab::WaybillTab(QWidget* parent) :
+	LogisticTab(parent),
+	ui(new Ui::WaybillTab) {
 	ui->setupUi(this);
 
 	dao.connect();
@@ -22,8 +21,7 @@ WaybillTab::WaybillTab(QWidget *parent) :
 	initFields();
 }
 
-WaybillTab::~WaybillTab()
-{
+WaybillTab::~WaybillTab() {
 	dao.disconnect();
 	delete ui;
 }

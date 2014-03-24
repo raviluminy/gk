@@ -7,19 +7,24 @@ namespace Ui {
 class DataInteractionToolBar;
 }
 
-class DataInteractionToolBar : public QWidget
-{
+class DataInteractionToolBar : public QWidget {
+
 	Q_OBJECT
 
 public:
-	explicit DataInteractionToolBar(QWidget *parent = 0);
-	~DataInteractionToolBar();
+
+	explicit DataInteractionToolBar(QWidget* parent = 0);
+
+	virtual ~DataInteractionToolBar();
 
 public slots:
+
 	void loadCss();
 
 private:
+
 	Ui::DataInteractionToolBar *ui;
+
 };
 
 #endif // DATAINTERACTIONTOOLBAR_H

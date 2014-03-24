@@ -31,7 +31,8 @@ SOURCES += Main.cpp\
     StaffTabTest.cpp \
     ProviderTabTest.cpp \
     LdapMock.cpp \
-    LdapTest.cpp
+    LdapTest.cpp \
+    LogisticTab.cpp
 
 HEADERS  += MainWindow.h \
     LogisticDao.h \
@@ -52,7 +53,8 @@ HEADERS  += MainWindow.h \
     StaffTabTest.h \
     ProviderTabTest.h \
     LdapMock.h \
-    LdapTest.h
+    LdapTest.h \
+    LogisticTab.h
 
 FORMS    += \
     MainWindow.ui \
@@ -68,3 +70,8 @@ FORMS    += \
 
 RESOURCES += \
     Gui.qrc
+
+OTHER_FILES += \
+    Logistic.DB.ini \
+    Web.css \
+    Web.Alert.css

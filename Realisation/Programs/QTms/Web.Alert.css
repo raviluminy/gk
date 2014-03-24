@@ -1,0 +1,40 @@
+/*---- Sucess ----------------------------------------------------------------*/
+
+*[alert=success]{
+	border-color: #D6E9C6;
+	color: #3C763D;
+}
+*[alert=success].QLabel{
+	background-color: #DFF0D8;
+}
+
+/*---- Info ------------------------------------------------------------------*/
+
+*[alert=info]{
+	border-color: #BCE8F1;
+	color: #31708F;
+}
+*[alert=info].QLabel{
+	background-color: #D9EDF7;
+}
+
+/*---- Warning ---------------------------------------------------------------*/
+
+*[alert=warning]{
+	border-color: #FAEBCC;
+	color: #8A6D3B;
+}
+*[alert=warning].QLabel{
+	background-color: #FCF8E3;
+}
+
+/*---- Error -----------------------------------------------------------------*/
+
+*[alert=error]{
+	border-color: #EBCCD1;
+	color: #A94442;
+}
+*[alert=error].QLabel{
+	background-color: #F2DEDE;
+}
+

@@ -2,6 +2,7 @@
 #define WAYBILLTAB_H
 
 #include "LogisticDao.h"
+#include "LogisticTab.h"
 
 #include <QWidget>
 
@@ -9,15 +10,15 @@ namespace Ui {
 class WaybillTab;
 }
 
-class WaybillTab : public QWidget {
+class WaybillTab : public LogisticTab {
 
 	Q_OBJECT
 
 public:
 
-    explicit WaybillTab(QWidget* parent = 0);
+	explicit WaybillTab(QWidget* parent = 0);
 
-	~WaybillTab();
+	virtual ~WaybillTab();
 
 private slots:
 
