@@ -2,28 +2,31 @@
 #include "ui_RequisitionTab.h"
 
 RequisitionTab::RequisitionTab(QWidget *parent) :
-	QWidget(parent),
-	ui(new Ui::RequisitionTab)
-{
+	LogisticTab(parent),
+	ui(new Ui::RequisitionTab) {
 	ui->setupUi(this);
-
-
-    initBooleans();
-    initFields();
+	initBooleans();
+	initFields();
 }
 
-RequisitionTab::~RequisitionTab()
-{
+RequisitionTab::~RequisitionTab() {
 	delete ui;
 }
 
 void
+RequisitionTab::setModel(QAbstractItemModel* newModel) {
+	QItemSelectionModel* oldModel = ui->dataListView->selectionModel();
+	ui->dataListView->setModel(newModel);
+	if (oldModel) delete oldModel;
+}
+
+void
 RequisitionTab::initBooleans() {
-    countryCodeIsValid = false;
-    requisitionIdIsValid = false;
-    originIsValid = false;
-    destinationIsValid = false;
-    deliveryDateIsValid = false;
+	countryCodeIsValid = false;
+	requisitionIdIsValid = false;
+	originIsValid = false;
+	destinationIsValid = false;
+	deliveryDateIsValid = false;
 }
 
 void
@@ -62,8 +65,6 @@ RequisitionTab::setAlertMessageOn(const QVariant& alert, const char* message, co
     }
     ui->confirmationWidgetGroup->setEnabled(/**Check validators heare**/true);
 }
-
-
 
 void RequisitionTab::on_countryCodeLineEdit_textChanged(const QString &newText)
 {

@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "LogisticDao.h"
+
 #include <QMainWindow>
 
 namespace Ui {
@@ -13,7 +15,7 @@ class MainWindow : public QMainWindow
 
 public:
 
-	explicit MainWindow(QWidget *parent = 0);
+	explicit MainWindow(QWidget* parent = 0);
 
 	virtual ~MainWindow();
 
@@ -26,6 +28,8 @@ public slots:
 private:
 
 	Ui::MainWindow *ui;
+
+	LogisticDao dao;
 
 };
 

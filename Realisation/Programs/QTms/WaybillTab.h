@@ -1,10 +1,10 @@
 #ifndef WAYBILLTAB_H
 #define WAYBILLTAB_H
 
-#include "LogisticDao.h"
 #include "LogisticTab.h"
 
-#include <QWidget>
+class QAbstractItemModel;
+class QWidget;
 
 namespace Ui {
 class WaybillTab;
@@ -20,6 +20,8 @@ public:
 
 	virtual ~WaybillTab();
 
+	virtual void setModel(QAbstractItemModel* model);
+
 private slots:
 
 	void on_idTitle_toggled(const bool checked);
@@ -33,8 +35,6 @@ private slots:
 protected:
 
 	Ui::WaybillTab* ui;
-
-	LogisticDao dao;
 
 private slots:
 

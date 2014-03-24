@@ -6,9 +6,6 @@ WaybillTab::WaybillTab(QWidget* parent) :
 	ui(new Ui::WaybillTab) {
 	ui->setupUi(this);
 
-	dao.connect();
-	ui->dataListView->setModel(dao.waybillModel());
-
 	ui->idWidget->hide();
 	ui->planningWidget->hide();
 	ui->statusWidget->hide();
@@ -22,8 +19,14 @@ WaybillTab::WaybillTab(QWidget* parent) :
 }
 
 WaybillTab::~WaybillTab() {
-	dao.disconnect();
 	delete ui;
+}
+
+void
+WaybillTab::setModel(QAbstractItemModel* newModel) {
+	QItemSelectionModel* oldModel = ui->dataListView->selectionModel();
+	ui->dataListView->setModel(newModel);
+	if (oldModel) delete oldModel;
 }
 
 /*---- TOGGLED TITLES --------------------------------------------------------*/

@@ -60,11 +60,8 @@ LogisticDao::checkOpenConnection() {
 	exit(FailedOpeningConnection);
 }
 
-#include <QCoreApplication>l
-
 void
 LogisticDao::connect() {
-    qDebug() << QCoreApplication::applicationDirPath();
 	load();
 	checkDriver();
 	db = QSqlDatabase::addDatabase(dbDriver);
@@ -89,17 +86,35 @@ LogisticDao::disconnect() {
 }
 
 QAbstractItemModel*
-LogisticDao::waybillModel() {
-	return dbWaybillModel;
+LogisticDao::model(const QString& tablename) {
+	QSqlTableModel* model = new QSqlTableModel();
+	model->setTable(tablename);
+	model->setEditStrategy(QSqlTableModel::OnManualSubmit);
+	model->select();
+	return model;
 }
 
 QAbstractItemModel*
-LogisticDao::activedWaybillModel(const int id) {
-	dbActivedWaybillModel = new QSqlTableModel();
-	dbActivedWaybillModel->setTable("Waybill");
-	dbActivedWaybillModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
-	dbActivedWaybillModel->setFilter(QString("id=%1").arg(id));
-	dbActivedWaybillModel->select();
-	return dbActivedWaybillModel;
+LogisticDao::providerModel() {
+	return model("Provider");
 }
 
+QAbstractItemModel*
+LogisticDao::requisitionModel() {
+	return model("Requisition");
+}
+
+QAbstractItemModel*
+LogisticDao::staffModel() {
+	return model("Person");
+}
+
+QAbstractItemModel*
+LogisticDao::vehicleModel() {
+	return model("Vehicle");
+}
+
+QAbstractItemModel*
+LogisticDao::waybillModel() {
+	return model("Waybill");
+}

@@ -1,13 +1,16 @@
 #ifndef REQUISITIONTAB_H
 #define REQUISITIONTAB_H
 
-#include <QWidget>
+#include "LogisticTab.h"
+
+class QAbstractItemModel;
+class QWidget;
 
 namespace Ui {
 class RequisitionTab;
 }
 
-class RequisitionTab : public QWidget {
+class RequisitionTab : public LogisticTab {
 
 	Q_OBJECT
 
@@ -16,6 +19,8 @@ public:
 	explicit RequisitionTab(QWidget* parent = 0);
 
 	virtual ~RequisitionTab();
+
+	virtual void setModel(QAbstractItemModel* model);
 
 private:
 
