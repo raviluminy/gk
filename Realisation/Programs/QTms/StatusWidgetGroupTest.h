@@ -5,47 +5,49 @@
 #include "StatusWidgetGroup.h"
 
 class QLineEdit;
-
 class QTextEdit;
 
 /**
  * @brief The StatusWidgetGroupTest class teste les fonctionalites classiques du champ
  * status.
  */
-class StatusWidgetGroupTest : public StatusWidgetGroup
-{
-        Q_OBJECT
+class StatusWidgetGroupTest : public StatusWidgetGroup {
+
+	Q_OBJECT
+
 public:
-    explicit StatusWidgetGroupTest(QWidget* parent = 0);
-    ~StatusWidgetGroupTest();
+
+	explicit StatusWidgetGroupTest(QWidget* parent = 0);
+	virtual ~StatusWidgetGroupTest();
 
 private slots:
 
-    void loadCss();
+	void loadCss();
 
-    void testComment();
+	void testComment();
 
-    void initTestCase();
+	void initTestCase();
 
-    void cleanupTestCase();
+	void cleanupTestCase();
 
 private:
 
-    /**
-     * @brief lineEditTest
-     * @param tested
-     * @param entry
-     * @param expected
-     */
-    void lineEditTest(QLineEdit* tested, const QString& entry, const QString& expected);
+	/**
+	 * @brief lineEditTest
+	 * @param tested
+	 * @param entry
+	 * @param expected
+	 */
+	void lineEditTest(QLineEdit* tested, const QString& entry, const QString& expected);
 
-    /**
-     * @brief textEditTest
-     * @param tested
-     * @param entry
-     * @param expected
-     */
-    void textEditTest(QTextEdit* tested, const QString& entry, const QString& expected);
+	/**
+	 * @brief textEditTest
+	 * @param tested
+	 * @param entry
+	 * @param expected
+	 */
+	void textEditTest(QTextEdit* tested, const QString& entry, const QString& expected);
+
 };
 
 #endif // STATUSWIDGETGROUPTEST_H

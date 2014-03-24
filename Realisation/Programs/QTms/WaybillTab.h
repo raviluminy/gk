@@ -17,7 +17,6 @@ class WaybillTab : public LogisticTab {
 public:
 
 	explicit WaybillTab(QWidget* parent = 0);
-
 	virtual ~WaybillTab();
 
 	virtual void setModel(QAbstractItemModel* model);
@@ -25,11 +24,8 @@ public:
 private slots:
 
 	void on_idTitle_toggled(const bool checked);
-
 	void on_planningTitle_toggled(const bool checked);
-
 	void on_statusTitle_toggled(const bool checked);
-
 	void on_transportTitle_toggled(const bool checked);
 
 protected:
@@ -38,44 +34,28 @@ protected:
 
 private slots:
 
-	void on_requestDateEdit_dateChanged(const QDate &date);
-
-	void on_requisitionIdComboBox_textChanged(const QString &newText);
-
-	void on_warehouseLineEdit_textChanged(const QString &newText);
-
-	void on_countryCodeLineEdit_textChanged(const QString &newtext);
-
-	void on_transportVehicleLineEdit_textChanged(const QString &newText);
-
-	void on_transportRegistrationNoLineEdit_textChanged(const QString &newText);
-
-	void on_plannedLoadingActorLineEdit_textChanged(const QString &newText);
-
-	void on_plannedTransportActorLineEdit_textChanged(const QString &newText);
-
-	void on_plannedReceptionActorLineEdit_textChanged(const QString &newText);
-
+	void on_requestDateEdit_dateChanged(const QDate& date);
+	void on_requisitionIdComboBox_textChanged(const QString& newText);
+	void on_warehouseLineEdit_textChanged(const QString& newText);
+	void on_countryCodeLineEdit_textChanged(const QString& newtext);
+	void on_transportVehicleLineEdit_textChanged(const QString& newText);
+	void on_transportRegistrationNoLineEdit_textChanged(const QString& newText);
+	void on_plannedLoadingActorLineEdit_textChanged(const QString& newText);
+	void on_plannedTransportActorLineEdit_textChanged(const QString& newText);
+	void on_plannedReceptionActorLineEdit_textChanged(const QString& newText);
 	void on_plannedLoadingDateEdit_dateChanged();
-
 	void on_realLoadingDateEdit_dateChanged();
-
 	void on_plannedTransportDateEdit_dateChanged();
-
 	void on_realTransportDateEdit_dateChanged();
-
 	void on_plannedReceptionDateEdit_dateChanged();
-
 	void on_realReceptionDateEdit_dateChanged();
 
 private:
 
 	void initBooleans();
-
 	void initFields();
 
 	void checkPlannedDates();
-
 	void checkRealDates();
 
 	void setAlertMessageOn(const QVariant& alert, const char* message, const QList<QWidget*> widgets);

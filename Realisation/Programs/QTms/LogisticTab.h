@@ -11,7 +11,6 @@ class LogisticTab : public QWidget {
 public:
 
 	explicit LogisticTab(QWidget* parent = 0);
-
 	virtual ~LogisticTab();
 
 protected:

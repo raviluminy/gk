@@ -2,36 +2,34 @@
 
 using namespace std;
 
-
-Directory::Directory(QWidget *parent) : QWidget(parent){
-
-}
-
-bool Directory::initialize(const QString hostname, int port){
-    return con.connection(hostname,port);
+Directory::Directory(QWidget* parent) :
+	QWidget(parent) {
 }
 
 Directory::~Directory() {
 }
 
-bool Directory::chercheField(char* str, const QString str2){
-    bool found = false;
-    char * pch;
-    pch = strtok (str,"("); //on enleve le nom de la Table
-    pch = strtok (NULL,",)"); // on commence avec les attributs
-
-    while (pch != NULL && !found) {
-
-        found = (str2.compare(pch) == 0);
-
-        pch = strtok (NULL,",)");
-    }
-
-    return found;
+bool
+Directory::initialize(const QString& hostname, const int port) {
+	return con.connection(hostname, port);
 }
 
-int Directory::chercheTab(const StringList& str,const QString str2){
+bool
+Directory::chercheField(char* str, const QString& str2){
+	bool found = false;
+	char * pch;
+	pch = strtok (str,"("); // on enleve le nom de la Table
+	pch = strtok (NULL,",)"); // on commence avec les attributs
 
+	while (pch != NULL && !found) {
+		found = (str2.compare(pch) == 0);
+		pch = strtok (NULL,",)");
+	}
+	return found;
+	}
+
+int
+Directory::chercheTab(const StringList& str, const QString& str2) {
     int found = -1;
     char** chaine = str.toCharArray();
     char * pch;
@@ -50,7 +48,8 @@ int Directory::chercheTab(const StringList& str,const QString str2){
 }
 
 
-bool Directory::authentification(const QString uid, const QString pwd){
+bool
+Directory::authentification(const QString& uid, const QString& pwd) {
     bool found = false;
     entries = con.search(BASEDN,LDAPConnection::SEARCH_SUB,"uid="+uid);
 
@@ -63,7 +62,8 @@ bool Directory::authentification(const QString uid, const QString pwd){
     return found;
 }
 
-bool Directory::canAdd(const QString uid, const QString tableName){
+bool
+Directory::canAdd(const QString& uid, const QString& tableName) {
 
     bool found = false;
     entries = con.search(BASEDN,LDAPConnection::SEARCH_SUB,"uid="+uid);
@@ -89,7 +89,8 @@ bool Directory::canAdd(const QString uid, const QString tableName){
     return found;
 }
 
-bool Directory::canDelete(const QString uid, const QString tableName){
+bool
+Directory::canDelete(const QString& uid, const QString& tableName) {
     bool found = false;
     entries = con.search(BASEDN,LDAPConnection::SEARCH_SUB,"uid="+uid);
     if(entries != NULL){
@@ -114,7 +115,8 @@ bool Directory::canDelete(const QString uid, const QString tableName){
     return found;
 }
 
-bool Directory::canRead(const QString uid, const QString tableName, const QString fieldName){
+bool
+Directory::canRead(const QString& uid, const QString& tableName, const QString& fieldName){
     bool found = false;
     entries = con.search(BASEDN,LDAPConnection::SEARCH_SUB,"uid="+uid);
     if(entries != NULL){
@@ -146,41 +148,32 @@ bool Directory::canRead(const QString uid, const QString tableName, const QStrin
                     // si non c'est interdit
                     found = !(chercheField(liste.toCharArray()[index],fieldName)) ;
                 }
-
-
             }
-
         }
-
         ldap_msgfree( entries );
     }
-
     return found;
 }
 
-bool Directory::canWrite(const QString uid, const QString tableName, const QString fieldName){
+bool
+Directory::canWrite(const QString& uid, const QString& tableName, const QString& fieldName) {
     bool found = false;
+	entries = con.search(BASEDN, LDAPConnection::SEARCH_SUB, "uid=" + uid);
 
-    entries = con.search(BASEDN,LDAPConnection::SEARCH_SUB,"uid="+uid);
-
-    if(entries != NULL){
+	if (entries != NULL) {
         entry = con.get_first_entry(entries);
         StringList liste = con.get_attribute_by_name_values(entry,A_FIELD_WRITE);
-
         int index = chercheTab(liste,tableName);
-        if(index != -1){
+		if (index != -1) {
             const QString  table (liste.toCharArray()[index]);
-
             if (!(table.compare(tableName+"()") == 0)) {
                 found = chercheField(liste.toCharArray()[index],fieldName) ;
             }
-
         }
-
-        if(!found){
+		if (!found) {
             liste = con.get_attribute_by_name_values(entry,R_FIELD_WRITE);
             index = chercheTab(liste,tableName);
-            if(index != -1){
+			if (index != -1) {
                 const QString  table (liste.toCharArray()[index]);
                 // si rien n'est interdit alors il a tous les droits
                 if ((table.compare(tableName+"()") == 0)) {
@@ -189,9 +182,7 @@ bool Directory::canWrite(const QString uid, const QString tableName, const QStri
                     // si non c'est interdit
                     found = !(chercheField(liste.toCharArray()[index],fieldName)) ;
                 }
-
             }
-
         }
         ldap_msgfree( entries );
     }
