@@ -106,6 +106,12 @@
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
        </spacer>
       </item>
       <item row="1" column="1">
@@ -170,9 +176,9 @@
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>-113</y>
+           <y>0</y>
            <width>491</width>
-           <height>425</height>
+           <height>435</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -258,6 +264,9 @@
                    </item>
                    <item>
                     <widget class="QLineEdit" name="countryCodeLineEdit">
+                     <property name="maxLength">
+                      <number>3</number>
+                     </property>
                      <property name="frame">
                       <bool>false</bool>
                      </property>
