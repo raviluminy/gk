@@ -16,24 +16,33 @@ public:
 
 	virtual ~LogisticDao();
 
+	void connect();
+
+	void disconnect();
+
 	void load();
 
 	void save();
 
-	void connect();
+	QAbstractItemModel* model(const QString& tablename);
 
-	void disconnect();
+	QAbstractItemModel* providerModel();
+
+	QAbstractItemModel* requisitionModel();
+
+	QAbstractItemModel* staffModel();
+
+	QAbstractItemModel* vehicleModel();
+
+	QAbstractItemModel* waybillModel();
+
+private:
 
 	void checkDriver();
 
 	void checkExistance();
 
 	void checkOpenConnection();
-
-	QAbstractItemModel* waybillModel();
-	QAbstractItemModel* activedWaybillModel(const int id);
-
-private:
 
 	QString dbDriver;
 	QString dbHostPort;

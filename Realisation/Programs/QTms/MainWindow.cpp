@@ -1,6 +1,8 @@
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
 
+#include <QFile>
+
 void
 MainWindow::loadCss() {
 	QFile css("Web.css");
@@ -17,9 +19,16 @@ MainWindow::MainWindow(QWidget* parent) :
 	ui->setupUi(this);
 	setWindowFlags(Qt::Window);// | Qt::FramelessWindowHint);
 	loadCss();
+	dao.connect();
+	ui->providerTab   ->setModel(dao.providerModel());
+	ui->requisitionTab->setModel(dao.requisitionModel());
+	ui->staffTab      ->setModel(dao.staffModel());
+	ui->vehicleTab    ->setModel(dao.vehicleModel());
+	ui->waybillTab    ->setModel(dao.waybillModel());
 }
 
 MainWindow::~MainWindow() {
+	dao.disconnect();
 	delete ui;
 }
 /*

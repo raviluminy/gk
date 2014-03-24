@@ -1,13 +1,15 @@
 #include "LDAPConnection.h"
-
+#include <QDebug>
 
 using namespace std;
 
-LDAPConnection::LDAPConnection(const QString   hostname, int port){
+bool LDAPConnection::connection(const QString   hostname, int port){
 
     m_port = port;
     m_host = hostname;
     dir = ldap_init( const_cast<char*>(hostname.toStdString().c_str()),port);
+
+    return dir != NULL;
 }
 
 bool LDAPConnection::bind(const QString    dn, const QString    passwd){

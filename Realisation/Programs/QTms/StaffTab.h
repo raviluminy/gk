@@ -1,21 +1,26 @@
 #ifndef STAFFTAB_H
 #define STAFFTAB_H
 
-#include <QWidget>
+#include "LogisticTab.h"
+
+class QAbstractItemModel;
+class QWidget;
 
 namespace Ui {
 class StaffTab;
 }
 
-class StaffTab : public QWidget {
+class StaffTab : public LogisticTab {
 
 	Q_OBJECT
 
 public:
 
-	explicit StaffTab(QWidget *parent = 0);
+	explicit StaffTab(QWidget* parent = 0);
 
 	virtual ~StaffTab();
+
+	virtual void setModel(QAbstractItemModel* model);
 
 protected:
 

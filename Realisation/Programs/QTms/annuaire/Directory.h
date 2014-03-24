@@ -4,6 +4,9 @@
 #include <iostream>
 #include <sstream>
 #include <QString>
+#include <QWidget>
+#include <QtDebug>
+
 #include "LDAPConnection.h"
 // la base d'annuaire
 #define BASEDN "dc=GarmirKatch,dc=fr"
@@ -20,16 +23,17 @@
 #define R_TABLE_ADD "rTableAdd"
 #define R_TABLE_DELETE "rTableDel"
 
-class Directory : LDAPConnection {
-
+class Directory : public QWidget {
+     Q_OBJECT
 public:
+    explicit Directory(QWidget* parent = 0);
 
     /**
      * @brief Directory
      * @param hostname adresse de l'annuaire
      * @param port le port pour la connection
      */
-    Directory(const QString hostname="localhost", int port=389);
+    bool initialize(const QString hostname="localhost", int port=389);
 
     ~Directory();
     /**
@@ -97,6 +101,8 @@ private:
      * @brief entries les entrees recherche
      */
     LDAPMessage* entries;
+
+    LDAPConnection con;
 };
 
 #endif // DIRECTORY_H

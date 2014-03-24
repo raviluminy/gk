@@ -39,7 +39,7 @@ class LDAPConnection {
          * @param cons Default constraints to use with operations over
          *      this connection
          */
-        LDAPConnection(const QString hostname="localhost", int port=389);
+        bool connection(const QString hostname="localhost", int port=389);
 
         /**
          * Destructor
