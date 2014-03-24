@@ -68,8 +68,9 @@ bool Directory::canAdd(const QString uid, const QString tableName){
     bool found = false;
     entries = con.search(BASEDN,LDAPConnection::SEARCH_SUB,"uid="+uid);
     //il existe une personne avec cet uid
-    if(entries != NULL){
-        entry = con.get_first_entry(entries);
+    entry = con.get_first_entry(entries);
+
+    if(entry != NULL){
         // liste de droits permis
         StringList liste = con.get_attribute_by_name_values(entry,A_TABLE_ADD);
         if(!liste.empty()){
@@ -92,8 +93,9 @@ bool Directory::canAdd(const QString uid, const QString tableName){
 bool Directory::canDelete(const QString uid, const QString tableName){
     bool found = false;
     entries = con.search(BASEDN,LDAPConnection::SEARCH_SUB,"uid="+uid);
-    if(entries != NULL){
-        entry = con.get_first_entry(entries);
+    entry = con.get_first_entry(entries);
+
+    if(entry != NULL){
 
         StringList liste = con.get_attribute_by_name_values(entry,A_TABLE_DELETE);
         if(!liste.empty()){
@@ -117,9 +119,11 @@ bool Directory::canDelete(const QString uid, const QString tableName){
 bool Directory::canRead(const QString uid, const QString tableName, const QString fieldName){
     bool found = false;
     entries = con.search(BASEDN,LDAPConnection::SEARCH_SUB,"uid="+uid);
-    if(entries != NULL){
-        entry = con.get_first_entry(entries);
+    entry = con.get_first_entry(entries);
+
+    if(entry != NULL){
         // les droits permis
+
         StringList liste = con.get_attribute_by_name_values(entry,A_FIELD_READ);
 
         int index = chercheTab(liste,tableName);
@@ -162,9 +166,9 @@ bool Directory::canWrite(const QString uid, const QString tableName, const QStri
     bool found = false;
 
     entries = con.search(BASEDN,LDAPConnection::SEARCH_SUB,"uid="+uid);
+    entry = con.get_first_entry(entries);
 
-    if(entries != NULL){
-        entry = con.get_first_entry(entries);
+    if(entry != NULL){
         StringList liste = con.get_attribute_by_name_values(entry,A_FIELD_WRITE);
 
         int index = chercheTab(liste,tableName);
