@@ -21,15 +21,18 @@ public:
 
 public slots:
 
-//	void on_waybillTableView_clicked(const QModelIndex index);
+	void loadTheme(const QString& name);
 
-	void loadCss();
+	void onSignIn();
+	void onSignOut();
 
 private:
 
 	Ui::MainWindow *ui;
 
 	LogisticDao dao;
+
+	QString theme;
 
 };
 

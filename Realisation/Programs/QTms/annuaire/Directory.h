@@ -1,13 +1,15 @@
 #ifndef DIRECTORY_H
 #define DIRECTORY_H
 
-#include <iostream>
-#include <sstream>
+#include "Util.h"
+#include "LDAPConnection.h"
+
 #include <QString>
 #include <QWidget>
 #include <QtDebug>
 
-#include "LDAPConnection.h"
+#include <iostream>
+#include <sstream>
 
 /**
  * Base d'annuaire

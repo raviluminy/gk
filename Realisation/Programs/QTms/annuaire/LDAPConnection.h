@@ -1,9 +1,11 @@
-
 #ifndef LDAP_CONNECTION_H
 #define LDAP_CONNECTION_H
 
+#include "Util.h"
 #include "StringList.h"
+
 #include <QString>
+
 #include <ldap.h>
 #include <iostream>
 #include <sstream>

@@ -116,6 +116,8 @@
     <property name="title">
      <string>Connection</string>
     </property>
+    <addaction name="signInAction"/>
+    <addaction name="signOutAction"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -128,6 +130,16 @@
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="signInAction">
+   <property name="text">
+    <string>Sign in</string>
+   </property>
+  </action>
+  <action name="signOutAction">
+   <property name="text">
+    <string>Sign out</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>

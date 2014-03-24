@@ -35,7 +35,8 @@ SOURCES += Main.cpp\
     LogisticTab.cpp \
     annuaire/Directory.cpp \
     annuaire/LDAPConnection.cpp \
-    annuaire/StringList.cpp
+    annuaire/StringList.cpp \
+    SignInDialog.cpp
 
 HEADERS  += MainWindow.h \
     LogisticDao.h \
@@ -60,7 +61,8 @@ HEADERS  += MainWindow.h \
     LogisticTab.h \
     annuaire/Directory.h \
     annuaire/LDAPConnection.h \
-    annuaire/StringList.h
+    annuaire/StringList.h \
+    SignInDialog.h
 
 FORMS    += \
     MainWindow.ui \
@@ -72,7 +74,8 @@ FORMS    += \
     StaffTab.ui \
     ProviderTab.ui \
     VehicleTab.ui \
-    StatusWidgetGroup.ui
+    StatusWidgetGroup.ui \
+    SignInDialog.ui
 
 RESOURCES += \
     Gui.qrc
