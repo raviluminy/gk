@@ -109,35 +109,39 @@ bool Directory::canAdd(const QString uid, const QString tableName){
     bool found = false;
     int pass;
     entries = con.search(BASEDN,LDAPConnection::SEARCH_SUB,"uid="+uid);
-    //il existe une personne avec cet uid
-    entry = con.get_first_entry(entries);
 
-    if(entry != NULL){
-        found = foundTable(entry,tableName,A_TABLE_ADD,R_TABLE_ADD,&pass);
+    if(entries != NULL){
+        //il existe une personne avec cet uid
+        entry = con.get_first_entry(entries);
 
-        // si on n'a pas les droits sur l'entre, on regarde alors les groupes
-        if(pass == 0){
+        if(entry != NULL){
+            found = foundTable(entry,tableName,A_TABLE_ADD,R_TABLE_ADD,&pass);
 
-            found = false;      // on remet à false pour le nouveau test
-            StringList liste = con.get_attribute_by_name_values(entry,"ou");
-            int taille = liste.size();
-            char** tmpgrp = liste.toCharArray();
+            // si on n'a pas les droits sur l'entre, on regarde alors les groupes
+            if(pass == 0){
 
-            for (int var = 0; (var < taille) && !found; ++var) {
-                entries = con.search(BASEDN,LDAPConnection::SEARCH_SUB,"cn="+QString (tmpgrp[var]));
-                entry = con.get_first_entry(entries);
+                found = false;      // on remet à false pour le nouveau test
+                StringList liste = con.get_attribute_by_name_values(entry,"ou");
+                int taille = liste.size();
+                char** tmpgrp = liste.toCharArray();
 
-                // recherche approfondit pour un groupe
-                while ((entry != NULL)  && !found) {
-                    found = foundTable(entry,tableName,A_TABLE_ADD,R_TABLE_ADD,&pass);
-                    entry = con.get_next_entry(entries);
+                for (int var = 0; (var < taille) && !found; ++var) {
+                    entries = con.search(BASEDN,LDAPConnection::SEARCH_SUB,"cn="+QString (tmpgrp[var]));
+                    entry = con.get_first_entry(entries);
+
+                    // recherche approfondit pour un groupe
+                    while ((entry != NULL)  && !found) {
+                        found = foundTable(entry,tableName,A_TABLE_ADD,R_TABLE_ADD,&pass);
+                        entry = con.get_next_entry(entries);
+                    }
+
                 }
-
+                ldap_value_free( tmpgrp );
             }
-            ldap_value_free( tmpgrp );
-        }
 
+        }
     }
+
     return found;
 }
 
@@ -145,34 +149,38 @@ bool Directory::canDelete(const QString uid, const QString tableName){
     bool found = false;
     int pass;
     entries = con.search(BASEDN,LDAPConnection::SEARCH_SUB,"uid="+uid);
-    entry = con.get_first_entry(entries);
 
-    if(entry != NULL){
-        found = foundTable(entry,tableName,A_TABLE_DELETE,R_TABLE_DELETE,&pass);
+    if(entries != NULL){
+        entry = con.get_first_entry(entries);
 
-        // si on n'a pas les droits sur l'entre, on regarde alors les groupes
-        if(pass == 0){
+        if(entry != NULL){
+            found = foundTable(entry,tableName,A_TABLE_DELETE,R_TABLE_DELETE,&pass);
 
-            found = false;      // on remet à false pour le nouveau test
-            StringList liste = con.get_attribute_by_name_values(entry,"ou");
-            int taille = liste.size();
-            char** tmpgrp = liste.toCharArray();
+            // si on n'a pas les droits sur l'entre, on regarde alors les groupes
+            if(pass == 0){
 
-            for (int var = 0; (var < taille) && !found; ++var) {
-                entries = con.search(BASEDN,LDAPConnection::SEARCH_SUB,"cn="+QString (tmpgrp[var]));
-                entry = con.get_first_entry(entries);
+                found = false;      // on remet à false pour le nouveau test
+                StringList liste = con.get_attribute_by_name_values(entry,"ou");
+                int taille = liste.size();
+                char** tmpgrp = liste.toCharArray();
 
-                // recherche approfondit pour un groupe
-                while ((entry != NULL)  && !found) {
-                    found = foundTable(entry,tableName,A_TABLE_DELETE,R_TABLE_DELETE,&pass);
-                    entry = con.get_next_entry(entries);
+                for (int var = 0; (var < taille) && !found; ++var) {
+                    entries = con.search(BASEDN,LDAPConnection::SEARCH_SUB,"cn="+QString (tmpgrp[var]));
+                    entry = con.get_first_entry(entries);
+
+                    // recherche approfondit pour un groupe
+                    while ((entry != NULL)  && !found) {
+                        found = foundTable(entry,tableName,A_TABLE_DELETE,R_TABLE_DELETE,&pass);
+                        entry = con.get_next_entry(entries);
+                    }
+
                 }
-
+                ldap_value_free( tmpgrp );
             }
-            ldap_value_free( tmpgrp );
         }
+        ldap_msgfree( entries );
     }
-    ldap_msgfree( entries );
+
 
     return found;
 }
@@ -220,34 +228,38 @@ bool Directory::canRead(const QString uid, const QString tableName, const QStrin
     bool found = false;
     int pass;
     entries = con.search(BASEDN,LDAPConnection::SEARCH_SUB,"uid="+uid);
-    entry = con.get_first_entry(entries);
 
-    if(entry != NULL){
-        found = foundField(entry,tableName,fieldName,A_FIELD_READ,R_FIELD_READ,&pass);
+    if(entries != NULL){
+        entry = con.get_first_entry(entries);
 
-        // si on n'a pas les droits sur l'entre, on regarde alors les groupes
-        if(pass == 0){
-            found = false;      // on remet à false pour le nouveau test
-            StringList liste = con.get_attribute_by_name_values(entry,"ou");
-            int taille = liste.size();
-            char** tmpgrp = liste.toCharArray();
+        if(entry != NULL){
+            found = foundField(entry,tableName,fieldName,A_FIELD_READ,R_FIELD_READ,&pass);
 
-            for (int var = 0; (var < taille) && !found; ++var) {
-                entries = con.search(BASEDN,LDAPConnection::SEARCH_SUB,"cn="+QString (tmpgrp[var]));
-                entry = con.get_first_entry(entries);
+            // si on n'a pas les droits sur l'entre, on regarde alors les groupes
+            if(pass == 0){
+                found = false;      // on remet à false pour le nouveau test
+                StringList liste = con.get_attribute_by_name_values(entry,"ou");
+                int taille = liste.size();
+                char** tmpgrp = liste.toCharArray();
 
-                // recherche approfondit pour un groupe
-                while ((entry != NULL)  && !found) {
-                    found = foundField(entry,tableName,fieldName,A_FIELD_READ,R_FIELD_READ,&pass);
-                    entry = con.get_next_entry(entries);
+                for (int var = 0; (var < taille) && !found; ++var) {
+                    entries = con.search(BASEDN,LDAPConnection::SEARCH_SUB,"cn="+QString (tmpgrp[var]));
+                    entry = con.get_first_entry(entries);
+
+                    // recherche approfondit pour un groupe
+                    while ((entry != NULL)  && !found) {
+                        found = foundField(entry,tableName,fieldName,A_FIELD_READ,R_FIELD_READ,&pass);
+                        entry = con.get_next_entry(entries);
+                    }
+
                 }
-
+                ldap_value_free( tmpgrp );
             }
-            ldap_value_free( tmpgrp );
         }
+        ldap_msgfree( entries );
+
     }
 
-    ldap_msgfree( entries );
     return found;
 }
 
@@ -255,31 +267,35 @@ bool Directory::canWrite(const QString uid, const QString tableName, const QStri
     bool found = false;
     int pass;
     entries = con.search(BASEDN,LDAPConnection::SEARCH_SUB,"uid="+uid);
-    entry = con.get_first_entry(entries);
 
-    if(entry != NULL){
-        found = foundField(entry,tableName,fieldName,A_FIELD_WRITE,R_FIELD_WRITE,&pass);
+    if(entries != NULL){
+        entry = con.get_first_entry(entries);
 
-        // si on n'a pas les droits sur l'entre, on regarde alors les groupes
-        if(pass == 0){
-            found = false;      // on remet à false pour le nouveau test
-            StringList liste = con.get_attribute_by_name_values(entry,"ou");
-            int taille = liste.size();
-            char** tmpgrp = liste.toCharArray();
+        if(entry != NULL){
+            found = foundField(entry,tableName,fieldName,A_FIELD_WRITE,R_FIELD_WRITE,&pass);
 
-            for (int var = 0; (var < taille) && !found; ++var) {
-                entries = con.search(BASEDN,LDAPConnection::SEARCH_SUB,"cn="+QString (tmpgrp[var]));
-                entry = con.get_first_entry(entries);
+            // si on n'a pas les droits sur l'entre, on regarde alors les groupes
+            if(pass == 0){
+                found = false;      // on remet à false pour le nouveau test
+                StringList liste = con.get_attribute_by_name_values(entry,"ou");
+                int taille = liste.size();
+                char** tmpgrp = liste.toCharArray();
 
-                // recherche approfondit pour un groupe
-                while ((entry != NULL)  && !found) {
-                    found = foundField(entry,tableName,fieldName,A_FIELD_WRITE,R_FIELD_WRITE,&pass);
-                    entry = con.get_next_entry(entries);
+                for (int var = 0; (var < taille) && !found; ++var) {
+                    entries = con.search(BASEDN,LDAPConnection::SEARCH_SUB,"cn="+QString (tmpgrp[var]));
+                    entry = con.get_first_entry(entries);
+
+                    // recherche approfondit pour un groupe
+                    while ((entry != NULL)  && !found) {
+                        found = foundField(entry,tableName,fieldName,A_FIELD_WRITE,R_FIELD_WRITE,&pass);
+                        entry = con.get_next_entry(entries);
+                    }
+
                 }
-
+                ldap_value_free( tmpgrp );
             }
-            ldap_value_free( tmpgrp );
         }
     }
+
     return found;
 }

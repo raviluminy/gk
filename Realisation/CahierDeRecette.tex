@@ -1037,6 +1037,49 @@ Dans un premier temps, les tests unitaires concernant l'annuaire ont été fait 
 Tous ces tests ont permis de corriger des erreurs dans l'implémentation de l'annuaire.\\
 Pour effectuer et visualiser les tests concernant \emph{LDAP} à partir de l'exécutable, il faut rajouter l'argument \emph{-testldap}.
 
+********* Start testing of LdapTest *********\\
+Config: Using QtTest library 5.2.1, Qt 5.2.1\\
+PASS   : LdapTest::initTestCase()\\
+PASS   : LdapTest::qshowIfNotHidden()\\
+PASS   : LdapTest::testConnection()\\
+XPASS  : LdapTest::testConnectionBadHostname() 'lm.initialize(QString("toto"), 389)' returned TRUE unexpectedly. ()\\
+XPASS  : LdapTest::testConnectionBadPort() 'lm.initialize(QString("localhost"), 666)' returned TRUE unexpectedly. ()\\
+XPASS  : LdapTest::testConnectionBadHostnameAndPort() 'lm.initialize(QString("toto"), 666)' returned TRUE unexpectedly. ()\\
+FAIL!  : LdapTest::testAuthentification() 'lm.authentification(QString("biensuanga"), QString("biensuanga"))' returned FALSE. ()\\
+XFAIL  : LdapTest::testAuthentificationBadUid() bad login\\
+PASS   : LdapTest::testAuthentificationBadUid()\\
+XFAIL  : LdapTest::testAuthentificationBadPwd() bad password\\
+PASS   : LdapTest::testAuthentificationBadPwd()\\
+XFAIL  : LdapTest::testAuthentificationBadUidAndPwd() bad login and password\\
+PASS   : LdapTest::testAuthentificationBadUidAndPwd()\\
+FAIL!  : LdapTest::testCanRead() 'lm.canRead(QString("biensuanga"), QString("Waybill"), QString("RequisitionId"))' returned FALSE. ()\\
+XFAIL  : LdapTest::testCanReadBadUid() bad login\\
+PASS   : LdapTest::testCanReadBadUid()\\
+XFAIL  : LdapTest::testCanReadBadTableName() unknow table name\\
+PASS   : LdapTest::testCanReadBadTableName()\\
+XFAIL  : LdapTest::testCanReadBadFieldName() unknow Field name\\
+PASS   : LdapTest::testCanReadBadFieldName()\\
+FAIL!  : LdapTest::testCanWrite() 'lm.canWrite(QString("biensuanga"), QString("Requistion"), QString("waybillId"))' returned FALSE. ()\\
+XFAIL  : LdapTest::testCanWriteBadUid() bad login\\
+PASS   : LdapTest::testCanWriteBadUid()\\
+XFAIL  : LdapTest::testCanWriteBadTableName() unknow table name\\
+PASS   : LdapTest::testCanWriteBadTableName()\\
+XFAIL  : LdapTest::testCanWriteBadFieldName() unknow field name\\
+PASS   : LdapTest::testCanWriteBadFieldName()\\
+FAIL!  : LdapTest::testCanAdd() 'lm.canAdd(QString("biensuanga"), QString("Waybill"))' returned FALSE. ()\\
+XFAIL  : LdapTest::testCanAddBadUid() bad login\\
+PASS   : LdapTest::testCanAddBadUid()\\
+XFAIL  : LdapTest::testCanAddBadTableName() unknow table name\\
+PASS   : LdapTest::testCanAddBadTableName()\\
+FAIL!  : LdapTest::testCanDelete() 'lm.canDelete(QString("biensuanga"), QString("Waybill"))' returned FALSE. ()\\
+XFAIL  : LdapTest::testCanDeleteBadUid() bad login\\
+PASS   : LdapTest::testCanDeleteBadUid()\\
+XFAIL  : LdapTest::testCanDeleteBadTableName() unknow table name\\
+PASS   : LdapTest::testCanDeleteBadTableName()\\
+PASS   : LdapTest::cleanupTestCase()\\
+Totals: 17 passed, 8 failed, 0 skipped\\
+********* Finished testing of LdapTest *********\\
+
 \chapter{Tests sur le système de gestion de données}
 
 \end{document}
