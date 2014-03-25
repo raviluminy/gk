@@ -1,0 +1,92 @@
+%-------------------------------------------------------------------------------
+%
+%     INFORMATIONS GENERALES
+%
+%-------------------------------------------------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}			% Format LaTeX2e
+\ProvidesPackage{mjmcd}[2014/03/12]	% Identité du package
+
+
+
+%-------------------------------------------------------------------------------
+%
+%     CHARGEMENT DES EXTENSIONS
+%
+%-------------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------------
+%     Couleurs, images et dessins vectoriels
+%-------------------------------------------------------------------------------
+
+\RequirePackage{xcolor}						% Couleurs par nom (e.g. red)
+\RequirePackage{graphicx}					% Inclusion d'images
+	\graphicspath{{Images/}}				% Répertoire des images par défaut
+\RequirePackage{tikz}						% Schémas et dessins vectoriels
+
+%-------------------------------------------------------------------------------
+%     Tableaux
+%-------------------------------------------------------------------------------
+
+\RequirePackage{booktabs}					% Règles horizontales dans les tableaux
+\RequirePackage{tabularx}					% Tableaux avec retour à la ligne des contenus trop longs
+	\renewcommand{\tabularxcolumn}[1]{m{#1}}
+
+%-------------------------------------------------------------------------------
+%
+%     DECLARATION DES OPTIONS
+%
+%-------------------------------------------------------------------------------
+
+%\DeclareOption{option}{...}
+%\DeclareOption*{...}
+%\ProcessOptions
+
+
+
+%-------------------------------------------------------------------------------
+%
+%     DECLARATION DES VARIABLES COMMUNES
+%
+%-------------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------------
+%     MUTATEURS & ACCESSEURS
+%-------------------------------------------------------------------------------
+
+\newcommand{\ZForeignKey}[1]{
+	\small \includegraphics[scale=0.4]{"Foreign key 16x16"} #1
+}
+\newcommand{\ZPrimaryKey}[1]{
+	\small \includegraphics[scale=0.4]{"Primary key 16x16"} #1
+}
+\newcommand{\ZNoneKey}[1]{
+	\small \includegraphics[scale=0.4]{"None key 16x16"} #1
+}
+
+\newenvironment{MjMcd}{
+	\begin{tikzpicture}
+}{
+	\end{tikzpicture}
+}
+
+\newcommand{\MjMcdEntity}[2]{
+	\node (#1) {
+		\begin{tabular}{|l|}
+			\hline
+			\bfseries\scshape #1 \\
+			\hline
+			#2 \\
+			\hline
+		\end{tabular}
+	};
+}
+
+
+%-------------------------------------------------------------------------------
+%     FIN DU PACKAGE
+%-------------------------------------------------------------------------------
+
+\endinput
