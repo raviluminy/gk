@@ -24,8 +24,8 @@ Les éléments nécessaires à la première mise en service sont fournis dans le
 \\
 Dans le cas de figure où ces derniers soient perdus ou endommagés, le paragraphe suivant précise les procédures nécessaire à leur re-production.
 
-\subsection{Création du pilote MySQL pour Qt5 sur Windows}
-Cette section précise comment créer le pilote MySQL pour Qt5 sur Windows en utilisant MinGW.
+\subsection{Création du pilote MySQL pour Qt5}
+Cette section précise comment créer le pilote MySQL pour Qt5 en utilisant MinGW.
 La rédaction de cette dernière a été motivée par le fait que le pilote en question n'est malheureusement pas fournit par défaut dans le framework Qt.
 
 
@@ -80,7 +80,7 @@ cd C:\Qt\Qt5.2.1\sources\qtbase\src\plugins\sqldrivers\mysql\
 qmake "INCLUDEPATH+=%mysql%\\include" "LIBS+=%mysql%\\lib\\libmysql.lib" -o Makefile mysql.pro
 mingw32-make
 \end{lstlisting}
-Après construction réussie (et sans erreur), des fichiers seront produits dans C:/Qt/Qt5.2.1/sources/qtbase/plugins/sqldrivers, que sont~:
+Après construction réussie (et sans erreur), des fichiers seront produits dans \\ C:/Qt/Qt5.2.1/sources/qtbase/plugins/sqldrivers, que sont~:
 \begin{enumerate}
 	\item libqsqlmysql.a~;
 	\item libqsqlmysqld.a~;
@@ -120,3 +120,25 @@ int main() {
 }
 
 \end{lstlisting}
+
+ \section{Procédure de génération de la base de données}
+ 
+ \subsection{Génération des tables SQL avec JMerise}
+ 
+ \subsubsection{Présentation}
+JMerise est un logiciel dédié à la modélisation des modèles conceptuels de donnée pour Merise. Il permet aussi, les relations réflexives, la généralisation et la spécialisation des entités. Il génère le MLD et le script MySQL associé.
+
+ \subsubsection{Procédure d'installation de JMerise}
+Pour installer et utiliser JMerise, dezipper simplement le fichier "\textbf{JMerise.zip}" et exécuter le jar nommé "\textit{JMerise.jar}". 
+
+ \subsubsection{Génération de tables SQL}
+Une fois la MCD réalisée, JMerise propose une méthode de vérification qui permet de s'assurer que le modèle que l'utilisateur vient de créer est correct. Pour cela, il suffit de cliquer sur le bouton \includegraphics[scale=0.35]{checkMCD}.\\
+L'outil peut aussi générer la MPD associée ainsi que le code MySQL permettant la création des tables en cliquant sur le bouton \includegraphics[scale=0.35]{convertMCD}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.25]{jmerise}
+\end{center}
+\caption{Exemple de MCD avec JMerise}
+\end{figure}
+
