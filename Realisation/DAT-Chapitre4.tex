@@ -20,9 +20,6 @@ Les éléments nécessaires à la première mise en service sont fournis dans le
 	QMySQL 5.6.16		& QMySQL 5.6.16				\\
 	\bottomrule
 \end{tabularx}
-\\
-\\
-Dans le cas de figure où ces derniers soient perdus ou endommagés, le paragraphe suivant précise les procédures nécessaire à leur re-production.
 
 \subsection{Création du pilote MySQL pour Qt5}
 Cette section précise comment créer le pilote MySQL pour Qt5 en utilisant MinGW.
@@ -39,14 +36,13 @@ En fin de manipulation, le framework Qt est installé dans le répertoire C:/Qt/
 \paragraph{Installation du driver QMySQL}
 
 \subparagraph{Installation sous Linux }
-Vous avez besoin des fichiers d'en-tête de MySQL ainsi que la bibliothèque partagée \textit{libmysqlclient.so}. Selon votre distribution Linux, vous devez peut-être installer un paquet qui est généralement appelé "mysql-dev". 
-\\ Dites à \textbf{qmake} où trouver les fichiers d'en-tête de MySQL et les bibliothèques partagées (ici, on suppose que MySQL est installé dans /usr/local) et lancez make : \\
+ Vous avez besoin des fichiers d'en-tête de MySQL ainsi que la bibliothèque partagée \textit{libmysqlclient.so}. Selon votre distribution Linux, vous devez peut-être installer un paquet qui est généralement appelé "mysql-dev". 
+\\ Dites à \textbf{qmake} où trouver les fichiers d'en-tête de MySQL et les bibliothèques partagées (ici, on suppose que MySQL est installé dans /usr/local) et lancez make : 
 \begin{lstlisting}
 cd $QTDIR/src/plugins/sqldrivers/mysql
 qmake "INCLUDEPATH+=/usr/local/include" "LIBS+=-L/usr/local/lib -lmysqlclient_r" mysql.pro
 make
 \end{lstlisting}
-
 Après l'installation de Qt, vous devez également installer le plugin dans l'emplacement standard :
 \begin{lstlisting}
 cd $QTDIR/src/plugins/sqldrivers/mysql
@@ -135,10 +131,5 @@ Pour installer et utiliser JMerise, dezipper simplement le fichier "\textbf{JMer
 Une fois la MCD réalisée, JMerise propose une méthode de vérification qui permet de s'assurer que le modèle que l'utilisateur vient de créer est correct. Pour cela, il suffit de cliquer sur le bouton \includegraphics[scale=0.35]{checkMCD}.\\
 L'outil peut aussi générer la MPD associée ainsi que le code MySQL permettant la création des tables en cliquant sur le bouton \includegraphics[scale=0.35]{convertMCD}.
 
-\begin{figure}
-\begin{center}
-\includegraphics[scale=0.25]{jmerise}
-\end{center}
-\caption{Exemple de MCD avec JMerise}
-\end{figure}
+
 
