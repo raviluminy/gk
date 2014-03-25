@@ -164,31 +164,31 @@ CREATE TABLE Function(
 )ENGINE=InnoDB;
 
 
-CREATE TABLE Loading(
-        LoadingDate     Date NOT NULL ,
-        LoadingComments Text ,
-        PersonId        Int NOT NULL ,
-        WaybillId       Integer NOT NULL ,
-        LocalisationId  Integer NOT NULL ,
+CREATE TABLE PlannedLoading(
+        PlannedLoadingDate     Date NOT NULL ,
+        PlannedLoadingComments Text ,
+        PersonId               Int NOT NULL ,
+        WaybillId              Integer NOT NULL ,
+        LocalisationId         Integer NOT NULL ,
         PRIMARY KEY (PersonId ,WaybillId ,LocalisationId )
 )ENGINE=InnoDB;
 
 
-CREATE TABLE Reception(
-        ReceptionDate     Date NOT NULL ,
-        ReceptionComments Text ,
-        PersonId          Int NOT NULL ,
-        WaybillId         Integer NOT NULL ,
-        LocalisationId    Integer NOT NULL ,
+CREATE TABLE PlannedReception(
+        PlannedReceptionDate     Date NOT NULL ,
+        PlannedReceptionComments Text ,
+        PersonId                 Int NOT NULL ,
+        WaybillId                Integer NOT NULL ,
+        LocalisationId           Integer NOT NULL ,
         PRIMARY KEY (PersonId ,WaybillId ,LocalisationId )
 )ENGINE=InnoDB;
 
 
-CREATE TABLE Transport(
-        TransportDate  Date NOT NULL ,
-        WaybillId      Integer NOT NULL ,
-        DriverId       Integer NOT NULL ,
-        LocalisationId Integer NOT NULL ,
+CREATE TABLE PlannedTransport(
+        PlannedTransportDate Date NOT NULL ,
+        WaybillId            Integer NOT NULL ,
+        DriverId             Integer NOT NULL ,
+        LocalisationId       Integer NOT NULL ,
         PRIMARY KEY (WaybillId ,DriverId ,LocalisationId )
 )ENGINE=InnoDB;
 
@@ -218,6 +218,35 @@ CREATE TABLE Reference(
         PRIMARY KEY (RequisitionId ,CountryId ,WaybillId )
 )ENGINE=InnoDB;
 
+
+CREATE TABLE Transport(
+        TransportDate  Date NOT NULL ,
+        LocalisationId Integer NOT NULL ,
+        WaybillId      Integer NOT NULL ,
+        DriverId       Integer NOT NULL ,
+        PRIMARY KEY (LocalisationId ,WaybillId ,DriverId )
+)ENGINE=InnoDB;
+
+
+CREATE TABLE Reception(
+        ReceptionDate     Date NOT NULL ,
+        ReceptionComments Text ,
+        WaybillId         Integer NOT NULL ,
+        LocalisationId    Integer NOT NULL ,
+        PersonId          Int NOT NULL ,
+        PRIMARY KEY (WaybillId ,LocalisationId ,PersonId )
+)ENGINE=InnoDB;
+
+
+CREATE TABLE Loading(
+        LoadingDate     Date NOT NULL ,
+        LoadingComments Text ,
+        WaybillId       Integer NOT NULL ,
+        LocalisationId  Integer NOT NULL ,
+        PersonId        Int NOT NULL ,
+        PRIMARY KEY (WaybillId ,LocalisationId ,PersonId )
+)ENGINE=InnoDB;
+
 ALTER TABLE Requisition ADD CONSTRAINT FK_Requisition_LocalisationId FOREIGN KEY (LocalisationId) REFERENCES Localisation(LocalisationId);
 ALTER TABLE Requisition ADD CONSTRAINT FK_Requisition_LocalisationId_1 FOREIGN KEY (LocalisationId_1) REFERENCES Localisation(LocalisationId);
 ALTER TABLE Requisition ADD CONSTRAINT FK_Requisition_CurrencyId FOREIGN KEY (CurrencyId) REFERENCES Currency(CurrencyId);
@@ -239,15 +268,15 @@ ALTER TABLE Vehicle ADD CONSTRAINT FK_Vehicle_ProviderId FOREIGN KEY (ProviderId
 ALTER TABLE Contract ADD CONSTRAINT FK_Contract_ProviderId FOREIGN KEY (ProviderId) REFERENCES Provider(ProviderId);
 ALTER TABLE Contract ADD CONSTRAINT FK_Contract_ContractTypeId FOREIGN KEY (ContractTypeId) REFERENCES ContractType(ContractTypeId);
 ALTER TABLE Driver ADD CONSTRAINT FK_Driver_PersonId FOREIGN KEY (PersonId) REFERENCES Person(PersonId);
-ALTER TABLE Loading ADD CONSTRAINT FK_Loading_PersonId FOREIGN KEY (PersonId) REFERENCES Person(PersonId);
-ALTER TABLE Loading ADD CONSTRAINT FK_Loading_WaybillId FOREIGN KEY (WaybillId) REFERENCES Waybill(WaybillId);
-ALTER TABLE Loading ADD CONSTRAINT FK_Loading_LocalisationId FOREIGN KEY (LocalisationId) REFERENCES Localisation(LocalisationId);
-ALTER TABLE Reception ADD CONSTRAINT FK_Reception_PersonId FOREIGN KEY (PersonId) REFERENCES Person(PersonId);
-ALTER TABLE Reception ADD CONSTRAINT FK_Reception_WaybillId FOREIGN KEY (WaybillId) REFERENCES Waybill(WaybillId);
-ALTER TABLE Reception ADD CONSTRAINT FK_Reception_LocalisationId FOREIGN KEY (LocalisationId) REFERENCES Localisation(LocalisationId);
-ALTER TABLE Transport ADD CONSTRAINT FK_Transport_WaybillId FOREIGN KEY (WaybillId) REFERENCES Waybill(WaybillId);
-ALTER TABLE Transport ADD CONSTRAINT FK_Transport_DriverId FOREIGN KEY (DriverId) REFERENCES Driver(DriverId);
-ALTER TABLE Transport ADD CONSTRAINT FK_Transport_LocalisationId FOREIGN KEY (LocalisationId) REFERENCES Localisation(LocalisationId);
+ALTER TABLE PlannedLoading ADD CONSTRAINT FK_PlannedLoading_PersonId FOREIGN KEY (PersonId) REFERENCES Person(PersonId);
+ALTER TABLE PlannedLoading ADD CONSTRAINT FK_PlannedLoading_WaybillId FOREIGN KEY (WaybillId) REFERENCES Waybill(WaybillId);
+ALTER TABLE PlannedLoading ADD CONSTRAINT FK_PlannedLoading_LocalisationId FOREIGN KEY (LocalisationId) REFERENCES Localisation(LocalisationId);
+ALTER TABLE PlannedReception ADD CONSTRAINT FK_PlannedReception_PersonId FOREIGN KEY (PersonId) REFERENCES Person(PersonId);
+ALTER TABLE PlannedReception ADD CONSTRAINT FK_PlannedReception_WaybillId FOREIGN KEY (WaybillId) REFERENCES Waybill(WaybillId);
+ALTER TABLE PlannedReception ADD CONSTRAINT FK_PlannedReception_LocalisationId FOREIGN KEY (LocalisationId) REFERENCES Localisation(LocalisationId);
+ALTER TABLE PlannedTransport ADD CONSTRAINT FK_PlannedTransport_WaybillId FOREIGN KEY (WaybillId) REFERENCES Waybill(WaybillId);
+ALTER TABLE PlannedTransport ADD CONSTRAINT FK_PlannedTransport_DriverId FOREIGN KEY (DriverId) REFERENCES Driver(DriverId);
+ALTER TABLE PlannedTransport ADD CONSTRAINT FK_PlannedTransport_LocalisationId FOREIGN KEY (LocalisationId) REFERENCES Localisation(LocalisationId);
 ALTER TABLE DriverProvider ADD CONSTRAINT FK_DriverProvider_DriverId_1 FOREIGN KEY (DriverId_1) REFERENCES Driver(DriverId);
 ALTER TABLE DriverProvider ADD CONSTRAINT FK_DriverProvider_ProviderId_2 FOREIGN KEY (ProviderId_2) REFERENCES Provider(ProviderId);
 ALTER TABLE DriverDrivingLicence ADD CONSTRAINT FK_DriverDrivingLicence_DriverId FOREIGN KEY (DriverId) REFERENCES Driver(DriverId);
@@ -255,4 +284,13 @@ ALTER TABLE DriverDrivingLicence ADD CONSTRAINT FK_DriverDrivingLicence_DrivingL
 ALTER TABLE Reference ADD CONSTRAINT FK_Reference_RequisitionId FOREIGN KEY (RequisitionId) REFERENCES Requisition(RequisitionId);
 ALTER TABLE Reference ADD CONSTRAINT FK_Reference_CountryId FOREIGN KEY (CountryId) REFERENCES Country(CountryId);
 ALTER TABLE Reference ADD CONSTRAINT FK_Reference_WaybillId FOREIGN KEY (WaybillId) REFERENCES Waybill(WaybillId);
+ALTER TABLE Transport ADD CONSTRAINT FK_Transport_LocalisationId FOREIGN KEY (LocalisationId) REFERENCES Localisation(LocalisationId);
+ALTER TABLE Transport ADD CONSTRAINT FK_Transport_WaybillId FOREIGN KEY (WaybillId) REFERENCES Waybill(WaybillId);
+ALTER TABLE Transport ADD CONSTRAINT FK_Transport_DriverId FOREIGN KEY (DriverId) REFERENCES Driver(DriverId);
+ALTER TABLE Reception ADD CONSTRAINT FK_Reception_WaybillId FOREIGN KEY (WaybillId) REFERENCES Waybill(WaybillId);
+ALTER TABLE Reception ADD CONSTRAINT FK_Reception_LocalisationId FOREIGN KEY (LocalisationId) REFERENCES Localisation(LocalisationId);
+ALTER TABLE Reception ADD CONSTRAINT FK_Reception_PersonId FOREIGN KEY (PersonId) REFERENCES Person(PersonId);
+ALTER TABLE Loading ADD CONSTRAINT FK_Loading_WaybillId FOREIGN KEY (WaybillId) REFERENCES Waybill(WaybillId);
+ALTER TABLE Loading ADD CONSTRAINT FK_Loading_LocalisationId FOREIGN KEY (LocalisationId) REFERENCES Localisation(LocalisationId);
+ALTER TABLE Loading ADD CONSTRAINT FK_Loading_PersonId FOREIGN KEY (PersonId) REFERENCES Person(PersonId);
 
