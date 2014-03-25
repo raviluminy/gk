@@ -22,3 +22,21 @@ DataInteractionToolBar::loadCss() {
 		css.close();
 	}
 }
+
+void
+DataInteractionToolBar::on_addPushButton_clicked() {
+	emit added();
+	qDebug() << "added";
+}
+
+void
+DataInteractionToolBar::on_commitPushButton_clicked() {
+	emit commited();
+	qDebug() << "commited";
+}
+
+void
+DataInteractionToolBar::on_rollbackPushButton_clicked() {
+	emit rollbacked();
+	qDebug() << "rollbacked";
+}

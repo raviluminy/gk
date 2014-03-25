@@ -26,11 +26,11 @@ protected:
 	void setAlertMessageOn(const QVariant& alert, const char* message, const QList<QWidget*> widgets);
 
 	enum DbColumn {
-		CountryCode = 0, // destine a disparaitre
-		Id,
-//		ForCostEstimate,
-//		ForPurchase,
-//		WhDispatchRelease,
+		Id = 0,
+		CountryCode, // destine a disparaitre
+		ForCostEstimate, // destine a disparaitre
+		ForPurchase, // destine a disparaitre
+		WhDispatchRelease, // destine a disparaitre
 		RequisitionDate,
 		DesiredDeliveryDate,
 		TransportMeans,
