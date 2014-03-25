@@ -16,12 +16,12 @@ MainWindow::MainWindow(QWidget* parent) :
 	QMainWindow(parent),
 	theme("Web"),
 	ui(new Ui::MainWindow) {
+    dao.connect();
 	ui->setupUi(this);
 	connect(ui->signInAction,  SIGNAL(triggered()), this, SLOT(onSignIn()));
 	connect(ui->signOutAction, SIGNAL(triggered()), this, SLOT(onSignOut()));
 	setWindowFlags(Qt::Window); // | Qt::FramelessWindowHint); permet de supprimer les contours de fenetre
-	loadTheme(theme);
-	dao.connect();
+    loadTheme(theme);
 	ui->providerTab   ->setModel(dao.providerModel());
 	ui->requisitionTab->setModel(dao.requisitionModel());
 	ui->staffTab      ->setModel(dao.staffModel());
