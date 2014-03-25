@@ -140,3 +140,48 @@ void RequisitionTab::on_deliveryDateEdit_dateChanged(const QDate &date)
     deliveryDateIsValid = true;
     setAlertMessageOn(QVariant(), "", widgets);
 }
+
+QVariant
+RequisitionTab::dataAt(const QModelIndex& index, const DbColumn column) {
+	return index.sibling(index.row(), column).data();
+}
+
+void
+RequisitionTab::on_dataListView_clicked(const QModelIndex& index) {
+	Q_UNUSED(index);
+	// const QModelIndex index = ui->dataListView->currentIndex();
+	const QString id                           = dataAt(index, Id)                          .toString();
+	const QString countryCode                  = dataAt(index, CountryCode)                 .toString();
+	const QTime   requisitionDate              = dataAt(index, RequisitionDate)             .toTime();
+	const QTime   desiredDeliveryDate          = dataAt(index, DesiredDeliveryDate)         .toTime();
+	const QString transportMean                = dataAt(index, TransportMeans)              .toString();
+	const QString origin                       = dataAt(index, Origin)                      .toString();
+	const QString destination                  = dataAt(index, Destination)                 .toString();
+	const QTime   financeOfficerAgreementDate  = dataAt(index, FinanceOfficerAgreementDate) .toTime();
+	const QString financeOfficerId             = dataAt(index, FinanceOfficerId)            .toString();
+	const QTime   projectManagerAgreementDate  = dataAt(index, ProjectManagerAgreementDate) .toTime();
+	const QString projectManagerId             = dataAt(index, ProjectManagerId)            .toString();
+	const QTime   requesterAgreementDate       = dataAt(index, RequesterAgreementDate)      .toTime();
+	const QString requesterId                  = dataAt(index, RequesterId)                 .toString();
+	const QTime   logisticsAgreementDate       = dataAt(index, LogisticsAgreementDate)      .toTime();
+	const QString logisticsId                  = dataAt(index, LogisticsId)                 .toString();
+	const QTime   globalFleetBaseAgreementDate = dataAt(index, GlobalFleetBaseAgreementDate).toTime();
+	const QString globalFleetBaseId            = dataAt(index, GlobalFleetBaseId)           .toString();
+	ui->idLineEdit              ->setText(id);
+	ui->countryCodeLineEdit     ->setText(countryCode);
+	ui->requestDateEdit         ->setTime(requisitionDate);
+	ui->deliveryDateEdit        ->setTime(desiredDeliveryDate);
+	ui->meanComboBox            ->setCurrentText(transportMean);
+	ui->originLineEdit          ->setText(origin);
+	ui->destinationLineEdit     ->setText(destination);
+	ui->financeOfficerDateEdit  ->setTime(financeOfficerAgreementDate);
+	ui->financeOfficerLineEdit  ->setText(financeOfficerId);
+	ui->projectManagerDateEdit  ->setTime(projectManagerAgreementDate);
+	ui->projectManagerLineEdit  ->setText(projectManagerId);
+	ui->requesterDateEdit       ->setTime(requesterAgreementDate);
+	ui->requesterNameLineEdit   ->setText(requesterId);
+	ui->logisticsDateEdit       ->setTime(logisticsAgreementDate);
+	ui->logisticsLineEdit       ->setText(logisticsId);
+	ui->globalFleetBaseDateEdit ->setTime(globalFleetBaseAgreementDate);
+	ui->globalFleetBaseLineEdit ->setText(globalFleetBaseId);
+}

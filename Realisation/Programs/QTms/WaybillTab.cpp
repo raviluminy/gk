@@ -431,3 +431,29 @@ WaybillTab::checkRealDates(){
 		setAlertMessageOn(QVariant(), "", receptionWidgets);
 	}
 }
+
+QVariant
+WaybillTab::dataAt(const QModelIndex& index, const DbColumn column) {
+	return index.sibling(index.row(), column).data();
+}
+
+void
+WaybillTab::on_dataListView_clicked(const QModelIndex& index) {
+	Q_UNUSED(index);
+	// const QModelIndex index = ui->dataListView->currentIndex();
+	const QString id                     = dataAt(index, Id)                    .toString();
+	const QString countryCode            = dataAt(index, CountryCode)           .toString();
+	const QTime   requestDate            = dataAt(index, RequestDate)           .toTime();
+	const QString transportMean          = dataAt(index, TransportMean)         .toString();
+	const QString requisitionId          = dataAt(index, RequisitionId)         .toString();
+//	const QString requisitionCountryCode = dataAt(index, RequisitionCountryCode).toString();
+	const QString vehicleId              = dataAt(index, VehicleId)             .toString();
+//	const QString contractId             = dataAt(index, ContractId)            .toString();
+	ui->idLineEdit              ->setText(id);
+	ui->countryCodeLineEdit     ->setText(countryCode);
+	ui->requestDateEdit         ->setTime(requestDate);
+	ui->transportMeanComboBox   ->setCurrentText(transportMean);
+	ui->requisitionIdComboBox   ->setCurrentText(requisitionId);
+//	ui->requisitionCountryCode  ->setText(requisitionCountryCode);
+	ui->transportVehicleLineEdit->setText(vehicleId);
+}

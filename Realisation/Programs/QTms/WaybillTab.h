@@ -50,6 +50,8 @@ private slots:
 	void on_plannedReceptionDateEdit_dateChanged();
 	void on_realReceptionDateEdit_dateChanged();
 
+	void on_dataListView_clicked(const QModelIndex& index);
+
 private:
 
 	void initBooleans();
@@ -58,7 +60,54 @@ private:
 	void checkPlannedDates();
 	void checkRealDates();
 
+protected:
+
 	void setAlertMessageOn(const QVariant& alert, const char* message, const QList<QWidget*> widgets);
+
+	enum DbColumn {
+		CountryCode = 0, // destine a disparaitre
+		Id,
+		RequestDate,
+		TransportMean,
+		RequisitionId,
+		RequisitionCountryCode, // destine a disparaitre
+		VehicleId
+//		ContractId // non present actuellement
+		/* PLANNED PLANNING */
+		/* Planned loading */
+//		plannedLoadingActor,
+//		plannedLoadingDate,
+//		plannedLoadingLocation,
+//		plannedLoadingCondition,
+		/* Planned transport */
+//		plannedTransportActor,
+//		plannedTransportDate,
+//		plannedTransportLocation,
+//		plannedTransportCondition,
+		/* Planned reception */
+//		plannedReceptionActor,
+//		plannedReceptionDate,
+//		plannedReceptionLocation,
+//		plannedReceptionCondition,
+		/* REAL PLANNING */
+		/* Real loading */
+//		realLoadingActor,
+//		realLoadingDate,
+//		realLoadingLocation,
+//		realLoadingCondition,
+		/* Real transport */
+//		realTransportActor,
+//		realTransportDate,
+//		realTransportLocation,
+//		realTransportCondition,
+		/* Real reception */
+//		realReceptionActor,
+//		realReceptionDate,
+//		realReceptionLocation,
+//		realReceptionCondition,
+	};
+
+	QVariant dataAt(const QModelIndex& index, const DbColumn column);
 
 private:
 
