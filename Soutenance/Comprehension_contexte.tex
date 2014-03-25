@@ -40,9 +40,46 @@ Les processus et les fonctions clefs de la logistique
 Les logisticiens de terrain
 \end{block}
 \begin{block}
-Les transports
+  Les transports
 \end{block}
 \end{frame} 
 
-
-
+\begin{frame}
+\frametitle{Contexte métier}
+\begin{block}{Espérance de retour sur investissement}
+\begin{figure}[htbp] % Arbre à problèmes
+	\centering
+	\begin{tikzpicture} [
+			node distance = 0.4cm, auto,font=\footnotesize,
+			% STYLES
+			every node/.style={node distance=1.9cm},
+			% The comment style is used to describe the characteristics of each force
+			comment/.style={rectangle, inner sep= 3pt, text width=2.8cm, node distance=0.2cm, font=\scriptsize\sffamily},
+			% The force style is used to draw the forces' name
+			force/.style={rectangle, draw, fill=black!10, inner sep=3pt, text width=2.8cm, text badly centered, minimum height=1cm, font=\bfseries\normalsize\sffamily}
+		] 
+		% Nodes
+		\node [force] (confiance) {Confiance\\{\normalfont\footnotesize Envers \mo}};
+		\node [force, above of=confiance] (transparent) {Transparence des informations\\{\normalfont\footnotesize Grâce au suivi détaillé}};
+		%% Mj %% Bug avec 'X[cm] of transparent' -> Mise ne commentaire et réécriture sans
+		\node [force, right=0.6cm of transparent] (serieux) {Sérieux\\{\normalfont\footnotesize Car on peut justifier à tout moment de l'utilisation des ressources}};
+		\node [force, left=0.6cm of transparent] (pro) {Professionnalisme\\{\normalfont\footnotesize Notamment grâce à la planification et à l'utilisation optimale du matériel}};
+		\node [force, below of=confiance, left=-0.2cm of confiance] (don) {Dons à l'organisation};
+		\node [force, below of=confiance, right=-0.2cm of confiance] (benevolat) {Hausse du bénévolat};
+%		\node [force, right] (serieux) {Sérieux\\{\normalfont\footnotesize Car on peut justifier à tout moment de l'utilisation des ressources}};
+%		\node [force, left] (pro) {Professionnalisme\\{\normalfont\footnotesize Notamment grâce à la planification et à l'utilisation optimale du matériel}};
+%		\node [force, below of=confiance, left] (don) {Dons à l'organisation};
+%		\node [force, below of=confiance, right] (benevolat) {Hausse du bénévolat};
+		% Draw the links between forces
+		\path[->,thick]
+			(don) edge (confiance)
+			(benevolat) edge (confiance)
+			(confiance) edge (transparent)
+			(confiance) edge (serieux)
+			(confiance) edge (pro);
+		\end{tikzpicture} 
+	\caption{Arbre à problème : Finalité du projet et retour sur investissement}
+	\label{arbre_probleme}
+\end{figure}
+\end{block}
+\end{frame} 
