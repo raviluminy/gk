@@ -77,7 +77,7 @@ L’annuaire est organisé en trois parties :
 \item la troisième permet de rassembler les personnes présentes sur chaque mission.
 \end{itemize}
 Chaque utilisateur dispose d’un identifiant (uid) et d’un mot de passe (userPassword) et aussi différents champs représentant ses droits. Le mot de passe d’un utilisateur n’est visible que par lui-même (après s’être authentifié). Enfin, il est possible de se connecter anonymement mais l’accès aux données de l’annuaire sera restreint.
-Chaque utilisateur ne peut appartenir qu’à un groupe afin d’éviter les conflits de droits entre groupes. De plus, chaque groupe se voit attribuer des droits spécifiques ce qui peut entrainer des conflits entre les droits de l’utilisateur et ceux du groupe auquel il appartient. Par défaut nous avons fait primer les droits des utilisateurs avant ceux du groupe auquel ils appartiennent.
+Chaque groupe se voit attribuer des droits spécifiques ce qui peut entrainer des conflits. Par défaut nous avons fait primer les droits des utilisateurs avant ceux des groupes.
 Grâce à l’unité d’organisation Missions on pourra déterminer rapidement quels sont les personnes qui ont été missionnées pour chaque mission en cours.
 \chapter{Architecture}
 \begin{figure}[htbp]
