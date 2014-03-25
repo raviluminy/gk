@@ -5,8 +5,8 @@
 #include <QDate>
 #include <QVector>
 #include <QtSql/QSqlDatabase>
-#include <QtSQL/QSqlError>
-#include <QtSQL/QSqlQuery>
+#include <QtSql/QSqlError>
+#include <QtSql/QSqlQuery>
 #include <QMessageBox>
 #include <QVariant>
 #include <QDebug>
