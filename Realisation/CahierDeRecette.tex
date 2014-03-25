@@ -1034,6 +1034,36 @@ Dans un premier temps, les tests unitaires concernant l'annuaire ont été fait 
 \end{tabular} 
 \end{center} 
 
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-23  \\
+\hline \emph{Titre :} & testCanReadGroup()   \\
+\hline \emph{Objectif :} &Demander si une personne a le droit de lecture sur une table précise alors qu'elle ne le possède pas directement mais via son groupe    \\
+\hline \emph{Procédure :} & Vérifier les droits de lecture pour une personne n'ayant ces droits personnellement mais via son groupe \\
+\hline \emph{Données de test :} & login : khady, table : Provider, champ : ProviderId \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center} 
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-24  \\
+\hline \emph{Titre :} & testCanReadGroup2()   \\
+\hline \emph{Objectif :} &Demander si une personne a le droit de lecture sur une table précise alors qu'elle a une restriction personnelle sur celle-ci    \\
+\hline \emph{Procédure :} & Vérifier les droits de lecture pour une personne ayant une restriction sur cette table\\
+\hline \emph{Données de test :} & login : lucien, table : Vehicle, champ : VehicleId \\
+\hline \emph{Résultat :} & FAIL comme prévu   \\
+\hline 
+\end{tabular} 
+\end{center} 
+
 Tous ces tests ont permis de corriger des erreurs dans l'implémentation de l'annuaire.\\
 Pour effectuer et visualiser les tests concernant \emph{LDAP} à partir de l'exécutable, il faut rajouter l'argument \emph{-testldap}.
 
@@ -1043,41 +1073,44 @@ PASS   : LdapTest::initTestCase()\\
 PASS   : LdapTest::qshowIfNotHidden()\\
 PASS   : LdapTest::testConnection()\\
 XPASS  : LdapTest::testConnectionBadHostname() 'lm.initialize(QString("toto"), 389)' returned TRUE unexpectedly. ()\\
-XPASS  : LdapTest::testConnectionBadPort() 'lm.initialize(QString("localhost"), 666)' returned TRUE unexpectedly. ()\\
+XPASS  : LdapTest::testConnectionBadPort() 'lm.initialize(QString("10.42.0.20"), 666)' returned TRUE unexpectedly. ()\\
 XPASS  : LdapTest::testConnectionBadHostnameAndPort() 'lm.initialize(QString("toto"), 666)' returned TRUE unexpectedly. ()\\
-FAIL!  : LdapTest::testAuthentification() 'lm.authentification(QString("biensuanga"), QString("biensuanga"))' returned FALSE. ()\\
+PASS   : LdapTest::testAuthentification()\\
 XFAIL  : LdapTest::testAuthentificationBadUid() bad login\\
 PASS   : LdapTest::testAuthentificationBadUid()\\
 XFAIL  : LdapTest::testAuthentificationBadPwd() bad password\\
 PASS   : LdapTest::testAuthentificationBadPwd()\\
 XFAIL  : LdapTest::testAuthentificationBadUidAndPwd() bad login and password\\
 PASS   : LdapTest::testAuthentificationBadUidAndPwd()\\
-FAIL!  : LdapTest::testCanRead() 'lm.canRead(QString("biensuanga"), QString("Waybill"), QString("RequisitionId"))' returned FALSE. ()\\
+PASS   : LdapTest::testCanRead()\\
+PASS   : LdapTest::testCanReadGroup()\\
+XFAIL  : LdapTest::testCanReadGroup2() droit supprime à l'user\\
+PASS   : LdapTest::testCanReadGroup2()\\
 XFAIL  : LdapTest::testCanReadBadUid() bad login\\
 PASS   : LdapTest::testCanReadBadUid()\\
 XFAIL  : LdapTest::testCanReadBadTableName() unknow table name\\
 PASS   : LdapTest::testCanReadBadTableName()\\
 XFAIL  : LdapTest::testCanReadBadFieldName() unknow Field name\\
 PASS   : LdapTest::testCanReadBadFieldName()\\
-FAIL!  : LdapTest::testCanWrite() 'lm.canWrite(QString("biensuanga"), QString("Requistion"), QString("waybillId"))' returned FALSE. ()\\
+PASS   : LdapTest::testCanWrite()\\
 XFAIL  : LdapTest::testCanWriteBadUid() bad login\\
 PASS   : LdapTest::testCanWriteBadUid()\\
 XFAIL  : LdapTest::testCanWriteBadTableName() unknow table name\\
 PASS   : LdapTest::testCanWriteBadTableName()\\
 XFAIL  : LdapTest::testCanWriteBadFieldName() unknow field name\\
 PASS   : LdapTest::testCanWriteBadFieldName()\\
-FAIL!  : LdapTest::testCanAdd() 'lm.canAdd(QString("biensuanga"), QString("Waybill"))' returned FALSE. ()\\
+PASS   : LdapTest::testCanAdd()\\
 XFAIL  : LdapTest::testCanAddBadUid() bad login\\
 PASS   : LdapTest::testCanAddBadUid()\\
 XFAIL  : LdapTest::testCanAddBadTableName() unknow table name\\
 PASS   : LdapTest::testCanAddBadTableName()\\
-FAIL!  : LdapTest::testCanDelete() 'lm.canDelete(QString("biensuanga"), QString("Waybill"))' returned FALSE. ()\\
+PASS   : LdapTest::testCanDelete()\\
 XFAIL  : LdapTest::testCanDeleteBadUid() bad login\\
 PASS   : LdapTest::testCanDeleteBadUid()\\
 XFAIL  : LdapTest::testCanDeleteBadTableName() unknow table name\\
 PASS   : LdapTest::testCanDeleteBadTableName()\\
 PASS   : LdapTest::cleanupTestCase()\\
-Totals: 17 passed, 8 failed, 0 skipped\\
+Totals: 24 passed, 3 failed, 0 skipped\\
 ********* Finished testing of LdapTest *********\\
 
 \chapter{Tests sur le système de gestion de données}

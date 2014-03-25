@@ -33,6 +33,10 @@ private slots:
 
 	void testCanRead();
 
+    void testCanReadGroup();
+
+    void testCanReadGroup2();
+
 	void testCanReadBadUid();
 
 	void testCanReadBadTableName();
