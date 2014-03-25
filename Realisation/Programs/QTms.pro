@@ -33,10 +33,9 @@ SOURCES += Main.cpp\
     LdapMock.cpp \
     LdapTest.cpp \
     LogisticTab.cpp \
-    Ldap/Directory.cpp \
-    Ldap/LDAPConnection.cpp \
-    Ldap/StringList.cpp \
-    SignInDialog.cpp
+    annuaire/Directory.cpp \
+    annuaire/LDAPConnection.cpp \
+    annuaire/StringList.cpp
 
 HEADERS  += MainWindow.h \
     LogisticDao.h \
@@ -59,10 +58,9 @@ HEADERS  += MainWindow.h \
     LdapMock.h \
     LdapTest.h \
     LogisticTab.h \
-    Ldap/Directory.h \
-    Ldap/LDAPConnection.h \
-    Ldap/StringList.h \
-    SignInDialog.h
+    annuaire/Directory.h \
+    annuaire/LDAPConnection.h \
+    annuaire/StringList.h
 
 FORMS    += \
     MainWindow.ui \
@@ -74,21 +72,20 @@ FORMS    += \
     StaffTab.ui \
     ProviderTab.ui \
     VehicleTab.ui \
-    StatusWidgetGroup.ui \
-    SignInDialog.ui
+    StatusWidgetGroup.ui
 
 RESOURCES += \
     Gui.qrc
 
 OTHER_FILES += \
     Logistic.DB.ini \
-    Theme/Web/main.css \
-    Theme/Web/alert.css
+    Web.css \
+    Web.Alert.css
 
-LIBS += -L$$PWD/Ldap/lib/ -lldapsdk
+LIBS += -L$$PWD/annuaire/lib/ -lldapsdk
 
-win32: INCLUDEPATH += $$PWD/Ldap/include/windows
-else:unix:!macx:!symbian: INCLUDEPATH += $$PWD/Ldap/include/linux
+win32: INCLUDEPATH += $$PWD/annuaire/include/windows
+else:unix:!macx:!symbian: INCLUDEPATH += $$PWD/annuaire/include/linux
 
-win32: DEPENDPATH += $$PWD/Ldap/include/windows
-else:unix:!macx:!symbian: DEPENDPATH += $$PWD/Ldap/include/linux
+win32: DEPENDPATH += $$PWD/annuaire/include/windows
+else:unix:!macx:!symbian: DEPENDPATH += $$PWD/annuaire/include/linux

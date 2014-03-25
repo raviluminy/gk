@@ -14,7 +14,6 @@
 #include <QApplication>
 
 int main(int argc, char** argv) {
-
     QApplication a(argc, argv);
     if (argc > 1){
         if (argv[1] == QString("-test1")){
@@ -56,15 +55,12 @@ int main(int argc, char** argv) {
             LdapTest testldap;
             return QTest::qExec(&test) | QTest::qExec(&test2) | QTest::qExec(&test3) | QTest::qExec(&test4) | QTest::qExec(&test5)
                     | QTest::qExec(&test6) | QTest::qExec(&testldap);
-
         }
-
-    }
-    else{
-        MainWindow w;
-        w.show();
-        return a.exec();
-    }
+	} else {
+		MainWindow w;
+		w.show();
+		return a.exec();
+	}
 }
 
 

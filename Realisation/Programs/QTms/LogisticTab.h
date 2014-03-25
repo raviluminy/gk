@@ -19,10 +19,6 @@ protected:
 
 	QString alertTheme;
 
-private:
-
-	void loadTheme();
-
 };
 
 #endif // LOGISTICTAB_H

@@ -50,5 +50,10 @@ MainWindow::on_waybillTableView_clicked(const QModelIndex index) {
 
 void
 MainWindow::onSignIn() {
+	qDebug() << "on sign in";
+}
 
+void
+MainWindow::onSignOut() {
+	qDebug() << "on sign out";
 }

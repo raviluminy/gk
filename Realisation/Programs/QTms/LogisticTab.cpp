@@ -4,7 +4,6 @@
 
 LogisticTab::LogisticTab(QWidget* parent) :
 	QWidget(parent) {
-	loadTheme();
 }
 
 LogisticTab::~LogisticTab() {
