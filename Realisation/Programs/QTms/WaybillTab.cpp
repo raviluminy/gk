@@ -16,6 +16,9 @@ WaybillTab::WaybillTab(QWidget* parent) :
 
 	initBooleans();
 	initFields();
+
+	connect(ui->confirmationCancelPushButton, SIGNAL(clicked()), this, SLOT(on_cancelEdition_clicked()));
+	connect(ui->confirmationOkPushButton, SIGNAL(clicked()), this, SLOT(on_okEdition_clicked()));
 }
 
 WaybillTab::~WaybillTab() {
@@ -129,6 +132,7 @@ WaybillTab::setAlertMessageOn(const QVariant& alert, const char* message, const 
 					"*[alert=error].QLabel{background-color: #F2DEDE;}"
 					);
 	}
+#if 0
 	ui->confirmationWidgetGroup->setEnabled(
 				countryCodeIsValid           && requestedDateIsValid      &&
 				requisitionIdIsValid         && warehouseIsValid          &&
@@ -140,6 +144,7 @@ WaybillTab::setAlertMessageOn(const QVariant& alert, const char* message, const 
 				plannedTransportDateIsValid  && realTransportDateIsValid  &&
 				plannedReceptionDateIsValid  && realReceptionDateIsValid
 				);
+#endif
 }
 
 void
@@ -456,4 +461,31 @@ WaybillTab::on_dataListView_clicked(const QModelIndex& index) {
 	ui->requisitionIdComboBox   ->setCurrentText(requisitionId);
 //	ui->requisitionCountryCode  ->setText(requisitionCountryCode);
 	ui->transportVehicleLineEdit->setText(vehicleId);
+}
+
+void
+WaybillTab::on_cancelEdition_clicked() {
+	on_dataListView_clicked(ui->dataListView->currentIndex());
+	qDebug("cancel edition");
+}
+
+QModelIndex
+WaybillTab::indexAt(const QModelIndex& index, const DbColumn column) {
+	return index.sibling(index.row(), column);
+}
+
+#include <QtDebug>
+
+void
+WaybillTab::on_okEdition_clicked() {
+	QModelIndex index = ui->dataListView->currentIndex();
+	QAbstractItemModel* model = ui->dataListView->model();
+	model->setData(indexAt(index, Id),            ui->idLineEdit              ->text());
+	model->setData(indexAt(index, CountryCode),   ui->countryCodeLineEdit     ->text());
+	model->setData(indexAt(index, RequestDate),   ui->requestDateEdit         ->text());
+	model->setData(indexAt(index, TransportMean), ui->transportMeanComboBox   ->currentText());
+	model->setData(indexAt(index, RequisitionId), ui->requisitionIdComboBox   ->currentText());
+	model->setData(indexAt(index, VehicleId),     ui->transportVehicleLineEdit->text());
+	bool a = model->setHeaderData(1, Qt::Vertical, QString("x"));
+	qDebug("ok edition");
 }

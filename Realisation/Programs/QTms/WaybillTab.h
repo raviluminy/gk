@@ -1,6 +1,7 @@
 #ifndef WAYBILLTAB_H
 #define WAYBILLTAB_H
 
+#include "Util.h"
 #include "LogisticTab.h"
 
 class QAbstractItemModel;
@@ -27,6 +28,9 @@ private slots:
 	void on_planningTitle_toggled(const bool checked);
 	void on_statusTitle_toggled(const bool checked);
 	void on_transportTitle_toggled(const bool checked);
+
+	void on_cancelEdition_clicked();
+	void on_okEdition_clicked();
 
 protected:
 
@@ -108,6 +112,7 @@ protected:
 	};
 
 	QVariant dataAt(const QModelIndex& index, const DbColumn column);
+	QModelIndex indexAt(const QModelIndex& index, const DbColumn column);
 
 private:
 
