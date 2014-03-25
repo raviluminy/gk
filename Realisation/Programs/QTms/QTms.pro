@@ -11,8 +11,9 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = QTms
 TEMPLATE = app
 
-SOURCES += Main.cpp\
-        MainWindow.cpp \
+SOURCES += \
+    Main.cpp\
+    MainWindow.cpp \
     LogisticDao.cpp \
     WidgetGroup.cpp \
     DataInteractionToolBar.cpp \
@@ -36,9 +37,11 @@ SOURCES += Main.cpp\
     Ldap/Directory.cpp \
     Ldap/LDAPConnection.cpp \
     Ldap/StringList.cpp \
-    SignInDialog.cpp
+    SignInDialog.cpp \
+    requisition.cpp
 
-HEADERS  += MainWindow.h \
+HEADERS  += \
+    MainWindow.h \
     LogisticDao.h \
     WidgetGroup.h \
     DataInteractionToolBar.h \
@@ -62,7 +65,8 @@ HEADERS  += MainWindow.h \
     Ldap/Directory.h \
     Ldap/LDAPConnection.h \
     Ldap/StringList.h \
-    SignInDialog.h
+    SignInDialog.h \
+    requisition.h
 
 FORMS    += \
     MainWindow.ui \
