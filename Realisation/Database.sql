@@ -1,11 +1,7 @@
 -- Deuxième version après vérification du MCD
--- Testé et vérifié
 
 CREATE TABLE Requisition(
         RequisitionId                 Integer NOT NULL ,
-        ForCostEstimate               Integer ,
-        ForPurchase                   Integer ,
-        WhDispatchRelease             Integer ,
         RequisitionDate               Date ,
         DesiredDeliveryDate           Date ,
         TransportMeans                Enum ("Sea","Road","Plane","Rail") ,

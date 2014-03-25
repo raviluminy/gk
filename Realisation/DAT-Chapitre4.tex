@@ -17,39 +17,49 @@ Les éléments nécessaires à la première mise en service sont fournis dans le
 	Windows 7			&				\\
 	MinGW 4.8.1 (TMD)	&				\\
 	Qt 5.2.1			& Qt 5.2.1		\\
-	MySQL 5.6.16		& 				\\
+	QMySQL 5.6.16		& QMySQL 5.6.16				\\
 	\bottomrule
 \end{tabularx}
-\\
-\\
-Dans le cas de figure où ces derniers soient perdus ou endommagés, le paragraphe suivant précise les procédures nécessaire à leur re-production.
 
-\subsection{Création du pilote MySQL pour Qt5 sur Windows}
-Cette section précise comment créer le pilote MySQL pour Qt5 sur Windows en utilisant MinGW.
+\subsection{Création du pilote MySQL pour Qt5}
+Cette section précise comment créer le pilote MySQL pour Qt5 en utilisant MinGW.
 La rédaction de cette dernière a été motivée par le fait que le pilote en question n'est malheureusement pas fournit par défaut dans le framework Qt.
 
-\paragraph{Obtention du matériel}
-Les outils suivants sont nécessaires~:
-\begin{enumerate}
-	\item Windows 7~;
-	\item MinGW 4.8.1 (TDM)~;
-	\item Qt 5.2.1 installer \& sources~;
-	\item MySQL 5.6.16.
-\end{enumerate} 
 
-\paragraph{Installation du matériel}
-
-\subparagraph{Installation du framework Qt}
+\paragraph{Installation du framework Qt}
 L'installation des composants par défaut convient très bien, mais il est tout à fait possible de procéder à une installation complète. Sélectionner le répertoire racine d'installation du framework (ici C:). À terme, Qt est alors installé, ici dans le répertoire C:/Qt/Qt5.2.1.
 \\
 Ensuite, extraire les sources Qt dans un répertoire temporaire de son choix, puis copier le dossier \textit{qt-everywhere-opensource-src-5.2.1} ainsi obtenu dans le répertoire \textit{C:/Qt/Qt5.2.1/} et le renommer \textit{sources}.
 \\
 En fin de manipulation, le framework Qt est installé dans le répertoire C:/Qt/Qt5.2.1/ et les sources présentes dans C:/Qt/Qt5.2.1/sources/.
 
-\subparagraph{Installation de MySQL}
-Sélectionner l'installation personnalisée.
-A minima, est requis le {\quote Client C API Library}, le reste étant optionnel.
-Laisser faire l'installation dans le répertoire de son choix (par défaut C:/Program Files (x86)/MySQL/My SQL Server 5.6/).
+\paragraph{Installation du driver QMySQL}
+
+\subparagraph{Installation sous Linux }
+ Vous avez besoin des fichiers d'en-tête de MySQL ainsi que la bibliothèque partagée \textit{libmysqlclient.so}. Selon votre distribution Linux, vous devez peut-être installer un paquet qui est généralement appelé "mysql-dev". 
+\\ Dites à \textbf{qmake} où trouver les fichiers d'en-tête de MySQL et les bibliothèques partagées (ici, on suppose que MySQL est installé dans /usr/local) et lancez make : 
+\begin{lstlisting}
+cd $QTDIR/src/plugins/sqldrivers/mysql
+qmake "INCLUDEPATH+=/usr/local/include" "LIBS+=-L/usr/local/lib -lmysqlclient_r" mysql.pro
+make
+\end{lstlisting}
+Après l'installation de Qt, vous devez également installer le plugin dans l'emplacement standard :
+\begin{lstlisting}
+cd $QTDIR/src/plugins/sqldrivers/mysql
+make install
+\end{lstlisting}
+
+\subparagraph{Installation sous Windows}
+Vous devez obtenir les fichiers d'installation de MySQL. Exécutez \textit{Setup.exe} et sélectionnez "Installation personnalisée". Installez le module "Libs \& Inclure les fichiers". Construire le plugin comme suit (ici on suppose que MySQL est installé dans C:\textbackslash MySQL) : \\
+\begin{lstlisting}
+cd %QTDIR%\src\plugins\sqldrivers\mysql
+qmake "INCLUDEPATH+=C:/MySQL/include" "LIBS+=C:/MYSQL/MySQL Server 5.6.16/lib/opt/libmysql.lib" mysql.pro
+nmake
+\end{lstlisting}
+
+Si vous n'utilisez pas un compilateur Microsoft, remplacer \textbf{nmake} avec \textbf{make} dans la ligne ci-dessus.
+\\
+
 
 \paragraph{Construction \& déploiement}
 Ouvrir le terminal de commande de Qt.
@@ -66,7 +76,7 @@ cd C:\Qt\Qt5.2.1\sources\qtbase\src\plugins\sqldrivers\mysql\
 qmake "INCLUDEPATH+=%mysql%\\include" "LIBS+=%mysql%\\lib\\libmysql.lib" -o Makefile mysql.pro
 mingw32-make
 \end{lstlisting}
-Après construction réussie (et sans erreur), des fichiers seront produits dans C:/Qt/Qt5.2.1/sources/qtbase/plugins/sqldrivers, que sont~:
+Après construction réussie (et sans erreur), des fichiers seront produits dans \\ C:/Qt/Qt5.2.1/sources/qtbase/plugins/sqldrivers, que sont~:
 \begin{enumerate}
 	\item libqsqlmysql.a~;
 	\item libqsqlmysqld.a~;
@@ -106,3 +116,20 @@ int main() {
 }
 
 \end{lstlisting}
+
+ \section{Procédure de génération de la base de données}
+ 
+ \subsection{Génération des tables SQL avec JMerise}
+ 
+ \subsubsection{Présentation}
+JMerise est un logiciel dédié à la modélisation des modèles conceptuels de donnée pour Merise. Il permet aussi, les relations réflexives, la généralisation et la spécialisation des entités. Il génère le MLD et le script MySQL associé.
+
+ \subsubsection{Procédure d'installation de JMerise}
+Pour installer et utiliser JMerise, dezipper simplement le fichier "\textbf{JMerise.zip}" et exécuter le jar nommé "\textit{JMerise.jar}". 
+
+ \subsubsection{Génération de tables SQL}
+Une fois la MCD réalisée, JMerise propose une méthode de vérification qui permet de s'assurer que le modèle que l'utilisateur vient de créer est correct. Pour cela, il suffit de cliquer sur le bouton \includegraphics[scale=0.35]{checkMCD}.\\
+L'outil peut aussi générer la MPD associée ainsi que le code MySQL permettant la création des tables en cliquant sur le bouton \includegraphics[scale=0.35]{convertMCD}.
+
+
+

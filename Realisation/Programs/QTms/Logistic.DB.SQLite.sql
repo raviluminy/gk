@@ -1,10 +1,7 @@
+-- Deuxième version en accord avec le nouveau MCD
 
 CREATE TABLE Requisition(
 	RequisitionId                  INTEGER NOT NULL ,
-	CountryCode                    INTEGER NOT NULL ,
-	ForCostEstimate                INTEGER ,
-	ForPurchase                    INTEGER ,
-	WhDispatchRelease              INTEGER ,
 	RequisitionDate                NUMERIC ,
 	DesiredDeliveryDate            NUMERIC ,
 	TransportMeans                 TEXT   ,
@@ -21,7 +18,7 @@ CREATE TABLE Requisition(
 	PersonId_4                     INTEGER ,
 	AgreementDate_GlobalFleetBase  NUMERIC NOT NULL ,
 	PersonId_5                     INTEGER ,
-	PRIMARY KEY (RequisitionId,CountryCode) ,
+	PRIMARY KEY (RequisitionId) ,
 	CHECK (TransportMeans IN ("Sea","Road","Plane","Rail")) ,
 	
 	FOREIGN KEY (LocalisationId) REFERENCES Localisation(LocalisationId),
@@ -34,7 +31,7 @@ CREATE TABLE Requisition(
 	FOREIGN KEY (PersonId_5) REFERENCES Person(PersonId)
 );
 
-CREATE TABLE GPS(
+CREATE TABLE Gps(
 	GpsId     INTEGER NOT NULL ,
 	xDeg      INTEGER ,
 	xMin      INTEGER ,
@@ -52,18 +49,19 @@ CREATE TABLE GPS(
 
 CREATE TABLE Country(
 	CountryId  INTEGER NOT NULL ,
-	iso        TEXT NOT NULL ,
-	name       TEXT NOT NULL ,
-	nicename   TEXT NOT NULL ,
-	iso3       TEXT NOT NULL ,
-	phonecode  INTEGER NOT NULL ,
+        CountryCode TEXT NOT NULL ,
+	CountryName   TEXT NOT NULL ,
+	NiceName       TEXT NOT NULL ,
+	PhoneCode  INTEGER NOT NULL ,
+	Iso        TEXT NOT NULL ,
+	Iso3       TEXT NOT NULL ,
 	PRIMARY KEY (CountryId)
 );
 
 CREATE TABLE Currency(
 	CurrencyId  INTEGER  NOT NULL ,
-	Name        TEXT NOT NULL ,
-	Symbol      TEXT NOT NULL ,
+	CurrencyName TEXT NOT NULL ,
+        Symbol       TEXT NOT NULL ,
 	PRIMARY KEY (CurrencyId)
 );
 
@@ -71,29 +69,26 @@ CREATE TABLE Localisation(
 	LocalisationId  INTEGER NOT NULL ,
 	CommonName      TEXT NOT NULL ,
 	MailingAddress  TEXT NOT NULL ,
-	Code            TEXT ,
+	LocalisationCode TEXT ,
 	CountryId       INTEGER ,
 	GpsId           INTEGER NOT NULL ,
 	PRIMARY KEY (LocalisationId) ,
 	
 	FOREIGN KEY (CountryId) REFERENCES Country(CountryId),
-	FOREIGN KEY (GpsId) REFERENCES GPS(GpsId)
+	FOREIGN KEY (GpsId) REFERENCES Gps(GpsId)
 );
 
 CREATE TABLE Waybill(
-	CountryCode              INTEGER NOT NULL ,
 	WaybillId                INTEGER NOT NULL ,
 	RequestDate              NUMERIC NOT NULL ,
 	TransportMean            TEXT  NOT NULL  ,
 	RequisitionId            INTEGER ,
-	CountryCode_Requisition  INTEGER ,
 	VehicleId                INTEGER ,
 	ContractId               INTEGER ,
-	PRIMARY KEY (CountryCode,WaybillId) ,
+	PRIMARY KEY (WaybillId) ,
 	CHECK (TransportMean IN ("Sea","Road","Plane","Rail")) ,
 	
 	FOREIGN KEY (RequisitionId) REFERENCES Requisition(RequisitionId),
-	FOREIGN KEY (CountryCode_Requisition) REFERENCES Requisition(CountryCode),
 	FOREIGN KEY (VehicleId) REFERENCES Vehicle(VehicleId),
 	FOREIGN KEY (ContractId) REFERENCES Contract(ContractId)
 );
@@ -129,15 +124,15 @@ CREATE TABLE Vehicle(
 
 CREATE TABLE VehicleType(
 	VehicleTypeId  INTEGER  NOT NULL ,
-	Name           TEXT NOT NULL ,
-	Mean           TEXT  NOT NULL  ,
+	VehicleName           TEXT NOT NULL ,
+	TransportMean           TEXT  NOT NULL  ,
 	PRIMARY KEY (VehicleTypeId) ,
-	CHECK (Mean IN ("Sea","Road","Plane","Rail"))
+	CHECK (TransportMean IN ("Sea","Road","Plane","Rail"))
 );
 
 CREATE TABLE Provider(
 	ProviderId  INTEGER NOT NULL ,
-	Name        TEXT NOT NULL ,
+	ProviderName        TEXT NOT NULL ,
 	Licence     NONE ,
 	PRIMARY KEY (ProviderId)
 );
@@ -155,7 +150,7 @@ CREATE TABLE Contract(
 
 CREATE TABLE ContractType(
 	ContractTypeId  INTEGER NOT NULL ,
-	Name            TEXT NOT NULL ,
+	ContractTypeName  TEXT NOT NULL ,
 	PRIMARY KEY (ContractTypeId)
 );
 
@@ -167,62 +162,56 @@ CREATE TABLE Driver(
 	FOREIGN KEY (PersonId) REFERENCES Person(PersonId)
 );
 
-CREATE TABLE DrivingLicenceType(
-	DrivingLicenceTypeId  INTEGER NOT NULL ,
-	Category              TEXT ,
-	Range                 TEXT   ,
+CREATE TABLE DrivingLicence(
+	DrivingLicenceId  INTEGER NOT NULL ,
+	DrivingCategory        TEXT ,
+	DrivingLicenceRange    TEXT   ,
 	PRIMARY KEY (DrivingLicenceTypeId) ,
-	CHECK (Range IN ("Global","International","National"))
+	CHECK (DrivingLicenceRange IN ("Global","International","National"))
 );
 
 CREATE TABLE Function(
 	FunctionId  INTEGER NOT NULL ,
-	Name        TEXT NOT NULL ,
+	FunctionName   TEXT NOT NULL ,
 	PRIMARY KEY (FunctionId)
 );
 
-CREATE TABLE Loading(
-	LoadingDate      NUMERIC NOT NULL ,
-	LoadingComments  TEXT ,
+CREATE TABLE PlannedLoading(
+	PlannedLoadingDate      NUMERIC NOT NULL ,
+	PlannedLoadingComments  TEXT ,
 	PersonId         INTEGER NOT NULL ,
-	CountryCode      INTEGER NOT NULL ,
 	WaybillId        INTEGER NOT NULL ,
 	LocalisationId   INTEGER NOT NULL ,
-	PRIMARY KEY (PersonId,CountryCode,WaybillId,LocalisationId) ,
+	PRIMARY KEY (PersonId,WaybillId,LocalisationId) ,
 	
 	FOREIGN KEY (PersonId) REFERENCES Person(PersonId),
-	FOREIGN KEY (CountryCode) REFERENCES Waybill(CountryCode),
 	FOREIGN KEY (WaybillId) REFERENCES Waybill(WaybillId),
 	FOREIGN KEY (LocalisationId) REFERENCES Localisation(LocalisationId)
 );
 
-CREATE TABLE Reception(
-	ReceptionDate      NUMERIC NOT NULL ,
-	ReceptionComments  TEXT ,
+CREATE TABLE PlannedReception(
+	PlannedReceptionDate      NUMERIC NOT NULL ,
+	PlannedReceptionComments  TEXT ,
 	PersonId           INTEGER NOT NULL ,
-	CountryCode        INTEGER NOT NULL ,
 	WaybillId          INTEGER NOT NULL ,
 	LocalisationId     INTEGER NOT NULL ,
-	PRIMARY KEY (PersonId,CountryCode,WaybillId,LocalisationId) ,
+	PRIMARY KEY (PersonId,WaybillId,LocalisationId) ,
 	
 	FOREIGN KEY (PersonId) REFERENCES Person(PersonId),
-	FOREIGN KEY (CountryCode) REFERENCES Waybill(CountryCode),
 	FOREIGN KEY (WaybillId) REFERENCES Waybill(WaybillId),
 	FOREIGN KEY (LocalisationId) REFERENCES Localisation(LocalisationId)
 );
 
-CREATE TABLE Transport(
-	TransportDate   NUMERIC NOT NULL ,
-	CountryCode     INTEGER NOT NULL ,
+CREATE TABLE PlannedTransport(
+	PlannedTransportDate   NUMERIC NOT NULL ,
 	WaybillId       INTEGER NOT NULL ,
 	DriverId        INTEGER NOT NULL ,
 	LocalisationId  INTEGER NOT NULL ,
-	PRIMARY KEY (CountryCode,WaybillId,DriverId,LocalisationId) ,
+	PRIMARY KEY (WaybillId,DriverId,LocalisationId) ,
 	
-	FOREIGN KEY (CountryCode) REFERENCES Waybill(CountryCode),
 	FOREIGN KEY (WaybillId) REFERENCES Waybill(WaybillId),
 	FOREIGN KEY (DriverId) REFERENCES Driver(DriverId),
-	FOREIGN KEY (LocalisationId) REFERENCES Localisation(LocalisationId)
+	
 );
 
 CREATE TABLE DriverProvider(
@@ -245,4 +234,51 @@ CREATE TABLE DriverSDrivingLicence(
 	FOREIGN KEY (DrivingLicenceTypeId) REFERENCES DrivingLicenceType(DrivingLicenceTypeId)
 );
 
+CREATE TABLE Reference(
+        RequisitionId INTEGER NOT NULL ,
+        CountryId     INTEGER NOT NULL ,
+        WaybillId     INTEGER NOT NULL ,
+        PRIMARY KEY (RequisitionId,CountryId,WaybillId)
 
+	FOREIGN KEY (RequisitionId) REFERENCES Requisition(RequisitionId),
+	FOREIGN KEY (CountryId) REFERENCES Country(CountryId),
+	FOREIGN KEY (WaybillId) REFERENCES Waybill(WaybillId)
+);
+
+CREATE TABLE Transport(
+	TransportDate   NUMERIC NOT NULL ,
+	WaybillId       INTEGER NOT NULL ,
+	DriverId        INTEGER NOT NULL ,
+	LocalisationId  INTEGER NOT NULL ,
+	PRIMARY KEY (WaybillId,DriverId,LocalisationId) ,
+	
+	FOREIGN KEY (WaybillId) REFERENCES Waybill(WaybillId),
+	FOREIGN KEY (DriverId) REFERENCES Driver(DriverId),
+	FOREIGN KEY (LocalisationId) REFERENCES Localisation(LocalisationId)
+);
+
+CREATE TABLE Reception(
+	ReceptionDate      NUMERIC NOT NULL ,
+	ReceptionComments  TEXT ,
+	PersonId           INTEGER NOT NULL ,
+	WaybillId          INTEGER NOT NULL ,
+	LocalisationId     INTEGER NOT NULL ,
+	PRIMARY KEY (PersonId,WaybillId,LocalisationId) ,
+	
+	FOREIGN KEY (PersonId) REFERENCES Person(PersonId),
+	FOREIGN KEY (WaybillId) REFERENCES Waybill(WaybillId),
+	FOREIGN KEY (LocalisationId) REFERENCES Localisation(LocalisationId)
+);
+
+CREATE TABLE Loading(
+	LoadingDate      NUMERIC NOT NULL ,
+	LoadingComments  TEXT ,
+	PersonId         INTEGER NOT NULL ,
+	WaybillId        INTEGER NOT NULL ,
+	LocalisationId   INTEGER NOT NULL ,
+	PRIMARY KEY (PersonId,WaybillId,LocalisationId) ,
+	
+	FOREIGN KEY (PersonId) REFERENCES Person(PersonId),
+	FOREIGN KEY (WaybillId) REFERENCES Waybill(WaybillId),
+	FOREIGN KEY (LocalisationId) REFERENCES Localisation(LocalisationId)
+);

@@ -10,7 +10,7 @@
 %-------------------------------------------------------------------------------
 \ZTitle{Système de gestion des transports}
 \ZSubject{Cahier des recettes}
-\ZVersion{0.3}
+\ZVersion{0.4}
 \ZDate{\today}
 \ZAuthor{\Balde,\\\Cadon,\\\Gairoard,\\\Julien,\\\Lericolais,\\\Mezelle,\\\Pachy,\\\SuangaWeto,\\\Toure}
 %-------------------------------------------------------------------------------
@@ -28,6 +28,7 @@
 	    0.1 & 2014-03-15 & \Julien & Création \\
 	    0.2 & 2014-03-19 & \Julien & Réalisation des tests de l'interface graphique \\
 	    0.3 & 2014-03-21 & \Julien & Fin des tests de l'interface graphique \\
+	    0.4 & 2014-03-25 & \Julien & Réalisation des tests unitaire sur LDAP \\
 	    \midrule
     }{
 	    % Historique des approbations
@@ -53,6 +54,8 @@ Différents types de tests ont été réalisé :
 Les tests unitaires ont été fait sur l’environnement de développement. 
 Au cours de l’évolution du développement de l'outil, le code et les données de bases ont changés c'est pourquoi les jeux d’essais peuvent être rechargés  et ré initialisés afin de permettre de refaire les mêmes tests dans les mêmes conditions. 
 Il est à noter que des tests de régression ont été fait suite à des corrections du programme.
+
+La phase de réalisation s'étalant sur une courte durée les tests ont commencé en parallèle de celle-ci. De ce fait, dans un premier temps les tests étaient effectués sur des classes \emph{mocks}, qui permettent de simuler les résultats d'une classe. Puis une fois les classes réalisées, les tests ont porté sur ces-dernières.
 
 \chapter{Tests sur interface graphique}
 L'outil a été développé en c++ à l'aide du framework QT. Ce framework intègre un outil de test grâce à la librairie QTestlib.
@@ -276,7 +279,7 @@ Totals: 21 passed, 0 failed, 0 skipped\\
 \hline \emph{Titre :} & testRequesterName   \\
 \hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ de la personne responsable de la requête   \\
 \hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
-\hline \emph{Données de test :} & On rempli avec la chaîne ``Requester Name''   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``Requester Name''   \\ 
 \hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
 \hline \emph{Résultat :} & PASS   \\
 \hline 
@@ -675,7 +678,7 @@ Totals: 8 passed, 0 failed, 0 skipped\\
 \begin{tabular}{|L{3cm}|L{10cm}|}
 \hline \emph{Cas de test :} & Test-Graphique-35  \\
 \hline \emph{Titre :} & testComment   \\
-\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ du commentaire dans le champs status.   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ du commentaire dans le champ status.   \\
 \hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
 \hline \emph{Données de test :} & On rempli avec la chaîne ``Blablabla''   \\
 \hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
@@ -684,7 +687,7 @@ Totals: 8 passed, 0 failed, 0 skipped\\
 \end{tabular} 
 \end{center}
 
-Les résutats de tous les tests sont satisfaisant.\\
+Les résultats de tous les tests sont satisfaisant.\\
 Pour effectuer et visualiser les tests du \emph{status} à partir de l'exécutable, il faut rajouter l'argument \emph{-test3}.
 
 ********* Start testing of StatusWidgetGroupTest *********\\
@@ -698,40 +701,342 @@ Totals: 5 passed, 0 failed, 0 skipped\\
 
 
 \chapter{Tests unitaires}
-\section{Gestion des personnes}
-\subsection{Scénario 1}
+\section{LDAP}
+L'annuaire LDAP joue plusieurs rôles dans ce projet. Il permet l'authentification, ainsi que de connaître les droits d'une personne.
+Dans un premier temps, les tests unitaires concernant l'annuaire ont été fait sur une classe \emph{mock}, qui permettait de simuler l'existence de l'annuaire en attendant que celui-ci soit opérationnel. La majorité des tests ont ensuite été utiles pour révéler plusieurs erreurs dans l'implémentation du LDAP qui ont pu être corrigé.
 \begin{center}
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
 \newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
 \begin{tabular}{|L{3cm}|L{10cm}|}
-\hline \emph{Cas de test :} & Test-01  \\
-\hline \emph{Titre :} & Création d'une personne   \\
-\hline \emph{Objectif :} & Vérifier le cas de la création d'une personne à partir du logiciel   \\
-\hline \emph{Procédure :} & Création d'une personne à l'aide la méthode blabla   \\
-\hline \emph{Données de test :} & data   \\
+\hline \emph{Cas de test :} & Test-Unitaire-01  \\
+\hline \emph{Titre :} & testConnection   \\
+\hline \emph{Objectif :} & Vérifier une connexion à l'annuaire LDAP   \\
+\hline \emph{Procédure :} & Initialisation d'une connexion avec un nom d'hôte et un port existant   \\
+\hline \emph{Données de test :} & hostname : localhost, port : 389   \\
 \hline \emph{Résultat :} & PASS   \\
 \hline 
 \end{tabular} 
 \end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-02  \\
+\hline \emph{Titre :} & testConnectionBadHostname   \\
+\hline \emph{Objectif :} & Vérifier une connexion à l'annuaire LDAP   \\
+\hline \emph{Procédure :} & Initialisation d'une connexion avec un faux nom d'hôte et un port existant   \\
+\hline \emph{Données de test :} & hostname : toto, port : 389   \\
+\hline \emph{Résultat :} & FAIL comme prévu   \\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-03  \\
+\hline \emph{Titre :} & testConnectionBadPort   \\
+\hline \emph{Objectif :} & Vérifier une connexion à l'annuaire LDAP   \\
+\hline \emph{Procédure :} & Initialisation d'une connexion avec un nom d'hôte et un faux port \\
+\hline \emph{Données de test :} & hostname : localhost, port : 666   \\
+\hline \emph{Résultat :} & FAIL comme prévu   \\
+\hline 
+\end{tabular} 
+\end{center}
   
-%\begin{center}
-%\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
-%\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
-%\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
-%\begin{tabular}{|L{3cm}|L{10cm}|}
-%\hline \emph{Cas de test :} & Test-02  \\
-%\hline \emph{Titre :} & Création d'une personne   \\
-%\hline \emph{Objectif :} & Vérifier le cas de la création d'une personne à partir du logiciel   \\
-%\hline \emph{Procédure :} & Création d'une personne à l'aide la méthode blabla   \\
-%\hline \emph{Données de test :} & toto   \\
-%\hline \emph{Résultat :} & copié collé   \\
-%\hline 
-%\end{tabular} 
-%\end{center}
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-04  \\
+\hline \emph{Titre :} & testConnectionBadHostnameAndPort   \\
+\hline \emph{Objectif :} & Vérifier une connexion à l'annuaire LDAP   \\
+\hline \emph{Procédure :} & Initialisation d'une connexion avec un faux nom d'hôte et un faux port \\
+\hline \emph{Données de test :} & hostname : toto, port : 666   \\
+\hline \emph{Résultat :} & FAIL comme prévu   \\
+\hline 
+\end{tabular} 
+\end{center}  
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-05  \\
+\hline \emph{Titre :} & testAuthentification   \\
+\hline \emph{Objectif :} & S'authentifier à l'annuaire LDAP   \\
+\hline \emph{Procédure :} & Authentification avec un login et son mot de passe correspondant \\
+\hline \emph{Données de test :} & login : biensuanga, password : biensuanga   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}  
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-06  \\
+\hline \emph{Titre :} & testAuthentificationBadUid   \\
+\hline \emph{Objectif :} & S'authentifier à l'annuaire LDAP   \\
+\hline \emph{Procédure :} & Authentification avec un mauvais login et son mot de passe correspondant \\
+\hline \emph{Données de test :} & login : toto, password : biensuanga   \\
+\hline \emph{Résultat :} & FAIL comme prévu   \\
+\hline 
+\end{tabular} 
+\end{center}  
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-07  \\
+\hline \emph{Titre :} & testAuthentificationBadPwd   \\
+\hline \emph{Objectif :} & S'authentifier à l'annuaire LDAP   \\
+\hline \emph{Procédure :} & Authentification avec un login et un mot de passe erroné  \\
+\hline \emph{Données de test :} & login : biensuanga, password : pwd   \\
+\hline \emph{Résultat :} & FAIL comme prévu   \\
+\hline 
+\end{tabular} 
+\end{center} 
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-08  \\
+\hline \emph{Titre :} & testAuthentificationBadUidAndPwd   \\
+\hline \emph{Objectif :} & S'authentifier à l'annuaire LDAP   \\
+\hline \emph{Procédure :} & Authentification avec un mauvais login et un mot de passe erroné  \\
+\hline \emph{Données de test :} & login : toto, password : titi   \\
+\hline \emph{Résultat :} & FAIL comme prévu   \\
+\hline 
+\end{tabular} 
+\end{center} 
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-09  \\
+\hline \emph{Titre :} & testCanRead   \\
+\hline \emph{Objectif :} & Demander si une personne a le droit de lecture sur le champ d'une table précise   \\
+\hline \emph{Procédure :} & Vérifier les droits de lecture pour une personne ayant effectivement ces droits dans l'annuaire  \\
+\hline \emph{Données de test :} & login : biensuanga, table : Waybill, champ : RequisitionId   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center} 
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-10  \\
+\hline \emph{Titre :} & testCanReadBadUid   \\
+\hline \emph{Objectif :} & Demander si une personne a le droit de lecture sur le champ d'une table précise   \\
+\hline \emph{Procédure :} & Vérifier les droits de lecture pour une personne n'ayant pas ces droits dans l'annuaire  \\
+\hline \emph{Données de test :} & login : toto, table : Waybill, champ : RequisitionId   \\
+\hline \emph{Résultat :} & FAIL comme prévu   \\
+\hline 
+\end{tabular} 
+\end{center} 
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-11  \\
+\hline \emph{Titre :} & testCanReadBadTableName   \\
+\hline \emph{Objectif :} & Demander si une personne a le droit de lecture sur le champ d'une table précise   \\
+\hline \emph{Procédure :} & Vérifier les droits de lecture pour une personne ayant ces droits dans l'annuaire mais sur une table inexistante \\
+\hline \emph{Données de test :} & login : biensuanga, table : avion, champ : RequisitionId   \\
+\hline \emph{Résultat :} & FAIL comme prévu   \\
+\hline 
+\end{tabular} 
+\end{center} 
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-12  \\
+\hline \emph{Titre :} & testCanReadBadFieldName   \\
+\hline \emph{Objectif :} & Demander si une personne a le droit de lecture sur le champ d'une table précise   \\
+\hline \emph{Procédure :} & Vérifier les droits de lecture pour une personne ayant ces droits dans l'annuaire mais sur un champ inexistant \\
+\hline \emph{Données de test :} & login : biensuanga, table : Waybill, champ : waybillColor   \\
+\hline \emph{Résultat :} & FAIL comme prévu   \\
+\hline 
+\end{tabular} 
+\end{center} 
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-13  \\
+\hline \emph{Titre :} & testCanWrite   \\
+\hline \emph{Objectif :} & Demander si une personne a le droit d'écriture sur le champ d'une table précise   \\
+\hline \emph{Procédure :} & Vérifier les droits d'écriture pour une personne ayant ces droits dans l'annuaire \\
+\hline \emph{Données de test :} & login : biensuanga, table : Requistion, champ : waybillId   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center} 
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-14  \\
+\hline \emph{Titre :} & testCanWriteBadUid   \\
+\hline \emph{Objectif :} &Demander si une personne a le droit d'écriture sur le champ d'une table précise    \\
+\hline \emph{Procédure :} & Vérifier les droits d'écriture pour une personne n'ayant pas ces droits dans l'annuaire\\
+\hline \emph{Données de test :} & login : toto, table : Requistion, champ : waybillId   \\
+\hline \emph{Résultat :} & FAIL comme prévu   \\
+\hline 
+\end{tabular} 
+\end{center} 
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-15  \\
+\hline \emph{Titre :} & testCanWriteBadTableName   \\
+\hline \emph{Objectif :} &Demander si une personne a le droit d'écriture sur le champ d'une table précise    \\
+\hline \emph{Procédure :} & Vérifier les droits d'écriture pour une personne ayant ces droits dans l'annuaire mais sur une table inexistante \\
+\hline \emph{Données de test :} & login : biensuanga, table : Avion, champ : waybillId   \\
+\hline \emph{Résultat :} & FAIL comme prévu   \\
+\hline 
+\end{tabular} 
+\end{center} 
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-16  \\
+\hline \emph{Titre :} & testCanWriteBadFieldName   \\
+\hline \emph{Objectif :} &Demander si une personne a le droit d'écriture sur le champ d'une table précise    \\
+\hline \emph{Procédure :} & Vérifier les droits d'écriture pour une personne ayant ces droits dans l'annuaire mais sur un champ inexistant \\
+\hline \emph{Données de test :} & login : biensuanga, table : Requistion, champ : PersonId4   \\
+\hline \emph{Résultat :} & FAIL comme prévu   \\
+\hline 
+\end{tabular} 
+\end{center} 
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-17  \\
+\hline \emph{Titre :} & testCanAdd   \\
+\hline \emph{Objectif :} &Demander si une personne a le droit d'ajout sur une table précise    \\
+\hline \emph{Procédure :} & Vérifier les droits d'ajout pour une personne ayant ces droits dans l'annuaire \\
+\hline \emph{Données de test :} & login : biensuanga, table : Waybill \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center} 
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-18  \\
+\hline \emph{Titre :} & testCanAddBadUid   \\
+\hline \emph{Objectif :} &Demander si une personne a le droit d'ajout sur une table précise    \\
+\hline \emph{Procédure :} & Vérifier les droits d'ajout pour une personne n'ayant pas ces droits dans l'annuaire \\
+\hline \emph{Données de test :} & login : toto, table : Waybill \\
+\hline \emph{Résultat :} & FAIL comme prévu   \\
+\hline 
+\end{tabular} 
+\end{center} 
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-19  \\
+\hline \emph{Titre :} & testCanAddBadTableName   \\
+\hline \emph{Objectif :} &Demander si une personne a le droit d'ajout sur une table précise    \\
+\hline \emph{Procédure :} & Vérifier les droits d'ajout pour une personne ayant ces droits dans l'annuaire mais sur une table interdisant l'ajout de ligne \\
+\hline \emph{Données de test :} & login : biensuanga, table : Requistion \\
+\hline \emph{Résultat :} & FAIL comme prévu   \\
+\hline 
+\end{tabular} 
+\end{center} 
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-20  \\
+\hline \emph{Titre :} & testCanDelete   \\
+\hline \emph{Objectif :} &Demander si une personne a le droit de suppression sur une table précise    \\
+\hline \emph{Procédure :} & Vérifier les droits de suppression pour une personne ayant ces droits dans l'annuaire \\
+\hline \emph{Données de test :} & login : biensuanga, table : Waybill \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center} 
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-21  \\
+\hline \emph{Titre :} & testCanDeleteBadUid   \\
+\hline \emph{Objectif :} &Demander si une personne a le droit de suppression sur une table précise    \\
+\hline \emph{Procédure :} & Vérifier les droits de suppression pour une personne n'ayant pas ces droits dans l'annuaire \\
+\hline \emph{Données de test :} & login : toto, table : Waybill \\
+\hline \emph{Résultat :} & FAIL comme prévu   \\
+\hline 
+\end{tabular} 
+\end{center} 
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-22  \\
+\hline \emph{Titre :} & testCanDeleteBadTableName   \\
+\hline \emph{Objectif :} &Demander si une personne a le droit de suppression sur une table précise    \\
+\hline \emph{Procédure :} & Vérifier les droits de suppression pour une personne ayant ces droits dans l'annuaire mais sur une table interdisant la suppression\\
+\hline \emph{Données de test :} & login : biensuanga, table : Requistion \\
+\hline \emph{Résultat :} & FAIL comme prévu   \\
+\hline 
+\end{tabular} 
+\end{center} 
+
+Tous ces tests ont permis de corriger des erreurs dans l'implémentation de l'annuaire.\\
+Pour effectuer et visualiser les tests concernant \emph{LDAP} à partir de l'exécutable, il faut rajouter l'argument \emph{-testldap}.
 
 \chapter{Tests sur le système de gestion de données}
-
-\chapter{Validation de la recette}
 
 \end{document}
