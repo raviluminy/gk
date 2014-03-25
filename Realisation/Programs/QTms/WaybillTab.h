@@ -34,6 +34,9 @@ private slots:
 
 protected:
 
+	void editDataEditionFields(const QModelIndex& index);
+	void fillDataEditionFields(const QModelIndex& index);
+
 	Ui::WaybillTab* ui;
 
 private slots:
