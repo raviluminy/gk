@@ -439,34 +439,7 @@ WaybillTab::checkRealDates(){
 
 QVariant
 WaybillTab::dataAt(const QModelIndex& index, const DbColumn column) {
-	return index.sibling(index.row(), column).data();
-}
-
-void
-WaybillTab::on_dataListView_clicked(const QModelIndex& index) {
-	Q_UNUSED(index);
-	// const QModelIndex index = ui->dataListView->currentIndex();
-	const QString id                     = dataAt(index, Id)                    .toString();
-	const QString countryCode            = dataAt(index, CountryCode)           .toString();
-	const QTime   requestDate            = dataAt(index, RequestDate)           .toTime();
-	const QString transportMean          = dataAt(index, TransportMean)         .toString();
-	const QString requisitionId          = dataAt(index, RequisitionId)         .toString();
-//	const QString requisitionCountryCode = dataAt(index, RequisitionCountryCode).toString();
-	const QString vehicleId              = dataAt(index, VehicleId)             .toString();
-//	const QString contractId             = dataAt(index, ContractId)            .toString();
-	ui->idLineEdit              ->setText(id);
-	ui->countryCodeLineEdit     ->setText(countryCode);
-	ui->requestDateEdit         ->setTime(requestDate);
-	ui->transportMeanComboBox   ->setCurrentText(transportMean);
-	ui->requisitionIdComboBox   ->setCurrentText(requisitionId);
-//	ui->requisitionCountryCode  ->setText(requisitionCountryCode);
-	ui->transportVehicleLineEdit->setText(vehicleId);
-}
-
-void
-WaybillTab::on_cancelEdition_clicked() {
-	on_dataListView_clicked(ui->dataListView->currentIndex());
-	qDebug("cancel edition");
+	return indexAt(index, column).data();
 }
 
 QModelIndex
@@ -477,15 +450,47 @@ WaybillTab::indexAt(const QModelIndex& index, const DbColumn column) {
 #include <QtDebug>
 
 void
-WaybillTab::on_okEdition_clicked() {
-	QModelIndex index = ui->dataListView->currentIndex();
+WaybillTab::editDataEditionFields(const QModelIndex& index) {
 	QAbstractItemModel* model = ui->dataListView->model();
 	model->setData(indexAt(index, Id),            ui->idLineEdit              ->text());
 	model->setData(indexAt(index, CountryCode),   ui->countryCodeLineEdit     ->text());
-	model->setData(indexAt(index, RequestDate),   ui->requestDateEdit         ->text());
+	model->setData(indexAt(index, RequestDate),   ui->requestDateEdit         ->date());
 	model->setData(indexAt(index, TransportMean), ui->transportMeanComboBox   ->currentText());
 	model->setData(indexAt(index, RequisitionId), ui->requisitionIdComboBox   ->currentText());
 	model->setData(indexAt(index, VehicleId),     ui->transportVehicleLineEdit->text());
-	bool a = model->setHeaderData(1, Qt::Vertical, QString("x"));
-	qDebug("ok edition");
+	qDebug() << "edit header" << model->setHeaderData(index.row(), Qt::Vertical, QString("x"));
+}
+
+void
+WaybillTab::fillDataEditionFields(const QModelIndex& index) {
+	const QString id                     = dataAt(index, Id)                    .toString();
+	const QString countryCode            = dataAt(index, CountryCode)           .toString();
+	const QDate   requestDate            = dataAt(index, RequestDate)           .toDate();
+	const QString transportMean          = dataAt(index, TransportMean)         .toString();
+	const QString requisitionId          = dataAt(index, RequisitionId)         .toString();
+//	const QString requisitionCountryCode = dataAt(index, RequisitionCountryCode).toString();
+	const QString vehicleId              = dataAt(index, VehicleId)             .toString();
+//	const QString contractId             = dataAt(index, ContractId)            .toString();
+	ui->idLineEdit              ->setText(id);
+	ui->countryCodeLineEdit     ->setText(countryCode);
+	ui->requestDateEdit         ->setDate(requestDate);
+	ui->transportMeanComboBox   ->setCurrentText(transportMean);
+	ui->requisitionIdComboBox   ->setCurrentText(requisitionId);
+//	ui->requisitionCountryCode  ->setText(requisitionCountryCode);
+	ui->transportVehicleLineEdit->setText(vehicleId);
+}
+
+void
+WaybillTab::on_dataListView_clicked(const QModelIndex& index) {
+	fillDataEditionFields(index);
+}
+
+void
+WaybillTab::on_cancelEdition_clicked() {
+	fillDataEditionFields(ui->dataListView->currentIndex());
+}
+
+void
+WaybillTab::on_okEdition_clicked() {
+	editDataEditionFields(ui->dataListView->currentIndex());
 }
