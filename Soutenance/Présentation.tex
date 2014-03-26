@@ -7,13 +7,11 @@
 % **************************** %
 %            Package           %
 % **************************** %
-<<<<<<< HEAD
-%\usepackage{GarmirKhatch} 
-=======
+
 % \usepackage{GarmirKhatch}
 \usepackage{etex} % pour éviter erreurs de compilation avec tikz
 \reserveinserts{20}
->>>>>>> 07fbee031a3746c0bba8fcf4d7dc10ea6ec615ae
+
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french,english]{babel}
@@ -103,6 +101,8 @@ Campus de Luminy}
 
 \section[Mission d'AMO~: recueil des besoins (CdCF)]{Mission d'AMO~: recueil des besoins (CdCF)}
 
+\include{CDCF_Norme}
+
 \subsection{Compréhension du contexte}
 
 \begin{frame}
@@ -125,44 +125,51 @@ Campus de Luminy}
 \end{block}
 \end{frame}
 
-% ------------------------------------------------------------------------------
-\include{CDCF_Norme}
-% ------------------------------------------------------------------------------
-
 \section[Mission de maîtrise d'œuvre~: réalisation du projet]{Mission de maîtrise d'œuvre~: réalisation du projet}
 
 % ------------------------------------------------------------------------------
 \include{PAQ}
 % ------------------------------------------------------------------------------
 \subsection[Réponse technique aux besoins fonctionnels (DAT)]{Réponse technique aux besoins fonctionnels (DAT)}
-\begin{frame}
-\frametitle{}
-\begin{block}{\textbf{Qu'est-ce que \mo~?}}
-\begin{itemize}
-\item Organisation humanitaires (187 Sociétés Nationales)
-\item Vient en aide aux personnes plus vulnérables
-\item Fort réseau de volontaires
-\item Rend les communautés plus résistantes
-\end{itemize}
-\end{block}
-\end{frame}
-% ------------------------------------------------------------------------------
-\include{Synchronisation}
-% ------------------------------------------------------------------------------
 
 \subsection[Authentification et contrôle d'accès (LDAP)]{Authentification et contrôle d'accès (LDAP)}
+\begin{frame}
+\tableofcontents[subsectionstyle=show/shaded/hide, subsubsectionstyle=hide, sectionstyle=show/hide]
+\end{frame}
 \include{LDAP}
 
+\include{Synchronisation}
+
+\subsection[Stockage des données]{Stockage des données}
+\begin{frame}
+\tableofcontents[subsectionstyle=show/shaded/hide, subsubsectionstyle=hide, sectionstyle=show/hide]
+\end{frame}
+
+\begin{frame}
+\begin{block}{\vspace{1cm}\begin{center}\textbf{Stockage des données}\end{center}\vspace{1cm}}
+\end{block}
+\end{frame}
+
+\subsection[Sauvegarde]{Sauvegarde}
+\begin{frame}
+\tableofcontents[subsectionstyle=show/shaded/hide, subsubsectionstyle=hide, sectionstyle=show/hide]
+\end{frame}
+\include{Sauvegarde}
 
 \subsection[Tests sur l'interface graphique et unitaires (CdR)]{Tests sur l'interface graphique et unitaires (CdR)}
+\begin{frame}
+\tableofcontents[subsectionstyle=show/shaded/hide, subsubsectionstyle=hide, sectionstyle=show/hide]
+\end{frame}
 \include{CdR}
-
 
 \subsection[Procédure de déploiement et d'installation (PIT)]{Procédure de déploiement et d'installation (PIT)}
 \begin{frame}
+\tableofcontents[subsectionstyle=show/shaded/hide, subsubsectionstyle=hide, sectionstyle=show/hide]
+\end{frame}
+\begin{frame}
 \end{frame}
 
-\section[Conclusion]{Conclusion}
+\section*[Conclusion]{Conclusion}
 
 \subsection[Conclusion]{Conclusion}
 \begin{frame}

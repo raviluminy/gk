@@ -1,13 +1,117 @@
 \begin{frame}
-\frametitle{}
+\frametitle{Les tests}
 \begin{block}{\textbf{Pourquoi les tests sont importants dans ce projet}}
 \begin{itemize}
-\item Organisation humanitaires (187 Sociétés Nationales)
-\item Vient en aide aux personnes plus vulnérables
-\item Fort réseau de volontaires
-\item Rend les communautés plus résistantes
+\item l'outil doit être fiable
+\item les fonctionnalités du cahier des charges doivent être opérationnelles
 \end{itemize}
 \end{block}
-
-
 \end{frame}
+
+\begin{frame}
+\frametitle{}
+\begin{block}{\textbf{Différents types de tests ont été réalisé : }}
+\begin{itemize}
+\item les tests sur l'interface graphique,
+\item les tests unitaires,
+\item les tests sur le système de gestion de données.
+\end{itemize}
+\end{block}
+\begin{block}{\textbf{Configuration des tests : }}
+\begin{itemize}
+\item le framework Qt intègre une librairie de test : QTestlib
+\item les tests sont lancés à partir de l'éxecutable
+\item différentes options permettent de lancer les différents tests ( \emph{-testldap} )
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{block}{\textbf{Test d'un champ sur l'onglet Réquisition }}
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{2.7cm}|L{7cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-08  \\
+\hline \emph{Titre :} & testCountryCode   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ du code pays dans l'onglet réquisition   \\
+\hline \emph{Procédure :} & Cliquer dans le champ du code pays, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``Fr''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+\end{block} 
+
+\begin{frame}
+\begin{block}{\textbf{Les tests graphiques permettent de }}
+\begin{itemize}
+\item tester les zones de saisies
+\item tester les validateurs
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{block}{\textbf{Test d'un champ sur l'onglet Providers }}
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{2.7cm}|L{7cm}|}
+\hline \emph{Cas de test :} & Test-Graphique-31  \\
+\hline \emph{Titre :} & testWaybillCountryCode   \\
+\hline \emph{Objectif :} & Vérifier le bon fonctionnement du champ du code pays du prestataire.   \\
+\hline \emph{Procédure :} & Cliquer dans le champ, le remplir avec une chaîne et vérifier que la chaîne correspond   \\
+\hline \emph{Données de test :} & On rempli avec la chaîne ``FRA''   \\
+\hline \emph{Config :} & Using QtTest library 5.2.1, Qt 5.2.1   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center}
+\end{block}
+
+\begin{frame}
+\begin{block}{\textbf{Les tests unitaires de l'annuaire LDAP permettent de}}
+\begin{itemize}
+\item tester les connexions au serveur
+\item tester l'authentification
+\item vérifier l'implémentation des groupes
+\item tester les droits en\begin{itemize} \item lecture
+					  \item écriture
+					  \item ajout
+					  \item suppression
+			  \end{itemize}		
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{block}{\textbf{Test d'une connexion à l'annuaire }}
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{2.7cm}|L{7cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-01  \\
+\hline \emph{Titre :} & testConnection   \\
+\hline \emph{Objectif :} & Vérifier une connexion à l'annuaire LDAP   \\
+\hline \emph{Procédure :} & Initialisation d'une connexion avec un nom d'hôte et un port existant   \\
+\hline \emph{Données de test :} & hostname : localhost, port : 389   \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\hline \emph{Cas de test :} & Test-Unitaire-02  \\
+\hline \emph{Titre :} & testConnectionBadHostname   \\
+\hline \emph{Objectif :} & Vérifier une connexion à l'annuaire LDAP   \\
+\hline \emph{Procédure :} & Initialisation d'une connexion avec un faux nom d'hôte et un port existant   \\
+\hline \emph{Données de test :} & hostname : toto, port : 389   \\
+\hline \emph{Résultat :} & FAIL comme prévu   \\
+\hline 
+\end{tabular} 
+\end{center}
+\end{block}
+
+\begin{frame}
+\begin{block}{\textbf{Tous les tests sont visualisables dans le cahier des recettes}}
+\end{block}
+\end{frame}
+
