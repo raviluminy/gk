@@ -1,0 +1,147 @@
+% **************************** %
+%          Slides GK           %
+% **************************** %
+
+\documentclass[10pt,fleqn]{beamer}
+ 
+% **************************** %
+%            Package           %
+% **************************** %
+
+% \usepackage{GarmirKhatch}
+\usepackage{etex} % pour éviter erreurs de compilation avec tikz
+\reserveinserts{20}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french,english]{babel}
+\usepackage[french]{layout}
+\usepackage{lmodern}
+\usepackage{ragged2e}
+\usepackage{fancyhdr}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{comment}
+\usepackage{tikz}
+\usepackage{tikz-uml}
+\usetikzlibrary{positioning, shadows}
+\newcommand{\mo}{\textsc{Garmir~Khatch}}
+
+% **************************** %
+%          Préambule           %
+% **************************** %
+% Option pdf
+\hypersetup{
+      %pdfpagemode = FullScreen,
+      pdfauthor   = {AMU FSI 2014},
+      pdftitle    = {Présentation du projet TMS pour \mo},
+      pdfsubject  = {Système de gestion des transports},
+      pdfkeywords = {AMO, GK, TMS, CdC, DAT, PTI}
+}
+% Thème du pdf 
+\usetheme{Warsaw}
+% Logo de l'université d'Aix-Marseille
+%\logo{\includegraphics[height=6mm]{logo}}
+% Affiche les notes
+%\setbeameroption{show notes}
+% Blocks arrondies et ombrés
+\setbeamertemplate{blocks}[rounded][shadow=true] 
+% Balle pour la liste d'items
+\setbeamertemplate{itemize item}[ball]
+% Triangle pour la liste de sous items
+\setbeamertemplate{itemize subitem}[triangle]
+% Affiche l'ensemble du frame en gris clair
+\beamertemplatetransparentcovered
+% Faire apparaître un sommaire avant chaque section
+\AtBeginSection[]{
+	\begin{frame}
+		\frametitle{Sommaire}
+		\tableofcontents[currentsection, hideallsubsections]
+	\end{frame}
+}
+
+% **************************** %
+%        Page de garde         %
+% **************************** %
+\title[]{{\Large \textsc{\mo \\ Système de gestion des transports}}}
+\author[\textsc{\mo - Système de gestion des transports}]{M2 FSIL - FSI}
+\institute{Encadrant : M. Roland \textsc{Agopian}\\
+Faculté des Sciences d'Aix-Marseille Université\\
+Campus de Luminy}
+\date{\scriptsize{ 27 mars 2014}}
+
+% **************************** %
+%       Corps du document      %
+% **************************** %
+\begin{document}
+ 
+% **************************** %
+%            Entête            %
+% **************************** %
+\begin{frame}
+\begin{figure}
+\centering
+\includegraphics[scale=0.52]{Images/EnTeteSciences}
+\end{figure}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Sommaire}
+\tableofcontents[hideallsubsections]
+\end{frame}
+
+\include{Presentation_Gantt_general}
+% Présentation sommaire : AMO -> ME + GANTT de ces 2 taches
+
+\section[Mission d'AMO]{Mission d'AMO}
+%Les termes AMO, MO, ME seront utilisés. Est-il nécessaire de les expliciter~?
+
+\include{Presentation_Amo_Jalonnements}
+
+\include{Presentation_Amo_Objectifs_pour_nous}
+
+\include{Presentation_Amo_Organisation}
+
+\include{Presentation_Amo_Objectifs_pour_Garmir_Khatch}
+
+\include{Presentation_Amo_Deroulement}
+
+\include{Presentation_Amo_Conclusion}
+
+
+\section[Mission de ME]{Mission de ME}
+
+\include{Presentation_Me_Jalonnements}
+
+\include{Presentation_Me_Objectif_pour_nous}
+
+\include{Presentation_Me_Organisation_et_PAQ}
+
+\include{Presentation_Me_Solution_Disponibilite}
+
+\include{Presentation_Me_Solution_Synchronisation}
+
+\include{Presentation_Me_Solution_Securite}
+
+\include{Presentation_Me_Solution_Donnees}
+
+\include{Presentation_Me_Solution_Sauvegarde_et_reprise_sur_panne}
+
+\include{Presentation_Me_DAT}
+
+\include{Presentation_Me_CdR}
+
+\include{Presentation_Me_PIT}
+
+\include{Presentation_Me_Conclusion}
+
+\end{document}
