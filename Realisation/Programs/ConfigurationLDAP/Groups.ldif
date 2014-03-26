@@ -1,0 +1,100 @@
+version: 1
+
+dn: ou=Groups,o=GarmirKatch,dc=GarmirKatch,dc=fr
+objectClass: top
+objectClass: organizationalUnit
+ou: Groups
+
+dn: cn=business,ou=Groups,o=GarmirKatch,dc=GarmirKatch,dc=fr
+objectClass: groupOfUniqueNames
+objectClass: top
+objectClass: lawGarmir
+cn: business
+uniqueMember: cn=Khady T,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
+uniqueMember: cn=Remi M,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
+description:: dG91dCBsZSBtZXRpZXIgcXVpIGFjY2VzIGEgbCdvdXRpbCA=
+rFieldRead: Waybill()
+rFieldRead: Requistion()
+
+dn: cn=logistic,ou=Groups,o=GarmirKatch,dc=GarmirKatch,dc=fr
+objectClass: groupOfUniqueNames
+objectClass: top
+objectClass: lawGarmir
+cn: logistic
+uniqueMember: cn=Anthony J,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
+uniqueMember: cn=Lionel G,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
+description:: bGUgbG9nc3RpY2llbiB0ZXJyYWluIA==
+aFieldWrite: Vehicle(statut)
+aFieldWrite: Provider(statut)
+aFieldWrite: Driver(statut)
+aTableAdd: Waybill
+aTableAdd: Requistion
+rFieldRead: Waybill()
+rFieldRead: Requistion()
+rFieldRead: Vehicle()
+rFieldRead: Provider()
+rFieldRead: Driver()
+rFieldWrite: Waybill()
+rFieldWrite: Requistion()
+
+dn: cn=admin,ou=Groups,o=GarmirKatch,dc=GarmirKatch,dc=fr
+objectClass: groupOfUniqueNames
+objectClass: top
+objectClass: lawGarmir
+cn: admin
+uniqueMember: cn=Lucien M,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
+uniqueMember: cn=Ravi P,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
+description: les administracteurs de l'outils
+ou: admin
+aTableAdd: Waybill
+aTableAdd: Requistion
+aTableAdd: Vehicle
+aTableAdd: Provider
+aTableAdd: Driver
+aTableDel: Waybill
+aTableDel: Requistion
+aTableDel: Vehicle
+aTableDel: Provider
+aTableDel: Driver
+rFieldRead: Waybill()
+rFieldRead: Requistion()
+rFieldRead: Vehicle()
+rFieldRead: Provider()
+rFieldRead: Driver()
+rFieldWrite: Waybill()
+rFieldWrite: Requistion()
+rFieldWrite: Vehicle()
+rFieldWrite: Provider()
+rFieldWrite: Driver()
+
+dn: cn=central,ou=Groups,o=GarmirKatch,dc=GarmirKatch,dc=fr
+objectClass: groupOfUniqueNames
+objectClass: top
+objectClass: lawGarmir
+cn: central
+uniqueMember: cn=Medhy J,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
+description:: bGUgY2VudHJhbCA=
+rFieldRead: Waybill()
+rFieldRead: Requistion()
+rFieldRead: Vehicle()
+rFieldRead: Provider()
+rFieldRead: Driver()
+
+dn: cn=providerMGT,ou=Groups,o=GarmirKatch,dc=GarmirKatch,dc=fr
+objectClass: groupOfUniqueNames
+objectClass: top
+objectClass: lawGarmir
+cn: providerMGT
+uniqueMember: cn=Adrien L,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
+uniqueMember: cn=Lionel G,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
+description: gestionnaire de prestataire terrain
+aTableAdd: Driver
+aTableAdd: Provider
+aTableAdd: Vehicle
+rFieldRead: Vehicle()
+rFieldRead: Provider()
+rFieldRead: Driver()
+rFieldWrite: Driver()
+rFieldWrite: Provider()
+rFieldWrite: Vehicle()
+

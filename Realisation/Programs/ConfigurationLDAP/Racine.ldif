@@ -1,0 +1,9 @@
+dn: dc=GarmirKatch,dc=fr
+objectclass: top
+objectclass: domain
+dc: GarmirKatch
+
+dn: o=GarmirKatch,dc=GarmirKatch,dc=fr
+objectClass: organization
+objectClass: top
+o: GarmirKatch
