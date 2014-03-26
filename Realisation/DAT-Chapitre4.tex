@@ -118,16 +118,104 @@ int main() {
 \end{lstlisting}
 
  \section{Procédure de génération de la base de données}
+ Cette section présente la suite logicielle utilisée pour la génération des bases de données de notre programme. 
+ Pour ce faire, nous avons utilisé l'outil JMerise permettant de conceptualiser et d'établir les relations au sein de notre MCD.
  
  \subsection{Génération des tables SQL avec JMerise}
- 
- \subsubsection{Présentation}
-JMerise est un logiciel dédié à la modélisation des modèles conceptuels de donnée pour Merise. Il permet aussi, les relations réflexives, la généralisation et la spécialisation des entités. Il génère le MLD et le script MySQL associé.
+
+ \subsubsection{Présentation de JMerise}
+JMerise est un logiciel dédié à la modélisation des modèles conceptuels de donnée pour Merise. Il permet en autre, les relations réflexives, la généralisation et la spécialisation des entités. Il génère le MLD et le script MySQL associé.
+\begin{center}
+\includegraphics[scale=0.2]{Images/jmerise}
+\end{center}
 
  \subsubsection{Procédure d'installation de JMerise}
 Pour installer et utiliser JMerise, dezipper simplement le fichier "\textbf{JMerise.zip}" et exécuter le jar nommé "\textit{JMerise.jar}". 
 
  \subsubsection{Génération de tables SQL}
-Une fois la MCD réalisée, JMerise propose une méthode de vérification qui permet de s'assurer que le modèle que l'utilisateur vient de créer est correct. Pour cela, il suffit de cliquer sur le bouton \includegraphics[scale=0.35]{checkMCD}.\\
-L'outil peut aussi générer la MPD associée ainsi que le code MySQL permettant la création des tables en cliquant sur le bouton \includegraphics[scale=0.35]{convertMCD}.
+Une fois la MCD réalisée à l'aide des outils de conception dans l'onglet "\textit{Merise}", Il est possible de procéder à sa vérification afin de s'assurer que le modèle crée soit correct.
+Pour cela, il suffit de cliquer sur le bouton \includegraphics[scale=0.35]{checkMCD}.\\\\
+L'outil peut aussi générer la MPD associée ainsi que le code SQL sous différents format dont MySQL mais aussi sous forme XML en fournissant la DTD du modèle. Pour cela, il suffit de cliquer sur le bouton \includegraphics[scale=0.35]{convertMCD}.\\\\
+La suite propose également d'exporter le projet au format \textit{.jpg} ou d'importer un projet tier portant l'extension \textit{.asi}, i.e crée à l'aide du logiciel concurrent \textbf{AnalyseSI}.
 
+ \section{Procédure d'installation de MySQL Server 5.5}
+ Ce chapitre décrit la procédure d'installation de MySQL Server 5.5 de Oracle .\\
+ La première partie du guide concerne l’installation et l’utilisation de MySQL sur une plateforme Windows.\\
+ La seconde, présente la démarche pour installer et utiliser MySQL sur une plateforme Unix.\\
+ Enfin, vous pouvez consulter le manuel de référence de MySQL 5.5 qui est disponible 
+en ligne sur le site \url{http://dev.mysql.com/doc/refman/5.5/en/}.
+
+ \subsubsection{Installation de MySQL Server 5.5 sous Windows}
+ \begin{enumerate}
+ \item Aller sur le site \url{https://dev.mysql.com/downloads/installer/5.5.html}
+ \begin{figure}
+ \centering
+ \includegraphics[scale=0.2]{Images/mysqlHomePage}
+ \caption{Page de téléchargement de MySQL Server}
+ \end{figure}
+ \item Sélectionnez la plateforme Microsoft Windows et cliquez sur le bouton Download de la version 
+correspondante au système Windows de votre ordinateur, pour télécharger le logiciel dans votre 
+ordinateur.
+\item On vous propose de vous enregistrer dans le site de MySQL. Si vous avez déjà un nom d’utilisateur, entrez-le, sinon vous pouvez vous enregistrer ou bien vous pouvez continuer le téléchargement sans être enregistré, en cliquant sur la phrase "\textbf{No thanks, just start my download.}"
+\item Une fois le téléchargement terminé, double-cliquez sur \textit{mysql-installer-community-MySQL-version.msi} pour lancer l'installateur.\\
+ \centering
+ \includegraphics[scale=0.5]{Images/mysqlInstaller}
+ \item Cliquez sur "\textit{Install MySQL Products}" pour procéder à l'installation de la suite logicielle.
+ \item Acceptez le contract de licence en cochant la case "\textit{I accept the licence terms}", puis cliquez sur "\textbf{Next >}"\\
+ \centering
+ \includegraphics[scale=0.5]{Images/mysqlLicenceAgreement}
+ \item Cliquez ensuite sur "\textbf{Execute}" pour vérifier si une nouvelle version du logiciel est disponible ou cocher la case "\textit{Skip the check for updates (not recommended)}" pour passer l'étape de vérification de version.
+  \item  Cochez le rond "\textit{Custom}" et cliquez sur "\textbf{Next >}"\\
+  \centering
+  \includegraphics[scale=0.5]{Images/msqlSetupType}
+  \item Sélectionnez la version désirée et vérifié bien que l'architecture est en \textbf{32-Bit}.\\
+  \centering
+  \includegraphics[scale=0.5]{Images/mysqlVersion}
+  \item Cliquez sur "\textbf{Next >}" et "\textbf{Execute}" pour installer les composants de l'application.
+  \item Une fois l'installation des composants terminée, cliquez sur "\textbf{Next >}" pour passer à la phase de configuration du server MySQL en trois étapes.\\
+  \centering  
+  \includegraphics[scale=0.5]{Images/mysqlConfiguration1}
+  \item Cliquez sur "\textbf{Next >}" pour passer à l'étape suivante pour définir un mot de passe root pour s'authentifier au server MySQL.\\
+ \centering 
+ \includegraphics[scale=0.5]{Images/mysqlConfiguration2}
+ \item Spécifier un nom de service Windows à utiliser pour cette instance de MySQL Server.\\
+ \centering 
+ \includegraphics[scale=0.5]{Images/mysqlConfiguration3}
+ \item Une fois le server configuré, cliquez sur "\textbf{Next >}" pour lancer la configuration des fichiers exemples fournis dans la suite logicielle, puis cliquez sur "\textbf{Next >}".
+ \item Pour terminer l'installation cliquez sur "\textbf{Finish}".\\
+ \centering
+ \includegraphics[scale=0.5]{Images/mysqlComplete}
+ \end{enumerate}
+ 
+ \subsubsection{Utilisation de MySQL Server 5.5 sous Windows}
+ Comme nous l'avons vu durant l'installation, MySQL est installé comme un service du système Windows. Cela sous-entend que ce service démarrera à chaque redémarrage de la machine.\\
+ Pour définir les options relatives au lancement du service MySQL, ouvrir une console CMD et exécuter la commande suivantes pour ouvrir le gestionnaire de services Windows~:
+ \begin{lstlisting}
+ > services.msc
+ \end{lstlisting}
+ \begin{figure}
+ \centering
+ \includegraphics[scale=0.5]{Images/mysqlServices}
+ \caption{Gestionnaire de services Windows}
+ \end{figure}
+ 
+ \begin{enumerate}
+ \item Pour démarrer votre travail, ouvrez la "\textit{MySQL 5.5 Command Client}"se trouvant dans $C: \backslash Program Files\backslash MySQL \backslash MySQL Server 5.5\backslash bin \backslash$
+ Vous allez voir la fenêtre de travail suivante~:\\
+ \centering
+ \includegraphics[scale=0.6]{Images/mysqlCommandLine}
+ \item Entrez votre mot de passe root que vous avez renseigné lors de l'étape d'installation puis appuyer sur la touche \textit{Entrée} du clavier.\\
+ \centering
+ \includegraphics[scale=0.6]{Images/mysqlCommandLineOk}\\
+ Veuillez noter le texte "\textbf{mysql>}" témoignant du changement de contexte du programme MySQL.
+ \end{enumerate}
+ 
+ \textbf{Note}
+ \begin{itemize}
+ \item Les commandes doivent se terminer par le caractère point-virgule ";"
+ \end{itemize}
+
+% TODO: A Compléter
+ \subsubsection{Installation de MySQL Server 5.5 sous Unix} 
+
+ \subsubsection{Utilisation de MySQL Server 5.5 sous Unix}
