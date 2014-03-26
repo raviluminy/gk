@@ -12,25 +12,20 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Authentification et contrôle d'accès}
+  \frametitle{Authentification et contrôle d'accès : Les choix}
   \begin{block}{\textbf{Pourquoi un annuaire ? }}
   \begin{itemize}
   \item Plus consulté que mis à jour
   \item Structure hierachique 
   \end{itemize} 
   \end{block}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Authentification et contrôle d'accès}
+  
   \begin{block}{\textbf{Pourquoi LDAP ? }}
   \begin{itemize}
-  \item Protocole réseau léger
-  \item Recherche simple et critérisée
-  \item Organisation des résultats
+  \item Protocole réseau léger -> \textbf{Optimisation des flux}
+  \item Authentification et contrôle d'accès -> \textbf{Sécurité}
+  \item Haute disponibilité via réplication  -> \textbf{Sécurité}
   \item Mécanisme de référencement
-  \item Authentification et contrôle d'accès
-  \item Haute disponibilité via réplication
   \end{itemize}
   \end{block}
 \end{frame}
@@ -38,7 +33,7 @@
   \frametitle{Authentification et contrôle d'accès}
   \begin{figure}[htbp]
 	  \centering
-	  \includegraphics[scale=0.6]{Images/SchemaLDAP.png}
+	  \includegraphics[scale=0.4]{Images/SchemaLDAP.png}
 	  \caption{Structure de l'annuaire}
 	  \label{SchemaLDAP}
   \end{figure}
@@ -52,7 +47,7 @@
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[scale=0.6]{Images/SchemaAuthentification.png}
+	\includegraphics[scale=0.55]{Images/SchemaAuthentification.png}
 	\caption{Authentification pour la synchronisation}
 	\label{SchemaAuthentification}
 \end{figure}
@@ -121,6 +116,17 @@
   \begin{itemize}
   \item Système de réplication et de référencement 
   \item Ajout et modification dans l'outil
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Authentification et contrôle d'accès}
+  \begin{block}{\textbf{Probleme rencontré }}
+  \begin{itemize}
+  \item Peu de connaissance de l'architecture LDAP
+  \item Recherche des librairies LDAP pour windows 
+  \item 
   \end{itemize}
   \end{block}
 \end{frame}
