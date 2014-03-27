@@ -13,20 +13,10 @@
 
 \begin{block}{Contexte}
 \begin{itemize}
-    \item Liaison réseau pas toujours accessible
-    \item Plusieurs utilisateurs peuvent modifier la même donnée
+    \item Liaison réseau pas toujours accessible % Ouragan, tremblements de terre
+    \item Plusieurs utilisateurs peuvent modifier la même donnée % Dans le cas où ils sont offline, ça va poser pb
 \end{itemize}
 \end{block}
-
-\pause
-
-\begin{exampleblock}{Idée}
-\begin{itemize}
-    \item Gérer deux modes~: Connecté (synchrone), Hors-ligne (asynchrone)
-    \item Logger tout ajout ou modification (avec horodatage)
-    \item S'en servir pour la fusion
-\end{itemize}
-\end{exampleblock}
 
 \pause
 
@@ -36,6 +26,21 @@
     \item Conflits
 \end{itemize}
 \end{alertblock}
+
+\end{frame}
+% ▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵
+
+% ▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿
+\begin{frame}
+\frametitle{Introduction}
+
+\begin{exampleblock}{Idée}
+\begin{itemize}
+    \item Gérer deux modes~: Connecté (synchrone), Hors-ligne (asynchrone)
+    \item Logger tout ajout ou modification (avec horodatage)
+    \item S'en servir pour la fusion
+\end{itemize}
+\end{exampleblock}
 
 \end{frame} % Fin de la frame [Introduction]
 % ▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵
@@ -93,7 +98,7 @@
 \begin{frame}
 \frametitle{Ajout / Modification de donnée}
 
-En simplifié :
+En simplifié\footnote{Voir DAT, section \emph{3.5.5 Gestion des conflits}, Figures 3.6 \& 3.7} :
 
 \begin{block}{Mode hors-ligne}
 \begin{enumerate}
@@ -127,7 +132,7 @@ En simplifié :
 \begin{frame}
 \frametitle{Synchronisation}
 
-\begin{block}{Étapes}
+\begin{block}{Étapes\footnote{Voir DAT, section \emph{3.5.5 Gestion des conflits}, Figure 3.8}}
 \begin{enumerate}
     %\setcounter{enumi}{}
     \item Envoi de la date courrante au serveur % Pour pouvoir calculer les éventuels écarts entre la date client et la date serveur
