@@ -3,16 +3,19 @@
 %     CHARGEMENT DES EXTENSIONS
 %
 %-------------------------------------------------------------------------------
+
 \documentclass[11pt,fleqn]{report}
 \usepackage{GarmirKhatch}
+
 %-------------------------------------------------------------------------------
 %     Informations spécifiques au document
 %-------------------------------------------------------------------------------
+
 \ZTitle{Système de gestion des transports}
-\ZSubject{Cahier des recettes}
-\ZVersion{0.4}
-\ZDate{\today}
-\ZAuthor{\Balde,\\\Cadon,\\\Gairoard,\\\Julien,\\\Lericolais,\\\Mezelle,\\\Pachy,\\\SuangaWeto,\\\Toure}
+\ZSubject{Procédure de recette}
+\ZVersion{1.0}
+\ZDate{2014-03-26}
+
 %-------------------------------------------------------------------------------
 %     Contenu
 %-------------------------------------------------------------------------------
@@ -23,46 +26,42 @@
 \ZMakeCover
 
 \ZMakeInformations{
-	    % Historique des modifications
-	    % Version & Date & Auteur(s) & Modification(s)
-	    0.1 & 2014-03-15 & \Julien & Création \\
-	    0.2 & 2014-03-19 & \Julien & Réalisation des tests de l'interface graphique \\
-	    0.3 & 2014-03-21 & \Julien & Fin des tests de l'interface graphique \\
-	    0.4 & 2014-03-25 & \Julien & Réalisation des tests unitaire sur LDAP \\
-	    \midrule
-    }{
-	    % Historique des approbations
-	    % Version & Date & Approbateur(s)
-	    \ZVersion & - & - \\
-    }{
-	    % Historique des validations
-	    % Version & Date & Responsable(s)
-	    0.1 & - & - \\
-    }
+	% Historique des modifications
+	% Version & Date & Auteur(s) & Modification(s)
+	1.0 & 2014-03-26 & \Julien & Réalisation des tests et du document \\
+}{
+	% Historique des approbations
+	% Version & Date & Approbateur(s)
+	1.0 & 2014-03-26 & \Cadon \\
+}{
+	% Historique des validations
+	% Version & Date & Responsable(s)
+	1.0 & - & - \\
+}
 
 \ZMakeTableOfContents
 
 \chapter{Introduction}
 \section{Objectif}
-Ce document propose une série de tests et de scénarios décrivant avec précision les démarches à suivre dans le cadre de l’utilisation du logiciel de gestion des transports. Il sert de support à la validation du logiciel lors de la recette auprès du client.
+Ce document propose une série de tests et de scénarios décrivant avec précision les démarches à suivre dans le cadre de l'utilisation du logiciel de gestion des transports. Il sert de support à la validation du logiciel lors de la recette auprès du client.
 Différents types de tests ont été réalisé : 
 \begin{itemize}
 \item les tests sur l'interface graphique,
 \item les tests unitaires,
 \item les tests sur le système de gestion de données.
 \end{itemize}
-Les tests unitaires ont été fait sur l’environnement de développement. 
-Au cours de l’évolution du développement de l'outil, le code et les données de bases ont changés c'est pourquoi les jeux d’essais peuvent être rechargés  et ré initialisés afin de permettre de refaire les mêmes tests dans les mêmes conditions. 
+Les tests unitaires ont été fait sur l'environnement de développement. 
+Au cours de l'évolution du développement de l'outil, le code et les données de bases ont changés c'est pourquoi les jeux d'essais peuvent être rechargés  et ré initialisés afin de permettre de refaire les mêmes tests dans les mêmes conditions. 
 Il est à noter que des tests de régression ont été fait suite à des corrections du programme.
 
 La phase de réalisation s'étalant sur une courte durée les tests ont commencé en parallèle de celle-ci. De ce fait, dans un premier temps les tests étaient effectués sur des classes \emph{mocks}, qui permettent de simuler les résultats d'une classe. Puis une fois les classes réalisées, les tests ont porté sur ces-dernières.
 
 \chapter{Tests sur interface graphique}
-L'outil a été développé en c++ à l'aide du framework QT. Ce framework intègre un outil de test grâce à la librairie QTestlib.
+L'outil a été développé en c++ à l'aide du framework Qt. Ce framework intègre un outil de test grâce à la librairie QTestlib.
 C'est donc à l'aide de QTest que les scénarios ci-dessous ont été réalisé.
 Pour effectuer et visualiser tous les tests à partir de l'exécutable, il faut rajouter l'argument \emph{-testall}.
 
-\section{Test graphique de la partie waybill}
+\section{Tests graphiques de la partie waybill}
 \begin{center}
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
@@ -205,7 +204,7 @@ Totals: 21 passed, 0 failed, 0 skipped\\
 ********* Finished testing of WaybillTabTest *********\\
 
 
-\section{Test graphique de la partie réquisition}
+\section{Tests graphiques de la partie réquisition}
 \begin{center}
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
@@ -372,7 +371,7 @@ PASS   : RequisitionTabTest::cleanupTestCase()\\
 Totals: 13 passed, 0 failed, 0 skipped\\
 ********* Finished testing of RequisitionTabTest *********\\
 
-\section{Test graphique de la partie personnels}
+\section{Tests graphiques de la partie personnels}
 
 \begin{center}
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
@@ -539,7 +538,7 @@ PASS   : StaffTabTest::cleanupTestCase()\\
 Totals: 13 passed, 0 failed, 0 skipped\\
 ********* Finished testing of StaffTabTest *********\\
 
-\section{Test graphique de la partie véhicules}
+\section{Tests graphiques de la partie véhicules}
 
 \begin{center}
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
@@ -587,7 +586,7 @@ PASS   : VehicleTabTest::cleanupTestCase()\\
 Totals: 6 passed, 0 failed, 0 skipped\\
 ********* Finished testing of VehicleTabTest *********\\
 
-\section{Test graphique de la partie prestataires}
+\section{Tests graphiques de la partie prestataires}
 
 \begin{center}
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
@@ -669,7 +668,7 @@ PASS   : ProviderTabTest::cleanupTestCase()\\
 Totals: 8 passed, 0 failed, 0 skipped\\
 ********* Finished testing of ProviderTabTest *********\\
 
-\section{Test graphique du status}
+\section{Tests graphiques du status}
 
 \begin{center}
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
@@ -1113,6 +1112,70 @@ PASS   : LdapTest::cleanupTestCase()\\
 Totals: 24 passed, 3 failed, 0 skipped\\
 ********* Finished testing of LdapTest *********\\
 
-\chapter{Tests sur le système de gestion de données}
+\section{Gestion de données}
+Afin de tester les intéractions avec la base de données, des tests unitaires ont été réalisé sur la classe de Réquisition qui permet d'interagir avec la base de données en la consultant et en la modifiant.
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-25  \\
+\hline \emph{Titre :} & testGetRequisition()   \\
+\hline \emph{Objectif :} &Afficher tous les champs de la table Réquisition en fonction d'un identifiant.    \\
+\hline \emph{Procédure :} & Vérifier que les résultats de la requête correspondent aux données stockées dans la table\\
+\hline \emph{Données de test :} & id : 002 \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center} 
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-26  \\
+\hline \emph{Titre :} & testGetList()   \\
+\hline \emph{Objectif :} &Afficher tous les champs de la table Réquisition pour tous les identifiants.    \\
+\hline \emph{Procédure :} & Vérifier que les résultats de la requête correspondent aux données stockées dans la table\\
+\hline \emph{Données de test :} &  \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center} 
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-27  \\
+\hline \emph{Titre :} & testAdd()   \\
+\hline \emph{Objectif :} &Ajouter une ligne dans la table Réquisition.    \\
+\hline \emph{Procédure :} & Ajouter une ligne dans la table Réquisition, vérifier que la table correspond aux changements générés par l'outil.\\
+\hline \emph{Données de test :} & Tous les champs sont remplis \\
+\hline \emph{Résultat :} & PASS   \\
+\hline 
+\end{tabular} 
+\end{center} 
+
+\begin{center}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\begin{tabular}{|L{3cm}|L{10cm}|}
+\hline \emph{Cas de test :} & Test-Unitaire-28  \\
+\hline \emph{Titre :} & testBadAdd()   \\
+\hline \emph{Objectif :} &Vérification de l'ajout d'une ligne avec des champs à ``NULL'' dans la table Réquisition.    \\
+\hline \emph{Procédure :} & Ajouter une ligne avec des champs à ``NULL'' et vérifier qu'une erreur est générée\\
+\hline \emph{Données de test :} & Tous les champs sont remplis sauf l'Id \\
+\hline \emph{Résultat :} & FAIL comme prévu   \\
+\hline 
+\end{tabular} 
+\end{center} 
+
+Ce test a été répété avec toutes les combinaisons possibles.
+
 
 \end{document}
