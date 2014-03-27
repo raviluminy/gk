@@ -1,6 +1,7 @@
 \subsubsection{Contexte métier}
 \begin{frame}
   \frametitle{Contexte métier}
+  \pause
   \begin{figure}[htbp]
 	\centering
 	\begin{tikzpicture}
@@ -27,32 +28,29 @@
 		\draw[supporte] (4,0) -- (7,0) node[midway,above]{Supporte};
 	\end{tikzpicture}
 	\caption{Dépendances entre les métiers}
-	\label{dep}
 \end{figure}
 \end{frame}
 
 \begin{frame}
 \frametitle{Contexte métier}
-\begin{block}
-Les processus et les fonctions clefs de la logistique
-\end{block}
-\begin{block}
-Les logisticiens de terrain
-\end{block}
-\begin{block}
-  Les transports
+\begin{block}{La logistique} \pause
+\begin{itemize}
+\item Les processus et les fonctions clefs de la logistique \pause
+\item Les logisticiens de terrain \pause
+ \item  Les transports
+ \end{itemize}
 \end{block}
 \end{frame} 
 
 \begin{frame}
-\frametitle{Contexte métier}
+\frametitle{Objectifs}
 \begin{block}{Espérance de retour sur investissement}
 \begin{figure}[htbp] % Arbre à problèmes
 	\centering
 	\begin{tikzpicture} [
 			node distance = 0.4cm, auto,font=\footnotesize,
 			% STYLES
-			every node/.style={node distance=1.9cm},
+			every node/.style={node distance=1.7cm},
 			% The comment style is used to describe the characteristics of each force
 			comment/.style={rectangle, inner sep= 3pt, text width=2.8cm, node distance=0.2cm, font=\scriptsize\sffamily},
 			% The force style is used to draw the forces' name
@@ -82,4 +80,34 @@ Les logisticiens de terrain
 	\label{arbre_probleme}
 \end{figure}
 \end{block}
-\end{frame} 
+\end{frame}
+ 
+\subsubsection{Contexte de réalisation}
+\begin{frame}
+\frametitle{Contexte de réalisation} \pause
+\begin{block}{Points clefs} \pause
+\begin{itemize}
+\item Études déjà  effectuées \pause
+\item Nature des prestations demandées \pause
+\item Parties concernées
+\end{itemize}
+
+\end{block}
+\end{frame}
+
+\subsubsection{Énoncé du besoin}
+
+\begin{frame}
+\frametitle{Énoncé du besoin} \pause
+\begin{block}{Architecture générale} \pause
+\begin{enumerate}
+\item  Utilisateurs \pause
+\item Matériels \pause
+\item Application \pause
+\item Synchronisation \pause
+\item Serveur local \pause
+\item Synchronisation \pause
+\item Serveur central
+\end{enumerate}
+\end{block}
+\end{frame}

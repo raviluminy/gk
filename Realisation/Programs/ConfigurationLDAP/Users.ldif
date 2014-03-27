@@ -1,0 +1,132 @@
+version: 1
+
+dn: ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
+objectClass: top
+objectClass: organizationalUnit
+ou: Users
+
+dn: cn=Anthony J,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: lawGarmir
+cn: Anthony J
+sn: AJ
+ou: logistic
+uid: anthony
+userPassword:: e3NzaGF9Uk1hRjR1UlErUTJKYXVONFZoNUtaZlcwSVVRcHpZdyt1ZTVKMVE9P
+ Q==
+
+dn: cn=Lionel G,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: lawGarmir
+cn: Lionel M
+cn: Lionel G
+sn: LG
+ou: logistic
+ou: providerMGT
+uid: lionel
+userPassword:: e3NzaGF9YUV6am1iUk1oT0NnOVJ3YjljVlJKMWlpVjFSZ3lhcFo2VlhZU0E9P
+ Q==
+
+dn: cn=Medhy J,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: lawGarmir
+cn: Medhy J
+sn: MJ
+ou: central
+uid: medhy
+userPassword:: e3NzaGF9WGdZUTFmcFF2QnRQWG16WGlZaTd0YWFOYjRqRVl0S09ZL1Boc0E9P
+ Q==
+
+dn: cn=Ravi P,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: lawGarmir
+cn: Ravi P
+sn: RP
+ou: admin
+uid: ravi
+userPassword:: e3NzaGF9NmVBRWUzc1o4K2F1Yll3OGoraUQ3R1E4bXQ1dXR0Mi9KcEFrM0E9P
+ Q==
+
+dn: cn=Adrien L,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: lawGarmir
+cn: Adrien L
+sn: AL
+ou: providerMGT
+uid: adrien
+userPassword:: e3NzaGF9NHU4UklWUm5jbHpsMVkyR3RhVkxmRmhiaTRoTlJjOTVFWGVkTWc9P
+ Q==
+
+dn: cn=Bien Aime Suanga,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: lawGarmir
+cn: Bien Aime Suanga
+sn: Suanga
+uid: biensuanga
+userPassword:: e3NzaGF9eEd3TXNscVRpdjY5YmQ1ZGRhWjVtcVJocFJUaEg0WlZ0K3BLNGc9P
+ Q==
+aFieldRead: Waybill(RequisitionId,VehicleId,TransportMean)
+aTableAdd: Waybill
+rFieldWrite: Requistion(PersonId,PersonId_2,PersonId_3,PersonId_4,PersonId_5
+ )
+rTableDel: Requistion
+
+dn: cn=Lucien M,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: lawGarmir
+cn: Lucien M
+sn: LM
+ou: admin
+uid: lucien
+userPassword:: e3NzaGF9YW4rUW5xM2RhUWVXMEV4QVhEcDRYa3FxUWVBUGdlZ1djT3haS2c9P
+ Q==
+aFieldRead: Vehicle()
+
+dn: cn=Khady T,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: lawGarmir
+cn: Khady T
+sn: KT
+ou: business
+uid: khady
+userPassword:: e3NzaGF9Nm9zVkVuTXVaN1NaemdWeCtETUdRWDZTL3QxaUovVmJDRTh6dVE9P
+ Q==
+rFieldRead: Provider()
+
+dn: cn=Remi M,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: person
+objectClass: organizationalPerson
+objectClass: lawGarmir
+cn: Remi M
+sn: remi
+ou: business
+uid: remi
+userPassword:: e3NzaGF9Mm90NXkwemdOcnpXSzFoTTk3Ti9HUXhMcnBWK2lQd1d4QmxGVnc9P
+ Q==
+

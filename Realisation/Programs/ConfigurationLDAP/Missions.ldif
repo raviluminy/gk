@@ -1,0 +1,22 @@
+version: 1
+
+dn: ou=Missions,o=GarmirKatch,dc=GarmirKatch,dc=fr
+objectClass: top
+objectClass: organizationalUnit
+ou: Missions
+
+dn: cn=Mission1,ou=Missions,o=GarmirKatch,dc=GarmirKatch,dc=fr
+objectClass: top
+objectClass: groupOfUniqueNames
+cn: Mission1
+uniqueMember: cn=Adrien L,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
+uniqueMember: cn=Bien Aime Suanga,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=f
+ r
+
+dn: cn=Mission2,ou=Missions,o=GarmirKatch,dc=GarmirKatch,dc=fr
+objectClass: top
+objectClass: groupOfUniqueNames
+cn: Mission2
+uniqueMember: cn=Lionel G,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
+uniqueMember: cn=Medhy J,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
+

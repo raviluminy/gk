@@ -13,9 +13,8 @@
 
 \ZTitle{Système de gestion des transports}
 \ZSubject{Plan d'assurance qualité}
-\ZVersion{2.1}
-\ZDate{\today}
-\ZAuthor{\Balde,\\\Cadon,\\\Gairoard,\\\Julien,\\\Lericolais,\\\Mezelle,\\\Pachy,\\\SuangaWeto,\\\Toure}
+\ZVersion{2.2}
+\ZDate{2014-03-09}
 
 %-------------------------------------------------------------------------------
 %     Contenu
@@ -30,60 +29,53 @@
 	% Version & Date & Auteur(s) & Modification(s)
 	2.0 & 2014-03-03 & \Cadon & Création à partir de l'ancienne version \\
 	\midrule
-	2.1 & 2014-03-04 & \Pachy & Mise à jour en fonction de la réunion interne du 2014-03-03\\
+	2.1 & 2014-03-04 & \Pachy & Mise à jour en fonction de la réunion interne du 2014-03-03 \\
+	\midrule
+	2.2 & 2014-03-09 & \Cadon & Mise à jour chaine de responsabilité et planification \\
 }{
 	% Historique des approbations
 	% Version & Date & Approbateur(s)
-	\ZVersion & - & - \\
+	2.2 & 2014-03-09 & \Cadon \\
 }{
 	% Historique des validations
 	% Version & Date & Responsable(s)
-	2.1 & - & - \\
+	2.2 & - & - \\
 }
 
 \ZMakeTableOfContents
 
 \chapter{Introduction}
-Ce document présente le Plan d'Assurance Qualité (PAQ) relatif au projet de Transport Management System (TMS) par l'assistance à maîtrise d'ouvrage \amo au bénéfice de \mo.
+Ce document présente le Plan d'Assurance Qualité (PAQ) relatif au projet de Transport~Management~System (TMS) par l'assistance à maîtrise d'ouvrage \amo au bénéfice de \mo.
 \\
 Il définit donc les méthodes, l'organisation et les éléments permettant d'assurer et de contrôler la qualité du projet.
-
-\chapter{Structure du projet}
-L'ensemble des documents produits durant le projet sera composé~:
-\begin{enumerate}
-	\item du PAQ~;
-	\item du cahier des charges~;
-	\item des comptes rendus de réunions~;
-	\item des listes des tâches avec les assignations.
-\end{enumerate}
 
 \chapter{Organisation et suivi du projet}
 
 \section{Acteurs}
 \begin{table}[htbp]
-	\begin{tabularx}{\linewidth}{X X}
+	\begin{tabularx}{\linewidth}{X X X}
 		\toprule
-		\textbf{Prénom(s) \& Nom} & \textbf{Adresse e-mail} \\
+		\textbf{Prénom(s) \& Nom} & \textbf{Adresse e-mail} & \textbf{Rôle(s)} \\
 		\midrule
-		\Agopian & \AgopianEmail \\
+		\Agopian & \AgopianEmail & MO \\
 		\hline
-		\Balde & \BaldeEmail \\
+		\Balde & \BaldeEmail & - \\
 		\hline
-		\Cadon & \CadonEmail \\
+		\Cadon & \CadonEmail & Co-chef de projet, conseiller, intégrateur, concepteur, développeur, designer \\
 		\hline
-		\Gairoard & \GairoardEmail \\
+		\Gairoard & \GairoardEmail & Concepteur, conseiller, secrétaire \\
 		\hline
-		\Julien & \JulienEmail \\
+		\Julien & \JulienEmail & Intégrateur, Concepteur, conseiller, développeur \\
 		\hline
-		\Lericolais & \LericolaisEmail \\
+		\Lericolais & \LericolaisEmail & Concepteur, conseiller, développeur \\
 		\hline
-		\Mezelle & \MezelleEmail \\
+		\Mezelle & \MezelleEmail & Concepteur, conseiller, développeur \\
 		\hline
-		\Pachy & \PachyEmail \\
+		\Pachy & \PachyEmail & Co-chef de projet, concepteur, conseiller, designer, secrétaire \\
 		\hline
-		\SuangaWeto & \SuangaWetoEmail \\
+		\SuangaWeto & \SuangaWetoEmail & Concepteur, conseiller, développeur \\
 		\hline
-		\Toure & \ToureEmail \\
+		\Toure & \ToureEmail & Concepteur, conseiller, secrétaire \\
 		\bottomrule
 	\end{tabularx}
 	\caption{Liste des acteurs}
@@ -102,38 +94,34 @@ Afin de favoriser le partage des connaissances entre chaque membre du groupe, le
 Une fois qu'une tâche est terminée, si celle-ci a une suite logique, il incombe aux prédécesseurs de prévenir les successeurs.
 
 \section{Travail d'équipe}
-% ------------------------------------------------------------------------------
+
 \subsection{Communication}
-Lorsque des membres du groupe ont besoin de communiquer\footnote{Les moyens de communication sont décrits dans le tableau \ref{OutilsCommunication}}
-% Fin de la sous-section [Communication]
-% ------------------------------------------------------------------------------
-% ------------------------------------------------------------------------------
+Lorsque des membres du groupe ont besoin de communiquer\footnote{Les moyens de communication sont décrits dans le tableau \ref{OutilsCommunication}}.
+
 \subsection{Binômes}
-Toutes les tâches sont réalisées en binôme afin de faciliter le partage des connaissances. Toujours dans cette optique, les binômes seront constitués d'un membre de chaque groupe pour faciliter la prise en main du projet existant par l'équipe arrivante.
-% Fin de la sous-section [Binômes]
-% ------------------------------------------------------------------------------
-% ------------------------------------------------------------------------------
+Toutes les tâches sont réalisées en binôme afin de faciliter le partage des connaissances.
+Toujours dans cette optique, les binômes seront constitués d'un membre de chaque groupe pour faciliter la prise en main du projet existant par l'équipe arrivante.
+
 \subsection{Direction}
 Un binôme de direction est constitué à chaque itération afin d'avoir une organisation optimale.
-% Fin de la sous-section [Direction]
-% ------------------------------------------------------------------------------
-% ------------------------------------------------------------------------------
+
 \subsection{Réalisation des tâches}
 Lorsqu'une tâche est terminée et qu'une autre lui succède directement, il revient au binôme qui précède d'avertir le suivant que la tâche est terminée et qu'il peut prendre la relève.
-% Fin de la sous-section [Réalisation des tâches]
-% ------------------------------------------------------------------------------
 
 \section{Réunions}
 
 \subsection{Réunions internes}
-Des réunions interne sont organisées afin de garantir une bonne coordination de l'équipe. Durant ces réunions tous les membres sont présents, et un bilan concis des tâches à réaliser est fait par les responsables de celles-ci. Avant une réunion interne, un ordre du jour succint est envoyé par mail par la direction du projet pour rappeler l'objectif de la réunion et éventuellement rajouter des points spécifiques à aborder.\\
-Il y a trois réunions internes par semaine, à savoir :
+Des réunions interne sont organisées afin de garantir une bonne coordination de l'équipe.
+Durant ces réunions tous les membres sont présents, et un bilan concis des tâches à réaliser est fait par les responsables de celles-ci.
+Avant une réunion interne, un ordre du jour succint est envoyé par mail par la direction du projet pour rappeler l'objectif de la réunion et éventuellement rajouter des points spécifiques à aborder.
+\\
+Il y a trois réunions internes par semaine, à savoir~:
 \begin{itemize}
-	\item Lundi : Bilan du travail du week end
-	\item Mercredi : Bilan du travail de début de semaine et préparation de la réunion externe du vendredi
-	\item Vendredi : Compte-rendu de la réunion externe et assignation des tâches pour la semaine suivante
+	\item Lundi~: Bilan du travail du week end~;
+	\item Mercredi~: Bilan du travail de début de semaine et préparation de la réunion externe du vendredi~;
+	\item Vendredi~: Compte-rendu de la réunion externe et assignation des tâches pour la semaine suivante.
 \end{itemize}
-Toutes les réunions internes commencent à 14h, se déroulent dans les salles informatique du 3eme étage, et donnent lieu à la rédaction d'un compte-rendu sommaire pour servir de récapitulatif.
+Toutes les réunions internes commencent à 14h, se déroulent dans les salles informatiques du 3ième étage, et donnent lieu à une prise de notes sommaires servant de récapitulatif.
 Si des retards sont inévitables ou constatés, c'est lors de ces réunions que la planification est ajustée pour respecter au mieux les dates limites.
 
 \subsection{Réunions externes}
@@ -159,6 +147,18 @@ Afin d'éviter des problèmes d'incompatibilité, les outils suivants seront uti
 \end{table}
 \begin{table}[htbp]
 	\centering
+	\begin{tabularx}{\linewidth}{m{30mm} m{30mm} X}
+		\toprule
+		\textbf{Nom} & \textbf{Version} & \textbf{URL} \\
+		\midrule
+		Qt (MinGW pour Windows) (32 bits) & 5.2 & - \\
+		\bottomrule
+	\end{tabularx}
+	\caption{Outils de travail~: frameworks (compilateurs)}
+	\label{OutilsOS}
+\end{table}
+\begin{table}[htbp]
+	\centering
 	\begin{tabularx}{\linewidth}{m{30mm} X}
 		\toprule
 		\textbf{Type} & \textbf{Commentaires} \\
@@ -176,7 +176,7 @@ Afin d'éviter des problèmes d'incompatibilité, les outils suivants seront uti
 		\toprule
 		\textbf{Nom} & \textbf{Version} & \textbf{URL} \\
 		\midrule
-		LaTeX & - & - \\
+		LaTeX & LaTeX2e & - \\
 		\bottomrule
 	\end{tabularx}
 	\caption{Outils de travail~: documentation}
@@ -203,6 +203,7 @@ Afin d'éviter des problèmes d'incompatibilité, les outils suivants seront uti
 		\textbf{Abréviation} & \textbf{Signification} \\
 		\midrule
 		AMO & Assistance à Maîtrise d'Ouvrage \\
+		CdR & Cahier des Recette \\
 		CdC & Cahier des Charges \\
 		CdCF & Cahier des Charges Fonctionnel \\
 		CdCT & Cahier des Charges Technique \\
@@ -246,44 +247,45 @@ La liste exhaustive des documents concernés est décrite ci-dessous (hors sous-
 	\\
 	Contient les documents relatifs aux réunions externes~:
 	\begin{enumerate}
-		\item RE-XXX-(YYYY-MM-DD)-CR-\textit{version}.tex,
-		\item RE-XXX-(YYYY-MM-DD)-LdT-\textit{version}.tex,
-		\item RE-XXX-(YYYY-MM-DD)-OdJ-\textit{version}.tex~;
+		\item RE-XXX-(YYYY-MM-DD)-CR.tex,
+		\item RE-XXX-(YYYY-MM-DD)-LdT.tex,
+		\item RE-XXX-(YYYY-MM-DD)-OdJ.tex~;
 	\end{enumerate}
 	\item \textbf{/Annexe/RI/}
 	\\
 	Contient les documents relatifs aux réunions internes~:
 	\begin{enumerate}
-		\item RI-XXX-(YYYY-MM-DD)-CR-\textit{version}.tex,
-		\item RI-XXX-(YYYY-MM-DD)-LdT-\textit{version}.tex,
-		\item RI-XXX-(YYYY-MM-DD)-OdJ-\textit{version}.tex~;
+		\item RI-XXX-(YYYY-MM-DD)-CR.tex,
+		\item RI-XXX-(YYYY-MM-DD)-LdT.tex,
+		\item RI-XXX-(YYYY-MM-DD)-OdJ.tex~;
 	\end{enumerate}
-	\item \textbf{/Conception/}
+	\item \textbf{/AMO/}
 	\\
-	Contient les documents relatifs à la conception~:
+	Contient les documents relatifs à la mission d'AMO~:
 	\begin{enumerate}
-		\item CdC-\textit{version}.tex,
-		\item CdCF-\textit{version}.tex,
-		\item CdCT-\textit{version}.tex,
-		\item PAQ-\textit{version}.tex~;
+		\item CdC.tex,
+		\item CdCF.tex,
+		\item CdCT.tex,
+		\item PAQ.tex~;
 	\end{enumerate}
-	\item \textbf{/Realisation/}
+	\item \textbf{/ME/}
 	\\
-	Contient les documents relatifs à la réalisation~:
+	Contient les documents relatifs à la mission de ME~:
 	\begin{enumerate}
-		\item DAT-\textit{version}.tex,
-		\item PTI-\textit{version}.tex,
-		\item PdR-\textit{version}.tex,
-		\item DE-\textit{version}.tex,
-		\item PCS-\textit{version}.tex.
+		\item DAT.tex,
+		\item PTI.tex,
+		\item PdR.tex,
+		\item DE.tex,
+		\item PAQ.tex,
+		\item PCS.tex.
 	\end{enumerate}
 \end{enumerate}
-Dans chaque document énoncé, l'élément \textit{version} représente la version du fichier dans un format pointé. Ci-dessous quelques exemples~:
+Ci-dessous quelques exemples~:
 \begin{enumerate}
-	\item /Annexe/RE/RE-001-(2014-02-07)-CR-2.0.tex~;
-	\item /Annexe/RI/RI-003-(2014-02-21)-OdJ-1.3.tex~;
-	\item /Conception/CdCF-2.1.tex~;
-	\item /Realisation/DAT-0.1.tex.
+	\item /Annexe/RE/RE-001-(2014-02-07)-CR.tex~;
+	\item /Annexe/RI/RI-003-(2014-02-21)-OdJ.tex~;
+	\item /AMO/CdCF.tex~;
+	\item /ME/DAT.tex.
 \end{enumerate}
 
 \chapter{Planification}
@@ -350,8 +352,10 @@ Dans chaque document énoncé, l'élément \textit{version} représente la versi
 \end{figure}
 
 \section{Chaine de responsabilité}
-De manière générale, la gestion des incidents s'articule autour de la chaine de responsabilité suivante. \\
-Dans le cadre d'un incident interne, ce dernier est communiqué à l'un des 2 chefs de projets désignés, par défaut, \Cadon et \Pachy. \\
+De manière générale, la gestion des incidents s'articule autour de la chaine de responsabilité suivante.
+\\
+Dans le cadre d'un incident interne, ce dernier est communiqué à l'un des 2 chefs de projets désignés, par défaut, \Cadon et \Pachy.
+\\
 Si cet incident est susceptible de présenter des conséquences externes, ce dernier est communiqué au contact client désigné, par défaut, \Cadon, chargé de transférer l'information au client.
 
 \end{document}

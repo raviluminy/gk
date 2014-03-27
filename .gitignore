@@ -23,8 +23,10 @@
 # PDF files
 Annexe/RE/[^/]*.pdf
 Annexe/RI/[^/]*.pdf
-Conception/CdCF.pdf
-Realisation/DAT.pdf
+CahierDesCharges/*.pdf
+Conception/*.pdf
+Realisation/*.pdf
+Soutenance/*.pdf
 
 # Logs de la table des figures et de la liste des tableaux
 Realisation/[^/]*.lof

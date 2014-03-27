@@ -1,0 +1,36 @@
+# Load dynamic backend modules
+dn: cn=module,cn=config
+objectClass: olcModuleList
+cn: module
+olcModulepath: /usr/lib/ldap
+olcModuleload: back_hdb.la
+
+# Database settings
+dn: olcDatabase=hdb,cn=config
+objectClass: olcDatabaseConfig
+objectClass: olcHdbConfig
+#Type de base
+olcDatabase: {1}hdb
+# OU de la base ldap
+olcSuffix: dc=GarmirKatch,dc=fr
+# Dossier de stockage de la base ldap
+olcDbDirectory: /var/lib/ldap/
+# Definition du compte Manager interne
+olcRootDN: cn=admin,dc=GarmirKatch,dc=fr
+# Definition du mot de passe associe au compte Manager
+olcRootPW: secret
+# Nombre de resultat affiche lors d'une recherche
+olcSizeLimit: 500
+olcDbConfig: set_cachesize 0 2097152 0
+olcDbConfig: set_lk_max_objects 1500
+olcDbConfig: set_lk_max_locks 1500
+olcDbConfig: set_lk_max_lockers 1500
+#Gestion des Index
+olcDbIndex: objectClass eq
+olcLastMod: TRUE
+olcDbCheckpoint: 512 30
+# ACL sur la base LDAP
+olcAccess: to attrs=userPassword by dn="cn=admin,dc=GarmirKatch,dc=fr" write by anonymous auth by self write by * none
+olcAccess: to attrs=shadowLastChange by self write by * read
+olcAccess: to dn.base="" by * read
+olcAccess: to * by dn="cn=admin,dc=GarmirKatch,dc=fr" write by * read

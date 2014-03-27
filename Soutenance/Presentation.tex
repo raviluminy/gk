@@ -7,9 +7,11 @@
 % **************************** %
 %            Package           %
 % **************************** %
+
 % \usepackage{GarmirKhatch}
 \usepackage{etex} % pour éviter erreurs de compilation avec tikz
 \reserveinserts{20}
+
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french,english]{babel}
@@ -31,7 +33,6 @@
 \usepackage{tikz}
 \usepackage{tikz-uml}
 \usetikzlibrary{positioning, shadows}
-
 \newcommand{\mo}{\textsc{Garmir~Khatch}}
 
 % **************************** %
@@ -88,9 +89,13 @@ Campus de Luminy}
 \begin{frame}
 \begin{figure}
 \centering
-\includegraphics[scale=0.52]{Images/EnTeteSciences}
+\includegraphics[scale=0.5]{Images/EnTeteSciences}
 \end{figure}
+\begin{columns}[c]
+\begin{column}{10cm}
 \titlepage
+\end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}
@@ -98,69 +103,59 @@ Campus de Luminy}
 \tableofcontents[hideallsubsections]
 \end{frame}
 
-\section[Mission d'AMO~: recueil des besoins (CdCF)]{Mission d'AMO~: recueil des besoins (CdCF)}
+\include{Presentation_Gantt_general}
+% Présentation sommaire : AMO -> ME + GANTT de ces 2 taches
 
-\subsection[Compréhension du contexte]{Compréhension du contexte}
+\section[Mission d'AMO]{Mission d'AMO}
+%Les termes AMO, MO, ME seront utilisés. Est-il nécessaire de les expliciter~?
 
-\include{Comprehension_contexte}
+\include{Presentation_Amo_Jalonnements}
 
-\subsection[Expression fonctionnelle des besoins]{Expression fonctionnelle des besoins}
-\begin{frame}
-\end{frame}
+\include{Presentation_Amo_Objectifs_pour_nous}
 
-\subsection[Cadre de réponse]{Cadre de réponse}
-\begin{frame}
-\end{frame}
+\include{Presentation_Amo_Organisation}
 
-% ------------------------------------------------------------------------------
-\include{CDCF_Norme}
-% ------------------------------------------------------------------------------
+\include{Presentation_Amo_Presentation_Garmir_Khatch}
 
-\section[Mission de maîtrise d'œuvre~: réalisation du projet]{Mission de maîtrise d'œuvre~: réalisation du projet}
+\include{Presentation_Amo_Deroulement}
 
-% ------------------------------------------------------------------------------
-\include{PAQ}
-% ------------------------------------------------------------------------------
-\subsection[Réponse technique aux besoins fonctionnels (DAT)]{Réponse technique aux besoins fonctionnels (DAT)}
-\begin{frame}
-\frametitle{}
-\begin{block}{\textbf{Qu'est-ce que \mo~?}}
-\begin{itemize}
-\item Organisation humanitaires (187 Sociétés Nationales)
-\item Vient en aide aux personnes plus vulnérables
-\item Fort réseau de volontaires
-\item Rend les communautés plus résistantes
-\end{itemize}
-\end{block}
-\end{frame}
-% ------------------------------------------------------------------------------
-\include{Synchronisation}
-% ------------------------------------------------------------------------------
-
-\subsection[Authentification et contrôle d'accès (LDAP)]{Authentification et contrôle d'accès (LDAP)}
-\include{LDAP}
+\include{Presentation_Amo_Conclusion}
 
 
-\subsection[Tests sur l'interface graphique et unitaires (CdR)]{Tests sur l'interface graphique et unitaires (CdR)}
-\include{CdR}
+\section[Mission de ME]{Mission de ME}
 
+\include{Presentation_Me_Jalonnements}
 
-\subsection[Procédure de déploiement et d'installation (PIT)]{Procédure de déploiement et d'installation (PIT)}
-\begin{frame}
-\end{frame}
+\include{Presentation_Me_Objectif_pour_nous}
 
-\section[Conclusion]{Conclusion}
+\include{Presentation_Me_Organisation_et_PAQ}
 
-\subsection[Conclusion]{Conclusion}
-\begin{frame}
-	\transdissolve[duration=0.2]<1->
-	\frametitle{Conclusion}
-\end{frame}
+\include{Presentation_Me_Authentification_controle_dacces}
 
-\subsection[Questions~?]{Questions~?}
-\begin{frame}
-	\transdissolve[duration=0.2]<1->
-	\frametitle{Merci de votre attention}
-\end{frame}
+\include{Presentation_Me_Synchronisation}
+
+\include{Presentation_Me_Stockage_Donnees}
+
+<<<<<<< HEAD
+\include{Presentation_Me_Sauvegarde_et_reprise_sur_panne}
+
+\include{Presentation_Me_CdR}
+
+\include{Presentation_Me_PIT}
+=======
+\include{Presentation_Me_Solution_Donnees}
+
+\include{Presentation_Me_Solution_Sauvegarde_et_reprise_sur_panne}
+
+% N'est-il pas mieux de présenter ainsi ?
+\include{Presentation_Me_Livrables}
+%\include{Presentation_Me_DAT}
+%
+%\include{Presentation_Me_CdR}
+%
+%\include{Presentation_Me_PIT}
+>>>>>>> 61e4ae17ba1851cc6e120fe2fb7ec6c6d22caede
+
+\include{Presentation_Me_Conclusion}
 
 \end{document}
