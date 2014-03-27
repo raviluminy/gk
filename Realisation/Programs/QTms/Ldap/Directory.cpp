@@ -16,7 +16,7 @@ bool Directory::initialize(const QString hostname, int port){
 
 bool Directory::init_file_config(){
 
-    QSettings settings("Logistic.DB.ini", QSettings::IniFormat);
+    QSettings settings("Ladp.ini", QSettings::IniFormat);
     settings.setUserIniPath(QCoreApplication::applicationDirPath());
 
     settings.beginGroup("LDAP");
