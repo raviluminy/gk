@@ -1,33 +1,17 @@
 
-\subsection{Réalisation}
-
-Il a été demandé par l’équipe chargée de la synchronisation de fournir des méthodes permettant de savoir, pour un utilisateur donné, s’il a le droit d’ajouter/supprimer dans telle table ou telle table, ou de lire/écrire tel champ ou tel champ dans une table. 
-
-Pour ce faire, nous avons implementé un module sous c++/Qt selon le PAQ en utilisant les librairies LDAP trouvable à cette adresse http://www.novell.com/developer/ndk/ldap\_libraries\_for\_c.html.
-
-\section{Annuaire ldap}
 L'installation du serveur ldap est faite sous le système windows 7/32 bits ( système utilisé actuellement selon le cahier des charges de consultation), mais aussi sous le système Linux ce qui est demandé pour une imigration future. 
 
-
-\subsection{Déploiement}
-\section{Serveurs}
-\subsection{Windows}
+\subsection{Serveurs}
+\subsubsection{Windows}
 La technologie utilisée pour la mise en place des serveurs d’annuaires est Apache DS. Afin de mettre en place le serveur sur une machine Windows, télécharger et installer le logiciel Apache DS à l’adresse suivante http://directory.apache.org/apacheds/ (ou bien chercher ApacheDS sur votre moteur de recherche préféré). Suite à l’installation, le service ApacheDS - default est démarré, le serveur écoute maintenant sur les ports 10389 et 10636.
 
 Afin de configurer et gérer le serveur il est possible d’installer le logiciel Apache Directory Studio qui fournir une interface utilisateur simple et ergonomique. Pour cela il suffit de créer une connexion sur le serveur via son adresse et le port d’écoute.
 
 Pour générer l’annuaire que nous avons conçu, créer une partition nommée GarmirKatch dont le suffixe sera dc=GarmirKatch,dc=fr. Importer via Apache Directory Studio les fichiers schemagarmirApache.ldif, Racine.ldif, Users.ldif, Groups.ldif et Missions.ldif dans le serveur.
-\subsection{Linux}
+\subsubsection{Linux}
 Pour configurer votre serveur linux voir cette adresse\footnote{http://www.bgeek-france.ec0.fr/2011/10/23/admin/linux/installation-et-parametrage-de-\%C2\%AB-base-\%C2\%BB-d\%E2\%80\%99openldap-ubuntu-11-04-et-ubuntu-11-10-mode-cnconfig.html }
 , vous y trouverez toutes les explications pour installer et configurer votre serveur.
 
 Toute fois, ci joint à documentation les fichiers Database.ldif, GarmirShema.ldif, Racine.ldif, Users.ldif, Groups.ldif et Missions.ldif qui sont des fichiers de configurations.
-\section{Configuration des clients}
-Chaque client devra être configuré avant de partir en mission pour intégrer l’adresse et le port d’écoute du serveur. 
-
-\subsection{Livrables}
-L’intégration du module dans l’application se fait grâce aux livrables fournis aux parties prenantes de l’application (ici l’équipe chargée de la synchronisation des données) :
-\begin{itemize}
-\item Les librairies et les sources du module ( windows/32 bits, linux)
-\item Une documentation d’utilisation des classes C++
-\end{itemize}
+\subsection{Configuration des clients}
+Chaque client devra être configuré avant de partir en mission pour intégrer l’adresse et le port d’écoute du serveur dans le fichier de consultation ldap.ini.
