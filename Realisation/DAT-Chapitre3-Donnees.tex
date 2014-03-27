@@ -1,16 +1,11 @@
 \section{Données}\label{DonneesTechnique}
+\label{Architecture_technique_des_donnees}
 
 \newcommand{\Qt}{\href{http://qt-project.org/}{Qt}\xspace}
 
-% Indications :
-%  Stockage (coté client, coté serveur, SGBD, format, ...)
-%  Transfert (format, norme, ...)
-%  Import/Export...
-% 
-% Bon courage ;-)
-
 \subsection{Problématique}
-Ce chapitre traite du stockage et du formatage des données sur les différents postes, et dans les différentes situations d'utilisation précédemment décrites. \\
+Ce chapitre traite du stockage et du formatage des données sur les différents postes, et dans les différentes situations d'utilisation précédemment décrites.
+\\
 Cette problématique est divisée selon trois points clés~:
 \begin{itemize}
 	\item le stockage~;
@@ -22,17 +17,21 @@ Cette problématique est divisée selon trois points clés~:
 Cette section développe en détail les différents type de stockage au sein de l'architecture clients/serveurs.
 
 \subsubsection{Côté serveur}
-Le stockage des données côté serveur se fait grâce au SGDBR MySQL. Cette solution a été retenue pour plusieurs raisons~:
+Le stockage des données côté serveur se fait grâce au SGDBR MySQL.
+Cette solution a été retenue pour plusieurs raisons~:
 \begin{itemize}
 	\item solution traitant rapidement les données~;
 	\item solution compatible avec la plupart des systèmes d'exploitation (Windows, GNU/Linux, MacOS, ...)~;
 	\item solution facile à utiliser~;
 	\item solution pouvant facilement s'interfacer à l'aide d'API diverses~;
-	\item solution de prédilection de notre entreprise, ce qui garantit une interopérabilité maximale.
+	\item solution maitrisée par \mo.
 \end{itemize}
 
 \subsubsection{Côté client}
-Le stockage des données côté client se fait soit via deux représentations d'une base de données locale : une tournant sur MySQL et une autre utilisant des fichiers au format XML. s'il est possible d'effectuer la synchronisation avec la base de donnée centrale et que le périphérique le permet, la première représentation est choisi par défaut. Si la synchronisation au serveur central est indisponible, le stockage des données est fait par la deuxième représentation de la base au format XML. \\
+Le stockage des données côté client se fait soit via deux représentations d'une base de données locale~: une tournant sur MySQL et une autre utilisant des fichiers au format XML.
+S'il est possible d'effectuer la synchronisation avec la base de donnée centrale et que le périphérique le permet, la première représentation est choisi par défaut.
+Si la synchronisation au serveur central est indisponible, le stockage des données est fait par la deuxième représentation de la base au format XML.
+\\
 Le choix de l'utilisation des fichiers XML est dû aux raisons suivantes~:
 \begin{itemize}
 	\item format universel, compatible à l'import/export avec la plupart des SGDBR (dont MySQL)~;
@@ -40,67 +39,37 @@ Le choix de l'utilisation des fichiers XML est dû aux raisons suivantes~:
 	\item exploitable sur les périphériques Android.
 \end{itemize}
 
-%\subsubsection{Structuration des données}
-%% Mj %% Librairie MjMcd en cours de développement...
-%\begin{figure}[htbp]
-%	\centering
-%	\begin{MjMcd}
-%		\MjMcdEntity{Requisition}{
-%			RequisitionCountryCode	: VARCHAR(3)	\\	%
-%			RequisitionId			: VARCHAR(25)	\\	%
-%			ForCostEstimate			: NUMERIC()		\\	%
-%			ForPurchase				: NUMERIC()		\\	%
-%			WhDispatchRelease		: NUMERIC()		\\	%
-%			RequisitionDate			: DATE			\\	%
-%			DesiredDeliveryDate		: DATE			\\	%
-%			Project					: VARCHAR()		\\	%
-%			Activity				: VARCHAR()		\\	%
-%			MCode					: VARCHAR()		\\	%
-%			TransportMeans			: TRANSPORTMEAN		%
-%		}
-%	\end{MjMcd}
-%	\caption{Structuration des données dans le SGBDR~: le MCD}
-%	\label{DonneesStructurationSgbdrMcd}
-%\end{figure}
-%\begin{figure}[htbp]
-%	\centering
-%	\caption{MCD (Modèle Conceptuel des Données)}
-%	\label{DonneesStructurationSgbdrMcd}
-%\end{figure}
-
 \subsubsection{Génération de la base de données}
 Le bon fonctionnement de la base de données s'appuie sur les fichiers suivants~:
 \begin{enumerate}
-	\item \emph{Database.properties}~;
-	\item \emph{Database.mcd}~;
-	\item \emph{Database.sql}.
+	\item \emph{GkTms.ini}~;
+	\item \emph{GkTms.mcd}~;
+	\item \emph{GkTms.sql}.
 \end{enumerate}
 
-\paragraph{Database.properties}
-Ce fichier définit les propriétés indispensables à la connexion avec la base de données.
+\paragraph{GkTms.ini}
+Ce fichier définit les éléments de configuration indispensables à la connexion avec la base de données.
 Il se présente sous la forme suivante~:
-\lstinputlisting[language=Bash]{Database.properties}
+\lstinputlisting[language=Bash]{GkTms.ini}
 \label{Database.properties}
 \begin{enumerate}
-	\item \emph{dbDriver} est le driver Qt correspondant à la base de données considérée (dans le cas présent MySQL)~;
-	\item \emph{dbHostName} est l'adresse URL de la base de données (ici localhost)~;
-	\item \emph{dbUserName} est le nom d'utilisateur (ici root)~;
-	\item \emph{dbPassword} est le mot de passe d'utilisateur (ici aucun)~;
-	\item \emph{dbName} est le nom que l'on souhaite donner à la base de donnée considérée (ici GkLogistic). Ce dernier est optionnel, et ne présente de réel intérêt que dans le cas où plusieurs bases de données distinctes seraient utilisées.
+	\item \emph{Driver} est le driver Qt correspondant à la base de données considérée (dans le cas présent MySQL)~;
+	\item \emph{HostName} est l'adresse URL de la base de données (ici localhost)~;
+	\item \emph{UserName} est le nom d'utilisateur (ici root)~;
+	\item \emph{Password} est le mot de passe d'utilisateur (ici aucun)~;
+	\item \emph{Name} est le nom que l'on souhaite donner à la base de donnée considérée (ici GkLogistic). Ce dernier est optionnel, et ne présente de réel intérêt que dans le cas où plusieurs bases de données distinctes seraient utilisées.
 \end{enumerate}
 Via \Qt, l'utilisation de ces informations de connexion se fait, par exemple, de la façon suivante~:
-\lstinputlisting[language=Qt]{Database.example.cpp}
-\label{Database.example.cpp}
 
-\paragraph{Database.mcd}
+\paragraph{GkTms.mcd}
 Ce fichier définit le MCD (Modèle Conceptuel des Données) éditable par l'intermédiaire de l'outil de développement JMerise.
-Ce dernier permet, entre autres choses, de générer le fichier de script \emph{Database.sql}.
+Ce dernier permet, entre autres choses, de générer le fichier de script \emph{GkTms.sql}.
 
-\paragraph{Database.sql}
+\paragraph{GkTms.sql}
 Ce fichier définit l'architecture relationnelle (en SQL) de la base de données.
 Ce script est exécuté quand la base de données n'existe pas, et la crée.
 
-\paragraph{Database.xml}
+\paragraph{GkTms.xml}
 Ce fichier définit l'architecture relationnelle (en XML) de la base de données.
 Ce script est exécuté quand la base de données n'existe pas, et la crée.
 
@@ -110,18 +79,6 @@ Le transfert des données quant à lui, est réalisé selon un format qui est pr
 \subsubsection{Format}
 Eu égard des solutions retenues pour le transfert des données, le transfert des données se fera grâce à des fichiers XML. \\
 La possibilité est donnée de compresser ces fichiers, dans un premier temps au format \emph{ZIP}, mais ce choix peut être remis en question selon les observations réalisées sur les données de test, afin de retenir une éventuelle meilleure solution.
-
-%\subsubsection{norme}
-% Définir la norme du format XML correspondant à une table SQL
-% avec une DTD associée.
-% 
-% Exemple de DTD pour une personne :
-% 
-% <!ELEMENT personne (nom,prenom,telephone),email? >
-% <!ELEMENT nom (#PCDATA) >
-% <!ELEMENT prenom (#PCDATA) >
-% <!ELEMENT telephone (#PCDATA) >
-% <!ELEMENT email (#PCDATA) >
 
 \subsection{L'import/export de données}
 L'import et l'export de données se fait directement via une fonctionnalité de l'outil côté client, qui permet de sélectionner les données à importer dans le contexte spécifique, ainsi que les données à exporter vers le serveur central, toujours selon ce contexte.
