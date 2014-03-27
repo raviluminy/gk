@@ -1,113 +1,50 @@
-\subsection{Mission de ME~: Réponse technique au stockage des données}
+\subsection{Réponse technique au stockage des données}
 \begin{frame}
-	\frametitle{Mission de ME~: Réponse technique au stockage des données}
+	\frametitle{Réponse technique au stockage des données}
+	\begin{center}
+	 \includegraphics[scale=0.18]{Images/Db}
+	\end{center}
 \end{frame}
 
-% Fonctionnalité de données~:
-%% Problématique~: Stockage des données.
-%% Solutions possibles~: SGBDR, XML...
-%% Solution choisie \& raisons~: SGBDR MySQL (rebondissement Postgres)
-%%% Implémentation, problèmes rencontrés (Driver QMYSQL, solution de contournement SQLite...), etc.
-
-
 \subsubsection[Nature des données]{Nature des données}
-
 \begin{frame}
-\transdissolve[duration=0.2]<1->
 \frametitle{Nature des données}
 \begin{columns}[c]
 \begin{column}{12cm}
 \begin{block}{\textbf{Quelle est la nature des données qui vont être stockées ?}}
 \begin{itemize}
-\item<2-> \textbf{Réquisitions et Waybills}
-\item<3-> \textbf{Personnes}
-\item<4-> \textbf{Véhicules}
-\item<5-> \textbf{Pays}
-\item<6-> ...
+\item \textbf{Missions de transport}
+\item \textbf{Personnes}
+\item \textbf{Véhicules}
+\item ...
 \end{itemize}
 \end{block}
-\visible<7>{
+\visible<2>{
 $\Rightarrow$ Les données sont donc \textbf{multiples} et de nature \textbf{diverses}.}
 \end{column}
 \end{columns}
 \end{frame}
 
-\subsubsection[Fonctionnalités de base de données]{Fonctionnalités de base de données}
-
+\subsubsection[Problématique relative aux données]{Problématique relative aux données}
 \begin{frame}
-\transdissolve[duration=0.2]<2->
-\frametitle{Fonctionnalités de base de données}
-\begin{columns}[c]
-\begin{column}{12cm}
-\begin{block}{\textbf{Quelle sont les fonctionnalités attendues ?}}
-La base de données en accord avec les besoins formulés dans le CdC de consultation doit permettre~:
-\begin{itemize}
-\item<2-> \textbf{Gérer les réquisitions \& waybills/delivery~notes (ajout, modification, supprimer)}
-\item<3-> \textbf{Faire un suivi des transporteurs, livraisons et des prestataires de service}
-\item<4-> \textbf{Gérer les documents administratifs (permis, assurances, contrats, véhicule...)}
+\frametitle{Problématique relative aux données}
+\begin{block}{\textbf{Principaux problèmes}}
+ \begin{itemize}
+	\item \textbf{Le stockage}
+	\item \textbf{Sauvegarde de secours}
 \end{itemize}
 \end{block}
-\end{column}
-\end{columns}
-\end{frame}
-
-\subsubsection[Problématique relative aux données]{Problématique relative aux données}
-
-\begin{frame}
-\transdissolve[duration=0.2]<2->
-\frametitle{Problématique relative aux données}
-Cette problématique est divisée selon trois points clés~:
-\begin{itemize}
-	\item<2-> \textbf{Le stockage}
-	\item<3-> \textbf{Le transfert}
-	\item<4-> \textbf{L'importation~/~exportation}
-\end{itemize}
 \end{frame}
 
 \subsubsection[Solutions possibles]{Solutions possibles}
-
 \begin{frame}
-\transdissolve[duration=0.2]<2->
 \frametitle{Solutions possibles}
-\begin{columns}
-\begin{column}{5cm}
-\begin{itemize}[<+->]
-	\item<2-> Oracle Database
-	\item<3-> PostgreSQL
-	\item<4-> MySQL
-	\item<5-> Microsoft SQL Server
-	\item<6-> SQLite
-\end{itemize}
-\end{column}
-\begin{column}{7cm}
-
-\begin{figure}
-\visible<2->{
-\includegraphics[scale=0.038]{Images/Oracle}
-}\visible<3->{
-\includegraphics[scale=0.18]{Images/PostgreSQL}\\
-}\visible<4->{
-\includegraphics[scale=0.04]{Images/MySQL}\\
-}\visible<5->{
-\includegraphics[scale=0.052]{Images/MsSqlServer}
-}\visible<6->{
-\includegraphics[scale=0.052]{Images/SQLite}
-}
-\end{figure}
-\end{column}
-\end{columns}
-\end{frame}
-
-\subsubsection[Solution retenue]{Solution retenue}
-
-\begin{frame}
-\frametitle{Solution retenue}
 \begin{columns}
 \begin{column}{5cm}
 \begin{itemize}
 	\item Oracle Database
 	\item PostgreSQL
-	\item \textbf{MySQL}
+	\item MySQL
 	\item Microsoft SQL Server
 	\item SQLite
 \end{itemize}
@@ -124,56 +61,76 @@ Cette problématique est divisée selon trois points clés~:
 \end{columns}
 \end{frame}
 
+\subsubsection[Solution retenue]{Solution retenue}
 \begin{frame}
-\transdissolve[duration=0.2]<2->
+\frametitle{Solution retenue}
+\begin{columns}
+\begin{column}{5cm}
+\begin{itemize}
+	\item Oracle Database
+	\item \textit{PostgreSQL}
+	\item \textbf{MySQL}
+	\item Microsoft SQL Server
+	\item \textit{SQLite}
+\end{itemize}
+\end{column}
+\begin{column}{7cm}
+\begin{figure}
+\includegraphics[scale=0.038]{Images/Oracle}
+\includegraphics[scale=0.18]{Images/PostgreSQL}\\
+\includegraphics[scale=0.04]{Images/MySQL}\\
+\includegraphics[scale=0.052]{Images/MsSqlServer}
+\includegraphics[scale=0.052]{Images/SQLite}
+\end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
 \frametitle{Solution retenue}
 \begin{block}{\textbf{Pourquoi ce SGBDR ?}}
 \begin{itemize}
- \item<2-> \textbf{Interopérabilité maximale avec la solution de l'existant}
- \item<3-> \textbf{Solution ne nécessitant pas de coût lié à la formation}
- \item<4-> Solution pouvant facilement s'interfacer à l'aide d'API diverses
- \item<5-> Traitement rapide des requêtes
+ \item \textbf{Alignement de la solution avec le CdC}
+ \item \textbf{Aucun coût de formation}
+ \item Interfaçage facile à l'aide d'API diverses
+ \item Traitement rapide des requêtes
 \end{itemize}
 \end{block}
 \end{frame}
 
 \subsubsection[Modélisation Conceptuelle et implémentation]{Modélisation Conceptuelle et implémentation}
-
 \begin{frame}
 \frametitle{Modélisation Conceptuelle}
-La modélisation conceptuelle des données a été réalisé à l'aide de l'outil \textbf{JMerise}.\\
+La modélisation conceptuelle des données à l'aide de \textbf{JMerise}.\\
 \begin{center}
-\includegraphics[scale=0.15]{Images/DatabaseSize}
+\includegraphics[scale=0.15]{Images/Database}
 \end{center}
 \end{frame}
 
 \begin{frame}
-\transdissolve[duration=0.2]<2->
 \frametitle{Implémentation}
 Le bon fonctionnement de la base de données s'appuie sur les fichiers suivants~:
 \begin{enumerate}
-	\item<2-> \emph{Database.properties}
-	\item<3-> \emph{Database.mcd}
-	\item<4-> \emph{Database.sql}
+	\item \emph{GkTms.ini}
+	\item \emph{GkTms.mcd}
+	\item \emph{GkTms.sql}
 \end{enumerate}
 \end{frame}
 
-\subsubsection[Transfert et import~/~export]{Transfert et import~/~export}
-
+\subsubsection[Sauvegarde de secours]{Sauvegarde de secours}
 \begin{frame}
-\frametitle{Transfert et import~/~export}
-Le transfert des données se fait par requêtes SQL.\\
-Une représentation XML de la base est présente pour limiter le volume de data par compression.\\
+\frametitle{Sauvegarde de secours}
+Ce SGBDR fournit un outil facile à mettre en place pour la réplications et la sauvegarde des données sur le principe maitre~/~esclave.
 \end{frame}
 
 \subsubsection{Difficultés rencontrées}
-
 \begin{frame}
-\transdissolve[duration=0.2]<2->
 \frametitle{Difficultés rencontrées}
-Les principaux problèmes ont été~:
+\begin{block}{\textbf{Principaux problèmes}}
 \begin{itemize}
-\item<2-> \textbf{Conceptualisation et relations entre les tables}
-\item<3-> \textbf{Driver QMYSQL pour Qt et migration}
+\item \textbf{Besoin immédiat d'un SGBDR fonctionnel}
+\item \textbf{Driver QMYSQL pour Qt}
+\item \textbf{Migration du SGBDR}
 \end{itemize}
+\end{block}
 \end{frame}
