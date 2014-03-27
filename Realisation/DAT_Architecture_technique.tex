@@ -1,0 +1,32 @@
+\chapter{Architecture technique}\label{Architecture_technique}
+
+\section{Application}
+L'IHM est réalisé en langage C++ à l'aide du framework Qt.
+\begin{notation}
+L'application doit être réalisée en client lourd.
+Il a été exclu l'éventualité d'utiliser un serveur en local (sur les postes client) c'est pourquoi les langages comme PHP ont été exclus.
+\\
+En outre le choix a été fait de préférer un langage qui soit~:
+\begin{enumerate}
+	\item orienté objet (ce qui exclu les langages comme C)~;
+	\item multiplateforme~;
+	\item suffisamment vieux pour avoir été durement éprouvé (ce qui exclu les langages comme Ruby)~;
+	\item facile à prendre en main (d'où le choix du framework Qt)~;
+	\item performant et peu couteux en mémoire (ce qui exclu les langages comme Java)~;
+	\item compatible avec les divers autres éléments utilisés (SGBDR, LDAP, XML, ...)~;
+\end{enumerate}
+\end{notation}
+
+\section{Authentification}
+L'authentification est gérée par un annuaire LDAP actuellement en cours d'étude et de développement.
+
+\clearpage
+\input{DAT-Chapitre3-Donnees}
+
+\clearpage
+\input{DAT-Chapitre3-Sauvegarde}
+
+\clearpage
+\input{DAT-Chapitre3-Synchronisation}
+
+\clearpage
