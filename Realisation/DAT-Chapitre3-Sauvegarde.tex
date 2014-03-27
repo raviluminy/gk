@@ -75,17 +75,6 @@ Seul un esclave à la fois peut être connecté au maître.
 Un maître hors ligne ne peut être réintroduit qu'à froid.
 Répliquer les données de l'esclave vers le maître une fois ce dernier remonté n'est pas automatique, cela nécessite une intervention manuelle.
 
-\paragraph{Procédure de fail-back (rétablissement du serveur maître)}
-\begin{itemize}
-	\item éteindre le serveur esclave~;
-	\begin{notation}
-		Les clients n'ont pas besoin d'être redémarrés.
-		Étant préalablement configurés ils se reconnecteront au maître une fois ce dernier remis en ligne.
-	\end{notation}
-	\item copier les données de l'esclave sur le maître~;
-	\item redémarrer les deux serveurs.
-\end{itemize}
-
 \paragraph{Logiciel}
 Apache Active MQ est un agent de messages open source, écrit en Java et associé avec un client Java Message Service.
 Cette suite prend en charge divers protocoles de transport et précisément le protocole de fail-over qui permet de configurer les clients afin qu'ils basculent sur le serveur esclave en cas de non réponse du maître. 
