@@ -85,9 +85,9 @@ userPassword:: e3NzaGF9eEd3TXNscVRpdjY5YmQ1ZGRhWjVtcVJocFJUaEg0WlZ0K3BLNGc9P
  Q==
 aFieldRead: Waybill(RequisitionId,VehicleId,TransportMean)
 aTableAdd: Waybill
-rFieldWrite: Requistion(PersonId,PersonId_2,PersonId_3,PersonId_4,PersonId_5
+rFieldWrite: Requisition(PersonId,PersonId_2,PersonId_3,PersonId_4,PersonId_5
  )
-rTableDel: Requistion
+rTableDel: Requisition
 
 dn: cn=Lucien M,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
 objectClass: top

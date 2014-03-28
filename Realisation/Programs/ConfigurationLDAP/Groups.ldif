@@ -14,7 +14,7 @@ uniqueMember: cn=Khady T,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
 uniqueMember: cn=Remi M,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
 description:: dG91dCBsZSBtZXRpZXIgcXVpIGFjY2VzIGEgbCdvdXRpbCA=
 rFieldRead: Waybill()
-rFieldRead: Requistion()
+rFieldRead: Requisition()
 
 dn: cn=logistic,ou=Groups,o=GarmirKatch,dc=GarmirKatch,dc=fr
 objectClass: groupOfUniqueNames
@@ -28,14 +28,14 @@ aFieldWrite: Vehicle(statut)
 aFieldWrite: Provider(statut)
 aFieldWrite: Driver(statut)
 aTableAdd: Waybill
-aTableAdd: Requistion
+aTableAdd: Requisition
 rFieldRead: Waybill()
-rFieldRead: Requistion()
+rFieldRead: Requisition()
 rFieldRead: Vehicle()
 rFieldRead: Provider()
 rFieldRead: Driver()
 rFieldWrite: Waybill()
-rFieldWrite: Requistion()
+rFieldWrite: Requisition()
 
 dn: cn=admin,ou=Groups,o=GarmirKatch,dc=GarmirKatch,dc=fr
 objectClass: groupOfUniqueNames
@@ -47,22 +47,22 @@ uniqueMember: cn=Ravi P,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
 description: les administracteurs de l'outils
 ou: admin
 aTableAdd: Waybill
-aTableAdd: Requistion
+aTableAdd: Requisition
 aTableAdd: Vehicle
 aTableAdd: Provider
 aTableAdd: Driver
 aTableDel: Waybill
-aTableDel: Requistion
+aTableDel: Requisition
 aTableDel: Vehicle
 aTableDel: Provider
 aTableDel: Driver
 rFieldRead: Waybill()
-rFieldRead: Requistion()
+rFieldRead: Requisition()
 rFieldRead: Vehicle()
 rFieldRead: Provider()
 rFieldRead: Driver()
 rFieldWrite: Waybill()
-rFieldWrite: Requistion()
+rFieldWrite: Requisition()
 rFieldWrite: Vehicle()
 rFieldWrite: Provider()
 rFieldWrite: Driver()
@@ -75,7 +75,7 @@ cn: central
 uniqueMember: cn=Medhy J,ou=Users,o=GarmirKatch,dc=GarmirKatch,dc=fr
 description:: bGUgY2VudHJhbCA=
 rFieldRead: Waybill()
-rFieldRead: Requistion()
+rFieldRead: Requisition()
 rFieldRead: Vehicle()
 rFieldRead: Provider()
 rFieldRead: Driver()

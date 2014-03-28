@@ -17,8 +17,8 @@ WaybillTab::WaybillTab(QWidget* parent) :
 	initBooleans();
 	initFields();
 
-	connect(ui->confirmationCancelPushButton, SIGNAL(clicked()), this, SLOT(on_cancelEdition_clicked()));
-	connect(ui->confirmationOkPushButton, SIGNAL(clicked()), this, SLOT(on_okEdition_clicked()));
+    connect(ui->confirmationCancelPushButton, SIGNAL(clicked()), this, SLOT(on_cancelEdition_clicked()));
+    connect(ui->confirmationOkPushButton, SIGNAL(clicked()), this, SLOT(on_okEdition_clicked()));
 }
 
 WaybillTab::~WaybillTab() {

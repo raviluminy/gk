@@ -6,7 +6,9 @@
 
 RequisitionTabTest::RequisitionTabTest(QWidget* parent) :
     RequisitionTab(parent) {
+    dao.connect();
     loadCss();
+
 }
 
 RequisitionTabTest::~RequisitionTabTest() {
@@ -14,7 +16,7 @@ RequisitionTabTest::~RequisitionTabTest() {
 
 void
 RequisitionTabTest::loadCss() {
-    QFile css("WebCommon.css");
+    QFile css("Theme/Web/main.css");
     if (css.open(QIODevice::ReadOnly)) {
         qApp->setStyleSheet(css.readAll());
         css.close();
@@ -82,10 +84,11 @@ RequisitionTabTest::textEditTest(QTextEdit* tested, const QString& entry, const 
 
 void
 RequisitionTabTest::cleanupTestCase(){
-    QTest::qWait(5000);
+    QTest::qWait(50000);
 }
 
 void
 RequisitionTabTest::initTestCase() {
+
 
 }

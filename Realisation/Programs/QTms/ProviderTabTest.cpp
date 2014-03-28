@@ -6,7 +6,7 @@
 
 void
 ProviderTabTest::loadCss() {
-    QFile css("WebCommon.css");
+    QFile css("Theme/Web/main.css");
     if (css.open(QIODevice::ReadOnly)) {
         qApp->setStyleSheet(css.readAll());
         css.close();

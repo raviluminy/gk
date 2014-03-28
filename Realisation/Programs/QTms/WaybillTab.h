@@ -29,8 +29,8 @@ private slots:
 	void on_statusTitle_toggled(const bool checked);
 	void on_transportTitle_toggled(const bool checked);
 
-	void on_cancelEdition_clicked();
-	void on_okEdition_clicked();
+    void on_cancelEdition_clicked();
+    void on_okEdition_clicked();
 
 protected:
 

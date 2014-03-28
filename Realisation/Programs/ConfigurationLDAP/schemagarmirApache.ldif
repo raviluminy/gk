@@ -147,14 +147,14 @@ m-oid: 2.5.6.6.1.1.2
 m-name: lawGarmir
 m-supObjectClass: TOP
 m-typeObjectClass: AUXILIARY
-m-may: afieldRead
-m-may: rfieldRead
-m-may: afieldWrite
-m-may: rfieldWrite
-m-may: atableAdd
-m-may: rtableAdd
-m-may: atableDel
-m-may: rtableDel
+m-may: aFieldRead
+m-may: rFieldRead
+m-may: aFieldWrite
+m-may: rFieldWrite
+m-may: aTableAdd
+m-may: rTFableAdd
+m-may: aTableDel
+m-may: rTableDel
 
 dn: ou=syntaxcheckers, cn=schemagarmir, ou=schema
 objectclass: organizationalUnit

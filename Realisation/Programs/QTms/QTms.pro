@@ -38,7 +38,8 @@ SOURCES += \
     Ldap/LDAPConnection.cpp \
     Ldap/StringList.cpp \
     SignInDialog.cpp \
-    requisition.cpp
+    requisition.cpp \
+    requisitionTest.cpp
 
 HEADERS  += \
     MainWindow.h \
@@ -66,7 +67,8 @@ HEADERS  += \
     Ldap/LDAPConnection.h \
     Ldap/StringList.h \
     SignInDialog.h \
-    requisition.h
+    requisition.h \
+    requisitionTest.h
 
 FORMS    += \
     MainWindow.ui \
