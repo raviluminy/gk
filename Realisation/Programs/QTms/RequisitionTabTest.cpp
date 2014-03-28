@@ -6,7 +6,9 @@
 
 RequisitionTabTest::RequisitionTabTest(QWidget* parent) :
     RequisitionTab(parent) {
+    dao.connect();
     loadCss();
+
 }
 
 RequisitionTabTest::~RequisitionTabTest() {
@@ -87,6 +89,6 @@ RequisitionTabTest::cleanupTestCase(){
 
 void
 RequisitionTabTest::initTestCase() {
-    dao.connect();
+
 
 }

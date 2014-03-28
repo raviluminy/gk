@@ -177,6 +177,13 @@ bool Requisition::update(){
     return true;
 }
 
+
+void Requisition::remove(){
+    QSqlQuery requeteur;
+    if (!requeteur.exec("DELETE FROM Requisition WHERE RequisitionId = " + requisitionId + ";"))
+        QMessageBox::critical(0, QObject::tr("erreur requete SQL"), requeteur.lastQuery());
+}
+
 QString Requisition::getRequisitionId() const
 {
     return requisitionId;

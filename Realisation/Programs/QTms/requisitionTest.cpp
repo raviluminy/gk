@@ -5,8 +5,9 @@
 
 requisitionTest::requisitionTest(QWidget* parent)
 {
-    req = new Requisition(QString("01"), QString("fra"), QString("100"), QString("01"),
-                          QString("bla"), QDate(2014,03,27), QDate(2014,03,28), QString("sea"),
+    dao.connect();
+    req = new Requisition(Requisition::nextId(), QString("fra"), QString("100"), QString("01"),
+                          QString("bla"), QDate(2014,03,27), QDate(2014,03,28), QString("Road"),
                           QString("01"),QString("02"), QString("02"), QDate(2014,03,28),
                           QString("01"), QDate(2014,03,28), QString("02"), QDate(2014,03,28),
                           QString("03"), QDate(2014,03,28), QString("04"), QDate(2014,03,28),
@@ -27,6 +28,12 @@ void requisitionTest::testGetRequisition()
 void requisitionTest::testGetList()
 {
    requisitionList = Requisition::getList();
+   int size = requisitionList->size();
+   req->add();
+   requisitionList = Requisition::getList();
+   int size2 = requisitionList->size();
+   QCOMPARE(size,size2 - 1);
+   req->remove();
 }
 
 void requisitionTest::cleanupTestCase()
@@ -37,5 +44,4 @@ void requisitionTest::cleanupTestCase()
 void requisitionTest::initTestCase()
 {
 
-    dao.connect();
 }

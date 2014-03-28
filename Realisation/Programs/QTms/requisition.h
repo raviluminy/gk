@@ -29,6 +29,8 @@ public:
 
     bool update();
 
+    void remove();
+
     QString getRequisitionId() const;
     void setRequisitionId(QString value);
 
