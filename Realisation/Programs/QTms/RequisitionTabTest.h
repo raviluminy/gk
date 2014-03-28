@@ -3,6 +3,7 @@
 
 #include "Util.h"
 #include "RequisitionTab.h"
+#include "LogisticDao.h"
 
 class QLineEdit;
 
@@ -64,5 +65,7 @@ private:
      * @param expected
      */
     void textEditTest(QTextEdit* tested, const QString& entry, const QString& expected);
+
+    LogisticDao dao;
 };
 

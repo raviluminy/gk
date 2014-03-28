@@ -8,6 +8,7 @@
 #include "StaffTabTest.h"
 #include "ProviderTabTest.h"
 #include "LdapTest.h"
+#include "requisitionTest.h"
 /* Tests */
 
 #include "MainWindow.h"
@@ -44,6 +45,10 @@ int main(int argc, char** argv) {
         else if (argv[1] == QString("-testldap")){
             LdapTest testldap;
             return QTest::qExec(&testldap);
+        }
+        else if (argv[1] == QString("-testdao")){
+            requisitionTest testdao;
+            return QTest::qExec(&testdao);
         }
         else if (argv[1] == QString("-testall")){
             WaybillTabTest test;
