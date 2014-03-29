@@ -74,7 +74,7 @@ bool Directory::authentification(const QString uid, const QString pwd){
         entry = con.get_first_entry(entries);
         found = con.bind(con.get_dn_entry(entry),pwd);
 
-        ldap_msgfree( entries );
+        //ldap_msgfree( entries );
     }
     return found;
 }
@@ -136,7 +136,7 @@ bool Directory::canAdd(const QString uid, const QString tableName){
                     }
 
                 }
-                ldap_value_free( tmpgrp );
+                //ldap_value_free( tmpgrp );
             }
 
         }
@@ -175,10 +175,10 @@ bool Directory::canDelete(const QString uid, const QString tableName){
                     }
 
                 }
-                ldap_value_free( tmpgrp );
+                //ldap_value_free( tmpgrp );
             }
         }
-        ldap_msgfree( entries );
+        //ldap_msgfree( entries );
     }
 
 
@@ -236,12 +236,12 @@ bool Directory::canRead(const QString uid, const QString tableName, const QStrin
             found = foundField(entry,tableName,fieldName,A_FIELD_READ,R_FIELD_READ,&pass);
 
             // si on n'a pas les droits sur l'entre, on regarde alors les groupes
+
             if(pass == 0){
                 found = false;      // on remet à false pour le nouveau test
                 StringList liste = con.get_attribute_by_name_values(entry,"ou");
                 int taille = liste.size();
                 char** tmpgrp = liste.toCharArray();
-
                 for (int var = 0; (var < taille) && !found; ++var) {
                     entries = con.search(BASEDN,LDAPConnection::SEARCH_SUB,"cn="+QString (tmpgrp[var]));
                     entry = con.get_first_entry(entries);
@@ -253,10 +253,10 @@ bool Directory::canRead(const QString uid, const QString tableName, const QStrin
                     }
 
                 }
-                ldap_value_free( tmpgrp );
+                //ldap_value_free( tmpgrp );
             }
         }
-        ldap_msgfree( entries );
+        //ldap_msgfree( entries );
 
     }
 
@@ -292,7 +292,7 @@ bool Directory::canWrite(const QString uid, const QString tableName, const QStri
                     }
 
                 }
-                ldap_value_free( tmpgrp );
+                //ldap_value_free( tmpgrp );
             }
         }
     }

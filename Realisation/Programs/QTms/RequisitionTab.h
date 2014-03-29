@@ -6,6 +6,8 @@
 #include <QDate>
 #include <QLabel>
 #include <QTreeWidgetItem>
+#include <QMessageBox>
+#include "Ldap/Directory.h"
 #include "requisition.h"
 
 class QAbstractItemModel;
@@ -25,6 +27,10 @@ public:
 	virtual ~RequisitionTab();
 
 	virtual void setModel(QAbstractItemModel* model);
+    void setDirectory(Directory *dir);
+
+public slots:
+    void userChanged(QString);
 
 private:
 
@@ -92,6 +98,8 @@ private:
 
     bool currentRequisitionIsEdited;
     QVector <Requisition *> *requisitionList;
+    QString user;
+    Directory *dir;
 
 
 

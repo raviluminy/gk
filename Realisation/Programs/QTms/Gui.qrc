@@ -12,5 +12,61 @@
         <file>Icon/Warnings/Medium/Information.png</file>
         <file>Icon/Warnings/Medium/Question.png</file>
         <file>Icon/Warnings/Medium/Warning.png</file>
+        <file>Icon/Glyph/Airplane.png</file>
+        <file>Icon/Glyph/Boat.png</file>
+        <file>Icon/Glyph/Bus.png</file>
+        <file>Icon/Glyph/Calendar.png</file>
+        <file>Icon/Glyph/Car.png</file>
+        <file>Icon/Glyph/Cars.png</file>
+        <file>Icon/Glyph/Charts.png</file>
+        <file>Icon/Glyph/CloudDownload.png</file>
+        <file>Icon/Glyph/CloudUpload.png</file>
+        <file>Icon/Glyph/Coins.png</file>
+        <file>Icon/Glyph/Collapse.png</file>
+        <file>Icon/Glyph/DiskExport.png</file>
+        <file>Icon/Glyph/DiskImport.png</file>
+        <file>Icon/Glyph/DiskOpen.png</file>
+        <file>Icon/Glyph/DiskRemove.png</file>
+        <file>Icon/Glyph/DiskSave.png</file>
+        <file>Icon/Glyph/DiskSaved.png</file>
+        <file>Icon/Glyph/Dog.png</file>
+        <file>Icon/Glyph/Expand.png</file>
+        <file>Icon/Glyph/Female.png</file>
+        <file>Icon/Glyph/File.png</file>
+        <file>Icon/Glyph/FileExport.png</file>
+        <file>Icon/Glyph/FileImport.png</file>
+        <file>Icon/Glyph/FloppyDisk.png</file>
+        <file>Icon/Glyph/Girl.png</file>
+        <file>Icon/Glyph/Globe.png</file>
+        <file>Icon/Glyph/GoogleMaps.png</file>
+        <file>Icon/Glyph/Group.png</file>
+        <file>Icon/Glyph/Male.png</file>
+        <file>Icon/Glyph/Minus.png</file>
+        <file>Icon/Glyph/Nameplate.png</file>
+        <file>Icon/Glyph/NameplateAlt.png</file>
+        <file>Icon/Glyph/Notes.png</file>
+        <file>Icon/Glyph/Notes2.png</file>
+        <file>Icon/Glyph/OldMan.png</file>
+        <file>Icon/Glyph/Parents.png</file>
+        <file>Icon/Glyph/PieChart.png</file>
+        <file>Icon/Glyph/Plus.png</file>
+        <file>Icon/Glyph/Print.png</file>
+        <file>Icon/Glyph/Provider.png</file>
+        <file>Icon/Glyph/Redo.png</file>
+        <file>Icon/Glyph/Refresh.png</file>
+        <file>Icon/Glyph/Search.png</file>
+        <file>Icon/Glyph/Server.png</file>
+        <file>Icon/Glyph/Stats.png</file>
+        <file>Icon/Glyph/Table.png</file>
+        <file>Icon/Glyph/Train.png</file>
+        <file>Icon/Glyph/Truck.png</file>
+        <file>Icon/Glyph/Undo.png</file>
+        <file>Icon/Glyph/User.png</file>
+        <file>Icon/Glyph/UserAdd.png</file>
+        <file>Icon/Glyph/UserRemove.png</file>
+        <file>Icon/Glyph/WarningSign.png</file>
+        <file>Icon/Glyph/Woman.png</file>
+        <file>Icon/Glyph/ZoomIn.png</file>
+        <file>Icon/Glyph/ZoomOut.png</file>
     </qresource>
 </RCC>

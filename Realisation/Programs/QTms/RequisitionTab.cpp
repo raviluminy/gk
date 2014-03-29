@@ -12,10 +12,15 @@ RequisitionTab::RequisitionTab(QWidget *parent) :
     reloadTableView();
     initBooleans();
     initFields();
+    user = "default";
 }
 
 RequisitionTab::~RequisitionTab() {
     delete ui;
+}
+
+void RequisitionTab::setDirectory(Directory *dir){
+    this->dir = dir;
 }
 
 /**Reload from database*/
@@ -369,6 +374,10 @@ void RequisitionTab::on_rollbackPushButton_clicked()
 
 void RequisitionTab::on_addPushButton_clicked()
 {
+    if (!dir->canAdd(user, "Requisition")){
+        QMessageBox::critical(this, "Access level error", "You are not allowed to add requisition");
+        return;
+    }
     adding = true;
     resetFields();
 }
@@ -395,4 +404,8 @@ void RequisitionTab::resetFields(){
     ui->financeOfficerDateEdit->setDate(QDate::currentDate());
     ui->logisticsDateEdit->setDate(QDate::currentDate());
     ui->globalFleetBaseDateEdit->setDate(QDate::currentDate());
+}
+
+void RequisitionTab::userChanged(QString user){
+    this->user = user;
 }

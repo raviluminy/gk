@@ -41,7 +41,7 @@ StatusWidgetGroupTest::textEditTest(QTextEdit* tested, const QString& entry, con
 
 void
 StatusWidgetGroupTest::cleanupTestCase(){
-    QTest::qWait(5000);
+    QTest::qWait(50000);
 }
 
 void

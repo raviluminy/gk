@@ -45,7 +45,7 @@ LDAPMessage * LDAPConnection::search(const QString   base, int scope, const QStr
                            const_cast<char*>(filter.toStdString().c_str()),tmpattrs,0,NULL,NULL,
                                &timeOut,LDAP_NO_LIMIT,&searchResult );
 
-    ldap_value_free( tmpattrs );
+    //ldap_value_free( tmpattrs );
 
     if(rc == LDAP_SUCCESS){
         return searchResult;
@@ -78,6 +78,6 @@ StringList LDAPConnection::get_attribute_by_name_values(LDAPMessage *entry,  con
     if(attribute != NULL){
         return StringList(ldap_get_values( dir, entry, attribute ));
     }
-    ber_free( ber, 0 );
+    //ber_free( ber, 0 );
     return StringList();
 }

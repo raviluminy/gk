@@ -121,7 +121,7 @@ WaybillTabTest::textEditTest(QTextEdit* tested, const QString& entry, const QStr
 
 void
 WaybillTabTest::cleanupTestCase(){
-    QTest::qWait(5000);
+    QTest::qWait(50000);
 }
 
 void

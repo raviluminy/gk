@@ -5,6 +5,7 @@
 #include "LDAPConnection.h"
 
 #include <QString>
+#include <QDebug>
 #include <QWidget>
 #include <QtDebug>
 

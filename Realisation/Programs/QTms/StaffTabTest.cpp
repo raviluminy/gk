@@ -84,7 +84,7 @@ StaffTabTest::textEditTest(QTextEdit* tested, const QString& entry, const QStrin
 
 void
 StaffTabTest::cleanupTestCase(){
-    QTest::qWait(5000);
+    QTest::qWait(50000);
 }
 
 void
